@@ -5,10 +5,10 @@
 # Run The System autonomously from the command line
 #
 # Usage:
-#   ./turbo.sh <project-name> "<idea description>"
+#   ./the-system-on-turbo.sh <project-name> "<idea description>"
 #
 # Example:
-#   ./turbo.sh my-app "Build a todo app with user auth and reminders"
+#   ./the-system-on-turbo.sh my-app "Build a todo app with user auth and reminders"
 #
 # ============================================================================
 
@@ -27,10 +27,10 @@ NC='\033[0m' # No Color
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo -e "${RED}Error: Missing arguments${NC}"
     echo ""
-    echo "Usage: ./turbo.sh <project-name> \"<idea description>\""
+    echo "Usage: ./the-system-on-turbo.sh <project-name> \"<idea description>\""
     echo ""
     echo "Example:"
-    echo "  ./turbo.sh my-app \"Build a todo app with user auth and reminders\""
+    echo "  ./the-system-on-turbo.sh my-app \"Build a todo app with user auth and reminders\""
     exit 1
 fi
 
