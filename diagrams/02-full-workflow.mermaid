@@ -1,0 +1,101 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4ecdc4'}}}%%
+flowchart TD
+    subgraph INTAKE["🎯 INTAKE"]
+        START(["/ts-new-project"]) --> IDEA["Share idea with<br/>🎩 Founder-Advisor"]
+        IDEA --> ANALYSIS["Founder-Advisor<br/>analyzes & refines"]
+        ANALYSIS --> GATE1{{"👤 /ts-approve<br/>architecture-start"}}
+    end
+
+    subgraph STAGE1["📐 STAGE 1: ARCHITECTURE"]
+        GATE1 -->|approved| ARCH["/ts-architect<br/>🏗️ Enterprise Architect"]
+        ARCH --> ARCH_OUT["Outputs:<br/>• System Context<br/>• Components<br/>• Data Model<br/>• API Contracts<br/>• ADRs"]
+        ARCH_OUT --> ARCH_REVIEW["/ts-review architecture<br/>🎩 Founder-Advisor"]
+        ARCH_REVIEW --> GATE2{{"👤 /ts-approve<br/>architecture-lock"}}
+    end
+
+    subgraph STAGE2["📦 STAGE 2: PRODUCT"]
+        GATE2 -->|approved| PRODUCT["/ts-product<br/>👔 Product Lead"]
+        PRODUCT --> PRODUCT_OUT["Outputs:<br/>• MVP Definition<br/>• User Stories<br/>• PRD"]
+        PRODUCT_OUT --> PLAN["/ts-plan<br/>📅 Project Planner"]
+        PLAN --> PLAN_OUT["Outputs:<br/>• Roadmap<br/>• Sprint Plan<br/>• Estimates"]
+        PLAN_OUT --> ANALYZE["/ts-analyze<br/>💼 Business Analyst"]
+        ANALYZE --> ANALYZE_OUT["Outputs:<br/>• Market Analysis<br/>• Revenue Model<br/>• GTM Strategy<br/>• JSA Report"]
+        ANALYZE_OUT --> PRODUCT_REVIEW["/ts-review product<br/>🎩 Founder-Advisor"]
+        PRODUCT_REVIEW --> GATE3{{"👤 /ts-approve<br/>green-light 🚦"}}
+    end
+
+    subgraph STAGE3["💻 STAGE 3: DEVELOPMENT"]
+        GATE3 -->|approved| DEVELOP["/ts-develop<br/>👨‍💼 Principal Developer"]
+        DEVELOP --> DEV_PLAN["Implementation Plan<br/>Task Assignments"]
+        DEV_PLAN --> TEST_PLAN["/ts-test-plan<br/>🧪 QA Engineer"]
+        TEST_PLAN --> TEST_STRATEGY["Test Strategy<br/>Test Cases"]
+        
+        TEST_STRATEGY --> BUILD_DB["/ts-build database<br/>🗄️ Database Developer"]
+        BUILD_DB --> TEST_DB["/ts-test database<br/>🧪 QA Review"]
+        TEST_DB -->|pass| BUILD_BE["/ts-build backend<br/>⚙️ Backend Developer"]
+        BUILD_BE --> TEST_BE["/ts-test backend<br/>🧪 QA Review"]
+        TEST_BE -->|pass| BUILD_FE["/ts-build frontend<br/>🎨 Frontend Developer"]
+        BUILD_FE --> TEST_FE["/ts-test frontend<br/>🧪 QA Review"]
+        TEST_FE -->|pass| INTEGRATE["/ts-integrate<br/>🔗 Integration Engineer"]
+        INTEGRATE --> TEST_INT["/ts-test integration<br/>🧪 E2E Testing"]
+        
+        TEST_INT -->|pass| DEV_GATE["/ts-gate<br/>👨‍💼 Principal Developer"]
+        DEV_GATE --> SIGNOFF["/ts-signoff<br/>🧪 QA Sign-off"]
+        SIGNOFF --> DEV_REVIEW["/ts-review development<br/>🎩 Founder-Advisor"]
+        DEV_REVIEW --> GATE4{{"👤 /ts-approve<br/>development"}}
+    end
+
+    subgraph STAGE4["🚀 STAGE 4: RELEASE & DEPLOYMENT"]
+        GATE4 -->|approved| DOCS["/ts-docs<br/>📝 Technical Writer"]
+        DOCS --> DOCS_OUT["Outputs:<br/>• Architecture Docs<br/>• Deployment Guide<br/>• User Guide<br/>• README"]
+        DOCS_OUT --> SECURITY["/ts-security<br/>🔐 Security Engineer"]
+        SECURITY --> SEC_CHECK{"Security<br/>Status?"}
+        SEC_CHECK -->|FAIL| SEC_FIX["Fix Issues"]
+        SEC_FIX --> SECURITY
+        SEC_CHECK -->|PASS/CONDITIONAL| RELEASE["/ts-release<br/>📦 Release Engineer"]
+        RELEASE --> RELEASE_OUT["Outputs:<br/>• Version<br/>• Changelog<br/>• Artifacts"]
+        RELEASE_OUT --> INFRA["/ts-infra<br/>🚀 DevOps Engineer"]
+        INFRA --> INFRA_OUT["Outputs:<br/>• Terraform<br/>• Modules"]
+        INFRA_OUT --> PIPELINE["/ts-pipeline<br/>🚀 DevOps Engineer"]
+        PIPELINE --> PIPELINE_OUT["Outputs:<br/>• CI/CD Workflows"]
+        PIPELINE_OUT --> RELEASE_REVIEW["/ts-review release<br/>🎩 Founder-Advisor"]
+        RELEASE_REVIEW --> GATE5{{"👤 /ts-approve<br/>release"}}
+        
+        GATE5 -->|approved| DEPLOY_STG["/ts-deploy staging<br/>🚀 DevOps Engineer"]
+        DEPLOY_STG --> VERIFY_STG["/ts-verify staging<br/>🚀 DevOps Engineer"]
+        VERIFY_STG --> GATE6{{"👤 /ts-approve<br/>staging"}}
+        
+        GATE6 -->|approved| SEC_PROD["/ts-security production<br/>🔐 Security Engineer"]
+        SEC_PROD --> DEPLOY_PROD["/ts-deploy production<br/>🚀 DevOps Engineer"]
+        DEPLOY_PROD --> VERIFY_PROD["/ts-verify production<br/>🚀 DevOps Engineer"]
+        VERIFY_PROD --> GATE7{{"👤 /ts-approve<br/>production"}}
+        GATE7 -->|approved| GATE8{{"👤 /ts-approve<br/>launch 🚀"}}
+    end
+
+    subgraph STAGE5["🌐 STAGE 5: GO LIVE (Optional)"]
+        GATE4 -.->|"quick path"| PUSH_DB["/ts-push neon<br/>🚀 SRE Deploy"]
+        PUSH_DB --> PUSH_BE["/ts-push railway<br/>🚀 SRE Deploy"]
+        PUSH_BE --> PUSH_FE["/ts-push vercel<br/>🚀 SRE Deploy"]
+        PUSH_FE --> LIVE_STATUS["/ts-live-status<br/>🚀 SRE Deploy"]
+        LIVE_STATUS --> DOMAIN["/ts-domain<br/>🚀 SRE Deploy"]
+        DOMAIN --> MONITOR["/ts-monitor<br/>🛡️ SRE Ops"]
+        MONITOR --> ALERTS["/ts-alerts<br/>🛡️ SRE Ops"]
+        ALERTS --> SLO["/ts-slo<br/>🛡️ SRE Ops"]
+        SLO --> STATUS_PAGE["/ts-status-page<br/>🛡️ SRE Ops"]
+    end
+
+    GATE8 --> LAUNCHED["🎉 LAUNCHED!"]
+    STATUS_PAGE --> OPERATIONAL["🌐 OPERATIONAL!"]
+
+    %% Styling
+    classDef gate fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+    classDef command fill:#4ecdc4,stroke:#333
+    classDef output fill:#f7dc6f,stroke:#333
+    classDef review fill:#bb8fce,stroke:#333
+    classDef success fill:#2ecc71,stroke:#333,stroke-width:3px,color:#fff
+    
+    class GATE1,GATE2,GATE3,GATE4,GATE5,GATE6,GATE7,GATE8 gate
+    class ARCH,PRODUCT,PLAN,ANALYZE,DEVELOP,TEST_PLAN,BUILD_DB,BUILD_BE,BUILD_FE,INTEGRATE,DOCS,SECURITY,RELEASE,INFRA,PIPELINE,DEPLOY_STG,DEPLOY_PROD,VERIFY_STG,VERIFY_PROD,SEC_PROD,PUSH_DB,PUSH_BE,PUSH_FE,MONITOR,ALERTS,SLO,STATUS_PAGE,DOMAIN,LIVE_STATUS command
+    class ARCH_OUT,PRODUCT_OUT,PLAN_OUT,ANALYZE_OUT,DEV_PLAN,TEST_STRATEGY,DOCS_OUT,RELEASE_OUT,INFRA_OUT,PIPELINE_OUT output
+    class ARCH_REVIEW,PRODUCT_REVIEW,DEV_REVIEW,RELEASE_REVIEW review
+    class LAUNCHED,OPERATIONAL success

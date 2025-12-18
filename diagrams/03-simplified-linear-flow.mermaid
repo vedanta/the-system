@@ -1,0 +1,34 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4ecdc4'}}}%%
+flowchart LR
+    subgraph S0["Intake"]
+        A["/ts-new-project"]
+    end
+    
+    subgraph S1["Stage 1"]
+        B["/ts-architect"]
+    end
+    
+    subgraph S2["Stage 2"]
+        C["/ts-product"] --> D["/ts-plan"] --> E["/ts-analyze"]
+    end
+    
+    subgraph S3["Stage 3"]
+        F["/ts-develop"] --> G["build & test<br/>db → be → fe"] --> H["/ts-integrate"]
+    end
+    
+    subgraph S4["Stage 4"]
+        I["/ts-docs"] --> J["/ts-security"] --> K["/ts-release"] --> L["/ts-infra"] --> M["/ts-deploy"]
+    end
+    
+    subgraph S5["Stage 5"]
+        N["/ts-push"] --> O["/ts-monitor"]
+    end
+    
+    A -->|"approve<br/>arch-start"| B
+    B -->|"approve<br/>arch-lock"| C
+    E -->|"approve<br/>green-light 🚦"| F
+    H -->|"approve<br/>development"| I
+    M -->|"approve<br/>launch 🚀"| DONE["🎉 LIVE"]
+    
+    H -.->|"quick path"| N
+    O --> DONE2["🌐 LIVE"]

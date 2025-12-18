@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo ""
+echo "╔══════════════════════════════════════════════════════════════════╗"
+echo "║  🎯 CHECKPOINT - Subagent Task Complete                          ║"
+echo "╠══════════════════════════════════════════════════════════════════╣"
+echo "║                                                                  ║"
+echo "║  Review the output above before proceeding.                      ║"
+echo "║                                                                  ║"
+echo "║  Commands:                                                       ║"
+echo "║    status              - Check project state            ║"
+echo "║    approve <gate>      - Approve a gate                 ║"
+echo "║    review <dept>       - Review department output       ║"
+echo "║                                                                  ║"
+echo "╚══════════════════════════════════════════════════════════════════╝"
+echo ""

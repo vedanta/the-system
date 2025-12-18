@@ -1,0 +1,64 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4ecdc4'}}}%%
+flowchart TB
+    subgraph HUMAN["👤 HUMAN"]
+        FOUNDER["Founder<br/>(You)"]
+    end
+
+    subgraph EXEC["🎩 EXECUTIVE (1 Agent)"]
+        FA["🎩 Founder-Advisor<br/>Chief of Staff<br/>Strategic guidance, reviews"]
+    end
+
+    subgraph S1["📐 STAGE 1: ARCHITECTURE (1 Agent)"]
+        EA["🏗️ Enterprise Architect<br/>System design, ADRs<br/>Tech stack decisions"]
+    end
+
+    subgraph S2["📦 STAGE 2: PRODUCT (3 Agents)"]
+        PL["👔 Product Lead<br/>MVP, Stories, PRD"]
+        PP["📅 Project Planner<br/>Roadmap, Sprints"]
+        BA["💼 Business Analyst<br/>Market, Revenue, GTM"]
+    end
+
+    subgraph S3["💻 STAGE 3: DEVELOPMENT (6 Agents)"]
+        PD["👨‍💼 Principal Developer<br/>Tech Lead, Reviews"]
+        QAE["🧪 QA Engineer<br/>Testing, Sign-off"]
+        DBD["🗄️ Database Developer<br/>Schema, Migrations"]
+        BED["⚙️ Backend Developer<br/>APIs, Services"]
+        FED["🎨 Frontend Developer<br/>Components, UI"]
+        IE["🔗 Integration Engineer<br/>E2E, Docker"]
+    end
+
+    subgraph S4["🚀 STAGE 4: RELEASE (4 Agents)"]
+        TW["📝 Technical Writer<br/>Docs, Guides"]
+        SE["🔐 Security Engineer<br/>Scans, Compliance"]
+        RE["📦 Release Engineer<br/>Version, Changelog"]
+        DO["🚀 DevOps Engineer<br/>IaC, CI/CD"]
+    end
+
+    subgraph S5["🌐 STAGE 5: GO LIVE (2 Agents)"]
+        SRD["🚀 SRE Deploy<br/>Quick Deploy"]
+        SRO["🛡️ SRE Ops<br/>Monitoring, SLOs"]
+    end
+
+    FOUNDER --> FA
+    FA --> EA
+    FA --> PL
+    FA --> PD
+    FA --> TW
+    FA --> SRD
+
+    %% Styling
+    classDef human fill:#f9f,stroke:#333,stroke-width:3px
+    classDef exec fill:#ffd700,stroke:#333,stroke-width:2px
+    classDef s1 fill:#87ceeb,stroke:#333
+    classDef s2 fill:#98fb98,stroke:#333
+    classDef s3 fill:#dda0dd,stroke:#333
+    classDef s4 fill:#f0e68c,stroke:#333
+    classDef s5 fill:#ffa07a,stroke:#333
+
+    class FOUNDER human
+    class FA exec
+    class EA s1
+    class PL,PP,BA s2
+    class PD,QAE,DBD,BED,FED,IE s3
+    class TW,SE,RE,DO s4
+    class SRD,SRO s5

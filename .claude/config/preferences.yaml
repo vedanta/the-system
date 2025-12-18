@@ -1,0 +1,288 @@
+# ============================================================================
+# THE SYSTEM - Project Preferences
+# ============================================================================
+# These preferences guide agents in technology and architecture decisions.
+# Agents will read this file and apply these preferences when generating code.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# CLOUD & INFRASTRUCTURE
+# ----------------------------------------------------------------------------
+cloud:
+  # Primary cloud provider: aws | gcp | azure
+  provider: aws
+  
+  # Default region
+  region: us-east-1
+  
+  # Environment naming
+  environments:
+    - development
+    - staging
+    - production
+
+infrastructure:
+  # Container orchestration: ecs | eks | gke | aks | docker-compose
+  orchestration: ecs
+  
+  # Infrastructure as Code: terraform | pulumi | cloudformation | cdk
+  iac: terraform
+  
+  # CI/CD: github-actions | gitlab-ci | circleci | jenkins
+  cicd: github-actions
+  
+  # Container registry: ecr | gcr | dockerhub | ghcr
+  registry: ecr
+
+# ----------------------------------------------------------------------------
+# DATABASE
+# ----------------------------------------------------------------------------
+database:
+  # Primary database: postgresql | mysql | mongodb
+  primary: postgresql
+  version: "15"
+  
+  # Cache: redis | memcached
+  cache: redis
+  
+  # Search (if needed): elasticsearch | opensearch | meilisearch
+  search: elasticsearch
+  
+  # Message queue: redis | sqs | rabbitmq | kafka
+  queue: redis
+
+# ----------------------------------------------------------------------------
+# BACKEND
+# ----------------------------------------------------------------------------
+backend:
+  # Language: python | typescript | go
+  language: python
+  version: "3.11"
+  
+  # Framework: fastapi | django | express | nestjs | gin
+  framework: fastapi
+  
+  # ORM: sqlalchemy | prisma | typeorm | gorm
+  orm: sqlalchemy
+  
+  # API style: rest | graphql | grpc
+  api_style: rest
+  
+  # Authentication: jwt | oauth2 | session
+  auth: jwt
+
+# ----------------------------------------------------------------------------
+# FRONTEND
+# ----------------------------------------------------------------------------
+frontend:
+  # Framework: nextjs | react | vue | svelte
+  framework: nextjs
+  version: "14"
+  
+  # Language: typescript | javascript
+  language: typescript
+  
+  # Styling: tailwind | css-modules | styled-components
+  styling: tailwind
+  
+  # State management: zustand | redux | jotai | pinia
+  state_management: zustand
+  
+  # Data fetching: tanstack-query | swr | rtk-query
+  data_fetching: tanstack-query
+
+# ----------------------------------------------------------------------------
+# TESTING
+# ----------------------------------------------------------------------------
+testing:
+  backend:
+    unit: pytest
+    api: pytest-httpx
+    coverage_target: 80
+  
+  frontend:
+    unit: jest
+    component: testing-library
+    e2e: playwright
+    coverage_target: 80
+
+# ----------------------------------------------------------------------------
+# CODE STYLE & CONVENTIONS
+# ----------------------------------------------------------------------------
+conventions:
+  # Naming conventions
+  naming:
+    files: kebab-case          # my-component.tsx
+    components: PascalCase     # MyComponent
+    functions: camelCase       # myFunction
+    variables: camelCase       # myVariable
+    constants: SCREAMING_SNAKE # MY_CONSTANT
+    database_tables: snake_case # user_accounts
+    database_columns: snake_case # created_at
+    api_endpoints: kebab-case  # /api/v1/user-accounts
+  
+  # Code formatting
+  formatting:
+    python:
+      formatter: black
+      linter: ruff
+      line_length: 88
+    typescript:
+      formatter: prettier
+      linter: eslint
+      line_length: 100
+  
+  # Git conventions
+  git:
+    branch_naming: feature/ticket-description
+    commit_style: conventional  # feat:, fix:, chore:, etc.
+
+# ----------------------------------------------------------------------------
+# PROJECT DEFAULTS
+# ----------------------------------------------------------------------------
+defaults:
+  # Default ports
+  ports:
+    frontend: 3000
+    backend: 8000
+    database: 5432
+    redis: 6379
+  
+  # API versioning
+  api_version: v1
+  api_prefix: /api
+  
+  # Pagination defaults
+  pagination:
+    default_limit: 20
+    max_limit: 100
+
+# ----------------------------------------------------------------------------
+# SECURITY
+# ----------------------------------------------------------------------------
+security:
+  # Password requirements
+  password:
+    min_length: 8
+    require_uppercase: true
+    require_lowercase: true
+    require_number: true
+    require_special: false
+  
+  # Rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+  
+  # CORS
+  cors:
+    allow_credentials: true
+    allow_methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+
+# ----------------------------------------------------------------------------
+# MONITORING
+# ----------------------------------------------------------------------------
+monitoring:
+  # Error tracking: sentry | rollbar | bugsnag
+  error_tracking: sentry
+  
+  # APM: datadog | newrelic | dynatrace
+  apm: datadog
+  
+  # Logging: structured-json
+  logging_format: structured-json
+  
+  # Health checks
+  health_check_endpoint: /health
+# ============================================================================
+# THE SYSTEM - Stage 5 Preferences (merge with existing preferences.yaml)
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# STAGE 5: GO LIVE
+# ----------------------------------------------------------------------------
+go_live:
+  # Quick deploy targets
+  targets:
+    database: neon          # neon | planetscale | supabase | turso
+    backend: railway        # railway | fly | render
+    frontend: vercel        # vercel | netlify | cloudflare
+  
+  # Full-stack target (if using all-in-one)
+  full_stack: railway       # railway | render
+  
+  # Default environment for /ts-push
+  default_env: preview      # preview | production
+  
+  # Auto-configure env vars between services
+  auto_link: true
+
+# ----------------------------------------------------------------------------
+# STAGE 5: MONITORING
+# ----------------------------------------------------------------------------
+monitoring:
+  # Error tracking: sentry | rollbar | bugsnag
+  error_tracking: sentry
+  
+  # APM: datadog | newrelic | dynatrace
+  apm: datadog
+  
+  # Logging: datadog | logdna | papertrail
+  logging: datadog
+  
+  # Uptime monitoring: betteruptime | pingdom | uptimerobot
+  uptime: betteruptime
+
+# ----------------------------------------------------------------------------
+# STAGE 5: ALERTING
+# ----------------------------------------------------------------------------
+alerting:
+  # Primary alert channel
+  primary: slack            # slack | pagerduty | opsgenie | email
+  
+  # On-call paging
+  paging: pagerduty         # pagerduty | opsgenie | victorops
+  
+  # Slack channels
+  slack:
+    alerts: "#alerts"
+    deployments: "#deployments"
+    incidents: "#incidents"
+
+# ----------------------------------------------------------------------------
+# STAGE 5: STATUS PAGE
+# ----------------------------------------------------------------------------
+status_page:
+  provider: instatus        # instatus | statuspage | cachet | betteruptime
+  
+  # Components to monitor
+  components:
+    - name: Website
+      description: Main application
+    - name: API
+      description: Backend services
+    - name: Database
+      description: Data storage
+    - name: Authentication
+      description: Login services
+
+# ----------------------------------------------------------------------------
+# STAGE 5: SLOs
+# ----------------------------------------------------------------------------
+slo:
+  # Default SLO targets
+  availability: 99.9        # Percentage
+  latency_p50: 100          # Milliseconds
+  latency_p95: 500          # Milliseconds
+  latency_p99: 1000         # Milliseconds
+  error_rate: 1             # Percentage
+  
+  # Error budget window
+  window_days: 30
+  
+  # Error budget policy thresholds
+  budget_policy:
+    normal: 50              # > 50% budget remaining
+    caution: 25             # 25-50% remaining
+    freeze: 10              # 10-25% remaining
+    sprint: 0               # < 10% remaining
