@@ -1,4 +1,4 @@
-# the-system
+# The System
 
 ### ASDO — Autonomous Software Development Organization
 > *An AI-powered software company in your terminal*
@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-17-blue?style=for-the-badge" alt="17 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-39-green?style=for-the-badge" alt="39 Commands"/>
+  <img src="https://img.shields.io/badge/Commands-40-green?style=for-the-badge" alt="40 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-10-red?style=for-the-badge" alt="10 HITL Gates"/>
 </p>
@@ -54,6 +54,7 @@
 - 📝 **Living Documentation** — Project state tracked in markdown, always up-to-date
 - 🔧 **Customizable** — Add your own agents, commands, and preferences
 - 🚀 **Multiple Deploy Paths** — Full IaC (Stage 4) or quick deploy to Vercel/Railway (Stage 5)
+- ⚡ **Turbo Mode** — Run autonomously without approval gates (use with caution)
 
 ---
 
@@ -192,19 +193,108 @@ claude
 
 ---
 
+## Turbo Mode (Autonomous Execution)
+
+> ⚡ **Run The System without human approval gates**
+
+For rapid prototyping or experimentation, use Turbo Mode to run through Stages 1-4 automatically.
+
+### Usage
+
+```bash
+/ts-turbo <project-name> "<idea description>"
+```
+
+### Example
+
+```bash
+/ts-turbo todo-app "A task manager with user auth, categories, and due dates"
+```
+
+This will:
+1. Create the project
+2. Run all architecture, product, and development stages
+3. Generate all release artifacts
+4. Skip all HITL approval gates
+
+### Fully Autonomous Mode
+
+Combine with `--dangerously-skip-permissions` for zero interaction:
+
+```bash
+claude --dangerously-skip-permissions
+
+> /ts-turbo my-app "Build a REST API for inventory management"
+```
+
+---
+
+## ⚠️ Turbo Mode & Permissions Warning
+
+<table>
+<tr>
+<td width="80">⚠️</td>
+<td>
+
+### CAUTION: Understand the Implications
+
+**Turbo Mode (`/ts-turbo`)** bypasses all human-in-the-loop gates:
+- Architecture decisions are made without your review
+- MVP scope is defined without your approval
+- Code is written without quality checkpoints
+- Security findings may be auto-acknowledged
+
+**`--dangerously-skip-permissions`** auto-accepts all Claude Code operations:
+- File creation and modification without confirmation
+- Bash command execution without approval
+- Potential for unintended file system changes
+- No opportunity to review actions before execution
+
+</td>
+</tr>
+</table>
+
+### When to Use
+
+| ✅ **Appropriate** | ❌ **Not Appropriate** |
+|-------------------|----------------------|
+| Learning The System | Production applications |
+| Quick prototypes | Projects with real users |
+| Experiments | Security-sensitive systems |
+| Demos | Anything with real data |
+| Throwaway projects | Client/commercial work |
+
+### Safeguards
+
+Even in Turbo Mode, these safeguards remain:
+- 🔐 Security FAIL (critical vulnerabilities) stops execution
+- 📁 All output goes to `output/[project]/` (isolated)
+- 📝 Full audit log is maintained
+- 🚫 Actual deployment is NOT included (manual step required)
+
+### Recommendations
+
+1. **Always review output** before deploying anywhere
+2. **Run in isolated environment** when experimenting
+3. **Never use on existing codebases** without backup
+4. **Start with standard mode** to understand the workflow first
+
+---
+
 ## Commands Reference
 
 ### Core Commands
 
 | Command | Description |
 |---------|-------------|
-| `/ts-new-project <name>` | Start a new project |
+| `/ts-new-project <n>` | Start a new project |
 | `/ts-status` | Check current project status |
 | `/ts-view [section]` | View project details |
 | `/ts-brief` | Get executive summary |
 | `/ts-ask <question>` | Ask the Founder-Advisor |
 | `/ts-approve <gate>` | Approve at HITL gate |
 | `/ts-review <stage>` | Request stage review |
+| `/ts-turbo <n> "<idea>"` | ⚡ Run autonomously (Stages 1-4) |
 
 ### Stage 1: Architecture
 
@@ -279,6 +369,8 @@ You maintain control at critical decision points:
 | Production Ready | `/ts-approve production` | Production deployment OK |
 | Launch 🚀 | `/ts-approve launch` | Go live! |
 
+> 💡 **Note:** Turbo Mode (`/ts-turbo`) bypasses all these gates automatically.
+
 ---
 
 ## Project Structure
@@ -293,9 +385,10 @@ the-system/
 │   │   ├── ... (14 more)
 │   │   └── sre-ops-engineer.md
 │   │
-│   ├── commands/               # 39 command definitions
+│   ├── commands/               # 40 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-architect.md
+│   │   ├── ts-turbo.md         # ⚡ Turbo mode
 │   │   ├── ... (37 more)
 │   │   └── ts-slo.md
 │   │
@@ -385,7 +478,7 @@ integrations:
   sentry:
     enabled: true
     dsn: ${SENTRY_DSN}
-
+  
   datadog:
     enabled: true
     api_key: ${DATADOG_API_KEY}
@@ -463,7 +556,7 @@ Expected output:
 ║           THE SYSTEM IS CORRECTLY INSTALLED (Stage 1-5)          ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-  Passed:   78
+  Passed:   79
   Failed:   0
   Warnings: 0
 ```
@@ -472,6 +565,8 @@ Expected output:
 
 ## Example Session
 
+### Standard Mode (with approvals)
+
 ```bash
 $ claude
 
@@ -479,7 +574,7 @@ $ claude
 
 🎩 Founder-Advisor: Project "todo-app" created. Tell me about your idea.
 
-> I want to build a simple todo app with user authentication,
+> I want to build a simple todo app with user authentication, 
 > task categories, and due date reminders.
 
 🎩 Founder-Advisor: Excellent. I've analyzed your idea:
@@ -489,14 +584,36 @@ $ claude
 - MVP Scope: Auth + Tasks + Categories + Reminders
 - Tech Recommendation: Next.js + FastAPI + PostgreSQL
 
-Ready to proceed?
+Ready to proceed? 
 
 > /ts-approve architecture-start
 
-🎩 Founder-Advisor: Architecture phase approved.
+🎩 Founder-Advisor: Architecture phase approved. 
    Handing off to Enterprise Architect...
 
 🏗️ Enterprise Architect: Beginning system design...
+```
+
+### Turbo Mode (autonomous)
+
+```bash
+$ claude --dangerously-skip-permissions
+
+> /ts-turbo todo-app "A simple todo app with user auth, categories, and reminders"
+
+🚀 TURBO MODE ACTIVATED
+
+⚡ Stage 1: Architecture... ✅ (auto-approved)
+⚡ Stage 2: Product... ✅ (auto-approved)
+⚡ Stage 3: Development... ✅ (auto-approved)
+⚡ Stage 4: Release... ✅ (artifacts generated)
+
+╔══════════════════════════════════════════════════════════════════╗
+║                    🚀 TURBO MODE COMPLETE                        ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Output: output/todo-app/
+Review recommended before deployment.
 ```
 
 ---
@@ -511,6 +628,7 @@ The System is built on these principles:
 4. **Living Documentation** — The project file is always the source of truth
 5. **Flexible Workflow** — Skip stages, customize processes, add your own agents
 6. **Production-Ready Output** — Generated code follows best practices
+7. **Progressive Autonomy** — Start supervised, go autonomous when comfortable
 
 ---
 
@@ -528,12 +646,6 @@ Contributions welcome! Areas of interest:
 ## License
 
 MIT
-
----
-
-## Acknowledgments
-
-Built for [Claude Code](https://claude.ai/code) by Anthropic.
 
 ---
 

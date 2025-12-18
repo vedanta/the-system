@@ -286,3 +286,65 @@ slo:
     caution: 25             # 25-50% remaining
     freeze: 10              # 10-25% remaining
     sprint: 0               # < 10% remaining
+# ============================================================================
+# THE SYSTEM - Turbo Mode Preferences (merge with existing preferences.yaml)
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# AUTONOMOUS MODE (Turbo)
+# ----------------------------------------------------------------------------
+autonomous:
+  # Enable autonomous mode globally (affects all commands)
+  enabled: false              # Set to true to skip all HITL gates by default
+  
+  # Auto-approve HITL gates
+  auto_approve_gates:
+    architecture_start: true
+    architecture_lock: true
+    green_light: true
+    development: true
+    release: true
+    staging: false            # Still require approval for staging
+    production: false         # Still require approval for production
+    launch: false             # Still require approval for launch
+  
+  # Auto-pass QA reviews
+  auto_pass_qa: true
+  
+  # Security behavior in turbo mode
+  security:
+    stop_on_critical: true    # Stop on CRITICAL findings
+    stop_on_high: false       # Continue on HIGH (log only)
+    stop_on_medium: false     # Continue on MEDIUM
+    stop_on_low: false        # Continue on LOW
+  
+  # Verbose output
+  verbose: true               # Show agent work, set false for minimal output
+  
+  # Auto-deploy after Stage 4
+  auto_deploy: false          # Set true to auto-deploy to Stage 5 targets
+
+# ----------------------------------------------------------------------------
+# TURBO MODE PRESETS
+# ----------------------------------------------------------------------------
+turbo_presets:
+  # Fast MVP - minimal review, quick output
+  fast_mvp:
+    auto_approve_all: true
+    auto_pass_qa: true
+    verbose: false
+    security_level: low       # Only stop on critical
+  
+  # Careful - autonomous but with security checks
+  careful:
+    auto_approve_all: true
+    auto_pass_qa: true
+    verbose: true
+    security_level: high      # Stop on high and above
+  
+  # Demo - fastest, no security checks
+  demo:
+    auto_approve_all: true
+    auto_pass_qa: true
+    verbose: false
+    skip_security: true       # Skip security entirely

@@ -3,40 +3,16 @@
     "allow": [
       "Read",
       "Write",
+      "Edit",
+      "Bash",
       "Grep",
-      "Bash(cat:*)",
-      "Bash(ls:*)",
-      "Bash(cp:*)",
-      "Bash(date:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(find:*)"
+      "Glob"
     ],
-    "deny": [
-      "Bash(rm -rf:*)",
-      "Bash(sudo:*)"
-    ]
+    "deny": []
   },
-  "hooks": {
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/checkpoint.sh"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "echo '🏢 The System - Software Company Agent System' && echo '' && ls $CLAUDE_PROJECT_DIR/.claude/pipeline/projects/*.md 2>/dev/null | grep -v TEMPLATE || echo 'No active projects. Run new-project <name> to start.'"
-          }
-        ]
-      }
-    ]
+  "model": "claude-sonnet-4-20250514",
+  "autonomous": {
+    "enabled": true,
+    "auto_approve_tools": true
   }
 }
