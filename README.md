@@ -1,36 +1,544 @@
-# The System
+# the-system
 
-An agentic software development system built on Claude Code.
+### ASDO — Autonomous Software Development Organization
+> *An AI-powered software company in your terminal*
 
-## Quick Start
-```bash
-# Navigate to directory
-cd the-system
+---
 
-# Start Claude Code
-claude
+<p align="center">
+  <img src="https://img.shields.io/badge/Agents-17-blue?style=for-the-badge" alt="17 Agents"/>
+  <img src="https://img.shields.io/badge/Commands-39-green?style=for-the-badge" alt="39 Commands"/>
+  <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
+  <img src="https://img.shields.io/badge/HITL_Gates-10-red?style=for-the-badge" alt="10 HITL Gates"/>
+</p>
 
-# Create a new project
-/project:new-project my-app
+---
+
+## What is The System?
+
+**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 17 specialized AI agents across 5 departments to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+
+```
+💡 Your Idea
+     ↓
+🏢 The System (ASDO)
+     ├── 📐 Architecture Department
+     ├── 📦 Product Department
+     ├── 💻 Development Department
+     ├── 🚀 Release Department
+     └── 🌐 Operations Department
+     ↓
+🚀 Production-Ready Software
 ```
 
-## Structure
+---
 
-- **Founder-Advisor**: Your main interface, refines ideas, coordinates departments
-- **Enterprise Architect**: Designs system architecture
+## Why The System?
 
-## Commands
+| Traditional Approach | The System (ASDO) |
+|---------------------|-------------------|
+| You write all the code | Agents write code, you review |
+| Context switching between tasks | Specialized agents handle each domain |
+| Forgetting architectural decisions | Decisions documented in ADRs |
+| Inconsistent quality | QA engineer reviews every component |
+| Manual deployment setup | DevOps agent generates IaC & CI/CD |
+| You make every decision | You make *important* decisions (HITL gates) |
 
-| Command | Purpose |
-|---------|---------|
-| `/ts-project:new-project <name>` | Start new project |
-| `/ts-project:status` | Check status |
-| `/ts-project:approve <gate>` | Approve checkpoint |
-| `/ts-project:architect` | Start architecture |
-| `/ts-project:review <dept>` | Review output |
+---
+
+## Features
+
+- 🏢 **Organizational Structure** — 5 departments, 17 agents, clear responsibilities
+- 🚦 **Human-in-the-Loop Gates** — You approve architecture, green-light development, authorize launches
+- 📋 **Full SDLC Coverage** — From ideation to production monitoring
+- 📝 **Living Documentation** — Project state tracked in markdown, always up-to-date
+- 🔧 **Customizable** — Add your own agents, commands, and preferences
+- 🚀 **Multiple Deploy Paths** — Full IaC (Stage 4) or quick deploy to Vercel/Railway (Stage 5)
+
+---
+
+## The Organization
+
+```
+👤 Human Founder (You)
+│
+└── 🎩 Founder-Advisor (Chief of Staff)
+    │
+    ├── 📐 Architecture Department
+    │   └── 🏗️ Enterprise Architect
+    │
+    ├── 📦 Product Department
+    │   ├── 👔 Product Lead
+    │   ├── 📅 Project Planner
+    │   └── 💼 Business Analyst
+    │
+    ├── 💻 Development Department
+    │   ├── 👨‍💼 Principal Developer
+    │   ├── 🧪 QA Engineer
+    │   ├── 🗄️ Database Developer
+    │   ├── ⚙️ Backend Developer
+    │   ├── 🎨 Frontend Developer
+    │   └── 🔗 Integration Engineer
+    │
+    ├── 🚀 Release & Deployment Department
+    │   ├── 📝 Technical Writer
+    │   ├── 🔐 Security Engineer
+    │   ├── 📦 Release Engineer
+    │   └── 🚀 DevOps Engineer
+    │
+    └── 🌐 Operations Department (Optional)
+        ├── 🚀 SRE Deploy Engineer
+        └── 🛡️ SRE Ops Engineer
+```
+
+---
 
 ## Stages
 
-- [x] Stage 1: Foundation + Architecture
-- [ ] Stage 2: Product Department
-- [ ] Stage 3: Development Department
+| Stage | Department | Agents | Purpose |
+|-------|------------|--------|---------|
+| **Stage 1** | Architecture | 1 | System design, tech stack, ADRs |
+| **Stage 2** | Product | 3 | MVP definition, roadmap, business analysis |
+| **Stage 3** | Development | 6 | Implementation, testing, integration |
+| **Stage 4** | Release | 4 | Docs, security, IaC, CI/CD |
+| **Stage 5** | Operations | 2 | Quick deploy, monitoring, SLOs *(optional)* |
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- [Claude Code](https://claude.ai/code) installed
+- Git
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/the-system.git
+cd the-system
+
+# Verify installation
+chmod +x verify-the-system.sh
+./verify-the-system.sh
+
+# Start Claude Code
+claude
+```
+
+### Your First Project
+
+```bash
+# 1. Start a new project
+/ts-new-project my-awesome-app
+
+# 2. Describe your idea to the Founder-Advisor
+"I want to build a task management app with AI-powered prioritization"
+
+# 3. Approve architecture to begin
+/ts-approve architecture-start
+
+# 4. Follow the workflow...
+```
+
+---
+
+## Workflow Overview
+
+```
+/ts-new-project my-app          # Start
+        │
+        ▼
+   [ Stage 1: Architecture ]
+   /ts-architect                 # Design system
+   /ts-approve architecture-lock # Lock decisions
+        │
+        ▼
+   [ Stage 2: Product ]
+   /ts-product                   # Define MVP
+   /ts-plan                      # Create roadmap
+   /ts-analyze                   # Business analysis
+   /ts-approve green-light 🚦    # Approve for dev
+        │
+        ▼
+   [ Stage 3: Development ]
+   /ts-develop                   # Plan implementation
+   /ts-build database            # Build DB layer
+   /ts-build backend             # Build API layer
+   /ts-build frontend            # Build UI layer
+   /ts-integrate                 # Connect everything
+   /ts-approve development       # Approve for release
+        │
+        ▼
+   [ Stage 4: Release ]
+   /ts-docs                      # Generate docs
+   /ts-security                  # Security scan
+   /ts-release                   # Package release
+   /ts-infra                     # Generate Terraform
+   /ts-pipeline                  # Generate CI/CD
+   /ts-deploy production         # Deploy
+   /ts-approve launch 🚀         # Go live!
+        │
+        ▼
+   [ Stage 5: Go Live ] (Optional)
+   /ts-push vercel               # Quick deploy
+   /ts-monitor                   # Setup monitoring
+   /ts-alerts                    # Configure alerts
+        │
+        ▼
+   🎉 PRODUCTION
+```
+
+---
+
+## Commands Reference
+
+### Core Commands
+
+| Command | Description |
+|---------|-------------|
+| `/ts-new-project <name>` | Start a new project |
+| `/ts-status` | Check current project status |
+| `/ts-view [section]` | View project details |
+| `/ts-brief` | Get executive summary |
+| `/ts-ask <question>` | Ask the Founder-Advisor |
+| `/ts-approve <gate>` | Approve at HITL gate |
+| `/ts-review <stage>` | Request stage review |
+
+### Stage 1: Architecture
+
+| Command | Agent | Description |
+|---------|-------|-------------|
+| `/ts-architect` | Enterprise Architect | Design system architecture |
+
+### Stage 2: Product
+
+| Command | Agent | Description |
+|---------|-------|-------------|
+| `/ts-product` | Product Lead | Define MVP and user stories |
+| `/ts-plan` | Project Planner | Create roadmap and sprints |
+| `/ts-analyze` | Business Analyst | Market and business analysis |
+
+### Stage 3: Development
+
+| Command | Agent | Description |
+|---------|-------|-------------|
+| `/ts-develop` | Principal Developer | Create implementation plan |
+| `/ts-test-plan` | QA Engineer | Define test strategy |
+| `/ts-build <layer>` | Dev Team | Build database/backend/frontend |
+| `/ts-test <layer>` | QA Engineer | Test each layer |
+| `/ts-integrate` | Integration Engineer | Connect all components |
+| `/ts-gate` | Principal Developer | Quality gate review |
+| `/ts-signoff` | QA Engineer | Final QA sign-off |
+
+### Stage 4: Release & Deployment
+
+| Command | Agent | Description |
+|---------|-------|-------------|
+| `/ts-docs` | Technical Writer | Generate documentation |
+| `/ts-security` | Security Engineer | Run security scans |
+| `/ts-release` | Release Engineer | Create release package |
+| `/ts-infra` | DevOps Engineer | Generate Terraform |
+| `/ts-pipeline` | DevOps Engineer | Generate CI/CD workflows |
+| `/ts-deploy <env>` | DevOps Engineer | Deploy to environment |
+| `/ts-verify <env>` | DevOps Engineer | Verify deployment |
+| `/ts-rollback <env>` | DevOps Engineer | Rollback if needed |
+
+### Stage 5: Go Live & Operate (Optional)
+
+| Command | Agent | Description |
+|---------|-------|-------------|
+| `/ts-push <target>` | SRE Deploy | Deploy to Vercel/Railway/etc. |
+| `/ts-live-status` | SRE Deploy | Check all deployments |
+| `/ts-live-env <target>` | SRE Deploy | Manage environment variables |
+| `/ts-domain <target>` | SRE Deploy | Configure custom domains |
+| `/ts-teardown <target>` | SRE Deploy | Remove deployment |
+| `/ts-monitor` | SRE Ops | Setup monitoring stack |
+| `/ts-alerts` | SRE Ops | Configure alerting |
+| `/ts-logs [target]` | SRE Ops | View logs |
+| `/ts-health` | SRE Ops | Health check all services |
+| `/ts-status-page` | SRE Ops | Create public status page |
+| `/ts-incident` | SRE Ops | Incident management |
+| `/ts-slo` | SRE Ops | Define and track SLOs |
+
+---
+
+## Human-in-the-Loop Gates
+
+You maintain control at critical decision points:
+
+| Gate | Command | What You're Approving |
+|------|---------|----------------------|
+| Architecture Start | `/ts-approve architecture-start` | Begin design phase |
+| Architecture Lock | `/ts-approve architecture-lock` | Lock technical decisions |
+| Green Light 🚦 | `/ts-approve green-light` | Approve for development |
+| Development Done | `/ts-approve development` | Code complete, ready for release |
+| Release Ready | `/ts-approve release` | Release package approved |
+| Staging Verified | `/ts-approve staging` | Staging deployment OK |
+| Production Ready | `/ts-approve production` | Production deployment OK |
+| Launch 🚀 | `/ts-approve launch` | Go live! |
+
+---
+
+## Project Structure
+
+```
+the-system/
+├── .claude/
+│   ├── agents/                 # 17 agent definitions
+│   │   ├── founder-advisor.md
+│   │   ├── enterprise-architect.md
+│   │   ├── product-lead.md
+│   │   ├── ... (14 more)
+│   │   └── sre-ops-engineer.md
+│   │
+│   ├── commands/               # 39 command definitions
+│   │   ├── ts-new-project.md
+│   │   ├── ts-architect.md
+│   │   ├── ... (37 more)
+│   │   └── ts-slo.md
+│   │
+│   ├── config/
+│   │   ├── preferences.yaml    # System preferences
+│   │   └── integrations.yaml   # Tool integrations
+│   │
+│   ├── knowledge/
+│   │   ├── architecture-standards.md
+│   │   └── gitignore-template.md
+│   │
+│   ├── hooks/
+│   │   └── checkpoint.sh       # Auto-save hooks
+│   │
+│   └── pipeline/
+│       └── projects/
+│           └── TEMPLATE.md     # Project template
+│
+├── diagrams/                   # Mermaid diagrams
+│   ├── 01-org-structure.mermaid
+│   ├── 02-full-workflow.mermaid
+│   └── ... (6 more)
+│
+├── .env.example                # Environment template
+├── .gitignore
+├── CLAUDE.md                   # Claude Code instructions
+├── README.md                   # This file
+└── verify-the-system.sh        # Installation verification
+```
+
+---
+
+## Stage 5: Quick Deploy Targets
+
+Skip full IaC and deploy directly to managed platforms:
+
+### Frontend
+| Target | Command | Free Tier |
+|--------|---------|-----------|
+| Vercel | `/ts-push vercel` | ✅ |
+| Netlify | `/ts-push netlify` | ✅ |
+| Cloudflare Pages | `/ts-push cloudflare` | ✅ |
+
+### Backend
+| Target | Command | Free Tier |
+|--------|---------|-----------|
+| Railway | `/ts-push railway` | ✅ Limited |
+| Fly.io | `/ts-push fly` | ✅ Limited |
+| Render | `/ts-push render` | ✅ Limited |
+
+### Database
+| Target | Command | Free Tier |
+|--------|---------|-----------|
+| Neon | `/ts-push neon` | ✅ |
+| PlanetScale | `/ts-push planetscale` | ✅ |
+| Supabase | `/ts-push supabase` | ✅ |
+
+---
+
+## Configuration
+
+### preferences.yaml
+
+Customize tech stack defaults, naming conventions, and deployment targets:
+
+```yaml
+# Tech stack defaults
+tech_stack:
+  frontend: nextjs
+  backend: fastapi
+  database: postgresql
+
+# Stage 5: Quick deploy
+go_live:
+  targets:
+    frontend: vercel
+    backend: railway
+    database: neon
+```
+
+### integrations.yaml
+
+Enable external tools and services:
+
+```yaml
+integrations:
+  sentry:
+    enabled: true
+    dsn: ${SENTRY_DSN}
+
+  datadog:
+    enabled: true
+    api_key: ${DATADOG_API_KEY}
+```
+
+---
+
+## Customization
+
+### Adding a New Agent
+
+Create `.claude/agents/my-agent.md`:
+
+```markdown
+---
+name: my-agent
+description: What this agent does
+tools: Read, Write, Bash
+model: inherit
+---
+
+# My Agent
+
+Your agent instructions here...
+```
+
+### Adding a New Command
+
+Create `.claude/commands/ts-my-command.md`:
+
+```markdown
+# My Command: $ARGUMENTS
+
+What this command does.
+
+## Process
+
+1. Step one
+2. Step two
+3. Step three
+```
+
+---
+
+## Diagrams
+
+Visual documentation in `/diagrams/`:
+
+| Diagram | Description |
+|---------|-------------|
+| `01-org-structure.mermaid` | Full organizational chart |
+| `02-full-workflow.mermaid` | Complete workflow |
+| `03-simplified-linear-flow.mermaid` | Linear stage overview |
+| `04-hitl-gates-flow.mermaid` | Approval gates |
+| `05-stage3-build-test-cycle.mermaid` | Development cycle |
+| `06-stage4-deployment-flow.mermaid` | Deployment process |
+| `07-stage5-quick-deploy-flow.mermaid` | Quick deploy flow |
+| `08-all-17-agents.mermaid` | All agents overview |
+
+View at [mermaid.live](https://mermaid.live) or in VS Code with Mermaid extension.
+
+---
+
+## Verification
+
+Run the verification script to ensure proper installation:
+
+```bash
+./verify-the-system.sh
+```
+
+Expected output:
+```
+╔══════════════════════════════════════════════════════════════════╗
+║           THE SYSTEM IS CORRECTLY INSTALLED (Stage 1-5)          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+  Passed:   78
+  Failed:   0
+  Warnings: 0
+```
+
+---
+
+## Example Session
+
+```bash
+$ claude
+
+> /ts-new-project todo-app
+
+🎩 Founder-Advisor: Project "todo-app" created. Tell me about your idea.
+
+> I want to build a simple todo app with user authentication,
+> task categories, and due date reminders.
+
+🎩 Founder-Advisor: Excellent. I've analyzed your idea:
+
+**Strategic Assessment:**
+- Market: Competitive but room for focused solutions
+- MVP Scope: Auth + Tasks + Categories + Reminders
+- Tech Recommendation: Next.js + FastAPI + PostgreSQL
+
+Ready to proceed?
+
+> /ts-approve architecture-start
+
+🎩 Founder-Advisor: Architecture phase approved.
+   Handing off to Enterprise Architect...
+
+🏗️ Enterprise Architect: Beginning system design...
+```
+
+---
+
+## Philosophy
+
+The System is built on these principles:
+
+1. **You are the Founder** — AI agents work for you, not the other way around
+2. **Human-in-the-Loop** — Critical decisions require your approval
+3. **Specialized Agents** — Each agent has deep expertise in their domain
+4. **Living Documentation** — The project file is always the source of truth
+5. **Flexible Workflow** — Skip stages, customize processes, add your own agents
+6. **Production-Ready Output** — Generated code follows best practices
+
+---
+
+## Contributing
+
+Contributions welcome! Areas of interest:
+
+- New agents for specialized domains
+- Additional deployment targets
+- Workflow optimizations
+- Documentation improvements
+
+---
+
+## License
+
+MIT
+
+---
+
+## Acknowledgments
+
+Built for [Claude Code](https://claude.ai/code) by Anthropic.
+
+---
+
+<p align="center">
+  <strong>The System</strong><br/>
+  <em>ASDO — Autonomous Software Development Organization</em><br/>
+  <sub>An AI-powered software company in your terminal</sub>
+</p>
