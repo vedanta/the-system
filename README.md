@@ -26,20 +26,21 @@
 8. [Workflow Overview](#workflow-overview)
 9. [Turbo Mode (Autonomous Execution)](#turbo-mode-autonomous-execution)
 10. [Commands Reference](#commands-reference)
-11. [Human-in-the-Loop Gates](#human-in-the-loop-gates)
-12. [Project Structure](#project-structure)
-13. [Stage 5: Quick Deploy Targets](#stage-5-quick-deploy-targets)
-14. [Configuration](#configuration)
-15. [Troubleshooting](#troubleshooting)
-16. [Customization](#customization)
-17. [Updating](#updating)
-18. [Getting Help](#getting-help)
-19. [Quick Reference](#quick-reference)
-20. [Diagrams](#diagrams)
-21. [Verification](#verification)
-22. [Example Session](#example-session)
-23. [Philosophy](#philosophy)
-24. [Contributing](#contributing)
+11. [Command Guide](docs/COMMAND-GUIDE.md)
+12. [Human-in-the-Loop Gates](#human-in-the-loop-gates)
+13. [Project Structure](#project-structure)
+14. [Stage 5: Quick Deploy Targets](#stage-5-quick-deploy-targets)
+15. [Configuration](#configuration)
+16. [Troubleshooting](#troubleshooting)
+17. [Customization](#customization)
+18. [Updating](#updating)
+19. [Getting Help](#getting-help)
+20. [Quick Reference](#quick-reference)
+21. [Diagrams](#diagrams)
+22. [Verification](#verification)
+23. [Example Session](#example-session)
+24. [Philosophy](#philosophy)
+25. [Contributing](#contributing)
 
 ---
 
@@ -375,6 +376,8 @@ Even in Turbo Mode, these safeguards remain:
 
 ## Commands Reference
 
+> 📖 **For complete command documentation with arguments and examples, see [Command Guide](docs/COMMAND-GUIDE.md)**
+
 ### Core Commands
 
 | Command | Description |
@@ -383,7 +386,7 @@ Even in Turbo Mode, these safeguards remain:
 | `/ts-status` | Check current project status |
 | `/ts-view [section]` | View project details |
 | `/ts-brief` | Get executive summary |
-| `/ts-ask <question>` | Ask the Founder-Advisor |
+| `/ts-ask "<question>"` | Ask the Founder-Advisor |
 | `/ts-approve <gate>` | Approve at HITL gate |
 | `/ts-review <stage>` | Request stage review |
 | `/ts-turbo <n> "<idea>"` | ⚡ Run autonomously (Stages 1-4) |
