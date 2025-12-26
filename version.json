@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "release_name": "Genesis",
+  "release_code": "genesis",
+  "build_date": "2025-12-26",
+  "major": 1,
+  "minor": 0,
+  "patch": 0,
+  "pre_release": null,
+  "agents_count": 18,
+  "commands_count": 44,
+  "stages_count": 5,
+  "hitl_gates_count": 8,
+  "description": "The first official release of The System ASDO framework - a complete autonomous software development organization with 18 specialized AI agents.",
+  "features": [
+    "18 specialized AI agents across 5 departments",
+    "44 commands for complete software lifecycle",
+    "5-stage development process with HITL gates",
+    "Autonomous turbo mode for rapid development",
+    "Full-stack application generation",
+    "Architecture, Product, Development, Release & Operations"
+  ]
+}
