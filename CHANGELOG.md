@@ -5,11 +5,11 @@ All notable changes to The System ASDO framework will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0-genesis] - 2025-12-26
+## [1.0.0-basil] - 2025-12-26
 
-### 🎉 **Release "Genesis" - The Beginning**
+### 🌿 **Release "Basil" - The Essential Foundation**
 
-The first official release of The System - a complete Autonomous Software Development Organization (ASDO) framework.
+The first official release of The System - a complete Autonomous Software Development Organization (ASDO) framework. Like basil in cooking, this release provides the essential foundation that everything else builds upon.
 
 ### ✨ **Features**
 
@@ -88,4 +88,4 @@ The first official release of The System - a complete Autonomous Software Develo
 
 ---
 
-*"Genesis marks the beginning of truly autonomous software development. What once took weeks now happens in hours."*
+*"Like basil enhances every dish it touches, The System Basil release provides the essential foundation that transforms software development from weeks to hours."*
