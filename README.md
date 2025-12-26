@@ -6,17 +6,46 @@
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-17-blue?style=for-the-badge" alt="17 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-40-green?style=for-the-badge" alt="40 Commands"/>
+  <img src="https://img.shields.io/badge/Agents-18-blue?style=for-the-badge" alt="18 Agents"/>
+  <img src="https://img.shields.io/badge/Commands-44-green?style=for-the-badge" alt="44 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
-  <img src="https://img.shields.io/badge/HITL_Gates-10-red?style=for-the-badge" alt="10 HITL Gates"/>
+  <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
 </p>
+
+---
+
+## Table of Contents
+
+1. [What is The System?](#what-is-the-system)
+2. [Why The System?](#why-the-system)
+3. [Installation](#installation)
+4. [Features](#features)
+5. [The Organization](#the-organization)
+6. [Stages](#stages)
+7. [Quick Start](#quick-start)
+8. [Workflow Overview](#workflow-overview)
+9. [Turbo Mode (Autonomous Execution)](#turbo-mode-autonomous-execution)
+10. [Commands Reference](#commands-reference)
+11. [Human-in-the-Loop Gates](#human-in-the-loop-gates)
+12. [Project Structure](#project-structure)
+13. [Stage 5: Quick Deploy Targets](#stage-5-quick-deploy-targets)
+14. [Configuration](#configuration)
+15. [Troubleshooting](#troubleshooting)
+16. [Customization](#customization)
+17. [Updating](#updating)
+18. [Getting Help](#getting-help)
+19. [Quick Reference](#quick-reference)
+20. [Diagrams](#diagrams)
+21. [Verification](#verification)
+22. [Example Session](#example-session)
+23. [Philosophy](#philosophy)
+24. [Contributing](#contributing)
 
 ---
 
 ## What is The System?
 
-**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 17 specialized AI agents across 5 departments to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 18 specialized AI agents across 5 departments to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ```
 💡 Your Idea
@@ -46,9 +75,72 @@
 
 ---
 
+## Installation
+
+### Prerequisites
+
+- **Claude Code** - [Install Claude Code](https://claude.ai/code)
+  ```bash
+  # Verify installation
+  claude --version
+  ```
+
+- **Git** - For submodule management
+- **Node.js 18+** - For frontend projects
+- **Python 3.10+** - For backend projects
+
+### Option A: Submodule (Recommended)
+
+Use The System as a submodule in your existing project or a new project directory.
+
+```bash
+# Create or navigate to your project
+mkdir my-project && cd my-project
+git init
+
+# Add The System as submodule
+git submodule add https://github.com/YOUR_USERNAME/the-system.git .the-system
+git submodule update --init --recursive
+
+# Create symlinks
+ln -s .the-system/.claude .claude
+ln -s .the-system/CLAUDE.md CLAUDE.md
+
+# Create directories
+mkdir -p input output
+
+# Update .gitignore
+cat >> .gitignore << 'EOF'
+# The System
+output/
+input/
+.claude/pipeline/projects/*.md
+!.claude/pipeline/projects/TEMPLATE.md
+.env
+.env.local
+EOF
+
+# Verify and commit
+.the-system/verify-the-system.sh
+git add .
+git commit -m "Add The System as submodule"
+```
+
+### Option B: Standalone Clone
+
+```bash
+# Clone directly
+git clone https://github.com/YOUR_USERNAME/the-system.git
+cd the-system
+mkdir -p input output
+./verify-the-system.sh
+```
+
+---
+
 ## Features
 
-- 🏢 **Organizational Structure** — 5 departments, 17 agents, clear responsibilities
+- 🏢 **Organizational Structure** — 5 departments, 18 agents, clear responsibilities
 - 🚦 **Human-in-the-Loop Gates** — You approve architecture, green-light development, authorize launches
 - 📋 **Full SDLC Coverage** — From ideation to production monitoring
 - 📝 **Living Documentation** — Project state tracked in markdown, always up-to-date
@@ -448,81 +540,6 @@ Skip full IaC and deploy directly to managed platforms:
 
 ---
 
-## Configuration
-
-### preferences.yaml
-
-Customize tech stack defaults, naming conventions, and deployment targets:
-
-```yaml
-# Tech stack defaults
-tech_stack:
-  frontend: nextjs
-  backend: fastapi
-  database: postgresql
-
-# Stage 5: Quick deploy
-go_live:
-  targets:
-    frontend: vercel
-    backend: railway
-    database: neon
-```
-
-### integrations.yaml
-
-Enable external tools and services:
-
-```yaml
-integrations:
-  sentry:
-    enabled: true
-    dsn: ${SENTRY_DSN}
-  
-  datadog:
-    enabled: true
-    api_key: ${DATADOG_API_KEY}
-```
-
----
-
-## Customization
-
-### Adding a New Agent
-
-Create `.claude/agents/my-agent.md`:
-
-```markdown
----
-name: my-agent
-description: What this agent does
-tools: Read, Write, Bash
-model: inherit
----
-
-# My Agent
-
-Your agent instructions here...
-```
-
-### Adding a New Command
-
-Create `.claude/commands/ts-my-command.md`:
-
-```markdown
-# My Command: $ARGUMENTS
-
-What this command does.
-
-## Process
-
-1. Step one
-2. Step two
-3. Step three
-```
-
----
-
 ## Diagrams
 
 Visual documentation in `/diagrams/`:
@@ -614,6 +631,250 @@ $ claude --dangerously-skip-permissions
 
 Output: output/todo-app/
 Review recommended before deployment.
+```
+
+---
+
+## Configuration
+
+### preferences.yaml
+
+Located at `.claude/config/preferences.yaml`, customize tech stack defaults:
+
+```yaml
+# Tech stack defaults
+backend:
+  language: python           # python | typescript | go
+  framework: fastapi         # fastapi | django | express | nestjs
+database:
+  primary: postgresql        # postgresql | mysql | mongodb
+frontend:
+  framework: nextjs          # nextjs | react | vue | svelte
+  language: typescript       # typescript | javascript
+
+# Quick deploy targets (Stage 5)
+go_live:
+  targets:
+    frontend: vercel          # vercel | netlify | cloudflare
+    backend: railway          # railway | fly | render
+    database: neon            # neon | planetscale | supabase
+```
+
+### integrations.yaml
+
+Enable external services at `.claude/config/integrations.yaml`:
+
+```yaml
+monitoring:
+  sentry:
+    enabled: true
+    dsn: ${SENTRY_DSN}
+  datadog:
+    enabled: false
+
+communication:
+  slack:
+    enabled: false
+    channels:
+      alerts: "#alerts"
+```
+
+---
+
+## Troubleshooting
+
+### Build Errors
+
+```bash
+# Automatic error diagnosis and fixes
+/ts-fix
+
+# Specific fixes
+/ts-fix typescript
+/ts-fix dependencies
+```
+
+### TypeScript Errors After Generation
+
+```bash
+/ts-validate frontend
+/ts-fix
+/ts-validate frontend
+```
+
+### Dependency Conflicts
+
+```bash
+cd output/my-app
+rm -rf node_modules package-lock.json
+npm install --legacy-peer-deps
+```
+
+### Submodule Issues
+
+```bash
+# Re-initialize submodules
+git submodule update --init --recursive
+
+# Re-create broken symlinks
+rm -f .claude CLAUDE.md
+ln -s .the-system/.claude .claude
+ln -s .the-system/CLAUDE.md CLAUDE.md
+```
+
+### Claude Code Not Finding Commands
+
+Ensure you're in the project root with `.claude/` directory visible:
+
+```bash
+ls -la .claude/commands/  # Should show 44 command files
+```
+
+---
+
+## Customization
+
+### Adding Your Own Agent
+
+Create `.the-system/.claude/agents/my-agent.md`:
+
+```markdown
+---
+name: my-agent
+description: What this agent does
+tools: Read, Write, Bash
+model: inherit
+---
+
+# My Agent
+
+Your agent instructions here...
+```
+
+### Adding Your Own Command
+
+Create `.the-system/.claude/commands/ts-my-command.md`:
+
+```markdown
+# My Command: $ARGUMENTS
+
+What this command does.
+
+## Usage
+```
+/ts-my-command <args>
+```
+
+## Process
+1. Step one
+2. Step two
+```
+
+### Using Input Directory
+
+Put reference materials in `input/` for agents to reference:
+
+```bash
+cd input
+git clone https://github.com/example/reference-app.git
+
+# Use in Claude Code
+claude
+> Read input/reference-app/src/auth.ts and use similar patterns
+```
+
+---
+
+## Updating
+
+### Update The System Submodule
+
+```bash
+cd my-project
+
+# Update to latest
+cd .the-system
+git fetch origin && git checkout main && git pull origin main
+cd ..
+
+# Commit update
+git add .the-system
+git commit -m "Update The System to latest version"
+```
+
+### Update to Specific Version
+
+```bash
+cd .the-system
+git fetch --tags
+git checkout v1.1.0
+cd ..
+git add .the-system
+git commit -m "Update The System to v1.1.0"
+```
+
+---
+
+## Getting Help
+
+### In Claude Code
+
+```bash
+/ts-ask How do I add a new API endpoint?
+/ts-ask What's the current project status?
+/ts-brief
+```
+
+### Generate Documentation
+
+```bash
+/ts-self-document
+```
+
+Creates comprehensive docs in `docs/` directory covering:
+- Complete agent reference
+- All command documentation
+- Workflow guides
+- HITL gates
+- Configuration options
+- Customization guides
+
+---
+
+## Quick Reference
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ THE SYSTEM - QUICK REFERENCE                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│ START        /ts-new-project <name>                             │
+│                                                                 │
+│ ARCHITECTURE /ts-architect                                      │
+│              /ts-approve architecture-lock                      │
+│                                                                 │
+│ PRODUCT      /ts-product → /ts-plan → /ts-analyze               │
+│              /ts-approve green-light 🚦                        │
+│                                                                 │
+│ DEVELOPMENT  /ts-build database                                 │
+│              /ts-build backend                                  │
+│              /ts-build frontend                                 │
+│              /ts-integrate → /ts-signoff                        │
+│              /ts-approve development                            │
+│                                                                 │
+│ RELEASE      /ts-docs → /ts-security → /ts-release              │
+│              /ts-infra → /ts-pipeline → /ts-deploy              │
+│              /ts-approve launch 🚀                              │
+│                                                                 │
+│ QUICK DEPLOY /ts-push vercel|railway|neon                       │
+│                                                                 │
+│ UTILITIES    /ts-fix         Fix build errors                   │
+│              /ts-validate    Run all checks                     │
+│              /ts-turbo       Autonomous mode                    │
+│              /ts-status      Check status                       │
+│              /ts-brief       Summary                            │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
