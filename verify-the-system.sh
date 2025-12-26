@@ -62,7 +62,7 @@ for dir in ".claude" ".claude/agents" ".claude/commands" ".claude/config" ".clau
 done
 
 # ----------------------------------------------------------------------------
-header "2. AGENTS (17 required)"
+header "2. AGENTS (18 required)"
 # ----------------------------------------------------------------------------
 
 # Stage 1
@@ -110,8 +110,17 @@ for agent in "sre-deploy-engineer" "sre-ops-engineer"; do
     fi
 done
 
+# Utility Agents
+for agent in "bug-fixer"; do
+    if [ -f ".claude/agents/${agent}.md" ]; then
+        check_pass "${agent}.md (Utility)"
+    else
+        check_fail "${agent}.md (missing)"
+    fi
+done
+
 # ----------------------------------------------------------------------------
-header "3. COMMANDS (40 required)"
+header "3. COMMANDS (44 required)"
 # ----------------------------------------------------------------------------
 
 # Core commands
@@ -163,6 +172,15 @@ done
 for cmd in "ts-push" "ts-live-status" "ts-live-env" "ts-domain" "ts-teardown" "ts-monitor" "ts-alerts" "ts-logs" "ts-health" "ts-status-page" "ts-incident" "ts-slo"; do
     if [ -f ".claude/commands/${cmd}.md" ]; then
         check_pass "${cmd}.md (Stage 5)"
+    else
+        check_fail "${cmd}.md (missing)"
+    fi
+done
+
+# Utility commands
+for cmd in "ts-fix" "ts-validate" "ts-turbo" "ts-turbo-quick" "ts-self-document"; do
+    if [ -f ".claude/commands/${cmd}.md" ]; then
+        check_pass "${cmd}.md (Utility)"
     else
         check_fail "${cmd}.md (missing)"
     fi
