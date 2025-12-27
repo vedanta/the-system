@@ -122,7 +122,7 @@ input/
 EOF
 
 # Verify and commit
-.the-system/verify-the-system.sh
+.the-system/scripts/verify-the-system.sh
 git add .
 git commit -m "Add The System as submodule"
 ```
@@ -134,7 +134,7 @@ git commit -m "Add The System as submodule"
 git clone https://github.com/YOUR_USERNAME/the-system.git
 cd the-system
 mkdir -p input output
-./verify-the-system.sh
+./scripts/verify-the-system.sh
 ```
 
 ---
@@ -214,8 +214,8 @@ git clone https://github.com/YOUR_USERNAME/the-system.git
 cd the-system
 
 # Verify installation
-chmod +x verify-the-system.sh
-./verify-the-system.sh
+chmod +x scripts/verify-the-system.sh
+./scripts/verify-the-system.sh
 
 # Start Claude Code
 claude
@@ -511,7 +511,7 @@ the-system/
 ├── .gitignore
 ├── CLAUDE.md                   # Claude Code instructions
 ├── README.md                   # This file
-└── verify-the-system.sh        # Installation verification
+└── scripts/verify-the-system.sh        # Installation verification
 ```
 
 ---
@@ -567,7 +567,7 @@ View at [mermaid.live](https://mermaid.live) or in VS Code with Mermaid extensio
 Run the verification script to ensure proper installation:
 
 ```bash
-./verify-the-system.sh
+./scripts/verify-the-system.sh
 ```
 
 Expected output:

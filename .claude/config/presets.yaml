@@ -1,0 +1,1306 @@
+# ============================================================================
+# THE SYSTEM - Architecture Presets
+# ============================================================================
+# Defines all presets with their options and selection signals.
+# Enterprise Architect reads this to make stack recommendations.
+# Version: 1.0 (Phase 1 Implementation)
+# ============================================================================
+
+version: "1.0"
+meta:
+  total_presets: 8
+  web_presets: 5
+  cli_presets: 3
+  last_updated: "2025-12-26"
+
+presets:
+
+  # ==========================================================================
+  # WEB PRESETS
+  # ==========================================================================
+
+  static:
+    category: web
+    pattern: jamstack
+    tier: single
+    deployables: 1
+    description: "Static site with no backend or database"
+
+    use_when:
+      - No user accounts or authentication
+      - No persistent data storage
+      - Content-only (marketing, docs, portfolio)
+      - Landing pages, documentation sites
+
+    signals:
+      negative:
+        - persistent_data
+        - auth
+        - database
+        - user_accounts
+        - api
+        - backend
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: static-export
+        language: typescript
+        styling: tailwind
+        features:
+          - static-generation
+          - ssg
+          - no-runtime
+      backend: null
+      database: null
+      auth: null
+
+    options: {}  # No options for static sites
+
+    deploy:
+      frontend: vercel
+
+    structure:
+      root: /
+      frontend: src/app
+      public: public
+      assets: public/assets
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - frontend-developer
+        - technical-writer
+      skipped:
+        - database-developer
+        - backend-developer
+        - integration-engineer
+        - devops-engineer
+        - qa-engineer
+
+    validation:
+      required_signals: []
+      forbidden_signals: [persistent_data, auth, database]
+
+  # --------------------------------------------------------------------------
+
+  embedded:
+    category: web
+    pattern: monolith
+    tier: single
+    deployables: 1
+    description: "Web app with embedded database"
+
+    use_when:
+      - Simple persistence needs
+      - Low to medium traffic
+      - Single-user or small user base
+      - Personal tools and utilities
+      - Local-first applications
+
+    signals:
+      positive:
+        - persistent_data
+        - local_storage
+        - simple_data
+      negative:
+        - python_ml_compute
+        - realtime_core
+        - multi_user_ha
+        - high_traffic
+        - microservice
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: app-router
+        language: typescript
+        styling: tailwind
+      backend:
+        runtime: node
+        framework: nextjs-api-routes
+        location: src/app/api
+      database:
+        default: sqlite
+        orm_default: drizzle
+      auth:
+        default: nextauth
+        optional: true
+
+    options:
+      database:
+        sqlite:
+          default: true
+          orm: drizzle
+          host: local
+          description: "General purpose embedded database"
+          use_when:
+            - General CRUD operations
+            - Single-region deployment
+            - File-based storage
+          signals: []
+          features:
+            - acid_compliance
+            - lightweight
+            - serverless_friendly
+
+        turso:
+          default: false
+          orm: drizzle
+          host: turso
+          description: "Distributed SQLite for edge"
+          use_when:
+            - Edge deployment
+            - Multi-region needed
+            - Global distribution
+          signals:
+            - edge
+            - global
+            - distributed
+            - multi-region
+            - vercel
+            - cloudflare
+          features:
+            - edge_runtime
+            - multi_region
+            - sqlite_compatible
+
+        d1:
+          default: false
+          orm: drizzle
+          host: cloudflare
+          description: "Cloudflare's SQLite at the edge"
+          use_when:
+            - Cloudflare ecosystem
+            - Workers integration
+            - Edge computing
+          signals:
+            - cloudflare
+            - workers
+            - d1
+            - edge
+            - cf
+          features:
+            - workers_integration
+            - global_distribution
+            - low_latency
+
+        duckdb:
+          default: false
+          orm: drizzle
+          host: local
+          description: "Analytics-focused embedded database"
+          use_when:
+            - Analytics workloads
+            - Read-heavy queries
+            - CSV/Parquet processing
+            - Data analysis
+          signals:
+            - analytics
+            - dashboard
+            - reports
+            - csv
+            - parquet
+            - olap
+            - data_processing
+            - metrics
+            - bi
+          features:
+            - analytical_queries
+            - columnar_storage
+            - vectorized_execution
+            - parquet_support
+
+        lowdb:
+          default: false
+          orm: null
+          host: local
+          description: "Simple JSON file storage"
+          use_when:
+            - Tiny applications
+            - Prototype/POC
+            - Configuration storage
+          signals:
+            - prototype
+            - tiny
+            - json
+            - poc
+            - simple
+            - config
+          features:
+            - json_based
+            - zero_config
+            - human_readable
+
+      auth:
+        nextauth:
+          default: true
+          description: "Self-hosted, flexible authentication"
+          use_when:
+            - Standard auth needs
+            - Multiple providers
+            - Custom implementation
+          signals: []
+          features:
+            - oauth_providers
+            - jwt_sessions
+            - database_sessions
+            - callbacks
+
+        clerk:
+          default: false
+          description: "Managed authentication with drop-in UI"
+          use_when:
+            - Prefer managed solution
+            - Want pre-built UI components
+            - Rapid development
+          signals:
+            - managed_auth
+            - drop_in
+            - dont_want_to_build_auth
+            - hosted_auth
+            - rapid_development
+          features:
+            - managed_service
+            - prebuilt_components
+            - user_management
+            - webhooks
+
+        none:
+          default: false
+          description: "No authentication"
+          use_when:
+            - Public application
+            - No user accounts needed
+            - Read-only content
+          signals:
+            - no_auth
+            - public
+            - no_users
+            - no_login
+            - anonymous
+          features: []
+
+    deploy:
+      frontend: vercel
+
+    structure:
+      root: /
+      frontend: src/app
+      api: src/app/api
+      database: db
+      components: src/components
+      lib: src/lib
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - technical-writer
+      skipped:
+        - backend-developer
+        - devops-engineer
+        - qa-engineer
+
+    validation:
+      required_signals: [persistent_data]
+      forbidden_signals: [python_ml_compute, realtime_core]
+
+  # --------------------------------------------------------------------------
+
+  fullstack-js:
+    category: web
+    pattern: monolith
+    tier: two
+    deployables: 2
+    default: true  # This is the DEFAULT preset for web apps
+    description: "Full-stack JavaScript with managed PostgreSQL"
+
+    use_when:
+      - Standard CRUD applications
+      - Multi-user with concurrent access
+      - Need managed database service
+      - Business applications
+      - SaaS MVPs
+
+    signals:
+      positive:
+        - persistent_data
+        - multi_user_ha
+        - crud
+        - saas
+        - business_app
+      negative:
+        - python_ml_compute
+        - realtime_core
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: app-router
+        language: typescript
+        styling: tailwind
+        state: zustand
+        data_fetching: tanstack-query
+      backend:
+        runtime: node
+        framework: nextjs-api-routes
+        location: src/app/api
+      database:
+        default: postgresql
+        orm_default: prisma
+      auth:
+        default: nextauth
+
+    options:
+      database:
+        postgresql:
+          default: true
+          orm: prisma
+          host: neon
+          description: "Standard PostgreSQL with ACID compliance"
+          use_when:
+            - General purpose applications
+            - ACID compliance needed
+            - Complex queries
+            - Multi-user applications
+          signals: []
+          features:
+            - acid_compliance
+            - concurrent_access
+            - advanced_queries
+            - full_text_search
+
+        mysql:
+          default: false
+          orm: prisma
+          host: planetscale
+          description: "MySQL compatible database"
+          use_when:
+            - MySQL ecosystem preference
+            - PlanetScale features needed
+            - Existing MySQL knowledge
+          signals:
+            - mysql
+            - planetscale
+            - mariadb
+            - existing_mysql
+          features:
+            - branching
+            - schema_management
+            - connection_pooling
+
+      auth:
+        nextauth:
+          default: true
+          description: "Self-hosted, flexible authentication"
+          use_when:
+            - Full control over auth
+            - Custom providers
+            - Cost optimization
+          signals: []
+          features:
+            - oauth_providers
+            - custom_providers
+            - session_management
+
+        clerk:
+          default: false
+          description: "Managed authentication with UI components"
+          use_when:
+            - Rapid development
+            - Pre-built UI needed
+            - User management features
+          signals:
+            - managed_auth
+            - drop_in
+            - hosted_auth
+            - user_management
+            - rapid_dev
+          features:
+            - prebuilt_components
+            - user_profiles
+            - organizations
+            - webhooks
+
+        lucia:
+          default: false
+          description: "Lightweight, minimal authentication"
+          use_when:
+            - Minimal dependencies
+            - Type-safe auth
+            - Custom implementation
+          signals:
+            - lightweight
+            - minimal
+            - simple_auth
+            - type_safe
+          features:
+            - type_safe
+            - minimal_deps
+            - custom_sessions
+
+    deploy:
+      frontend: vercel
+      database: neon
+
+    structure:
+      root: /
+      frontend: src/app
+      api: src/app/api
+      database: prisma
+      components: src/components
+      lib: src/lib
+      hooks: src/hooks
+      types: src/types
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - qa-engineer
+        - technical-writer
+      skipped:
+        - backend-developer
+        - devops-engineer
+
+    validation:
+      required_signals: [persistent_data]
+      recommended_signals: [multi_user_ha]
+
+  # --------------------------------------------------------------------------
+
+  baas:
+    category: web
+    pattern: monolith
+    tier: two
+    deployables: 2
+    description: "Backend-as-a-Service (Supabase/Firebase)"
+
+    use_when:
+      - Realtime is a core feature
+      - Need auth + database + storage bundle
+      - Chat applications
+      - Collaboration tools
+      - Live features
+
+    signals:
+      positive:
+        - persistent_data
+        - realtime_core
+        - collaboration
+        - chat
+        - live_updates
+        - websockets
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: app-router
+        language: typescript
+        styling: tailwind
+        state: zustand
+        realtime: true
+      backend:
+        default: supabase
+        type: baas
+      database:
+        type: postgresql
+        orm_default: supabase-js
+        realtime: true
+      auth:
+        default: supabase-auth
+        social_providers: true
+
+    options:
+      backend:
+        supabase:
+          default: true
+          description: "Open source Firebase alternative"
+          database: postgresql
+          features:
+            - auth
+            - database
+            - storage
+            - realtime
+            - edge_functions
+            - row_level_security
+          use_when:
+            - Open source preference
+            - PostgreSQL preference
+            - Row-level security needed
+          signals: []
+          pricing: freemium
+
+        firebase:
+          default: false
+          description: "Google's Backend-as-a-Service platform"
+          database: firestore
+          features:
+            - auth
+            - firestore
+            - storage
+            - realtime
+            - cloud_functions
+            - hosting
+          use_when:
+            - Google ecosystem
+            - NoSQL preference
+            - Global scale
+          signals:
+            - firebase
+            - google
+            - firestore
+            - gcp
+            - nosql
+          pricing: pay_as_go
+
+    deploy:
+      frontend: vercel
+      backend: supabase
+
+    structure:
+      root: /
+      frontend: src/app
+      supabase: supabase
+      migrations: supabase/migrations
+      functions: supabase/functions
+      types: src/types/supabase.ts
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - qa-engineer
+        - technical-writer
+      skipped:
+        - backend-developer
+        - devops-engineer
+
+    validation:
+      required_signals: [persistent_data, realtime_core]
+
+  # --------------------------------------------------------------------------
+
+  microservice:
+    category: web
+    pattern: distributed
+    tier: three
+    deployables: 3
+    description: "Distributed architecture with Python backend"
+
+    use_when:
+      - Need Python ecosystem (ML, data science)
+      - Heavy backend computation
+      - Complex business logic
+      - Separate team responsibilities
+      - Microservice architecture
+
+    signals:
+      positive:
+        - persistent_data
+        - python_ml_compute
+        - complex_logic
+        - heavy_compute
+        - ml
+        - ai
+        - data_science
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: app-router
+        language: typescript
+        styling: tailwind
+        state: zustand
+        data_fetching: tanstack-query
+      backend:
+        default: fastapi
+        runtime: python
+        version: "3.11"
+        language: python
+      database:
+        default: postgresql
+        orm_default: sqlalchemy
+      auth:
+        provider: jwt
+        implementation: custom
+
+    options:
+      backend:
+        fastapi:
+          default: true
+          description: "Modern, fast Python API framework"
+          use_when:
+            - API-first design
+            - High performance needed
+            - Modern Python features
+            - Automatic documentation
+          signals: []
+          features:
+            - async_support
+            - type_hints
+            - auto_docs
+            - high_performance
+
+        django:
+          default: false
+          description: "Batteries-included Python framework"
+          use_when:
+            - Admin interface needed
+            - Rapid development
+            - ORM preference
+            - Monolithic backend
+          signals:
+            - django
+            - admin
+            - batteries
+            - rapid_backend
+            - monolithic
+          features:
+            - admin_interface
+            - orm_included
+            - auth_system
+            - middleware
+
+      database:
+        postgresql:
+          default: true
+          orm: sqlalchemy
+          host: neon
+          description: "Standard PostgreSQL for microservices"
+          use_when:
+            - Complex queries needed
+            - ACID compliance
+            - JSON support
+          signals: []
+          features:
+            - json_support
+            - advanced_queries
+            - concurrent_access
+
+        mysql:
+          default: false
+          orm: sqlalchemy
+          host: planetscale
+          description: "MySQL for microservices"
+          use_when:
+            - MySQL preference
+            - PlanetScale features
+          signals:
+            - mysql
+            - planetscale
+          features:
+            - branching
+            - connection_pooling
+
+    deploy:
+      frontend: vercel
+      backend: railway
+      database: neon
+
+    structure:
+      root: /
+      frontend: src/frontend
+      backend: src/backend
+      shared: src/shared
+      infra: infra
+      docker: docker
+      scripts: scripts
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - database-developer
+        - backend-developer
+        - frontend-developer
+        - integration-engineer
+        - qa-engineer
+        - technical-writer
+        - devops-engineer
+      skipped: []
+
+    validation:
+      required_signals: [persistent_data, python_ml_compute]
+
+  # ==========================================================================
+  # CLI PRESETS
+  # ==========================================================================
+
+  cli-script:
+    category: cli
+    pattern: script
+    tier: single
+    files: 1-3
+    description: "Single-file CLI script"
+
+    use_when:
+      - Quick one-off utility
+      - Single purpose tool
+      - No installation needed
+      - Simple automation
+      - File processing
+
+    signals:
+      positive:
+        - cli
+        - script
+        - automation
+        - utility
+      negative:
+        - multiple_commands
+        - interactive_tui
+        - complex_cli
+
+    stack:
+      runtime:
+        default: node
+      language:
+        default: typescript
+      runner:
+        default: tsx
+      framework: null
+
+    options:
+      runtime:
+        node:
+          default: true
+          language: typescript
+          runner: tsx
+          description: "Node.js with TypeScript"
+          use_when:
+            - JavaScript ecosystem
+            - NPM packages needed
+            - Rapid development
+          signals: []
+          features:
+            - npm_ecosystem
+            - type_safety
+            - fast_execution
+
+        python:
+          default: false
+          language: python
+          runner: python
+          description: "Python script"
+          use_when:
+            - Data processing
+            - Scientific computing
+            - System administration
+          signals:
+            - python
+            - py
+            - data
+            - science
+            - admin
+          features:
+            - rich_stdlib
+            - data_libraries
+            - cross_platform
+
+        deno:
+          default: false
+          language: typescript
+          runner: deno
+          description: "Deno runtime"
+          use_when:
+            - Security-first
+            - No npm needed
+            - Built-in TypeScript
+          signals:
+            - deno
+            - security
+            - typescript_native
+          features:
+            - secure_by_default
+            - built_in_typescript
+            - web_apis
+
+        bun:
+          default: false
+          language: typescript
+          runner: bun
+          description: "Bun runtime"
+          use_when:
+            - Maximum performance
+            - All-in-one tooling
+          signals:
+            - bun
+            - fast
+            - performance
+            - all_in_one
+          features:
+            - ultra_fast
+            - built_in_bundler
+            - npm_compatible
+
+    distribution: null
+
+    deploy: null
+
+    structure:
+      root: /
+      source: src
+      entry: src/index.ts
+      types: src/types.ts
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - backend-developer
+        - technical-writer
+      skipped:
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - devops-engineer
+        - qa-engineer
+
+    validation:
+      required_signals: [cli]
+      forbidden_signals: [multiple_commands, interactive_tui]
+
+  # --------------------------------------------------------------------------
+
+  cli-tool:
+    category: cli
+    pattern: package
+    tier: single
+    files: 5-20
+    description: "Installable CLI tool with multiple commands"
+
+    use_when:
+      - Reusable tool
+      - Multiple subcommands
+      - Needs global installation
+      - Command suite
+      - Developer tooling
+
+    signals:
+      positive:
+        - cli
+        - multiple_commands
+        - tool
+        - commands
+        - installable
+      negative:
+        - interactive_tui
+
+    stack:
+      runtime:
+        default: node
+      language:
+        default: typescript
+      framework:
+        default: commander
+      bundler:
+        default: tsup
+
+    options:
+      runtime:
+        node:
+          default: true
+          language: typescript
+          frameworks:
+            - commander
+            - yargs
+            - oclif
+          description: "Node.js with TypeScript"
+          use_when:
+            - JavaScript ecosystem
+            - Rich CLI frameworks
+            - NPM distribution
+          signals: []
+
+        python:
+          default: false
+          language: python
+          frameworks:
+            - typer
+            - click
+            - argparse
+          description: "Python CLI development"
+          use_when:
+            - Data processing tools
+            - System utilities
+            - Scientific tools
+          signals:
+            - python
+            - data
+            - system
+            - scientific
+
+        go:
+          default: false
+          language: go
+          frameworks:
+            - cobra
+            - cli
+          description: "Go single binary CLI"
+          use_when:
+            - Single binary distribution
+            - System tools
+            - Performance critical
+          signals:
+            - go
+            - golang
+            - single_binary
+            - system
+            - performance
+
+        rust:
+          default: false
+          language: rust
+          frameworks:
+            - clap
+          description: "Rust high-performance CLI"
+          use_when:
+            - Maximum performance
+            - System programming
+            - Memory safety
+          signals:
+            - rust
+            - performance
+            - system
+            - memory_safe
+
+      framework:
+        commander:
+          default: true
+          runtime: node
+          description: "Simple, popular CLI framework"
+          use_when:
+            - Simple command structure
+            - Git-style commands
+            - Rapid development
+          signals: []
+
+        yargs:
+          default: false
+          runtime: node
+          description: "Feature-rich argument parsing"
+          use_when:
+            - Complex argument parsing
+            - Many options and flags
+            - Configuration files
+          signals:
+            - complex_args
+            - many_options
+            - config_files
+
+        oclif:
+          default: false
+          runtime: node
+          description: "Framework for large CLIs"
+          use_when:
+            - Enterprise applications
+            - Plugin architecture
+            - Team development
+          signals:
+            - plugins
+            - enterprise
+            - extensible
+            - large_cli
+
+        typer:
+          default: false
+          runtime: python
+          description: "Modern Python CLI with type hints"
+          use_when:
+            - Type-safe development
+            - Modern Python
+            - Intuitive APIs
+          signals:
+            - python
+
+        click:
+          default: false
+          runtime: python
+          description: "Decorator-based Python CLI"
+          use_when:
+            - Decorator pattern
+            - Flask-style development
+          signals:
+            - python
+            - flask_style
+            - decorators
+
+        cobra:
+          default: false
+          runtime: go
+          description: "Standard Go CLI framework"
+          use_when:
+            - Go ecosystem
+            - kubectl-style commands
+          signals:
+            - go
+
+        clap:
+          default: false
+          runtime: rust
+          description: "Rust CLI with derive macros"
+          use_when:
+            - Compile-time validation
+            - Zero-cost abstractions
+          signals:
+            - rust
+
+    distribution:
+      npm: true
+      pypi: true
+      cargo: true
+      binary: optional
+
+    deploy: null
+
+    structure:
+      root: /
+      source: src
+      entry: src/index.ts
+      commands: src/commands
+      lib: src/lib
+      types: src/types
+      bin: bin
+      tests: tests
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - backend-developer
+        - qa-engineer
+        - technical-writer
+      skipped:
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - devops-engineer
+
+    validation:
+      required_signals: [cli, multiple_commands]
+      forbidden_signals: [interactive_tui]
+
+  # --------------------------------------------------------------------------
+
+  cli-tui:
+    category: cli
+    pattern: application
+    tier: single
+    files: 20+
+    description: "Interactive terminal UI application"
+
+    use_when:
+      - Interactive terminal interface
+      - Rich visual display
+      - Keyboard navigation
+      - Terminal dashboards
+      - File managers
+
+    signals:
+      positive:
+        - cli
+        - interactive_tui
+        - interactive
+        - tui
+        - terminal_ui
+        - dashboard
+
+    stack:
+      runtime:
+        default: node
+      language:
+        default: typescript
+      framework:
+        default: ink
+      bundler:
+        default: tsup
+
+    options:
+      runtime:
+        node:
+          default: true
+          language: typescript
+          frameworks:
+            - ink
+            - blessed
+          description: "Node.js TUI development"
+          use_when:
+            - React-like development
+            - Component architecture
+            - NPM ecosystem
+          signals: []
+
+        python:
+          default: false
+          language: python
+          frameworks:
+            - textual
+            - rich
+            - urwid
+          description: "Python TUI development"
+          use_when:
+            - Data visualization
+            - System monitoring
+            - Admin tools
+          signals:
+            - python
+            - data
+            - monitoring
+
+        go:
+          default: false
+          language: go
+          frameworks:
+            - bubbletea
+            - tview
+          description: "Go TUI development"
+          use_when:
+            - Single binary distribution
+            - System utilities
+            - Performance needs
+          signals:
+            - go
+            - system
+            - performance
+
+        rust:
+          default: false
+          language: rust
+          frameworks:
+            - ratatui
+            - crossterm
+          description: "Rust TUI development"
+          use_when:
+            - Maximum performance
+            - Memory efficiency
+            - System programming
+          signals:
+            - rust
+            - performance
+            - system
+
+      framework:
+        ink:
+          default: true
+          runtime: node
+          description: "React for the command line"
+          use_when:
+            - React developers
+            - Component-based UI
+            - JSX syntax
+          signals: []
+
+        blessed:
+          default: false
+          runtime: node
+          description: "Low-level terminal UI"
+          use_when:
+            - Full control needed
+            - Custom layouts
+            - Performance critical
+          signals:
+            - low_level
+            - custom
+            - performance
+
+        textual:
+          default: false
+          runtime: python
+          description: "Modern Python TUI framework"
+          use_when:
+            - CSS-like styling
+            - Reactive programming
+            - Rich widgets
+          signals:
+            - python
+
+        bubbletea:
+          default: false
+          runtime: go
+          description: "Elm-inspired Go TUI framework"
+          use_when:
+            - Functional programming
+            - State management
+            - Composable architecture
+          signals:
+            - go
+
+        ratatui:
+          default: false
+          runtime: rust
+          description: "Rust terminal UI framework"
+          use_when:
+            - Low-level control
+            - High performance
+            - Memory efficiency
+          signals:
+            - rust
+
+    distribution:
+      npm: true
+      pypi: true
+      cargo: true
+      binary: optional
+
+    deploy: null
+
+    structure:
+      root: /
+      source: src
+      entry: src/index.tsx
+      components: src/components
+      hooks: src/hooks
+      lib: src/lib
+      types: src/types
+      styles: src/styles
+      bin: bin
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - backend-developer
+        - qa-engineer
+        - technical-writer
+      skipped:
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - devops-engineer
+
+    validation:
+      required_signals: [cli, interactive_tui]
+
+# ============================================================================
+# GLOBAL CONFIGURATION
+# ============================================================================
+
+selection_algorithm:
+  version: "1.0"
+  priority_order:
+    1: command_flags      # --preset, --db, --auth (highest priority)
+    2: config_overrides   # preferences.yaml overrides
+    3: signal_matching    # detected signals from idea
+    4: preset_defaults    # fallback to preset defaults (lowest priority)
+
+validation:
+  required_fields: [category, pattern, tier, description, signals, stack, agents]
+  signal_types: [positive, negative]
+  agent_types: [used, skipped]

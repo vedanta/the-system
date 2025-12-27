@@ -52,6 +52,31 @@ database:
   queue: redis
 
 # ----------------------------------------------------------------------------
+# ARCHITECTURE SELECTION (NEW)
+# ----------------------------------------------------------------------------
+architecture:
+  # Enable KISS auto-selection (default: true)
+  auto_select: true
+
+  # Default preset if auto-selection is ambiguous
+  default_preset: fullstack-js
+
+  # Lock to specific preset (uncomment to force)
+  # preset: microservice
+
+  # Stack overrides (apply to any preset)
+  # stack:
+  #   database:
+  #     type: mysql
+  #   auth:
+  #     provider: clerk
+
+  # CLI-specific overrides
+  # cli:
+  #   runtime: python
+  #   framework: typer
+
+# ----------------------------------------------------------------------------
 # BACKEND
 # ----------------------------------------------------------------------------
 backend:
