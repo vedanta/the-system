@@ -1,8 +1,14 @@
-# Build Presets - Quick Reference
+# Build Presets + Stage Skipping - Quick Reference
 
-## 🚀 Three Commands You Need
+## 🚀 Essential Commands
 
 ```bash
+# ULTRA-FAST ARCHITECTURE (1-2 min) - Design exploration only
+/ts-turbo arch-study "todo app" --build-skip-stage=product --build-skip-stage=development
+
+# LIGHTNING PROTOTYPE (1-2 min) - Skip product planning
+/ts-turbo quick-demo "todo app" --build=prototype --build-skip-stage=product
+
 # PROTOTYPE (3-5 min) - Working code, minimal polish
 /ts-turbo demo-app "todo app prototype" --build=prototype
 
@@ -17,9 +23,21 @@
 
 | Mode | Time | Use When | You Get |
 |------|------|----------|---------|
+| **🏃‍♂️ Architecture Only** | **1-2 min** | Design exploration, feasibility | System design, tech decisions |
+| **⚡ Lightning Prototype** | **1-2 min** | Ultra-fast demos | Working app, no planning overhead |
 | **🚀 Prototype** | **3-5 min** | Demos, rapid testing | Working app, basic features |
 | **📦 MVP** | **15-20 min** | Real launches, clients | Production-ready, professional |
 | **🏢 Production** | **45-60 min** | Enterprise, critical systems | Full compliance, optimization |
+
+## 🎛️ Stage Skipping
+
+Skip specific workflow stages for ultimate control:
+
+| Skip Flag | Saves | Use Case |
+|-----------|-------|----------|
+| `--build-skip-stage=product` | 3-5 min | Skip planning, go straight to development |
+| `--build-skip-stage=development` | 10-20 min | Architecture + docs only |
+| `--build-skip-stage=release` | 5-10 min | Code without documentation |
 
 ## 🎯 Auto-Detection Keywords
 
@@ -29,7 +47,13 @@
 ## 🔥 Fastest Builds
 
 ```bash
-# Absolute fastest (1-3 min)
+# Absolute fastest - architecture only (1-2 min)
+/ts-turbo arch-fast "payment system" --build-skip-stage=product --build-skip-stage=development
+
+# Lightning prototype (1-2 min)
+/ts-turbo lightning "simple app" --build=prototype --build-skip-stage=product
+
+# Fast static site (1-3 min)
 /ts-turbo landing "simple website" --build=prototype --preset=static
 
 # Fast full-stack (3-5 min)
@@ -39,10 +63,15 @@
 ## 🎛️ All Options
 
 ```bash
-/ts-turbo [name] "[description]" --build=[prototype|mvp|production] --preset=[preset-name]
+/ts-turbo [name] "[description]" \
+  --build=[prototype|mvp|production] \
+  --preset=[preset-name] \
+  --build-skip-stage=[stage-name]
 ```
 
-**Presets:** `static`, `embedded`, `cli-tool`, `fullstack-js`, `baas`, `microservice`
+**Build Presets:** `prototype`, `mvp`, `production`
+**Architecture Presets:** `static`, `embedded`, `cli-tool`, `fullstack-js`, `baas`, `microservice`
+**Skip Stages:** `product`, `development`, `release` (can use multiple times)
 
 ## 📊 What You Get
 
@@ -78,4 +107,17 @@
 
 ---
 
-**🎉 Start here:** `/ts-turbo my-test "simple app prototype" --build=prototype`
+## 🎉 Getting Started
+
+```bash
+# Start with ultra-fast architecture exploration (1-2 min):
+/ts-turbo my-first-arch "simple app" --build-skip-stage=product --build-skip-stage=development
+
+# Try lightning prototype (1-2 min):
+/ts-turbo my-lightning "simple app" --build=prototype --build-skip-stage=product
+
+# Then standard prototype (3-5 min):
+/ts-turbo my-test "simple app prototype" --build=prototype
+```
+
+**💡 Pro Tip:** Combine `--build=prototype --build-skip-stage=product` for **20x faster** project generation!

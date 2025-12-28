@@ -33,6 +33,16 @@
 - **Override Flags:** [none or list of --flag=value pairs]
 - **Flag Source:** [ts-new-project or ts-turbo command]
 
+### Stage Skip Overrides
+- **Skipped Stages:** [none or list: product, development, release, golive]
+- **Skip Method:** [CLI flag: --build-skip-stage]
+- **Dependency Warnings:** [none or list of dependency concerns]
+- **Applied Overrides:**
+  - Product Stage: [normal/SKIPPED]
+  - Development Stage: [normal/SKIPPED]
+  - Release Stage: [normal/SKIPPED]
+  - Go Live Stage: [normal/SKIPPED]
+
 ---
 
 ## ⏱️ Performance Metrics

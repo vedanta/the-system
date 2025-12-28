@@ -5,7 +5,7 @@ Initialize a new project and start the intake process with Founder-Advisor.
 ## Usage
 
 ```
-/ts-new-project <project-name> [--build=preset] [--preset=arch] [--option=value]
+/ts-new-project <project-name> [--build=preset] [--preset=arch] [--build-skip-stage=stage] [--option=value]
 ```
 
 ### Examples
@@ -22,6 +22,10 @@ Initialize a new project and start the intake process with Founder-Advisor.
 
 # With technology overrides
 /ts-new-project business-app --build=production --db=postgresql --auth=clerk
+
+# Skip specific stages for custom workflows
+/ts-new-project rapid-proto --build-skip-stage=product
+/ts-new-project dev-test --build-skip-stage=product --build-skip-stage=release
 ```
 
 ## Steps
@@ -30,6 +34,7 @@ Initialize a new project and start the intake process with Founder-Advisor.
    - Extract project name: first argument
    - Parse build preset flag: `--build=prototype|mvp|production`
    - Parse architecture preset flag: `--preset=static|embedded|fullstack-js|etc`
+   - Parse stage skip flags: `--build-skip-stage=product|development|release|golive`
    - Parse technology flags: `--db=`, `--auth=`, `--runtime=`, `--framework=`
 
 2. Copy `.claude/pipeline/projects/TEMPLATE.md` to `.claude/pipeline/projects/$ARGUMENTS.md`
@@ -41,7 +46,7 @@ Initialize a new project and start the intake process with Founder-Advisor.
 4. **Store CLI Flags (if provided):**
    - In "Handoff Notes for Architecture" section, add:
      ```
-     Override Flags: --build=prototype --preset=static --db=sqlite
+     Override Flags: --build=prototype --preset=static --build-skip-stage=product --db=sqlite
      ```
    - This enables enterprise-architect to use overrides in Step 1
 

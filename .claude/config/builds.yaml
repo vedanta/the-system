@@ -13,10 +13,10 @@
 
 version: "1.0"
 meta:
-  total_builds: 3
+  total_builds: 4
   signal_types: [explicit, performance, scope, intent]
   last_updated: "2024-12-28"
-  validation_combinations: 24  # 3 builds × 8 architecture presets
+  validation_combinations: 32  # 4 builds × 8 architecture presets
 
 # ============================================================================
 # BUILD PRESETS

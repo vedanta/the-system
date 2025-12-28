@@ -54,10 +54,15 @@ Before ANY architecture work, read:
 Check for explicit overrides in priority order:
 
 1. **Command Flag Overrides** (highest priority)
-   - Look for `--build=`, `--preset=`, `--db=`, `--auth=`, `--runtime=`, `--framework=` flags in project file
+   - Look for `--build=`, `--preset=`, `--build-skip-stage=`, `--db=`, `--auth=`, `--runtime=`, `--framework=` flags in project file
    - **Build flag processing:**
      - If `--build=prototype|mvp|production` exists: Use specified build preset
      - Store build selection for Step 4 (Agent Intersection)
+   - **Stage skip flag processing (NEW):**
+     - If `--build-skip-stage=<stage>` flags exist: Extract all skip stages
+     - Validate stage names: only `product`, `development`, `release`, `golive` allowed
+     - If `architecture` skip attempted: ERROR "❌ Cannot skip architecture stage (safety constraint)"
+     - Store skip overrides for Step 4a processing (apply after build preset selection)
    - **Architecture flag processing:**
      - If `--preset=` override exists: Use specified preset, SKIP to Step 3
      - If option overrides exist: Note for Step 3 processing
@@ -142,6 +147,35 @@ PRESET SELECTION DECISION TREE:
 ```
 
 **Default Fallback:** If signals are ambiguous, use `preferences.yaml` default_preset (typically fullstack-js).
+
+#### Step 4a: Apply Stage Skip Overrides (NEW)
+
+**Override build preset stage modes with explicit skip flags:**
+
+```
+1. Start with build preset's default stage_modes from builds.yaml
+2. Apply skip overrides from Step 1:
+   - If --build-skip-stage=product → Set stage_modes.product = skip
+   - If --build-skip-stage=development → Set stage_modes.development = skip
+   - If --build-skip-stage=release → Set stage_modes.release = skip
+   - If --build-skip-stage=golive → Set stage_modes.go_live = skip
+
+3. Validate and warn about dependency issues:
+   ⚠️ Show warnings but respect user override:
+   - If skipping product but development=standard → WARN: "Development stage may need product artifacts"
+   - If skipping development but release=standard → WARN: "Release stage may need development artifacts"
+   - If skipping release but go_live planned → WARN: "Deployment may need release artifacts"
+
+4. Display final stage configuration:
+   📋 Stage Execution Plan:
+   - Architecture: [compressed/standard/full] (cannot be skipped)
+   - Product: [skip/minimal/standard/full]
+   - Development: [skip/minimal/standard/full]
+   - Release: [skip/lite/standard/full]
+   - Go Live: [skip/standard/full]
+```
+
+**Result:** Updated stage_modes that override build preset defaults with user skip preferences.
 
 #### Step 4: Agent Intersection Logic (NEW - Build Presets)
 

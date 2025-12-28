@@ -6,7 +6,16 @@ Engage the Principal Developer to create the implementation plan.
 
 1. Read the active project file from `.claude/pipeline/projects/`
 
-2. Gate Check:
+2. Stage Skip Check (NEW):
+   - Read project file Build Configuration section
+   - Check if Development stage mode is set to 'skip'
+   - If Development stage = skip:
+     - Update Development Department Status to `SKIPPED`
+     - Add to Audit Log: "Development stage skipped per CLI override (--build-skip-stage=development)"
+     - Display: "⏭️ Development stage skipped. Proceeding to Release stage."
+     - STOP execution (do not run development agents)
+
+3. Gate Check:
    - Verify "🚦 GREEN LIGHT" is checked in Product Department
    - If not: "⛔ Cannot start development. GREEN LIGHT required."
 

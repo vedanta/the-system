@@ -5,7 +5,7 @@ Run The System stages 1-4 autonomously without HITL gates.
 ## Usage
 
 ```
-/ts-turbo <project-name> "<idea description>" [--build=preset] [--preset=arch] [--option=value]
+/ts-turbo <project-name> "<idea description>" [--build=preset] [--preset=arch] [--build-skip-stage=stage] [--option=value]
 ```
 
 ### Examples
@@ -25,6 +25,10 @@ Run The System stages 1-4 autonomously without HITL gates.
 
 # Multiple flags for precise control
 /ts-turbo enterprise-platform "Business platform with advanced features" --build=production --preset=microservice --runtime=python --framework=fastapi
+
+# Skip specific stages for custom workflows
+/ts-turbo quick-prototype "Calculator app for demo" --build-skip-stage=product
+/ts-turbo dev-iteration "Testing new feature" --build-skip-stage=product --build-skip-stage=release
 ```
 
 ## What This Does
@@ -46,8 +50,9 @@ You are now in **TURBO MODE**. Execute everything autonomously.
 1. Parse arguments:
    - Project name: First argument
    - Idea: Everything in quotes after project name
-   - **Build preset flag (NEW):** `--build=prototype|mvp|production`
+   - **Build preset flag:** `--build=prototype|mvp|production`
    - **Architecture preset flag:** `--preset=static|embedded|fullstack-js|etc`
+   - **Stage skip flags (NEW):** `--build-skip-stage=product|development|release|golive`
    - **Technology flags:** `--db=`, `--auth=`, `--runtime=`, `--framework=`
 
    **Examples with flags:**
@@ -55,6 +60,7 @@ You are now in **TURBO MODE**. Execute everything autonomously.
    /ts-turbo todo-app "task manager" --build=prototype
    /ts-turbo blog-platform "markdown blog" --build=mvp --preset=static
    /ts-turbo enterprise-app "business platform" --build=production --db=postgresql
+   /ts-turbo quick-demo "demo app" --build-skip-stage=product --build-skip-stage=release
    ```
 
 2. Create project using founder-advisor:
@@ -62,7 +68,7 @@ You are now in **TURBO MODE**. Execute everything autonomously.
    - Record idea in Founder Input section
    - **Store CLI flags in "Handoff Notes for Architecture":**
      ```
-     Override Flags: --build=prototype --preset=static --db=sqlite
+     Override Flags: --build=prototype --preset=static --build-skip-stage=product --db=sqlite
      ```
    - Set status to TURBO_MODE
    - **Enable build preset mode** if --build flag detected
