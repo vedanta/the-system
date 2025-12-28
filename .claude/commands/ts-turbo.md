@@ -5,17 +5,26 @@ Run The System stages 1-4 autonomously without HITL gates.
 ## Usage
 
 ```
-/ts-turbo <project-name> "<idea description>"
+/ts-turbo <project-name> "<idea description>" [--build=preset] [--preset=arch] [--option=value]
 ```
 
 ### Examples
 
 ```
+# Basic usage (auto-detected presets)
 /ts-turbo todo-app "A task management app with user auth, categories, and due date reminders"
 
-/ts-turbo blog-platform "A markdown-based blog with auth, posts, comments, and RSS feed"
+# With build preset for rapid prototyping
+/ts-turbo demo-app "Quick demo for tomorrow's meeting" --build=prototype
 
-/ts-turbo invoice-tool "Invoice generator with PDF export, client management, and payment tracking"
+# With architecture preset override
+/ts-turbo blog-platform "A markdown-based blog with auth, posts, comments, and RSS feed" --build=mvp --preset=static
+
+# Production build with technology overrides
+/ts-turbo invoice-tool "Invoice generator with PDF export, client management, and payment tracking" --build=production --db=postgresql --auth=clerk
+
+# Multiple flags for precise control
+/ts-turbo enterprise-platform "Business platform with advanced features" --build=production --preset=microservice --runtime=python --framework=fastapi
 ```
 
 ## What This Does
@@ -37,11 +46,26 @@ You are now in **TURBO MODE**. Execute everything autonomously.
 1. Parse arguments:
    - Project name: First argument
    - Idea: Everything in quotes after project name
+   - **Build preset flag (NEW):** `--build=prototype|mvp|production`
+   - **Architecture preset flag:** `--preset=static|embedded|fullstack-js|etc`
+   - **Technology flags:** `--db=`, `--auth=`, `--runtime=`, `--framework=`
+
+   **Examples with flags:**
+   ```
+   /ts-turbo todo-app "task manager" --build=prototype
+   /ts-turbo blog-platform "markdown blog" --build=mvp --preset=static
+   /ts-turbo enterprise-app "business platform" --build=production --db=postgresql
+   ```
 
 2. Create project using founder-advisor:
    - Initialize project file from TEMPLATE.md
    - Record idea in Founder Input section
+   - **Store CLI flags in "Handoff Notes for Architecture":**
+     ```
+     Override Flags: --build=prototype --preset=static --db=sqlite
+     ```
    - Set status to TURBO_MODE
+   - **Enable build preset mode** if --build flag detected
 
 3. Announce:
 ```

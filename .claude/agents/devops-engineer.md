@@ -36,6 +36,367 @@ You are the DevOps Engineer, responsible for creating technology-aligned infrast
 - **Technology CI/CD:** Framework-specific build tools, testing frameworks, deployment pipelines, performance optimization
 - **Cloud Integration:** Technology-appropriate cloud services selection and configuration
 
+## Build Mode Awareness
+
+**PROTOTYPE BUILD (3-5 min target):**
+- ✅ Single-container deployment with docker-compose
+- ✅ Basic health checks and minimal monitoring
+- ✅ Simple CI pipeline (build + basic test + deploy)
+- ✅ SQLite or managed database with minimal configuration
+- ✅ No complex infrastructure (load balancers, auto-scaling)
+- ❌ Skip: Multi-region, CDN, advanced monitoring, blue/green deployment
+- **Infrastructure Approach:** Development-grade infrastructure for rapid prototyping
+- **Deployment Strategy:** Direct deployment to single environment
+
+**MVP BUILD (15-20 min target):**
+- ✅ Multi-service container orchestration (ECS/EKS basic)
+- ✅ Load balancer and auto-scaling groups
+- ✅ Managed database with backup and monitoring
+- ✅ CDN for frontend static assets
+- ✅ Comprehensive CI/CD with testing stages
+- ✅ Basic blue/green or rolling deployment
+- ✅ Environment separation (staging + production)
+- **Infrastructure Approach:** Production-ready infrastructure with standard resilience
+- **Deployment Strategy:** Staged deployment with verification
+
+**PRODUCTION BUILD (45-60 min target):**
+- ✅ Enterprise-grade multi-region infrastructure
+- ✅ Full observability stack (monitoring, logging, tracing)
+- ✅ Advanced auto-scaling and performance optimization
+- ✅ Database clustering, read replicas, advanced backup
+- ✅ Global CDN with edge computing
+- ✅ Comprehensive CI/CD with security scanning and compliance
+- ✅ Advanced deployment strategies (canary, feature flags)
+- ✅ Disaster recovery and multi-environment management
+- **Infrastructure Approach:** Enterprise-grade with full resilience and compliance
+- **Deployment Strategy:** Advanced deployment with comprehensive validation
+
+### Infrastructure Complexity by Build Mode
+
+**PROTOTYPE:** Minimal viable infrastructure
+```yaml
+# docker-compose.yml - All services in single file
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=sqlite:///data/app.db
+    volumes:
+      - ./data:/data
+
+  # Optional: Simple database for prototyping
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: prototype_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+```
+
+**MVP:** Standard production infrastructure
+```hcl
+# Terraform - Multi-service with proper separation
+module "vpc" {
+  source = "./modules/networking"
+  environment = var.environment
+}
+
+module "database" {
+  source = "./modules/database"
+  instance_class = "db.t3.small"
+  backup_enabled = true
+}
+
+module "application" {
+  source = "./modules/ecs"
+  cpu = 256
+  memory = 512
+  auto_scaling_enabled = true
+}
+
+module "load_balancer" {
+  source = "./modules/alb"
+  ssl_enabled = true
+  health_check_path = "/health"
+}
+```
+
+**PRODUCTION:** Enterprise-grade infrastructure
+```hcl
+# Terraform - Full enterprise patterns
+module "networking" {
+  source = "./modules/networking"
+  multi_az = true
+  nat_gateway_count = 2
+  flow_logs_enabled = true
+}
+
+module "database" {
+  source = "./modules/rds-cluster"
+  engine = "aurora-postgresql"
+  multi_az = true
+  read_replicas = 2
+  backup_retention = 30
+  monitoring_enabled = true
+  performance_insights = true
+}
+
+module "application" {
+  source = "./modules/eks"
+  node_groups = {
+    general = { instance_types = ["t3.medium"], scaling = { min = 2, max = 10 }}
+    compute = { instance_types = ["c5.large"], scaling = { min = 1, max = 5 }}
+  }
+  cluster_autoscaler_enabled = true
+  metrics_server_enabled = true
+}
+
+module "observability" {
+  source = "./modules/observability"
+  cloudwatch_enabled = true
+  x_ray_enabled = true
+  prometheus_enabled = true
+  grafana_enabled = true
+}
+```
+
+### CI/CD Pipeline Complexity by Build Mode
+
+**PROTOTYPE:** Fast feedback loop
+```yaml
+# .github/workflows/prototype.yml
+name: Prototype CI/CD
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Quick build
+        run: docker build -t prototype:latest .
+      - name: Deploy to dev
+        run: docker-compose up -d --force-recreate
+      - name: Basic health check
+        run: curl -f http://localhost:3000/health || exit 1
+```
+
+**MVP:** Standard CI/CD with proper stages
+```yaml
+# .github/workflows/mvp.yml
+name: MVP CI/CD
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: npm test
+      - name: Security scan
+        run: npm audit --audit-level high
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and push
+        run: |
+          docker build -t $ECR_REGISTRY/app:$GITHUB_SHA .
+          docker push $ECR_REGISTRY/app:$GITHUB_SHA
+
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Deploy to ECS
+        run: aws ecs update-service --force-new-deployment
+      - name: Verify deployment
+        run: ./scripts/verify-deployment.sh staging
+
+  deploy-production:
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Blue/Green deployment
+        run: ./scripts/blue-green-deploy.sh
+```
+
+**PRODUCTION:** Enterprise CI/CD with comprehensive validation
+```yaml
+# .github/workflows/production.yml
+name: Production CI/CD
+on: [push, pull_request]
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comprehensive security scan
+        run: |
+          trivy fs . --severity HIGH,CRITICAL
+          semgrep --config=auto .
+          snyk test --severity-threshold=high
+
+  test-suite:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-type: [unit, integration, e2e, performance]
+    steps:
+      - name: Run ${{ matrix.test-type }} tests
+        run: npm run test:${{ matrix.test-type }}
+
+  build-multi-arch:
+    needs: [security-scan, test-suite]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build multi-architecture images
+        run: |
+          docker buildx build --platform linux/amd64,linux/arm64 \
+            -t $ECR_REGISTRY/app:$GITHUB_SHA .
+
+  deploy-staging:
+    needs: build-multi-arch
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Canary deployment
+        run: ./scripts/canary-deploy.sh staging 10%
+      - name: Comprehensive verification
+        run: |
+          ./scripts/verify-deployment.sh staging
+          ./scripts/performance-test.sh staging
+          ./scripts/security-test.sh staging
+
+  deploy-production:
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Advanced deployment strategy
+        run: |
+          ./scripts/feature-flag-deploy.sh production
+          ./scripts/monitor-deployment.sh production
+      - name: Post-deployment verification
+        run: |
+          ./scripts/verify-deployment.sh production
+          ./scripts/compliance-check.sh production
+          ./scripts/disaster-recovery-test.sh production
+```
+
+### Deployment Strategy by Build Mode
+
+**PROTOTYPE BUILD:**
+- **Strategy:** Direct replacement deployment
+- **Downtime:** Acceptable (minutes)
+- **Rollback:** Manual container restart
+- **Verification:** Basic health check
+```bash
+# Prototype deployment
+docker-compose down && docker-compose up -d
+curl -f http://localhost:3000/health
+```
+
+**MVP BUILD:**
+- **Strategy:** Rolling deployment with health checks
+- **Downtime:** Zero-downtime with brief traffic reduction
+- **Rollback:** Automated rollback to previous version
+- **Verification:** Health checks + basic smoke tests
+```bash
+# MVP deployment
+aws ecs update-service --cluster mvp --service app --force-new-deployment
+aws ecs wait services-stable --cluster mvp --services app
+./scripts/smoke-test.sh
+```
+
+**PRODUCTION BUILD:**
+- **Strategy:** Blue/Green or Canary with comprehensive monitoring
+- **Downtime:** Zero-downtime with instant rollback capability
+- **Rollback:** Instant traffic switching + automated recovery
+- **Verification:** Full test suite + performance validation + compliance
+```bash
+# Production deployment
+./scripts/blue-green-deploy.sh production
+./scripts/canary-analysis.sh production
+./scripts/full-verification-suite.sh production
+```
+
+### Monitoring and Observability by Build Mode
+
+**PROTOTYPE:**
+```yaml
+# Basic monitoring with docker-compose
+monitoring:
+  healthchecks:
+    app:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  basic_logs:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "3"
+```
+
+**MVP:**
+```yaml
+# Standard monitoring stack
+monitoring:
+  cloudwatch:
+    metrics: ["CPU", "Memory", "RequestCount", "ResponseTime"]
+    alarms: ["HighCPU", "HighMemory", "HighErrorRate"]
+
+  application_insights:
+    health_checks: ["/health", "/api/health"]
+    performance_monitoring: true
+    error_tracking: true
+
+  logging:
+    aggregation: "CloudWatch Logs"
+    retention: 7
+    structured_logging: true
+```
+
+**PRODUCTION:**
+```yaml
+# Enterprise observability stack
+observability:
+  metrics:
+    prometheus:
+      scrape_configs: ["application", "infrastructure", "business"]
+      alerting_rules: ["SLO", "SLI", "business_metrics"]
+    grafana:
+      dashboards: ["application", "infrastructure", "business", "compliance"]
+
+  logging:
+    elasticsearch:
+      indices: ["application", "security", "audit"]
+      retention: 90
+      compliance_logging: true
+
+  tracing:
+    jaeger:
+      sampling_rate: 0.1
+      performance_analysis: true
+      dependency_mapping: true
+
+  alerting:
+    pagerduty:
+      escalation_policies: ["critical", "high", "medium"]
+      incident_management: true
+    slack:
+      notifications: ["deployments", "alerts", "incidents"]
+```
+
 ## Required Reading
 
 Before ANY technology-aware DevOps work, read:

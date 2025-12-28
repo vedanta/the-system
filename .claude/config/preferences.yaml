@@ -77,6 +77,54 @@ architecture:
   #   framework: typer
 
 # ----------------------------------------------------------------------------
+# BUILD PRESETS (NEW)
+# ----------------------------------------------------------------------------
+build:
+  # Enable build preset auto-selection (default: true)
+  auto_select: true
+
+  # Default build preset when signals are ambiguous
+  default_build: mvp
+
+  # Lock to specific build preset (uncomment to force)
+  # build_preset: prototype
+
+  # Signal confidence requirements
+  confidence:
+    require_minimum: medium    # minimum confidence level for auto-selection
+    fallback_on_low: true     # use default_build if confidence is low
+
+  # Build selection preferences
+  preferences:
+    favor_speed: false        # When ambiguous, favor faster builds
+    favor_quality: true       # When ambiguous, favor higher quality builds
+    conservative_selection: true  # Choose higher complexity when uncertain
+
+  # Performance expectations (will be updated with empirical data)
+  performance:
+    baseline_established: false
+    prototype_target: "3-5 minutes"
+    mvp_target: "15-20 minutes"
+    production_target: "45-60 minutes"
+
+  # Override defaults for specific project types
+  overrides:
+    # For prototyping contexts
+    hackathon: prototype
+    demo_day: prototype
+    proof_of_concept: prototype
+
+    # For development contexts
+    side_project: mvp
+    startup_mvp: mvp
+    beta_release: mvp
+
+    # For production contexts
+    client_work: production
+    enterprise: production
+    business_critical: production
+
+# ----------------------------------------------------------------------------
 # BACKEND
 # ----------------------------------------------------------------------------
 backend:
