@@ -13,6 +13,7 @@ Transform your ideas into production-ready software with 18 specialized AI agent
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
+  <img src="https://img.shields.io/badge/License-LGPL--3.0-lightgreen?style=for-the-badge" alt="LGPL-3.0 License"/>
 </p>
 
 ---
@@ -1074,6 +1075,76 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 ---
 
+## Philosophy
+
+The System is built on these principles:
+
+1. **You are the Founder** — AI agents work for you, not the other way around
+2. **Human-in-the-Loop** — Critical decisions require your approval
+3. **Specialized Agents** — Each agent has deep expertise in their domain
+4. **Living Documentation** — The project file is always the source of truth
+5. **Flexible Workflow** — Skip stages, customize processes, add your own agents
+6. **Production-Ready Output** — Generated code follows best practices
+7. **Progressive Autonomy** — Start supervised, go autonomous when comfortable
+
+---
+
+## Contributing
+
+Contributions welcome! Areas of interest:
+
+- New agents for specialized domains
+- Additional deployment targets
+- Workflow optimizations
+- Documentation improvements
+
+---
+
+## License
+
+### Project License
+
+This project is licensed under the **GNU Lesser General Public License v3.0 (LGPL-3.0)**.
+
+📄 **[Full License Text](LICENSE)** | 🔗 **[LGPL-3.0 Summary](https://choosealicense.com/licenses/lgpl-3.0/)**
+
+#### What this means:
+
+**✅ You CAN:**
+- Use The System commercially and privately
+- Modify and distribute The System
+- Link to The System from proprietary software
+- Use The System as a library in your projects
+
+**📋 You MUST:**
+- Include license and copyright notice
+- State changes made to The System
+- Disclose source code for modifications to The System itself
+- Keep The System components under LGPL-3.0
+
+**❌ Limitations:**
+- No warranty provided
+- No liability accepted
+- Must use same license for The System modifications
+
+### Contributing
+
+**🚨 Important for Contributors:**
+
+All contributions require acceptance of our **[Contributor License Agreement (CLA)](CLA.md)**.
+
+- **By submitting any pull request**, you automatically accept the CLA terms
+- **No separate signature required** — PR submission constitutes acceptance
+- **You retain copyright** to your contributions
+- **You grant us license** to use contributions in the project
+
+👉 **[Read Contributing Guidelines](CONTRIBUTING.md)** | 📋 **[Review CLA Terms](CLA.md)**
+
+### License Compatibility
+
+LGPL-3.0 allows The System to be used in both open-source and proprietary projects while ensuring that improvements to The System itself remain open source.
+
+---
 <p align="center">
   <strong>The System</strong><br/>
   <em>ASDO — Autonomous Software Development Organization</em><br/>
