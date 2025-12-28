@@ -909,7 +909,47 @@ Contributions welcome! Areas of interest:
 
 ## License
 
-MIT
+### Project License
+
+This project is licensed under the **GNU Lesser General Public License v3.0 (LGPL-3.0)**.
+
+📄 **[Full License Text](LICENSE)** | 🔗 **[LGPL-3.0 Summary](https://choosealicense.com/licenses/lgpl-3.0/)**
+
+#### What this means:
+
+**✅ You CAN:**
+- Use The System commercially and privately
+- Modify and distribute The System
+- Link to The System from proprietary software
+- Use The System as a library in your projects
+
+**📋 You MUST:**
+- Include license and copyright notice
+- State changes made to The System
+- Disclose source code for modifications to The System itself
+- Keep The System components under LGPL-3.0
+
+**❌ Limitations:**
+- No warranty provided
+- No liability accepted
+- Must use same license for The System modifications
+
+### Contributing
+
+**🚨 Important for Contributors:**
+
+All contributions require acceptance of our **[Contributor License Agreement (CLA)](CLA.md)**.
+
+- **By submitting any pull request**, you automatically accept the CLA terms
+- **No separate signature required** — PR submission constitutes acceptance
+- **You retain copyright** to your contributions
+- **You grant us license** to use contributions in the project
+
+👉 **[Read Contributing Guidelines](CONTRIBUTING.md)** | 📋 **[Review CLA Terms](CLA.md)**
+
+### License Compatibility
+
+LGPL-3.0 allows The System to be used in both open-source and proprietary projects while ensuring that improvements to The System itself remain open source.
 
 ---
 
