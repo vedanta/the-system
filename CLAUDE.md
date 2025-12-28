@@ -437,7 +437,7 @@ the-system/
 ├── DEVELOPMENT-CONTEXT.md  # Development handoff notes
 ├── .env.example            # Environment template
 ├── .gitignore             # Git ignore rules
-└── verify-the-system.sh   # Installation verification
+└── scripts/verify-the-system.sh   # Installation verification
 ```
 
 ---
@@ -499,7 +499,7 @@ Instructions for the agent...
 
 3. **Add to verification script:**
 ```bash
-# Add to verify-the-system.sh
+# Add to scripts/verify-the-system.sh
 "my-agent" # in appropriate stage section
 ```
 
@@ -535,7 +535,7 @@ What this command does.
 
 3. **Add to verification script:**
 ```bash
-# Add to verify-the-system.sh
+# Add to scripts/verify-the-system.sh
 "ts-my-command" # in appropriate section
 ```
 
@@ -567,7 +567,7 @@ claude
 4. **Test thoroughly:**
 ```bash
 # Run verification
-./verify-the-system.sh
+./scripts/verify-the-system.sh
 
 # Test with real project
 claude
@@ -579,7 +579,7 @@ claude
 
 ```bash
 # Quick verification
-./verify-the-system.sh
+./scripts/verify-the-system.sh
 
 # Full framework test
 claude
@@ -661,7 +661,7 @@ claude
 |------|---------|
 | `DEVELOPMENT-CONTEXT.md` | Development handoff notes |
 | `docs/` | Generated comprehensive documentation |
-| `verify-the-system.sh` | Installation verification script |
+| `scripts/verify-the-system.sh` | Installation verification script |
 | `README.md` | User-facing documentation |
 
 ### Project Output
@@ -676,7 +676,7 @@ claude
 
 ```bash
 # Framework verification
-./verify-the-system.sh
+./scripts/verify-the-system.sh
 
 # See all components
 ls -la .claude/agents/    # 18 agents

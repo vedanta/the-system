@@ -12,7 +12,7 @@ input/
 # PROJECT FILES (active projects - not part of system)
 # ----------------------------------------------------------------------------
 .claude/pipeline/projects/*.md
-.claude/pipeline/projects/*.md.*
+.claude/pipeline/projects/*.*.*
 !.claude/pipeline/projects/TEMPLATE.md
 
 # ----------------------------------------------------------------------------
