@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/badge/Commands-44-green?style=for-the-badge" alt="44 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
+  <img src="https://img.shields.io/badge/License-LGPL--3.0-orange?style=for-the-badge" alt="LGPL-3.0 License"/>
 </p>
 
 ---
