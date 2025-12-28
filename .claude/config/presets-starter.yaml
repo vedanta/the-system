@@ -1,0 +1,370 @@
+# ============================================================================
+# THE SYSTEM - Architecture Presets (Starter Implementation)
+# ============================================================================
+# This is a starter version demonstrating the structure.
+# Full implementation would include all 8 presets with ~2,800 lines.
+# ============================================================================
+
+presets:
+
+  # ==========================================================================
+  # WEB PRESETS
+  # ==========================================================================
+
+  static:
+    category: web
+    pattern: jamstack
+    tier: single
+    deployables: 1
+    description: "Static site with no backend or database"
+
+    use_when:
+      - No user accounts or authentication
+      - No persistent data storage
+      - Content-only (marketing, docs, portfolio)
+
+    signals:
+      negative:
+        - persistent_data
+        - auth
+        - database
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: static-export
+        language: typescript
+        styling: tailwind
+      backend: null
+      database: null
+      auth: null
+
+    options: {}  # No options for static
+
+    deploy:
+      frontend: vercel
+
+    structure:
+      root: /
+      frontend: src/app
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - frontend-developer
+        - technical-writer
+      skipped:
+        - database-developer
+        - backend-developer
+        - integration-engineer
+        - devops-engineer
+        - qa-engineer
+
+  # --------------------------------------------------------------------------
+
+  embedded:
+    category: web
+    pattern: monolith
+    tier: single
+    deployables: 1
+    description: "Web app with embedded database"
+
+    use_when:
+      - Simple persistence needs
+      - Low to medium traffic
+      - Single-user or small user base
+
+    signals:
+      positive:
+        - persistent_data
+      negative:
+        - python_ml_compute
+        - realtime_core
+        - multi_user_ha
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: app-router
+        language: typescript
+        styling: tailwind
+      backend:
+        runtime: node
+        framework: nextjs-api-routes
+        location: src/app/api
+      database:
+        default: sqlite
+        orm_default: drizzle
+      auth:
+        default: nextauth
+        optional: true
+
+    options:
+      database:
+        sqlite:
+          default: true
+          orm: drizzle
+          host: local
+          description: "General purpose embedded database"
+          use_when:
+            - General CRUD operations
+            - Single-region deployment
+          signals: []
+
+        duckdb:
+          default: false
+          orm: drizzle
+          host: local
+          description: "Analytics-focused embedded DB"
+          use_when:
+            - Analytics workloads
+            - Read-heavy queries
+            - CSV/Parquet processing
+          signals:
+            - analytics
+            - dashboard
+            - reports
+            - csv
+            - parquet
+            - olap
+            - data processing
+
+      auth:
+        nextauth:
+          default: true
+          description: "Self-hosted, flexible auth"
+          use_when:
+            - Standard auth needs
+            - Multiple providers
+          signals: []
+
+        clerk:
+          default: false
+          description: "Managed auth with drop-in UI"
+          use_when:
+            - Prefer managed solution
+            - Want pre-built UI components
+          signals:
+            - managed auth
+            - drop-in
+            - dont want to build auth
+            - hosted auth
+
+        none:
+          default: false
+          description: "No authentication"
+          use_when:
+            - Public app
+            - No user accounts needed
+          signals:
+            - no auth
+            - public
+            - no users
+            - no login
+
+    deploy:
+      frontend: vercel
+
+    structure:
+      root: /
+      frontend: src/app
+      api: src/app/api
+      database: db
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - technical-writer
+      skipped:
+        - backend-developer
+        - devops-engineer
+        - qa-engineer
+
+  # --------------------------------------------------------------------------
+
+  fullstack-js:
+    category: web
+    pattern: monolith
+    tier: two
+    deployables: 2
+    default: true  # This is the DEFAULT preset for web apps
+    description: "Full-stack JavaScript with managed PostgreSQL"
+
+    use_when:
+      - Standard CRUD applications
+      - Multi-user with concurrent access
+      - Need managed database service
+
+    signals:
+      positive:
+        - persistent_data
+        - multi_user_ha
+      negative:
+        - python_ml_compute
+        - realtime_core
+
+    stack:
+      frontend:
+        framework: nextjs
+        version: "14"
+        mode: app-router
+        language: typescript
+        styling: tailwind
+        state: zustand
+        data-fetching: tanstack-query
+      backend:
+        runtime: node
+        framework: nextjs-api-routes
+        location: src/app/api
+      database:
+        default: postgresql
+        orm_default: prisma
+      auth:
+        default: nextauth
+
+    options:
+      database:
+        postgresql:
+          default: true
+          orm: prisma
+          host: neon
+          description: "Standard PostgreSQL"
+          use_when:
+            - General purpose
+            - ACID compliance needed
+          signals: []
+
+        mysql:
+          default: false
+          orm: prisma
+          host: planetscale
+          description: "MySQL compatible"
+          use_when:
+            - MySQL ecosystem preference
+            - PlanetScale preference
+          signals:
+            - mysql
+            - planetscale
+            - mariadb
+
+      auth:
+        nextauth:
+          default: true
+          description: "Self-hosted, flexible"
+          signals: []
+
+        clerk:
+          default: false
+          description: "Managed auth with UI"
+          signals:
+            - managed auth
+            - drop-in
+            - hosted auth
+
+    deploy:
+      frontend: vercel
+      database: neon
+
+    structure:
+      root: /
+      frontend: src/app
+      api: src/app/api
+      database: prisma
+      components: src/components
+      lib: src/lib
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - qa-engineer
+        - technical-writer
+      skipped:
+        - backend-developer
+        - devops-engineer
+
+  # ==========================================================================
+  # CLI PRESETS (Basic Examples)
+  # ==========================================================================
+
+  cli-script:
+    category: cli
+    pattern: script
+    tier: single
+    files: 1-3
+    description: "Single-file CLI script"
+
+    use_when:
+      - Quick one-off utility
+      - Single purpose tool
+      - No installation needed
+
+    signals:
+      positive:
+        - cli
+      negative:
+        - multiple_commands
+        - interactive_tui
+
+    stack:
+      runtime:
+        default: node
+      language:
+        default: typescript
+      runner:
+        default: tsx
+
+    options:
+      runtime:
+        node:
+          default: true
+          language: typescript
+          runner: tsx
+          description: "Node.js with TypeScript"
+          signals: []
+
+        python:
+          default: false
+          language: python
+          runner: python
+          description: "Python script"
+          signals:
+            - python
+            - py
+
+    distribution: null
+
+    structure:
+      root: /
+      source: src
+      entry: src/index.ts
+
+    agents:
+      used:
+        - founder-advisor
+        - enterprise-architect
+        - backend-developer
+        - technical-writer
+      skipped:
+        - database-developer
+        - frontend-developer
+        - integration-engineer
+        - devops-engineer
+        - qa-engineer
+
+# Note: Full implementation would include:
+# - baas preset (Supabase/Firebase)
+# - microservice preset (Python backend)
+# - cli-tool preset (Multi-command CLI)
+# - cli-tui preset (Interactive terminal UI)
+# Total: ~2,800 lines with complete option definitions

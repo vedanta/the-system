@@ -121,10 +121,11 @@ The System includes strategic approval checkpoints where human judgment is essen
 - MVP features are fully functional
 
 **Prerequisites (Must Be Complete):**
-- ✅ QA Engineer final sign-off
-- ✅ Build verification passed (TypeScript, compilation)
+- ✅ **`/ts-validate` PASSED** (comprehensive build validation)
+- ✅ QA Engineer final sign-off (`/ts-signoff`)
+- ✅ Build verification passed (TypeScript compilation, ESLint, full build)
 - ✅ Test coverage meets requirements (80% unit, 70% integration)
-- ✅ Principal Developer quality review passed
+- ✅ Principal Developer quality review passed (`/ts-gate`)
 
 **Your Review Focus:**
 - Are all MVP features implemented as specified?
@@ -203,12 +204,12 @@ The System includes strategic approval checkpoints where human judgment is essen
 - Backend syntax errors
 - Dependency resolution failures
 
-**Resolution Process:**
-1. Use `/ts-fix` for systematic error diagnosis
-2. Resolve compilation errors
-3. Fix dependency conflicts
-4. Verify with `/ts-validate`
-5. Proceed with QA review
+**Enhanced Resolution Process:**
+1. **Comprehensive Diagnosis**: Use `/ts-fix scan` for full error analysis
+2. **Targeted Fixing**: Apply `/ts-fix typescript` or `/ts-fix dependencies` as needed
+3. **Full Fix**: Use `/ts-fix` for complete systematic resolution
+4. **Validation**: Verify with `/ts-validate` for comprehensive build verification
+5. **Re-test**: Ensure `/ts-validate` passes before requesting QA review
 
 ---
 
@@ -296,9 +297,10 @@ The System includes strategic approval checkpoints where human judgment is essen
 - Consider security part of development timeline
 
 **QA Blocks:**
-- Address systematically - don't rush fixes
-- Use `/ts-fix` for build issues
-- Ensure fixes don't introduce new problems
+- **Systematic Resolution**: Use `/ts-fix scan` to understand full scope first
+- **Targeted Fixes**: Apply specific modes (`/ts-fix typescript`, `/ts-fix dependencies`) for efficiency
+- **Comprehensive Validation**: Always run `/ts-validate` after fixes to ensure no new issues
+- **Verification Required**: `/ts-validate` must pass before requesting re-review
 
 ---
 
