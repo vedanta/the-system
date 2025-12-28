@@ -1,202 +1,460 @@
-# The System Documentation
+# The System User Documentation
+**Complete Guide to Using The ASDO Framework**
 
-**ASDO — Autonomous Software Development Organization**
-
-> *An AI-powered software company in your terminal*
+> *Learn how to use The System to build production-ready software with AI agents*
 
 ---
 
 ## Overview
 
-**The System** is a comprehensive framework that simulates a complete software development organization with 18 specialized AI agents across 5 departments. It orchestrates the entire software development lifecycle from concept to production deployment and operations.
+This documentation provides everything you need to understand and use **The System** — an Autonomous Software Development Organization (ASDO) that orchestrates 18 specialized AI agents across 5 departments to transform your ideas into production-ready software.
 
-### Framework Statistics
+### What You'll Find Here
 
-- **Agents:** 18 specialized AI personas
-- **Commands:** 44 slash commands
-- **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
-- **HITL Gates:** 8 critical approval checkpoints
-- **Platforms:** 13+ managed deployment targets
-
----
-
-## Documentation Index
-
-| Document | Description | Contents |
-|----------|-------------|----------|
-| **[Architecture](architecture.md)** | How The System works internally | System design, data flow, directory structure, core concepts |
-| **[Agents](agents.md)** | Complete agents reference | All 18 agents by department with roles, tools, and responsibilities |
-| **[Commands](commands.md)** | Complete commands reference | All 44 commands organized by stage with usage and parameters |
-| **[Workflow](workflow.md)** | Stage-by-stage implementation guide | Step-by-step workflow from project inception to production |
-| **[HITL Gates](hitl-gates.md)** | Human-in-the-loop approval system | All approval gates, what you're approving, and blocking conditions |
-| **[Configuration](configuration.md)** | System configuration options | preferences.yaml and integrations.yaml documentation |
-| **[Customization](customization.md)** | Extending The System | How to add agents, commands, and modify workflows |
+This user documentation covers:
+- Complete agent reference and workflows
+- All 44 commands with examples and usage
+- Step-by-step workflow guides
+- Human-in-the-loop approval system
+- Configuration options and customization
+- Architecture concepts and design principles
 
 ---
 
-## Quick Reference
+## 📖 Documentation Index
 
-### Core Commands
-```bash
-/ts-new-project my-app        # Start new project
-/ts-status                    # Check current status
-/ts-approve <gate>           # Approve at HITL gates
-/ts-turbo my-app "idea"      # Autonomous mode (bypass gates)
-```
-
-### Workflow Overview
-```
-Stage 1: Architecture    → /ts-architect
-Stage 2: Product         → /ts-product → /ts-plan → /ts-analyze
-Stage 3: Development     → /ts-develop → /ts-build → /ts-integrate
-Stage 4: Release         → /ts-docs → /ts-security → /ts-release
-Stage 5: Go Live         → /ts-push → /ts-monitor → /ts-alerts
-```
-
-### Key Approval Gates
-```
-/ts-approve architecture-start    # Begin design
-/ts-approve architecture-lock     # Lock technical decisions
-/ts-approve green-light          # 🚦 Approve for development
-/ts-approve development          # Code complete
-/ts-approve release              # Release package ready
-/ts-approve launch              # 🚀 Go live!
-```
+| Document | Description | When to Use |
+|----------|-------------|-------------|
+| **[Architecture Guide](user/architecture.md)** | How The System works internally | Understanding system design, data flow, and core concepts |
+| **[Agent Reference](user/agents.md)** | Complete guide to all 18 agents | Understanding agent roles, responsibilities, and capabilities |
+| **[Command Reference](user/commands.md)** | All 44 commands with examples | Finding specific commands and learning proper usage |
+| **[Workflow Guide](user/workflow.md)** | Step-by-step implementation process | Following the complete development lifecycle |
+| **[HITL Gates](user/hitl-gates.md)** | Human approval system documentation | Understanding approval points and decision making |
+| **[Configuration](user/configuration.md)** | System configuration options | Customizing tech stack and integrations |
+| **[Customization](user/customization.md)** | Extending The System | Adding agents, commands, and workflows |
 
 ---
 
-## Getting Started
+## 🚀 Quick Start Guide
 
-### 1. Installation Verification
+### 1. Prerequisites
+- **[Claude Code](https://claude.ai/code)** - The AI development environment
+- **Git** - For version control
+- **Node.js 18+** and/or **Python 3.10+** - Depending on your projects
+
+### 2. Installation
 ```bash
-./verify-the-system.sh
+# Clone or add as submodule
+git clone https://github.com/YOUR_USERNAME/the-system.git
+cd the-system
+
+# Verify installation
+./scripts/verify-the-system.sh
 ```
 
-### 2. Start Your First Project
+### 3. First Project
 ```bash
-# Launch Claude Code in The System directory
+# Start Claude Code
 claude
 
-# Create a new project
-> /ts-new-project my-awesome-app
+# Create your first project
+> /ts-new-project my-first-app
 
-# Describe your idea to the Founder-Advisor
-> "I want to build a task management app with AI-powered prioritization"
+# Describe your idea
+> "A simple blog with user authentication and content management"
 
-# Begin the workflow
+# Begin development
 > /ts-approve architecture-start
 ```
 
-### 3. Follow the Workflow
-The System will guide you through each stage with clear next steps and approval points.
+### 4. Follow the Workflow
+The System guides you through each stage:
+1. **Architecture** - System design and tech stack
+2. **Product** - MVP definition and business strategy
+3. **Development** - Implementation and testing
+4. **Release** - Documentation, security, and deployment
+5. **Operations** - Monitoring and live management
 
 ---
 
-## Architecture at a Glance
+## 🏗️ The Organization
+
+### Department Structure
 
 ```
-Human Founder (You)
-        │
-        ▼
-   🎩 Founder-Advisor ──────────── Strategic oversight
-        │
-        ├── 📐 Architecture Dept ── System design
-        ├── 📦 Product Dept      ── MVP & business analysis
-        ├── 💻 Development Dept  ── Implementation & QA
-        ├── 🚀 Release Dept      ── Docs, security, deployment
-        └── 🌐 Operations Dept   ── Monitoring & live ops
+🎩 Founder-Advisor (Chief of Staff)
+│
+├── 📐 Architecture Department
+│   └── 🏗️ Enterprise Architect
+│
+├── 📦 Product Department
+│   ├── 👔 Product Lead
+│   ├── 📅 Project Planner
+│   └── 💼 Business Analyst
+│
+├── 💻 Development Department
+│   ├── 👨‍💼 Principal Developer
+│   ├── 🧪 QA Engineer
+│   ├── 🗄️ Database Developer
+│   ├── ⚙️ Backend Developer
+│   ├── 🎨 Frontend Developer
+│   ├── 🔗 Integration Engineer
+│   └── 🐛 Bug Fixer (Utility)
+│
+├── 🚀 Release & Deployment Department
+│   ├── 📝 Technical Writer
+│   ├── 🔐 Security Engineer
+│   ├── 📦 Release Engineer
+│   └── 🚀 DevOps Engineer
+│
+└── 🌐 Operations Department
+    ├── 🚀 SRE Deploy Engineer
+    └── 🛡️ SRE Ops Engineer
 ```
 
-### Data Flow
-```
-Human Input → Command → Agent(s) → Project File Update → Human Review
-```
+### Key Capabilities
 
-### Project Tracking
-- All project state stored in `.claude/pipeline/projects/{project}.md`
-- Markdown-based, human-readable, version-controlled
-- Real-time status tracking and audit logs
+**🏗️ System Design**
+- Technology selection and architecture decisions
+- Performance and scalability planning
+- Integration strategy and API design
+
+**📦 Product Strategy**
+- MVP definition and scope management
+- User story creation and prioritization
+- Market analysis and business modeling
+
+**💻 Implementation**
+- Database design and development
+- Backend API and service creation
+- Frontend UI/UX implementation
+- Comprehensive testing and QA
+
+**🚀 Deployment**
+- Infrastructure as Code generation
+- CI/CD pipeline automation
+- Security scanning and compliance
+- Documentation and release management
+
+**🌐 Operations**
+- Quick deployment to managed platforms
+- Monitoring and alerting setup
+- Incident response and SLO management
 
 ---
 
-## Key Features
+## 🎮 Essential Commands
 
-### 🏢 **Organizational Structure**
-- Clear separation of concerns across 5 departments
-- Specialized agents with deep domain expertise
-- Proper handoffs between stages
-
-### 🚦 **Human-in-the-Loop Gates**
-- Critical decisions require your approval
-- You remain in control while agents do the work
-- Review outputs before proceeding to next stage
-
-### 📋 **Complete SDLC Coverage**
-- From idea validation to production monitoring
-- No gaps in the development lifecycle
-- Professional-grade outputs at every stage
-
-### 🔧 **Highly Customizable**
-- Add your own agents and commands
-- Modify workflows to fit your needs
-- Configure tech stack preferences
-
-### ⚡ **Autonomous Options**
-- Turbo Mode for rapid prototyping
-- Bypass approval gates when needed
-- Full audit trail maintained
-
-### 🚀 **Multiple Deployment Paths**
-- **Stage 4:** Full Infrastructure as Code (Terraform, CI/CD)
-- **Stage 5:** Quick deploy to managed platforms (Vercel, Railway, etc.)
-- Choose based on your needs and timeline
-
----
-
-## Philosophy
-
-The System is built on these core principles:
-
-1. **You are the Founder** — AI agents work for you, not the other way around
-2. **Human-in-the-Loop** — Critical decisions require your approval
-3. **Specialized Expertise** — Each agent has deep domain knowledge
-4. **Living Documentation** — Project state is always current and accessible
-5. **Flexible Workflow** — Skip stages, customize processes, add capabilities
-6. **Production-Ready** — Generated code follows best practices
-7. **Progressive Autonomy** — Start supervised, go autonomous when comfortable
-
----
-
-## Support
-
-- **Documentation:** You're reading it!
-- **Issues:** Report at [GitHub Issues](https://github.com/anthropics/claude-code/issues)
-- **Verification:** Run `./verify-the-system.sh` to check installation
-
----
-
-## Framework Directories
-
+### Core Project Management
+```bash
+/ts-new-project <name>        # Start new project
+/ts-status                    # Check project status
+/ts-brief                     # Get executive summary
+/ts-ask "<question>"          # Ask Founder-Advisor
 ```
-the-system/
-├── .claude/
-│   ├── agents/           # 18 agent definitions
-│   ├── commands/         # 44 command definitions
-│   ├── config/           # System preferences & integrations
-│   ├── knowledge/        # Architecture standards & templates
-│   └── pipeline/         # Project tracking (projects/)
-├── docs/                 # This documentation
-├── diagrams/             # Mermaid workflow diagrams
-├── output/               # Generated projects (ignored by git)
-├── input/                # External references (ignored by git)
-├── CLAUDE.md             # Main framework instructions
-└── README.md             # Framework overview
+
+### Stage Progression
+```bash
+# Stage 1: Architecture
+/ts-architect                 # Design system architecture
+/ts-approve architecture-lock # Lock technical decisions
+
+# Stage 2: Product
+/ts-product                   # Define MVP
+/ts-plan                      # Create roadmap
+/ts-analyze                   # Business analysis
+/ts-approve green-light       # Authorize development
+
+# Stage 3: Development
+/ts-develop                   # Implementation planning
+/ts-build <layer>            # Build database/backend/frontend
+/ts-integrate                 # Connect components
+/ts-signoff                   # QA approval
+/ts-approve development       # Ready for release
+
+# Stage 4: Release
+/ts-docs                      # Generate documentation
+/ts-security                  # Security scanning
+/ts-release                   # Create release package
+/ts-infra                     # Generate infrastructure
+/ts-pipeline                  # Create CI/CD
+/ts-deploy <env>             # Deploy to environment
+/ts-approve launch           # Go live!
+
+# Stage 5: Operations (Optional)
+/ts-push <target>            # Quick deploy to platforms
+/ts-monitor                   # Setup monitoring
+/ts-alerts                    # Configure alerting
 ```
+
+### Autonomous Mode
+```bash
+/ts-turbo <name> "<idea>"     # Run Stages 1-4 automatically
+/ts-turbo-quick <name> "<idea>" # Faster autonomous mode
+```
+
+### Utilities
+```bash
+/ts-fix                       # Fix build errors
+/ts-validate <layer>         # Run validation checks
+/ts-self-document            # Generate documentation
+```
+
+---
+
+## 🚦 Human-in-the-Loop Gates
+
+You maintain control at 8 critical decision points:
+
+| Gate | Command | Purpose |
+|------|---------|---------|
+| **Architecture Start** | `/ts-approve architecture-start` | Begin design phase |
+| **Architecture Lock** | `/ts-approve architecture-lock` | Lock technical decisions |
+| **🚦 Green Light** | `/ts-approve green-light` | **Authorize development** |
+| **Development Done** | `/ts-approve development` | Code complete |
+| **Release Ready** | `/ts-approve release` | Release package approved |
+| **Staging Verified** | `/ts-approve staging` | Staging deployment OK |
+| **Production Ready** | `/ts-approve production` | Production ready |
+| **🚀 Launch** | `/ts-approve launch` | **Go live!** |
+
+### Gate Philosophy
+- **Strategic Control** - You make the important decisions
+- **Quality Assurance** - Nothing proceeds with critical issues
+- **Flexible Workflow** - Skip or repeat stages as needed
+- **Audit Trail** - Complete history of all approvals
+
+---
+
+## 🔧 Configuration Options
+
+### Tech Stack Preferences
+Customize defaults in `.claude/config/preferences.yaml`:
+
+```yaml
+backend:
+  language: python              # python | typescript | go
+  framework: fastapi            # fastapi | django | express
+
+database:
+  primary: postgresql           # postgresql | mysql | mongodb
+
+frontend:
+  framework: nextjs             # nextjs | react | vue
+  language: typescript          # typescript | javascript
+  styling: tailwindcss          # tailwindcss | styled-components
+
+go_live:
+  targets:
+    frontend: vercel            # vercel | netlify | cloudflare
+    backend: railway            # railway | fly | render
+    database: neon              # neon | planetscale | supabase
+```
+
+### Service Integrations
+Configure external services in `.claude/config/integrations.yaml`:
+
+```yaml
+monitoring:
+  sentry:
+    enabled: true
+    dsn: ${SENTRY_DSN}
+
+communication:
+  slack:
+    enabled: true
+    channels:
+      alerts: "#alerts"
+
+authentication:
+  clerk:
+    enabled: true
+    publishable_key: ${CLERK_PUBLISHABLE_KEY}
+```
+
+---
+
+## 🚀 Quick Deploy Options
+
+### Frontend Platforms
+| Platform | Command | Free Tier | Best For |
+|----------|---------|-----------|----------|
+| **Vercel** | `/ts-push vercel` | ✅ | Next.js, React, Vue |
+| **Netlify** | `/ts-push netlify` | ✅ | JAMstack, static sites |
+| **Cloudflare** | `/ts-push cloudflare` | ✅ | Global CDN, edge |
+
+### Backend Platforms
+| Platform | Command | Free Tier | Best For |
+|----------|---------|-----------|----------|
+| **Railway** | `/ts-push railway` | ✅ Limited | Full-stack, DB included |
+| **Fly.io** | `/ts-push fly` | ✅ Limited | Global deployment |
+| **Render** | `/ts-push render` | ✅ Limited | Simple deployment |
+
+### Database Platforms
+| Platform | Command | Free Tier | Database Type |
+|----------|---------|-----------|---------------|
+| **Neon** | `/ts-push neon` | ✅ 3GB | PostgreSQL (serverless) |
+| **PlanetScale** | `/ts-push planetscale` | ✅ 5GB | MySQL (serverless) |
+| **Supabase** | `/ts-push supabase` | ✅ 500MB | PostgreSQL + Auth |
+
+---
+
+## 📋 Workflow Examples
+
+### Simple Project (Standard Mode)
+```bash
+/ts-new-project todo-app
+> "Todo app with auth and categories"
+/ts-approve architecture-start
+/ts-architect
+/ts-approve architecture-lock
+/ts-product
+/ts-plan
+/ts-analyze
+/ts-approve green-light
+/ts-develop
+/ts-build database
+/ts-build backend
+/ts-build frontend
+/ts-integrate
+/ts-signoff
+/ts-approve development
+/ts-docs
+/ts-security
+/ts-release
+/ts-approve launch
+```
+
+### Rapid Prototype (Turbo Mode)
+```bash
+/ts-turbo blog-platform "Personal blog with CMS, comments, and SEO"
+# → Automatically runs through Stages 1-4
+# → Review output in output/blog-platform/
+# → Deploy manually: /ts-push vercel
+```
+
+### Quick MVP Deployment
+```bash
+# After development complete
+/ts-approve development
+
+# Skip full IaC, deploy directly
+/ts-push neon          # Database
+/ts-push railway       # Backend
+/ts-push vercel        # Frontend
+/ts-live-status        # Check all deployments
+/ts-monitor            # Setup monitoring
+```
+
+---
+
+## 🔍 Getting Help
+
+### Built-in Help
+```bash
+/ts-ask "How do I add authentication?"
+/ts-ask "What's the current status?"
+/ts-brief                           # Executive summary
+/ts-status                          # Detailed status
+/ts-view architecture               # View specific sections
+```
+
+### Documentation Generation
+```bash
+/ts-self-document
+```
+Generates comprehensive documentation including:
+- Complete agent workflows
+- Command examples and usage
+- Configuration guides
+- Troubleshooting procedures
+
+### Health Checks
+```bash
+# Verify installation
+./scripts/verify-the-system.sh
+
+# Check component health
+/ts-validate database
+/ts-validate backend
+/ts-validate frontend
+
+# Fix issues
+/ts-fix                    # Auto-fix common issues
+/ts-fix typescript         # TypeScript-specific fixes
+/ts-fix dependencies       # Dependency conflicts
+```
+
+---
+
+## 🌟 Best Practices
+
+### Project Setup
+- **Use descriptive names** - `ecommerce-mvp` not `test-app`
+- **Provide context** - Put requirements in `input/` directory
+- **Start with MVP scope** - Expand in iterations
+- **Review HITL gates carefully** - You're making strategic decisions
+
+### Development Flow
+- **Learn with standard mode** - Understand the process first
+- **Use turbo for prototypes** - Rapid iteration and experimentation
+- **Stage 5 for MVPs** - Quick validation deployments
+- **Stage 4 for production** - Full infrastructure for serious apps
+
+### Quality Assurance
+- **Trust but verify** - Review generated code before deployment
+- **Test thoroughly** - Use generated tests and add custom ones
+- **Monitor actively** - Set up proper observability
+- **Document decisions** - Leverage built-in documentation generation
+
+---
+
+## 🔄 Philosophy
+
+**The System** is built on these core principles:
+
+### Human-Centric Design
+- **You are the founder** - Agents work for you
+- **Strategic control** - You make the important decisions
+- **Quality gates** - Nothing proceeds with critical issues
+
+### Specialized Expertise
+- **Domain experts** - Each agent has deep knowledge
+- **No context switching** - Agents maintain focus
+- **Coordinated execution** - Agents work together seamlessly
+
+### Production Ready
+- **Best practices** - Generated code follows standards
+- **Complete lifecycle** - From idea to production
+- **Flexible deployment** - Multiple paths to go live
+
+### Transparency
+- **Living documentation** - Always current project state
+- **Full audit trail** - Complete history of decisions
+- **No black boxes** - Everything is explainable
+
+---
+
+## 📞 Support & Community
+
+### Documentation
+- **Complete Reference** - This documentation covers everything
+- **Self-Generating** - Use `/ts-self-document` for fresh docs
+- **Architecture Guides** - Understand how everything works
+
+### Issue Reporting
+- **GitHub Issues** - [Report bugs and request features](https://github.com/anthropics/claude-code/issues)
+- **Verification** - Use `./scripts/verify-the-system.sh` for diagnostics
+- **Built-in Help** - Ask Founder-Advisor with `/ts-ask`
+
+### Community Resources
+- **Example Projects** - See various project types in action
+- **Configuration Patterns** - Common tech stack configurations
+- **Deployment Guides** - Multiple deployment strategy examples
 
 ---
 
 <p align="center">
-  <strong>The System</strong><br/>
-  <em>ASDO — Autonomous Software Development Organization</em><br/>
-  <sub>Transform ideas into production-ready software with AI agents</sub>
+  <strong>The System User Documentation</strong><br/>
+  <em>Complete Guide to the ASDO Framework</em><br/>
+  <sub>Everything you need to build production-ready software with AI agents</sub>
 </p>

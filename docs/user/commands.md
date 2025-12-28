@@ -1,10 +1,10 @@
 # The System Commands Reference
 
-> Complete reference for all 43 commands in the Autonomous Software Development Organization
+> Complete reference for all 44 commands in the Autonomous Software Development Organization
 
 ## Overview
 
-The System provides 43 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
+The System provides 44 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
 
 ## Command Categories
 
@@ -13,10 +13,10 @@ The System provides 43 commands that orchestrate the entire software development
 | **Core Project Lifecycle** | 8 | Project management and coordination |
 | **Stage 1: Architecture** | 1 | System design and technical decisions |
 | **Stage 2: Product** | 3 | MVP definition and business planning |
-| **Stage 3: Development** | 9 | Code implementation and testing |
+| **Stage 3: Development** | 7 | Code implementation and testing |
 | **Stage 4: Release & Deployment** | 8 | Documentation, security, and deployment |
 | **Stage 5: Go Live & Operations** | 12 | Quick deploy and monitoring |
-| **Autonomous Modes** | 2 | Fully automated development |
+| **Utility Commands** | 5 | Error fixing, validation, and autonomous modes |
 
 ---
 
@@ -558,40 +558,73 @@ Next: Wait for frontend completion, then run /ts-integrate
 
 ---
 
-### `/ts-validate`
+### `/ts-validate [layer]`
 
-**Purpose**: Validate all outputs and ensure completion.
+**Purpose**: Run automated build validation to catch errors before production. **REQUIRED** before `/ts-signoff`.
 
 **Agent**: QA Engineer
 
 **Usage**:
 ```bash
-/ts-validate
+/ts-validate                    # Validate all (frontend + backend)
+/ts-validate frontend           # Frontend only (TypeScript, ESLint, build, tests)
+/ts-validate backend            # Backend only (syntax, types, lint, tests)
+/ts-validate [project-name]     # Specific project
 ```
 
-**Process**: Comprehensive validation of all Stage 3 deliverables.
+**Enhanced Validation Process**:
+
+**Frontend Validation**:
+- **Dependency Installation**: Clean install with conflict resolution
+- **TypeScript Check**: Catches duplicate members, type mismatches (`npx tsc --noEmit`)
+- **ESLint Validation**: Code quality and style enforcement
+- **Build Verification**: Full compilation test (`npm run build`)
+- **Test Execution**: Unit and integration test suite
+
+**Backend Validation**:
+- **Environment Setup**: Virtual environment and dependency installation
+- **Syntax Check**: Python syntax validation (`py_compile`)
+- **Type Check**: MyPy static type analysis
+- **Code Quality**: Ruff linting and formatting
+- **Test Suite**: Pytest execution with coverage
+
+**Comprehensive Reporting**:
+- **Detailed Status**: Pass/fail for each validation step
+- **Error Details**: Specific file locations and error descriptions
+- **Performance Metrics**: Build times and test counts
+- **Next Steps**: Clear guidance on required fixes
 
 ---
 
-### `/ts-fix`
+### `/ts-fix [type]`
 
-**Purpose**: Fix build errors and code issues.
+**Purpose**: Systematically diagnose and fix build errors, TypeScript issues, dependency conflicts, and other code problems.
 
-**Agent**: Bug Fixer
+**Agent**: Bug Fixer (Utility)
 
 **Usage**:
 ```bash
-/ts-fix
+/ts-fix                    # Full diagnostic + fix all issues
+/ts-fix typescript         # TypeScript errors only
+/ts-fix dependencies       # Dependency conflicts only
+/ts-fix lint              # Lint violations only (auto-fix)
+/ts-fix scan              # Diagnostic only, no fixes
 ```
 
-**Process**:
-1. Comprehensive error diagnosis
-2. Categorization of issues
-3. Systematic fix implementation
-4. Build verification
-5. Progress reporting
+**Enhanced Capabilities**:
+- **Systematic Error Classification**: Categorizes errors by type for targeted fixing
+- **Selective Fixing Modes**: Target specific issue types for faster resolution
+- **Build Verification**: Ensures fixes don't introduce new problems
+- **Comprehensive Reporting**: Detailed before/after analysis with fix summary
 
-**Common Fixes**:
+**Process**:
+1. **Diagnostic Scan**: Analyze all error types and counts
+2. **Categorization**: Group errors by TypeScript codes (TS2564, TS2300, etc.)
+3. **Prioritized Fixing**: Fix in optimal order (dependencies → duplicates → types)
+4. **Verification**: Confirm build success and error elimination
+5. **Detailed Reporting**: Show before/after status with fix details
+
+**Fix Categories**:
 - TypeScript errors
 - Dependency conflicts
 - Build failures
@@ -1065,6 +1098,51 @@ Next: Wait for frontend completion, then run /ts-integrate
 3. Status level configuration
 4. Auto-update integration
 5. Incident template creation
+
+---
+
+## Utility Commands
+
+### `/ts-turbo-quick <name> "<idea>"`
+
+**Purpose**: Fast autonomous development mode with optimized workflow.
+
+**Agent**: Coordinated Multi-Agent
+
+**Usage**:
+```bash
+/ts-turbo-quick blog "Personal blog with CMS"
+```
+
+**Differences from Standard Turbo**:
+- Streamlined architecture decisions
+- Simplified MVP scope
+- Faster code generation
+- Basic deployment configuration
+
+**Process**: Accelerated Stages 1-4 with reduced complexity and faster execution.
+
+---
+
+### `/ts-self-document`
+
+**Purpose**: Generate comprehensive framework documentation from current configuration.
+
+**Agent**: System Documentation
+
+**Usage**:
+```bash
+/ts-self-document
+```
+
+**Generated Documentation**:
+- Complete agent reference with current capabilities
+- All command documentation with examples
+- Workflow guides and best practices
+- Configuration options and customization guides
+- Architecture documentation and diagrams
+
+**Output Location**: Updates all files in `docs/` directory with current framework state.
 
 ---
 

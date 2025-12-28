@@ -686,42 +686,50 @@ The System employs 18 specialized AI agents (17 production + 1 utility) organize
 
 ### Bug Fixer
 
-**Role**: Standalone utility agent for systematic diagnosis and fixing of build errors and code issues.
+**Role**: Standalone utility agent for systematic diagnosis and fixing of build errors, TypeScript issues, dependency conflicts, and code problems.
 
-**Expertise**:
-- TypeScript error diagnosis and resolution
-- Dependency conflict resolution
-- Build failure investigation
-- Lint error correction
-- Systematic debugging methodologies
+**Enhanced Expertise**:
+- **Systematic Error Classification**: Categorizes errors by TypeScript codes for targeted fixing
+- **Multi-Mode Operation**: Supports full, TypeScript-only, dependencies-only, lint-only, and scan-only modes
+- **Prioritized Fix Ordering**: Applies fixes in optimal sequence (dependencies → duplicates → types)
+- **Comprehensive Reporting**: Detailed before/after analysis with specific fix documentation
+- **Build Verification**: Ensures fixes don't introduce new problems
 
 **Key Responsibilities**:
-- Diagnose build failures and TypeScript errors
-- Fix dependency conflicts and version issues
-- Resolve linting and formatting problems
-- Restore broken builds to working state
-- Document fixes for future reference
+- **Diagnostic Scanning**: Comprehensive error analysis and classification
+- **Targeted Fixing**: Mode-specific error resolution (TypeScript, dependencies, lint)
+- **Progress Verification**: Continuous validation during fix process
+- **Detailed Reporting**: Clear before/after status with fix summaries
+- **Knowledge Documentation**: Maintain fix patterns for common issues
 
 **Tools**: Read, Write, Grep, Bash
 
-**Usage**: Called when things break - not part of the main workflow.
+**Usage**: Emergency utility - called when builds break or validation fails.
 
-**Philosophy**:
-1. **Diagnose First**: Understand full scope before fixing
-2. **Quick Wins First**: Fix easy issues to reduce noise
-3. **Verify Constantly**: Check progress after each fix
-4. **Log Everything**: Document problems and solutions
-5. **Targeted Fixes**: Make precise changes, don't break more
+**Enhanced Capabilities**:
 
-**Common Fix Categories**:
-- Missing type dependencies
-- Uninitialized class properties (TS2564)
-- Duplicate identifiers (TS2300)
-- Type mismatches (TS2322, TS2345)
-- Import/export issues (TS1205, TS2305)
-- Dependency conflicts (ERESOLVE)
+**Operating Modes**:
+- **`/ts-fix`**: Full diagnostic and comprehensive fixing
+- **`/ts-fix typescript`**: TypeScript errors only (TS2564, TS2300, etc.)
+- **`/ts-fix dependencies`**: Dependency conflicts and missing packages
+- **`/ts-fix lint`**: ESLint violations with auto-fix
+- **`/ts-fix scan`**: Diagnostic only, no changes
 
-**Commands**: `/ts-fix`
+**Systematic Fix Process**:
+1. **Error Census**: Count and categorize all issues by type
+2. **Priority Ordering**: Fix dependencies first, then duplicates, then types
+3. **Incremental Fixing**: Apply fixes in batches with verification
+4. **Progress Tracking**: Show error reduction after each fix category
+5. **Final Verification**: Confirm build success and zero errors
+
+**Advanced Fix Patterns**:
+- **Duplicate Member Resolution**: Rename conflicts systematically
+- **Uninitialized Property Fixes**: Add definite assignment or default values
+- **Type Guard Implementation**: Handle union type access safely
+- **Re-export Corrections**: Add `type` keywords for isolatedModules
+- **Dependency Installation**: Install missing @types packages automatically
+
+**Commands**: `/ts-fix [type]`
 
 ---
 

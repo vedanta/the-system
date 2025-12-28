@@ -829,16 +829,44 @@ Transform product specifications into working, tested software.
 - **APPROVED**: Ready for final QA sign-off
 - **FEEDBACK**: Issues to address before approval
 
-### Step 8: Final QA Sign-off
+### Step 8: Build Validation (MANDATORY)
 
 ```bash
-# QA Engineer final validation and sign-off
+# Comprehensive build validation - REQUIRED before sign-off
+/ts-validate
+```
+
+**Enhanced Validation Process**:
+- **Frontend Validation**: TypeScript compilation, ESLint checks, build verification, tests
+- **Backend Validation**: Python syntax, type checking, linting, tests
+- **Comprehensive Reporting**: Detailed pass/fail status with error locations
+- **Fix Integration**: Use `/ts-fix` for any validation failures
+
+**If Validation Fails**:
+```bash
+# Fix issues systematically
+/ts-fix                    # Full diagnostic and fix
+# OR target specific issues:
+/ts-fix typescript         # TypeScript errors only
+/ts-fix dependencies       # Dependency conflicts only
+
+# Re-validate after fixes
+/ts-validate
+
+# Proceed only when validation passes
+```
+
+### Step 9: Final QA Sign-off
+
+```bash
+# QA Engineer final sign-off - only after validation passes
 /ts-signoff
 ```
 
-**Pre-Sign-off Checklist** (ALL REQUIRED):
-- [ ] **Build Verification**: All code compiles and builds
-- [ ] **Test Execution**: All tests pass
+**Pre-Sign-off Requirements** (ALL MANDATORY):
+- [ ] **`/ts-validate` PASSED**: No compilation, build, or test failures
+- [ ] **Build Verification**: All code compiles and builds successfully
+- [ ] **Test Execution**: All tests pass with adequate coverage
 - [ ] **Coverage**: Unit tests ≥80%, Integration ≥70%
 - [ ] **Quality**: No critical/high bugs
 - [ ] **Standards**: Code quality standards met
