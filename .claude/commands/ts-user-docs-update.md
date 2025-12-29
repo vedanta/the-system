@@ -9,35 +9,49 @@ Maintains user-facing documentation accuracy and generates quickstart guides fol
 /ts-user-docs-update --counts-only      # Update counts
 /ts-user-docs-update --links-only       # Validate links
 /ts-user-docs-update --quickstart       # Generate quickstart
+/ts-user-docs-update --structure-only   # Validate progressive disclosure structure
+/ts-user-docs-update --principles-only  # Validate documentation principles compliance
 ```
 
 ## Process
 1. Scan user-facing documentation files
 2. Update agent/command counts automatically
 3. Validate internal links and cross-references
-4. Update reference tables and quick guides
-5. Generate/update QUICKSTART.md with 5-minute onboarding flow
-6. Flag issues requiring manual review
+4. Validate progressive disclosure structure (README → USER-GUIDE → Tutorials)
+5. Validate documentation principles compliance (direct, functional, minimal prose)
+6. Update reference tables and quick guides
+7. Generate/update QUICKSTART.md with 5-minute onboarding flow
+8. Flag issues requiring manual review
 
 ## Files in Scope
-- README.md (main project docs)
+- README.md (streamlined welcome & quick start)
+- USER-GUIDE.md (comprehensive reference guide)
 - CLAUDE.md (framework instructions)
 - docs/README.md (documentation overview)
-- docs/user/*.md (all user documentation)
+- docs/user/*.md (all user documentation including tutorials)
 - QUICKSTART.md (fast onboarding guide)
 
 ## Documentation Principles Applied
 - **Comprehensive yet easy to follow**: Complete information presented clearly
 - **Detailed yet targeted**: In-depth content focused on user needs
 - **Quickstart-enabled**: 5-minute time-to-first-success path
+- **Progressive disclosure**: Right information at the right depth (README → USER-GUIDE → Tutorials)
+- **Be direct**: Clear, straightforward communication without ambiguity
+- **Focus on function**: Prioritize practical utility over decoration
+- **Use minimal prose**: Concise writing that respects user time
 
 ## Agent
 Use `technical-writer` agent for implementation.
 
 ## Expected Outcome
 - All user-facing documentation has accurate counts
+- README.md maintains welcoming quick-start focus (<500 lines)
+- USER-GUIDE.md provides comprehensive reference
 - No broken internal links affecting user experience
 - Current quickstart guide for new user onboarding
+- Progressive disclosure structure validated
+- Documentation principles compliance verified (direct, functional, minimal prose)
+- Tutorial files exist and are properly linked
 - Clear report of items requiring manual attention
 
 ---
@@ -55,6 +69,7 @@ class UserDocsUpdater:
     def __init__(self):
         self.user_doc_files = [
             "README.md",
+            "USER-GUIDE.md",
             "CLAUDE.md",
             "docs/README.md",
             "docs/user/*.md"
@@ -191,6 +206,10 @@ class UserDocsUpdater:
         if self.update_readme_overview():
             updated_files.append("README.md")
 
+        # Update USER-GUIDE.md comprehensive reference
+        if self.update_user_guide_reference():
+            updated_files.append("USER-GUIDE.md")
+
         # Update CLAUDE.md command reference
         if self.update_claude_reference():
             updated_files.append("CLAUDE.md")
@@ -230,6 +249,44 @@ class UserDocsUpdater:
         except Exception as e:
             print(f"  ❌ Error updating README.md: {e}")
             self.issues.append(f"Error updating README.md: {e}")
+
+        return False
+
+    def update_user_guide_reference(self):
+        """Update framework stats in USER-GUIDE.md"""
+        if not os.path.exists("USER-GUIDE.md"):
+            return False
+
+        try:
+            with open("USER-GUIDE.md", 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            original_content = content
+
+            # Update USER-GUIDE.md patterns - comprehensive reference
+            patterns = [
+                (r'(\*\*18 specialized AI agents\*\*)', f'**{self.agent_count} specialized AI agents**'),
+                (r'(\*\*45 commands\*\*)', f'**{self.command_count} commands**'),
+                (r'(\*\*Agents:\*\*\s*)\d+', f'**Agents:** {self.agent_count}'),
+                (r'(\*\*Commands:\*\*\s*)\d+', f'**Commands:** {self.command_count}'),
+                (r'(- \*\*Agents:\*\*\s*)\d+', f'- **Agents:** {self.agent_count}'),
+                (r'(- \*\*Commands:\*\*\s*)\d+', f'- **Commands:** {self.command_count}'),
+                (r'(\d+) specialized AI agents', f'{self.agent_count} specialized AI agents'),
+                (r'All (\d+) commands', f'All {self.command_count} commands'),
+            ]
+
+            for pattern, replacement in patterns:
+                content = re.sub(pattern, replacement, content)
+
+            if content != original_content:
+                with open("USER-GUIDE.md", 'w', encoding='utf-8') as f:
+                    f.write(content)
+                print("  ✅ Updated: USER-GUIDE.md")
+                return True
+
+        except Exception as e:
+            print(f"  ❌ Error updating USER-GUIDE.md: {e}")
+            self.issues.append(f"Error updating USER-GUIDE.md: {e}")
 
         return False
 
@@ -395,14 +452,14 @@ claude
 ```
 
 **📚 Learn the Full Workflow:**
-- [Complete Workflow Guide](docs/user/workflow.md)
-- [Agent Reference](docs/user/agents.md)
-- [Command Reference](docs/user/commands.md)
+- [Complete User Guide](USER-GUIDE.md)
+- [Architecture Tutorial](docs/user/architecture-tutorial.md)
+- [Build Presets Guide](docs/user/build-presets-practical.md)
 
 **🎮 Hands-On Examples:**
-- [Architecture Phase Walkthrough](docs/user/architecture.md#walkthrough)
-- [Development Process](docs/user/workflow.md#development-stage)
-- [Deployment Guide](docs/user/workflow.md#deployment-stage)
+- [Architecture Tutorial](docs/user/architecture-tutorial.md)
+- [Build Presets Decision Guide](docs/user/build-presets-practical.md)
+- [Complete Workflow Guide](docs/user/workflow.md)
 
 ---
 
@@ -414,8 +471,9 @@ claude
 - Agent questions → Use `/ts-ask "your question"`
 
 **Documentation:**
-- **Overview:** [Main README](README.md)
-- **Complete Guide:** [Framework Instructions](CLAUDE.md)
+- **Quick Start:** [Main README](README.md)
+- **Complete Guide:** [User Guide](USER-GUIDE.md)
+- **Framework Instructions:** [CLAUDE.md](CLAUDE.md)
 - **User Docs:** [Documentation Directory](docs/user/)
 
 **Community:**
@@ -459,7 +517,10 @@ After 5 minutes, you should be able to:
         principles_check = {
             'comprehensive_yet_easy': False,
             'detailed_yet_targeted': False,
-            'quickstart_enabled': False
+            'quickstart_enabled': False,
+            'be_direct': False,
+            'focus_on_function': False,
+            'minimal_prose': False
         }
 
         # Check for comprehensive yet easy to follow
@@ -478,13 +539,172 @@ After 5 minutes, you should be able to:
             'fast path' in content.lower()):
             principles_check['quickstart_enabled'] = True
 
+        # Check for direct communication (clear commands, no fluff words)
+        direct_indicators = ['```bash', '> /', 'Step 1:', 'Step 2:', 'Step 3:']
+        fluff_words = ['absolutely', 'definitely', 'incredibly', 'amazing', 'awesome']
+        direct_count = sum(1 for indicator in direct_indicators if indicator in content)
+        fluff_count = sum(1 for fluff in fluff_words if fluff.lower() in content.lower())
+
+        if direct_count >= 3 and fluff_count <= 2:
+            principles_check['be_direct'] = True
+
+        # Check for functional focus (action-oriented, practical content)
+        functional_words = ['command', 'run', 'execute', 'create', 'build', 'deploy', 'install']
+        decorative_phrases = ['journey', 'adventure', 'magic', 'wonderful', 'delightful']
+        functional_count = sum(1 for word in functional_words if word.lower() in content.lower())
+        decorative_count = sum(1 for phrase in decorative_phrases if phrase.lower() in content.lower())
+
+        if functional_count >= 5 and decorative_count <= 1:
+            principles_check['focus_on_function'] = True
+
+        # Check for minimal prose (concise sections, code examples, bullet points)
+        lines = content.split('\\n')
+        total_lines = len(lines)
+        code_lines = sum(1 for line in lines if line.strip().startswith('```') or line.strip().startswith('>') or line.strip().startswith('-'))
+        prose_ratio = (total_lines - code_lines) / total_lines if total_lines > 0 else 1
+
+        # Good balance: more than 30% should be actionable content (code, commands, lists)
+        if prose_ratio <= 0.7:
+            principles_check['minimal_prose'] = True
+
         return all(principles_check.values())
+
+    def validate_progressive_disclosure(self):
+        """Validate progressive disclosure documentation structure"""
+        print("📋 Validating progressive disclosure structure...")
+
+        issues = []
+
+        # Check if README.md is streamlined (not too long)
+        if os.path.exists("README.md"):
+            try:
+                with open("README.md", 'r', encoding='utf-8') as f:
+                    readme_lines = len(f.readlines())
+
+                # README should be under 500 lines for welcoming experience
+                if readme_lines > 500:
+                    issues.append(f"README.md is {readme_lines} lines (should be <500 for welcoming experience)")
+
+            except Exception as e:
+                issues.append(f"Error checking README.md length: {e}")
+        else:
+            issues.append("README.md missing - required for progressive disclosure")
+
+        # Check if USER-GUIDE.md exists for comprehensive reference
+        if not os.path.exists("USER-GUIDE.md"):
+            issues.append("USER-GUIDE.md missing - required for comprehensive reference")
+
+        # Check if README links to USER-GUIDE appropriately
+        if os.path.exists("README.md"):
+            try:
+                with open("README.md", 'r', encoding='utf-8') as f:
+                    readme_content = f.read()
+
+                if "USER-GUIDE.md" not in readme_content:
+                    issues.append("README.md should link to USER-GUIDE.md for detailed information")
+
+            except Exception as e:
+                issues.append(f"Error checking README.md links: {e}")
+
+        # Check if tutorial files exist
+        tutorial_files = [
+            "docs/user/architecture-tutorial.md",
+            "docs/user/build-presets-practical.md"
+        ]
+
+        for tutorial_file in tutorial_files:
+            if not os.path.exists(tutorial_file):
+                issues.append(f"Tutorial file missing: {tutorial_file}")
+
+        if issues:
+            print(f"🚩 Found {len(issues)} progressive disclosure issues:")
+            for issue in issues[:5]:
+                print(f"  - {issue}")
+            if len(issues) > 5:
+                print(f"  ... and {len(issues) - 5} more")
+        else:
+            print("✅ Progressive disclosure structure looks good")
+
+        return issues
+
+    def validate_documentation_principles(self):
+        """Validate documentation principles across all user documentation"""
+        print("📋 Validating documentation principles...")
+
+        principle_violations = []
+
+        # Files to check for principles
+        key_files = ["README.md", "USER-GUIDE.md", "QUICKSTART.md"]
+
+        for file_path in key_files:
+            if not os.path.exists(file_path):
+                continue
+
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                # Check for verbose/indirect language
+                verbose_phrases = [
+                    'it is important to note', 'please note that', 'it should be mentioned',
+                    'one might consider', 'you may want to', 'it is recommended that',
+                    'in order to', 'for the purpose of', 'with regard to'
+                ]
+
+                for phrase in verbose_phrases:
+                    if phrase.lower() in content.lower():
+                        principle_violations.append(f"{file_path}: Contains verbose phrase '{phrase}' - violates 'be direct' principle")
+
+                # Check for excessive decorative language
+                decorative_excess = [
+                    'absolutely amazing', 'incredibly powerful', 'mind-blowing',
+                    'revolutionary', 'game-changing', 'cutting-edge', 'state-of-the-art'
+                ]
+
+                for decoration in decorative_excess:
+                    if decoration.lower() in content.lower():
+                        principle_violations.append(f"{file_path}: Contains excessive decoration '{decoration}' - violates 'focus on function' principle")
+
+                # Check for paragraph length (minimal prose principle)
+                paragraphs = content.split('\\n\\n')
+                for i, paragraph in enumerate(paragraphs):
+                    # Skip code blocks and lists
+                    if (paragraph.strip().startswith('```') or
+                        paragraph.strip().startswith('-') or
+                        paragraph.strip().startswith('*') or
+                        paragraph.strip().startswith('1.')):
+                        continue
+
+                    # Check for overly long paragraphs (>200 words suggests verbose prose)
+                    word_count = len(paragraph.split())
+                    if word_count > 200:
+                        principle_violations.append(f"{file_path}: Paragraph {i+1} has {word_count} words - consider breaking up for 'minimal prose' principle")
+
+            except Exception as e:
+                principle_violations.append(f"Error validating principles in {file_path}: {e}")
+
+        if principle_violations:
+            print(f"🚩 Found {len(principle_violations)} documentation principle violations:")
+            for violation in principle_violations[:10]:  # Show first 10
+                print(f"  - {violation}")
+            if len(principle_violations) > 10:
+                print(f"  ... and {len(principle_violations) - 10} more violations")
+        else:
+            print("✅ Documentation principles validated across all files")
+
+        return principle_violations
 
     def flag_manual_issues(self):
         """Flag issues requiring manual review"""
         print("🚩 Checking for manual review items...")
 
         manual_issues = []
+
+        # Check progressive disclosure structure
+        manual_issues.extend(self.validate_progressive_disclosure())
+
+        # Check documentation principles compliance
+        manual_issues.extend(self.validate_documentation_principles())
 
         # Check for new agents not mentioned in overview docs
         try:
@@ -655,6 +875,10 @@ After 5 minutes, you should be able to:
         print(f"  ✅ Comprehensive yet easy to follow")
         print(f"  ✅ Detailed yet targeted")
         print(f"  ✅ Quickstart-enabled (5-minute success)")
+        print(f"  ✅ Progressive disclosure (README → USER-GUIDE → Tutorials)")
+        print(f"  ✅ Be direct (clear, straightforward communication)")
+        print(f"  ✅ Focus on function (prioritize practical utility)")
+        print(f"  ✅ Use minimal prose (concise, respectful of time)")
 
         print(f"\\n🚀 **Next Steps:**")
         print(f"  1. Review any flagged issues above")
@@ -721,6 +945,22 @@ def main():
     elif '--quickstart' in args:
         updater.scan_framework()
         success = updater.generate_quickstart()
+    elif '--structure-only' in args:
+        updater.scan_framework()
+        structure_issues = updater.validate_progressive_disclosure()
+        success = len(structure_issues) == 0
+        if success:
+            print("✅ Progressive disclosure structure validated successfully")
+        else:
+            print(f"❌ Found {len(structure_issues)} progressive disclosure issues")
+    elif '--principles-only' in args:
+        updater.scan_framework()
+        principle_violations = updater.validate_documentation_principles()
+        success = len(principle_violations) == 0
+        if success:
+            print("✅ Documentation principles validated successfully")
+        else:
+            print(f"❌ Found {len(principle_violations)} documentation principle violations")
     else:
         # Full update
         success = updater.run_full_update()
