@@ -100,8 +100,9 @@ claude
 - Agent questions → Use `/ts-ask "your question"`
 
 **Documentation:**
-- **Overview:** [Main README](README.md)
-- **Complete Guide:** [Framework Instructions](CLAUDE.md)
+- **Quick Start:** [Main README](README.md)
+- **Complete Guide:** [User Guide](USER-GUIDE.md)
+- **Framework Instructions:** [CLAUDE.md](CLAUDE.md)
 - **User Docs:** [Documentation Directory](docs/user/)
 
 **Community:**
