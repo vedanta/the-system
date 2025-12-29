@@ -120,8 +120,8 @@ ASDO — Autonomous Software Development Organization
 | Document | Description |
 |----------|-------------|
 | [Architecture](architecture.md) | How The System works |
-| [Agents](agents.md) | All 17 agents reference |
-| [Commands](commands.md) | All 40 commands reference |
+| [Agents](agents.md) | All 18 agents reference |
+| [Commands](commands.md) | All 45 commands reference |
 | [Workflow](workflow.md) | Stage-by-stage guide |
 | [HITL Gates](hitl-gates.md) | Approval gates |
 | [Configuration](configuration.md) | Config options |
@@ -139,7 +139,7 @@ ASDO — Autonomous Software Development Organization
 - **Stages:** 5
 - **Agents:** [count]
 - **Commands:** [count]
-- **HITL Gates:** 10
+- **HITL Gates:** 8
 ```
 
 ---
@@ -433,12 +433,12 @@ Generate single file `docs/THE-SYSTEM-REFERENCE.md`:
 
 ## Overview
 ASDO — Autonomous Software Development Organization
-[X] agents, [X] commands, 5 stages, 10 HITL gates
+[X] agents, [X] commands, 5 stages, 8 HITL gates
 
 ## Agents
 [Table of all agents]
 
-## Commands  
+## Commands
 [Table of all commands]
 
 ## Workflow
@@ -473,11 +473,11 @@ Stats documented:
   - Agents: [X]
   - Commands: [X]
   - Stages: 5
-  - HITL Gates: 10
+  - HITL Gates: 8
 
 View docs:
   cat docs/README.md
-  
+
 Or open in browser:
   npx serve docs/
 ```
