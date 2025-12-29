@@ -410,7 +410,7 @@ Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
 |---------|-------|-------------|
 | `/ts-architect` | Enterprise Architect | Design complete system architecture |
 
-### Stage 2: Product (3 commands)
+### Stage 2: Product (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -418,7 +418,7 @@ Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
 | `/ts-plan` | Project Planner | Create roadmap, sprints, and estimates |
 | `/ts-analyze` | Business Analyst | Market analysis and business strategy |
 
-### Stage 3: Development (7 commands)
+### Stage 3: Development (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -430,7 +430,7 @@ Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
 | `/ts-gate` | Principal Developer | Quality gate review and approval |
 | `/ts-signoff` | QA Engineer | Final quality assurance sign-off |
 
-### Stage 4: Release & Deployment (8 commands)
+### Stage 4: Release & Deployment (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -443,7 +443,7 @@ Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
 | `/ts-verify <env>` | DevOps Engineer | Verify deployment health and functionality |
 | `/ts-rollback <env>` | DevOps Engineer | Rollback deployment if needed |
 
-### Stage 5: Operations (12 commands)
+### Stage 5: Operations (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -460,7 +460,7 @@ Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
 | `/ts-incident [action]` | SRE Ops | Incident response and management |
 | `/ts-slo` | SRE Ops | Define and track Service Level Objectives |
 
-### Utility Commands (5 commands)
+### Utility Commands (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
