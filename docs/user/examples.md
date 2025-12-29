@@ -1,0 +1,500 @@
+# 🎯 Example Apps for The System
+
+This guide provides proven examples of applications that build successfully with The System's `/ts-turbo` command. These examples are specifically chosen for their reliability, quick generation time, and immediate demo value.
+
+## 🚀 Quick Start Examples
+
+### Task Management App
+```bash
+/ts-turbo task-master "Build a task management app with user auth, categories, due dates, and priority levels"
+```
+- **Build Time:** ~15-20 minutes
+- **Features:** User authentication, task CRUD, categories, priorities, due dates
+- **Demo Value:** Immediately useful productivity tool
+- **Tech Stack:** Next.js + PostgreSQL + Tailwind CSS
+
+### Expense Tracker
+```bash
+/ts-turbo expense-buddy "Create an expense tracking app where users can log expenses, categorize them, set budgets, and view spending reports"
+```
+- **Build Time:** ~20-25 minutes
+- **Features:** Expense logging, categories, budgets, reporting dashboard
+- **Demo Value:** Professional-looking charts and insights
+- **Tech Stack:** React + Node.js + PostgreSQL + Chart.js
+
+### Recipe Manager
+```bash
+/ts-turbo recipe-box "Build a recipe management app with ingredient lists, cooking instructions, categories, and search functionality"
+```
+- **Build Time:** ~15-20 minutes
+- **Features:** Recipe CRUD, ingredients, categories, search
+- **Demo Value:** Visually appealing content management
+- **Tech Stack:** Next.js + PostgreSQL + Rich text editor
+
+## 🏃‍♂️ Quick Demo Apps (< 30 minutes)
+
+### URL Shortener
+```bash
+/ts-turbo short-link "Create a URL shortening service like bit.ly with custom aliases, click tracking, and user accounts"
+```
+- **Build Time:** ~10-15 minutes
+- **Features:** URL shortening, custom aliases, click analytics
+- **Demo Value:** Immediately testable utility
+- **Why it works:** Simple core logic, clear API design
+
+### Contact Manager
+```bash
+/ts-turbo contact-hub "Build a contact management system with contact info, groups, tags, and export functionality"
+```
+- **Build Time:** ~15-20 minutes
+- **Features:** Contact CRUD, grouping, tagging, export/import
+- **Demo Value:** Professional business utility
+- **Why it works:** Standard CRUD patterns, familiar data structures
+
+### Note-Taking App
+```bash
+/ts-turbo quick-notes "Simple note-taking app with folders, tags, search, and markdown support"
+```
+- **Build Time:** ~10-15 minutes
+- **Features:** Note CRUD, folders, tags, markdown editor, search
+- **Demo Value:** Clean, focused productivity tool
+- **Why it works:** Simple content management with rich features
+
+## 📊 Business Utility Apps
+
+### Bookmark Manager
+```bash
+/ts-turbo bookmark-vault "Bookmark manager with categories, tags, import/export, and search"
+```
+- **Build Time:** ~15-20 minutes
+- **Features:** Bookmark organization, tagging, search, bulk operations
+- **Demo Value:** Useful browser companion tool
+- **Why it works:** Clear data model, standard web APIs
+
+### Simple Inventory Tracker
+```bash
+/ts-turbo stock-keeper "Basic inventory management with items, quantities, low stock alerts"
+```
+- **Build Time:** ~15-20 minutes
+- **Features:** Item management, quantity tracking, alerts, reporting
+- **Demo Value:** Real business utility
+- **Why it works:** Straightforward business logic
+
+### Time Tracker
+```bash
+/ts-turbo time-wise "Time tracking app with projects, tasks, timers, and reporting"
+```
+- **Build Time:** ~20-25 minutes
+- **Features:** Project/task hierarchy, time tracking, reporting
+- **Demo Value:** Productivity insights with charts
+- **Why it works:** Clear time-based data model
+
+## 🎨 Visually Impressive Apps
+
+### Personal Dashboard
+```bash
+/ts-turbo my-dashboard "Personal productivity dashboard with todos, weather, notes, and quick links"
+```
+- **Build Time:** ~25-30 minutes
+- **Features:** Widget-based layout, multiple data sources, customizable
+- **Demo Value:** Impressive visual presentation
+- **Why it works:** Component-based architecture, external API integration
+
+## ✅ Success Factors
+
+### What Makes These Apps Build Successfully
+
+1. **Clear Data Models**
+   - Simple, well-defined entities
+   - Obvious relationships between data
+   - Standard field types (text, numbers, dates, booleans)
+
+2. **Standard Patterns**
+   - CRUD operations (Create, Read, Update, Delete)
+   - User authentication and authorization
+   - Search and filtering functionality
+   - Basic reporting and analytics
+
+3. **Realistic Scope**
+   - Feature-complete but not overwhelming
+   - Focused on core functionality
+   - Avoids complex integrations
+
+4. **Immediate Value**
+   - Useful from day one
+   - Clear value proposition
+   - Intuitive user interface
+
+5. **Tech Stack Alignment**
+   - Works well with React/Next.js frontend
+   - PostgreSQL database with clear schema
+   - RESTful API design
+   - Standard authentication patterns
+
+### Generated Architecture
+
+Each successful app typically includes:
+
+- **Frontend:** React/Next.js with Tailwind CSS
+- **Backend:** Node.js/Express or Next.js API routes
+- **Database:** PostgreSQL with Prisma ORM
+- **Authentication:** NextAuth.js or custom JWT
+- **Deployment:** Ready for Vercel + Railway + Neon stack
+
+## 🚫 Apps to Avoid (Higher Complexity)
+
+While The System is powerful, these types of apps may require additional debugging:
+
+### High Complexity Examples
+- **Social Networks** - Complex user relationships and feeds
+- **Real-time Chat** - WebSocket complexity and message handling
+- **E-commerce Platforms** - Payment processing and complex workflows
+- **Video/Image Processing** - File handling and media manipulation
+- **Multi-tenant SaaS** - Complex authorization and data isolation
+- **Gaming Applications** - Real-time state management and complex logic
+
+### Why These Are Challenging
+- External service integrations (payments, media processing)
+- Real-time features requiring WebSockets
+- Complex authorization and multi-tenancy
+- File upload and media handling
+- Advanced state management requirements
+
+## 💡 Tips for Success
+
+### 1. Keep Descriptions Clear
+```bash
+# Good
+/ts-turbo task-app "Task management with user auth, categories, and due dates"
+
+# Too vague
+/ts-turbo my-app "Build something cool for productivity"
+```
+
+### 2. Focus on Core Features
+```bash
+# Good - focused scope
+"Simple blog with posts, categories, and comments"
+
+# Too broad
+"Complete CMS with multiple content types, SEO, analytics, and social sharing"
+```
+
+### 3. Use Standard Terminology
+- Use familiar terms like "user auth", "categories", "search"
+- Reference well-known patterns like "todo app", "blog", "dashboard"
+- Avoid ambiguous or novel concepts
+
+### 4. Test Immediately
+After generation completes:
+1. Run `npm install` and `npm run build`
+2. Check the generated README for setup instructions
+3. Test the core functionality flows
+4. Deploy to see it working live
+
+## 🚀 Quick Start Command
+
+```bash
+# Pick any example and run:
+/ts-turbo <app-name> "<description>"
+
+# Then deploy in minutes:
+/ts-push neon        # Database
+/ts-push railway     # Backend
+/ts-push vercel      # Frontend
+/ts-live-status      # Check everything
+```
+
+## 📝 Example Session
+
+```bash
+claude
+> /ts-turbo expense-tracker "Personal expense tracking with categories, budgets, and monthly reports"
+
+# Wait 15-20 minutes for generation...
+# ✅ Generated in output/expense-tracker/
+
+> cd output/expense-tracker
+> npm install
+> npm run build
+> npm run dev
+
+# ✅ Running on http://localhost:3000
+
+> /ts-push neon expense-tracker
+> /ts-push railway expense-tracker
+> /ts-push vercel expense-tracker
+> /ts-live-status
+
+# 🌐 Live at https://expense-tracker.vercel.app
+```
+
+Choose any example above and you'll have a fully functional, deployable application in under 30 minutes!
+
+---
+
+## ⚡ Ultra-Quick Test Examples (< 5 minutes)
+
+Perfect for testing The System installation and capabilities:
+
+### Hello World API
+```bash
+/ts-turbo hello-api "Simple REST API with health check and echo endpoints"
+```
+- **Build Time:** ~2-3 minutes
+- **Features:** Basic API routes, health endpoint, JSON responses
+- **Demo Value:** Quick smoke test, API testing
+- **Perfect for:** First-time users, system validation
+
+### Single Page Calculator
+```bash
+/ts-turbo calc-app "Simple calculator web app with basic math operations"
+```
+- **Build Time:** ~2-3 minutes
+- **Features:** Calculator UI, basic operations, responsive design
+- **Demo Value:** Interactive frontend demo
+- **Perfect for:** Frontend-focused testing
+
+### Basic Todo List
+```bash
+/ts-turbo quick-todo "Minimal todo list with add, complete, delete functionality"
+```
+- **Build Time:** ~3-4 minutes
+- **Features:** Todo CRUD, local storage, clean UI
+- **Demo Value:** Full-stack in minimal time
+- **Perfect for:** End-to-end testing
+
+### Random Quote Generator
+```bash
+/ts-turbo quote-gen "Quote generator app with categories and favorites"
+```
+- **Build Time:** ~2-3 minutes
+- **Features:** Random quotes, categories, simple data structure
+- **Demo Value:** Content-driven app
+- **Perfect for:** Quick visual demo
+
+### Color Palette Tool
+```bash
+/ts-turbo color-tool "Color palette generator with hex codes and export"
+```
+- **Build Time:** ~2-3 minutes
+- **Features:** Color generation, palette display, copy functionality
+- **Demo Value:** Visual and interactive
+- **Perfect for:** Design-focused demo
+
+## 🏗️ Architecture Preset Examples
+
+The System supports different architecture presets. Test different configurations:
+
+### Microservice Architecture
+```bash
+# Update .claude/config/preferences.yaml to force microservice preset:
+# architecture:
+#   preset: microservice
+
+/ts-turbo micro-blog "Blog platform with user service and content service"
+```
+- **Architecture:** Separate services for auth, content, comments
+- **Features:** Service-to-service communication, API gateway patterns
+- **Build Time:** ~25-30 minutes
+
+### Full-Stack JavaScript
+```bash
+# Default preset - fullstack-js
+/ts-turbo js-notes "Note-taking app using full JavaScript stack"
+```
+- **Architecture:** Next.js frontend + API routes + PostgreSQL
+- **Features:** Single codebase, shared types, unified deployment
+- **Build Time:** ~15-20 minutes
+
+### Python Backend + React Frontend
+```bash
+# Update preferences.yaml:
+# backend:
+#   language: python
+#   framework: fastapi
+
+/ts-turbo py-tracker "Expense tracker with Python FastAPI backend"
+```
+- **Architecture:** FastAPI + SQLAlchemy + React frontend
+- **Features:** Separate backend/frontend, OpenAPI docs
+- **Build Time:** ~20-25 minutes
+
+## 🚀 Build Preset Examples
+
+Test different build complexity levels:
+
+### Prototype Build (Fastest)
+```bash
+# Update preferences.yaml:
+# build:
+#   build_preset: prototype
+
+/ts-turbo proto-app "Quick landing page with contact form"
+```
+- **Build Preset:** `prototype`
+- **Build Time:** ~3-5 minutes
+- **Features:** Minimal dependencies, basic functionality, quick iteration
+- **Perfect for:** Hackathons, proof of concepts
+
+### MVP Build (Balanced)
+```bash
+# Default preset
+/ts-turbo mvp-shop "Simple online store with products and cart"
+```
+- **Build Preset:** `mvp` (default)
+- **Build Time:** ~15-20 minutes
+- **Features:** Production-ready code, testing, proper architecture
+- **Perfect for:** Side projects, startup MVPs
+
+### Production Build (Comprehensive)
+```bash
+# Update preferences.yaml:
+# build:
+#   build_preset: production
+
+/ts-turbo prod-platform "Customer management platform with analytics"
+```
+- **Build Preset:** `production`
+- **Build Time:** ~45-60 minutes
+- **Features:** Full testing, monitoring, security, documentation
+- **Perfect for:** Client work, enterprise applications
+
+## 🎯 Context-Specific Examples
+
+The System auto-detects build complexity based on context keywords:
+
+### Hackathon Mode (Auto-prototype)
+```bash
+/ts-turbo hack-vote "Hackathon voting app for demo day"
+```
+- **Auto-detected:** `prototype` build (mentions "hackathon", "demo day")
+- **Build Time:** ~3-5 minutes
+- **Features:** Fast iteration, minimal setup
+
+### Startup MVP (Auto-MVP)
+```bash
+/ts-turbo startup-crm "Startup CRM for beta release to early customers"
+```
+- **Auto-detected:** `mvp` build (mentions "startup", "beta release")
+- **Build Time:** ~15-20 minutes
+- **Features:** Balanced speed and quality
+
+### Client Work (Auto-production)
+```bash
+/ts-turbo client-portal "Business critical client portal for enterprise"
+```
+- **Auto-detected:** `production` build (mentions "client", "business critical", "enterprise")
+- **Build Time:** ~45-60 minutes
+- **Features:** Full production readiness
+
+## 🔧 Tech Stack Preset Examples
+
+Test different technology combinations:
+
+### Django + PostgreSQL
+```bash
+# Update preferences.yaml backend section:
+# backend:
+#   language: python
+#   framework: django
+#   orm: django-orm
+
+/ts-turbo django-blog "Blog platform with admin panel"
+```
+
+### Express + MongoDB
+```bash
+# Update preferences.yaml:
+# backend:
+#   framework: express
+# database:
+#   primary: mongodb
+
+/ts-turbo express-api "User management API with MongoDB"
+```
+
+### Svelte + Tailwind
+```bash
+# Update preferences.yaml:
+# frontend:
+#   framework: svelte
+#   styling: tailwind
+
+/ts-turbo svelte-dash "Analytics dashboard with Svelte"
+```
+
+## 📱 Single-Purpose Utilities
+
+Perfect for quick testing and demonstrations:
+
+### URL Validator
+```bash
+/ts-turbo url-check "URL validator tool that checks if URLs are reachable"
+```
+- **Build Time:** ~2 minutes
+- **Perfect for:** API functionality testing
+
+### Password Generator
+```bash
+/ts-turbo pass-gen "Secure password generator with customizable options"
+```
+- **Build Time:** ~2-3 minutes
+- **Perfect for:** Frontend interaction testing
+
+### QR Code Generator
+```bash
+/ts-turbo qr-maker "QR code generator for text and URLs"
+```
+- **Build Time:** ~2-3 minutes
+- **Perfect for:** Visual output testing
+
+### JSON Formatter
+```bash
+/ts-turbo json-tool "JSON formatter and validator tool"
+```
+- **Build Time:** ~2 minutes
+- **Perfect for:** Text processing testing
+
+## ⚙️ Testing Your Configuration
+
+Verify your preferences.yaml changes:
+
+```bash
+# 1. Check current configuration
+/ts-view preferences
+
+# 2. Test with simple app
+/ts-turbo config-test "Simple app to test current configuration"
+
+# 3. Verify architecture was applied
+# Check output/config-test/docs/architecture.md
+
+# 4. Quick deploy test
+/ts-push neon config-test
+/ts-push vercel config-test
+/ts-live-status
+```
+
+## 🚀 Quick Test Session
+
+Complete test in under 10 minutes:
+
+```bash
+# 1. Ultra-quick test (2-3 minutes)
+claude
+> /ts-turbo quick-test "Hello world API with health check"
+
+# 2. Check output
+> ls output/quick-test/
+> cd output/quick-test/
+> npm install && npm run dev
+
+# 3. Deploy test (2-3 minutes)
+> /ts-push vercel quick-test
+> /ts-live-status
+
+# ✅ Full system validated in ~5 minutes!
+```
+
+Choose any example above and you'll have a fully functional, deployable application in under 30 minutes!
