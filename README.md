@@ -9,7 +9,7 @@ Transform your ideas into production-ready software with 18 specialized AI agent
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-18-blue?style=for-the-badge" alt="18 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-44-green?style=for-the-badge" alt="44 Commands"/>
+  <img src="https://img.shields.io/badge/Commands-45-green?style=for-the-badge" alt="45 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -340,7 +340,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 |---------|-------|-------------|
 | `/ts-architect` | Enterprise Architect | Design complete system architecture |
 
-### Stage 2: Product (45 commands)
+### Stage 2: Product (3 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -348,7 +348,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-plan` | Project Planner | Create roadmap, sprints, and estimates |
 | `/ts-analyze` | Business Analyst | Market analysis and business strategy |
 
-### Stage 3: Development (45 commands)
+### Stage 3: Development (7 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -360,7 +360,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-gate` | Principal Developer | Quality gate review and approval |
 | `/ts-signoff` | QA Engineer | Final quality assurance sign-off |
 
-### Stage 4: Release & Deployment (45 commands)
+### Stage 4: Release & Deployment (8 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -373,7 +373,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-verify <env>` | DevOps Engineer | Verify deployment health and functionality |
 | `/ts-rollback <env>` | DevOps Engineer | Rollback deployment if needed |
 
-### Stage 5: Operations (45 commands)
+### Stage 5: Operations (12 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -390,7 +390,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-incident [action]` | SRE Ops | Incident response and management |
 | `/ts-slo` | SRE Ops | Define and track Service Level Objectives |
 
-### Utility Commands (45 commands)
+### Utility Commands (5 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -509,12 +509,12 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/               # 44 command definitions
+│   ├── commands/               # 45 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-architect.md
 │   │   ├── ts-turbo.md
-│   │   ├── ... (40 more commands)
+│   │   ├── ... (41 more commands)
 │   │   └── ts-slo.md
 │   │
 │   ├── config/                 # System configuration
@@ -772,7 +772,7 @@ Ensure The System is properly installed:
 
 Framework Components:
   ✅ Agents: 18/18    (.claude/agents/)
-  ✅ Commands: 45/44    (.claude/commands/)
+  ✅ Commands: 45/45    (.claude/commands/)
   ✅ Config Files:     2/2      (.claude/config/)
   ✅ Knowledge Base:   2/2      (.claude/knowledge/)
   ✅ Documentation:    15/15    (docs/)
@@ -854,7 +854,7 @@ ln -s .the-system/CLAUDE.md CLAUDE.md
 ```bash
 # Verify command files exist
 ls -la .claude/commands/ | wc -l
-# Should show 44 command files
+# Should show 45 command files
 
 # Ensure you're in correct directory
 pwd

@@ -83,7 +83,7 @@ Your chief of staff. All communication flows through this agent.
 
 ---
 
-## Commands Reference (44 Total)
+## Commands Reference (45 Total)
 
 ### Core Project Management (8)
 | Command | Purpose |
@@ -358,7 +358,7 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/            # 44 command definitions
+│   ├── commands/            # 45 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-view.md
@@ -402,7 +402,8 @@ the-system/
 │   │   ├── ts-validate.md
 │   │   ├── ts-turbo.md
 │   │   ├── ts-turbo-quick.md
-│   │   └── ts-self-document.md
+│   │   ├── ts-self-document.md
+│   │   └── ts-user-docs-update.md
 │   │
 │   ├── config/
 │   │   ├── preferences.yaml  # Tech stack defaults, conventions
