@@ -99,10 +99,10 @@ Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
 
 | Build Type | Time | Agents Used | What You Get |
 |------------|------|-------------|--------------|
-| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-3 agents** | Architecture design only, ultra-fast validation |
-| **🚀 Prototype** | **3-5 min** | **3-5 agents** | Working app, basic features, rapid iteration |
-| **📦 MVP** | **15-20 min** | **7-10 agents** | Production-ready, professional quality, proper testing |
-| **📦 MVP + Skip Release** | **12-15 min** | **6-8 agents** | Production-ready without docs/security scans |
+| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-18 agents** | Architecture design only, ultra-fast validation |
+| **🚀 Prototype** | **3-5 min** | **3-18 agents** | Working app, basic features, rapid iteration |
+| **📦 MVP** | **15-20 min** | **7-18 agents** | Production-ready, professional quality, proper testing |
+| **📦 MVP + Skip Release** | **12-15 min** | **6-18 agents** | Production-ready without docs/security scans |
 | **🏢 Production** | **45-60 min** | **12+ agents** | Enterprise-grade, full compliance, comprehensive docs |
 
 ### Stage Skipping Performance
