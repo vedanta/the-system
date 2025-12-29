@@ -129,7 +129,7 @@ for agent in "bug-fixer"; do
 done
 
 # ----------------------------------------------------------------------------
-header "3. COMMANDS (44 required)"
+header "3. COMMANDS (45 required)"
 # ----------------------------------------------------------------------------
 
 # Core commands
@@ -187,7 +187,7 @@ for cmd in "ts-push" "ts-live-status" "ts-live-env" "ts-domain" "ts-teardown" "t
 done
 
 # Utility commands
-for cmd in "ts-fix" "ts-validate" "ts-turbo" "ts-turbo-quick" "ts-self-document"; do
+for cmd in "ts-fix" "ts-validate" "ts-turbo" "ts-turbo-quick" "ts-self-document" "ts-user-docs-update"; do
     if [ -f "$PROJECT_ROOT/.claude/commands/${cmd}.md" ]; then
         check_pass "${cmd}.md (Utility)"
     else

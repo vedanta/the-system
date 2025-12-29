@@ -13,7 +13,7 @@ This documentation provides everything you need to understand and use **The Syst
 
 This user documentation covers:
 - Complete agent reference and workflows
-- All 44 commands with examples and usage
+- All 45 commands with examples and usage
 - Step-by-step workflow guides
 - Human-in-the-loop approval system
 - Configuration options and customization
@@ -27,7 +27,7 @@ This user documentation covers:
 |----------|-------------|-------------|
 | **[Architecture Guide](user/architecture.md)** | How The System works internally | Understanding system design, data flow, and core concepts |
 | **[Agent Reference](user/agents.md)** | Complete guide to all 18 agents | Understanding agent roles, responsibilities, and capabilities |
-| **[Command Reference](user/commands.md)** | All 44 commands with examples | Finding specific commands and learning proper usage |
+| **[Command Reference](user/commands.md)** | All 45 commands with examples | Finding specific commands and learning proper usage |
 | **[Workflow Guide](user/workflow.md)** | Step-by-step implementation process | Following the complete development lifecycle |
 | **[HITL Gates](user/hitl-gates.md)** | Human approval system documentation | Understanding approval points and decision making |
 | **[Configuration](user/configuration.md)** | System configuration options | Customizing tech stack and integrations |

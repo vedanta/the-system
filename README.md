@@ -307,7 +307,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 |---------|-------|-------------|
 | `/ts-architect` | Enterprise Architect | Design complete system architecture |
 
-### Stage 2: Product (3 commands)
+### Stage 2: Product (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -315,7 +315,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-plan` | Project Planner | Create roadmap, sprints, and estimates |
 | `/ts-analyze` | Business Analyst | Market analysis and business strategy |
 
-### Stage 3: Development (7 commands)
+### Stage 3: Development (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -327,7 +327,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-gate` | Principal Developer | Quality gate review and approval |
 | `/ts-signoff` | QA Engineer | Final quality assurance sign-off |
 
-### Stage 4: Release & Deployment (8 commands)
+### Stage 4: Release & Deployment (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -340,7 +340,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-verify <env>` | DevOps Engineer | Verify deployment health and functionality |
 | `/ts-rollback <env>` | DevOps Engineer | Rollback deployment if needed |
 
-### Stage 5: Operations (12 commands)
+### Stage 5: Operations (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -357,7 +357,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-incident [action]` | SRE Ops | Incident response and management |
 | `/ts-slo` | SRE Ops | Define and track Service Level Objectives |
 
-### Utility Commands (5 commands)
+### Utility Commands (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -738,8 +738,8 @@ Ensure The System is properly installed:
 ╚══════════════════════════════════════════════════════════════════╝
 
 Framework Components:
-  ✅ Agents:           18/18    (.claude/agents/)
-  ✅ Commands:         44/44    (.claude/commands/)
+  ✅ Agents: 18/18    (.claude/agents/)
+  ✅ Commands: 45/44    (.claude/commands/)
   ✅ Config Files:     2/2      (.claude/config/)
   ✅ Knowledge Base:   2/2      (.claude/knowledge/)
   ✅ Documentation:    15/15    (docs/)
@@ -846,7 +846,7 @@ All user documentation is available in the `docs/` directory:
 
 - **[Architecture Guide](docs/user/architecture.md)** - How The System works internally
 - **[Agent Reference](docs/user/agents.md)** - Complete guide to all 18 agents
-- **[Command Reference](docs/user/commands.md)** - All 44 commands with examples
+- **[Command Reference](docs/user/commands.md)** - All 45 commands with examples
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step implementation process
 - **[HITL Gates](docs/user/hitl-gates.md)** - Human approval system documentation
 - **[Configuration](docs/user/configuration.md)** - System configuration options
