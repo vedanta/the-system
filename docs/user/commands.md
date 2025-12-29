@@ -1,10 +1,10 @@
 # The System Commands Reference
 
-> Complete reference for all 44 commands in the Autonomous Software Development Organization
+> Complete reference for all 45 commands in the Autonomous Software Development Organization
 
 ## Overview
 
-The System provides 44 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
+The System provides 45 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
 
 ## Command Categories
 
