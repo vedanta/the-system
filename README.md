@@ -155,7 +155,7 @@ The system automatically detects your intent from keywords:
 
 ### Performance Gains
 - **Prototype builds**: Up to **10x faster** (3-5 min vs 45-60 min)
-- **Fewer agents**: Prototype uses 3-5 agents vs 12+ for production
+- **Fewer agents**: Prototype uses 3-18 agents vs 12+ for production
 - **Quality scaling**: Each mode delivers appropriate quality for its use case
 
 👉 **[Complete Build Presets Guide →](docs/user/build-presets.md)**
@@ -340,7 +340,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 |---------|-------|-------------|
 | `/ts-architect` | Enterprise Architect | Design complete system architecture |
 
-### Stage 2: Product (3 commands)
+### Stage 2: Product (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -348,7 +348,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-plan` | Project Planner | Create roadmap, sprints, and estimates |
 | `/ts-analyze` | Business Analyst | Market analysis and business strategy |
 
-### Stage 3: Development (7 commands)
+### Stage 3: Development (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -360,7 +360,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-gate` | Principal Developer | Quality gate review and approval |
 | `/ts-signoff` | QA Engineer | Final quality assurance sign-off |
 
-### Stage 4: Release & Deployment (8 commands)
+### Stage 4: Release & Deployment (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -373,7 +373,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-verify <env>` | DevOps Engineer | Verify deployment health and functionality |
 | `/ts-rollback <env>` | DevOps Engineer | Rollback deployment if needed |
 
-### Stage 5: Operations (12 commands)
+### Stage 5: Operations (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
@@ -390,7 +390,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-incident [action]` | SRE Ops | Incident response and management |
 | `/ts-slo` | SRE Ops | Define and track Service Level Objectives |
 
-### Utility Commands (5 commands)
+### Utility Commands (45 commands)
 
 | Command | Agent | Description |
 |---------|-------|-------------|
