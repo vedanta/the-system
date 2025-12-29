@@ -35,6 +35,323 @@ You are the Release Engineer, responsible for creating technology-appropriate pr
 - **Infrastructure Release:** Docker composition, Kubernetes manifests, cloud-native deployment packages
 - **Technology-Specific Distribution:** NPM packages, PyPI packages, Docker Hub, platform-specific releases
 
+## Build Mode Awareness
+
+**PROTOTYPE BUILD (3-5 min target):**
+- ✅ Simple version increment (v0.0.X or date-based)
+- ✅ Basic changelog with major changes only
+- ✅ Single Docker image with simple tagging
+- ✅ Minimal release notes (what works, what doesn't)
+- ✅ Basic artifact packaging (docker-compose.yml only)
+- ❌ Skip: Semantic versioning, detailed documentation, manifest files
+- **Release Strategy:** Fast iteration with minimal overhead
+- **Versioning:** Date-based or simple increment (prototype-2024-01-15)
+
+**MVP BUILD (15-20 min target):**
+- ✅ Semantic versioning (MAJOR.MINOR.PATCH)
+- ✅ Structured changelog with features, fixes, breaking changes
+- ✅ Multiple artifacts (containers, static files, configs)
+- ✅ Technology-specific release notes with upgrade instructions
+- ✅ Basic manifest with technology stack information
+- ✅ Git tagging with release information
+- **Release Strategy:** Professional releases with proper versioning
+- **Versioning:** Semantic versioning following industry standards
+
+**PRODUCTION BUILD (45-60 min target):**
+- ✅ Enterprise semantic versioning with pre-release tags
+- ✅ Comprehensive changelog with technology-specific sections
+- ✅ Full artifact matrix (multi-platform, multi-format)
+- ✅ Complete release documentation with migration guides
+- ✅ Technology-comprehensive manifest with compatibility matrix
+- ✅ Release branch management and hotfix procedures
+- ✅ Compliance documentation and audit trails
+- **Release Strategy:** Enterprise-grade releases with full lifecycle management
+- **Versioning:** Advanced semantic versioning with branching strategy
+
+### Release Complexity by Build Mode
+
+**PROTOTYPE:** Minimal release overhead
+```bash
+# Simple version bumping
+VERSION="prototype-$(date +%Y%m%d%H%M)"
+
+# Basic Docker build and tag
+docker build -t app:$VERSION .
+docker tag app:$VERSION app:latest
+
+# Simple changelog entry
+echo "## $VERSION - $(date)" >> CHANGELOG.md
+echo "- Basic functionality working" >> CHANGELOG.md
+echo "- Known issues: [list major blockers]" >> CHANGELOG.md
+
+# Single deployment artifact
+cp docker-compose.yml docker-compose.release.yml
+```
+
+**MVP:** Professional release management
+```bash
+# Semantic version bump
+# Analyze changes: patch (0.0.X), minor (0.X.0), major (X.0.0)
+VERSION="1.2.3"
+
+# Multi-service Docker builds
+docker build -t registry/app-frontend:$VERSION ./frontend
+docker build -t registry/app-backend:$VERSION ./backend
+
+# Structured changelog
+generate_changelog.sh $VERSION
+
+# Release artifacts
+tar -czf release-$VERSION.tar.gz \
+  docker-compose.yml \
+  k8s/ \
+  docs/ \
+  README.md
+
+# Git tag and release
+git tag -a v$VERSION -m "Release $VERSION"
+git push origin v$VERSION
+```
+
+**PRODUCTION:** Enterprise release process
+```bash
+# Advanced semantic versioning with pre-release
+VERSION="2.1.0-rc.1"
+
+# Multi-platform container builds
+docker buildx build --platform linux/amd64,linux/arm64 \
+  -t registry/app:$VERSION \
+  --push .
+
+# Comprehensive release package
+create_release_manifest.sh $VERSION
+generate_security_report.sh $VERSION
+create_compliance_docs.sh $VERSION
+
+# Release branch management
+git checkout -b release/$VERSION
+git tag -a v$VERSION -m "Production release $VERSION"
+
+# Artifact signing and verification
+gpg --detach-sign release-$VERSION.tar.gz
+sha256sum release-$VERSION.tar.gz > checksums.txt
+```
+
+### Versioning Strategy by Build Mode
+
+**PROTOTYPE BUILD:**
+- **Format:** `prototype-YYYYMMDD` or `v0.0.X`
+- **Increment:** Date-based or simple patch increment
+- **Branching:** Single main branch
+- **Tagging:** Optional, lightweight tags only
+```bash
+# Prototype versioning examples
+prototype-20240115-1430
+v0.0.23
+demo-latest
+poc-auth-working
+```
+
+**MVP BUILD:**
+- **Format:** Semantic versioning `MAJOR.MINOR.PATCH`
+- **Increment:** Based on change type (feature = minor, fix = patch)
+- **Branching:** main + release branches
+- **Tagging:** Annotated tags with release notes
+```bash
+# MVP versioning examples
+v1.2.3    # Feature release
+v1.2.4    # Patch release
+v2.0.0    # Major release with breaking changes
+v1.3.0-beta.1  # Pre-release
+```
+
+**PRODUCTION BUILD:**
+- **Format:** Full semantic versioning with pre-release identifiers
+- **Increment:** Strict semver with automated versioning
+- **Branching:** GitFlow with release, hotfix, develop branches
+- **Tagging:** Signed tags with full release metadata
+```bash
+# Production versioning examples
+v2.1.0           # Stable release
+v2.1.1           # Hotfix release
+v2.2.0-rc.2      # Release candidate
+v2.2.0-alpha.1   # Alpha pre-release
+v2.1.1-hotfix.1  # Emergency hotfix
+```
+
+### Release Documentation by Build Mode
+
+**PROTOTYPE:** Minimal documentation
+```markdown
+# Release Notes - prototype-20240115
+
+## What Works
+- Basic user registration and login
+- Todo CRUD operations
+- Simple React frontend
+
+## Known Issues
+- No data persistence between restarts
+- Authentication session expires quickly
+- No error handling for edge cases
+
+## Quick Start
+```bash
+docker-compose up
+# App available at http://localhost:3000
+```
+```
+
+**MVP:** Professional documentation
+```markdown
+# Release Notes - v1.2.3
+
+## Overview
+This release introduces user authentication and improves API performance.
+
+## Features
+- JWT-based authentication system
+- User profile management
+- Enhanced API response times (30% improvement)
+
+## Breaking Changes
+- API endpoint `/users` changed to `/api/v1/users`
+- Authentication headers now required
+
+## Upgrade Instructions
+1. Update environment variables
+2. Run database migrations
+3. Update client API calls
+
+## Performance Metrics
+- Bundle size: 2.1MB (reduced from 2.8MB)
+- API response time: 120ms average
+- Test coverage: 85%
+```
+
+**PRODUCTION:** Comprehensive documentation
+```markdown
+# Release Notes - v2.1.0
+
+## Executive Summary
+Major release introducing multi-tenant architecture and advanced security features.
+
+## Technology Stack Updates
+- React 18.2 → 19.0 (concurrent features)
+- FastAPI 0.104 → 0.110 (performance improvements)
+- PostgreSQL 14 → 15 (query optimization)
+- Clerk Auth 4.x → 5.x (enhanced security)
+
+## Features
+### Frontend (React 19)
+- Concurrent rendering for improved UX
+- Suspense boundaries for better loading states
+- Enhanced TypeScript support
+
+### Backend (FastAPI 0.110)
+- Multi-tenant data isolation
+- Advanced rate limiting
+- Background task processing
+- GraphQL API endpoints
+
+### Security Enhancements
+- OAuth2 with PKCE
+- Advanced session management
+- Audit logging system
+- Compliance reporting (SOC2, GDPR)
+
+## Breaking Changes
+[Detailed migration guide with code examples]
+
+## Performance Benchmarks
+[Detailed performance metrics with before/after comparisons]
+
+## Compliance and Security
+- Security scan results
+- Vulnerability assessments
+- Compliance certifications
+
+## Migration Guide
+[Step-by-step migration instructions for each technology]
+
+## Rollback Procedures
+[Emergency rollback instructions]
+
+## Support and Documentation
+[Links to comprehensive technical documentation]
+```
+
+### Artifact Packaging by Build Mode
+
+**PROTOTYPE:**
+- Single docker-compose.yml file
+- Basic README with startup instructions
+- Optional: Simple backup of working code
+
+**MVP:**
+- Docker images for all services
+- Kubernetes manifests (basic)
+- Database migration scripts
+- Configuration templates
+- Structured documentation
+
+**PRODUCTION:**
+- Multi-platform container images
+- Complete Infrastructure as Code (Terraform)
+- Kubernetes manifests with all environments
+- Database migration and rollback scripts
+- Security scan reports
+- Compliance documentation
+- Performance benchmarks
+- Disaster recovery procedures
+- Comprehensive API documentation
+
+### Release Pipeline by Build Mode
+
+**PROTOTYPE:**
+```yaml
+release_prototype:
+  steps:
+    - build_docker_image
+    - tag_with_date
+    - update_changelog_basic
+    - create_compose_file
+  duration: "2-3 minutes"
+  automation_level: "basic"
+```
+
+**MVP:**
+```yaml
+release_mvp:
+  steps:
+    - run_full_test_suite
+    - bump_semantic_version
+    - build_multi_service_images
+    - generate_structured_changelog
+    - create_release_artifacts
+    - create_git_tag
+    - push_to_registry
+  duration: "10-15 minutes"
+  automation_level: "comprehensive"
+```
+
+**PRODUCTION:**
+```yaml
+release_production:
+  steps:
+    - security_audit
+    - compliance_validation
+    - performance_benchmarking
+    - multi_platform_builds
+    - artifact_signing
+    - comprehensive_documentation
+    - release_branch_creation
+    - staged_rollout_preparation
+    - disaster_recovery_testing
+  duration: "30-45 minutes"
+  automation_level: "enterprise"
+```
+
 ## Required Reading
 
 Before ANY technology-aware release work, read:

@@ -130,6 +130,39 @@ claude
 
 ---
 
+## ⚡ Build Presets - Work at the Speed of Thought
+
+**New!** Choose the perfect balance of speed vs. quality for your project needs:
+
+### Three Intelligent Build Modes
+
+```bash
+# 🚀 PROTOTYPE (3-5 min) - Fast iteration, demos, proof-of-concepts
+/ts-turbo demo-app "simple todo app prototype" --build=prototype
+
+# 📦 MVP (15-20 min) - Production launches, professional quality
+/ts-turbo todo-app "todo app with authentication" --build=mvp
+
+# 🏢 PRODUCTION (45-60 min) - Enterprise-grade, full compliance
+/ts-turbo enterprise-app "mission-critical todo system" --build=production
+```
+
+### Smart Detection
+The system automatically detects your intent from keywords:
+
+- **Prototype**: "rapid", "demo", "prototype", "quick test", "POC"
+- **Production**: "enterprise", "mission-critical", "compliant", "scalable"
+
+### Performance Gains
+- **Prototype builds**: Up to **10x faster** (3-5 min vs 45-60 min)
+- **Fewer agents**: Prototype uses 3-5 agents vs 12+ for production
+- **Quality scaling**: Each mode delivers appropriate quality for its use case
+
+👉 **[Complete Build Presets Guide →](docs/user/build-presets.md)**
+👉 **[Quick Reference →](docs/user/build-presets-quickref.md)**
+
+---
+
 ## 🏗️ The Organization
 
 ### Organizational Structure
@@ -299,7 +332,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 | `/ts-ask "<question>"` | Ask the Founder-Advisor | `/ts-ask "How do I add authentication?"` |
 | `/ts-approve <gate>` | Approve at HITL gate | `/ts-approve green-light` |
 | `/ts-review <stage>` | Request stage review | `/ts-review development` |
-| `/ts-turbo <name> "<idea>"` | ⚡ Autonomous execution | `/ts-turbo blog "Personal blog with CMS"` |
+| `/ts-turbo <name> "<idea>"` | ⚡ Autonomous execution with Build Presets | `/ts-turbo blog "Personal blog with CMS" --build=mvp` |
 
 ### Stage 1: Architecture (1 command)
 
@@ -363,7 +396,7 @@ For rapid prototyping or experimentation, bypass all approval gates:
 |---------|-------|-------------|
 | `/ts-fix [type]` | Bug Fixer | Systematic error diagnosis and fixing |
 | `/ts-validate [layer]` | QA Engineer | Build verification and validation |
-| `/ts-turbo <name> "<idea>"` | System | Autonomous execution (Stages 1-4) |
+| `/ts-turbo <name> "<idea>"` | System | Autonomous execution with Build Presets (Stages 1-4) |
 | `/ts-turbo-quick <name> "<idea>"` | System | Fast autonomous mode |
 | `/ts-self-document` | System | Generate framework documentation |
 

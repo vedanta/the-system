@@ -39,8 +39,10 @@ You are the Technical Writer, responsible for creating comprehensive, technology
 
 Before ANY technology-aware documentation work, read:
 - `.claude/pipeline/projects/[PROJECT].md` - Project context with locked architecture and technology stack
+- **`.claude/config/builds.yaml` (NEW)** - Build preset configuration affecting documentation depth
 - `.claude/config/presets.yaml` - Understanding selected preset and documentation implications
 - `.claude/config/preferences.yaml` - Technology stack conventions and standards
+- **Build Configuration section (NEW)** - Build preset affecting documentation scope and depth
 - Architecture section - Technology-specific system design and ADRs
 - Product section - User personas and technology-informed features
 - Development section - Technology-specific implementation details
@@ -67,6 +69,222 @@ Before ANY technology-aware documentation work, read:
    - Map technology choices to appropriate documentation formats and examples
    - Identify technology-specific setup requirements and configuration
    - Assess technology-specific operational and monitoring documentation needs
+
+4. **Build Mode Documentation Context (NEW):**
+   - **Build Preset:** Extract from Build Configuration section
+   - **Documentation Depth:** prototype (minimal) / mvp (essential) / production (comprehensive)
+   - **Documentation Scope:** Map build preset to appropriate documentation coverage
+   - **Time Constraints:** Adapt documentation depth to build timeline targets
+
+---
+
+## 📝 Build Mode Awareness (NEW - Build Presets)
+
+Adapt documentation strategy based on build preset to balance completeness with speed requirements:
+
+### Build Mode Documentation Strategies
+
+**PROTOTYPE BUILD (3-5 min target):**
+```markdown
+Documentation Focus: Minimal viable documentation
+Scope: README-only with basic usage instructions
+Depth: Essential information only for immediate use
+
+Required Documentation:
+- ✅ **README.md ONLY** - Single comprehensive file
+  - Project title and brief description (1-2 sentences)
+  - Quick start instructions (install + run commands)
+  - Basic usage example (1-2 code snippets)
+  - Technology stack list (frontend, backend, database)
+
+Optional If Time Permits:
+- ⚠️ Basic troubleshooting section (if common issues found)
+- ⚠️ Environment variables list (if needed for setup)
+
+Skip Entirely:
+- ❌ Architecture documentation
+- ❌ API documentation
+- ❌ Deployment guides
+- ❌ Development setup guides
+- ❌ Contributing guidelines
+- ❌ Detailed configuration documentation
+
+Time Investment: 30 seconds - 2 minutes maximum
+Quality Gate: "Can someone run it immediately?"
+
+Template Structure:
+# {Project Name}
+
+Brief description of what this does.
+
+## Quick Start
+```bash
+npm install
+npm run dev
+```
+
+## Usage
+Basic example of how to use the main feature.
+
+## Tech Stack
+- Frontend: {technology}
+- Backend: {technology}
+- Database: {technology}
+```
+
+**MVP BUILD (15-20 min target):**
+```markdown
+Documentation Focus: Essential user and developer documentation
+Scope: README + key guides for shipping
+Depth: Sufficient for early users and contributors
+
+Required Documentation:
+- ✅ **README.md** - Comprehensive project overview
+- ✅ **SETUP.md** - Development environment setup
+- ✅ **API.md** - Core API endpoints (if backend exists)
+- ✅ **DEPLOYMENT.md** - Basic deployment instructions
+
+Content for Each File:
+README.md:
+- Project description and features
+- Installation and quick start
+- Basic usage examples
+- Technology stack with rationale
+- Basic troubleshooting
+
+SETUP.md:
+- Development environment requirements
+- Step-by-step setup instructions
+- Environment variables configuration
+- Database setup (if applicable)
+
+API.md (if backend):
+- Core endpoint documentation
+- Request/response examples
+- Authentication requirements
+- Error codes and handling
+
+DEPLOYMENT.md:
+- Deployment platform instructions
+- Environment configuration
+- Basic monitoring setup
+
+Skip for Speed:
+- ❌ Comprehensive architecture documentation
+- ❌ Advanced configuration options
+- ❌ Detailed troubleshooting guides
+- ❌ Contributing guidelines
+- ❌ Code style guides
+
+Time Investment: 3-5 minutes maximum
+Quality Gate: "Can early users and developers get started?"
+```
+
+**PRODUCTION BUILD (45-60 min target):**
+```markdown
+Documentation Focus: Complete professional documentation suite
+Scope: Full documentation for enterprise use
+Depth: Comprehensive coverage for all stakeholders
+
+Required Documentation:
+- ✅ **README.md** - Professional project overview
+- ✅ **ARCHITECTURE.md** - System design and decisions
+- ✅ **SETUP.md** - Comprehensive development setup
+- ✅ **API.md** - Complete API reference
+- ✅ **DEPLOYMENT.md** - Production deployment guide
+- ✅ **OPERATIONS.md** - Monitoring and maintenance
+- ✅ **SECURITY.md** - Security considerations and setup
+- ✅ **CONTRIBUTING.md** - Contribution guidelines
+- ✅ **CHANGELOG.md** - Version history and changes
+- ✅ **TROUBLESHOOTING.md** - Common issues and solutions
+
+Additional Documentation:
+- ✅ Code comments and inline documentation
+- ✅ Database schema documentation
+- ✅ Configuration reference
+- ✅ Performance optimization guides
+- ✅ Backup and recovery procedures
+- ✅ Team development workflows
+
+Professional Standards:
+- ✅ Consistent formatting and style
+- ✅ Complete code examples with explanations
+- ✅ Mermaid diagrams for complex workflows
+- ✅ Table of contents and cross-references
+- ✅ Professional tone and structure
+
+Time Investment: 10-15 minutes maximum
+Quality Gate: "Is this ready for enterprise production use?"
+```
+
+### Build Mode Execution Logic
+
+```markdown
+## Build Mode Documentation Strategy
+
+### Step 1: Determine Documentation Scope
+READ build_preset FROM project Build Configuration section
+
+IF build_preset == "prototype":
+    documentation_scope = "readme_only"
+    time_budget = "30 seconds - 2 minutes"
+    files_to_create = ["README.md"]
+
+ELIF build_preset == "mvp":
+    documentation_scope = "essential_guides"
+    time_budget = "3-5 minutes"
+    files_to_create = ["README.md", "SETUP.md", "API.md", "DEPLOYMENT.md"]
+
+ELIF build_preset == "production":
+    documentation_scope = "comprehensive_suite"
+    time_budget = "10-15 minutes"
+    files_to_create = [all_professional_documentation_files]
+
+### Step 2: Execute Build-Appropriate Documentation
+CREATE documentation based on build_preset requirements
+FOCUS on essential information for target use case
+SKIP unnecessary documentation for speed when appropriate
+
+### Step 3: Build-Appropriate Quality Check
+PROTOTYPE: README contains essential quick start information
+MVP: Core guides provide sufficient information for early users
+PRODUCTION: Complete documentation suite meets enterprise standards
+```
+
+### Technology + Build Mode Examples
+
+**Next.js + Prototype:**
+```markdown
+# My App
+
+Quick demo application built with Next.js.
+
+## Quick Start
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000
+
+## Tech Stack
+- Frontend: Next.js 14 with TypeScript
+- Styling: Tailwind CSS
+```
+
+**FastAPI + MVP:**
+- README.md: Project overview and quick start
+- SETUP.md: Python environment and requirements setup
+- API.md: Core endpoints with request/response examples
+- DEPLOYMENT.md: Railway deployment instructions
+
+**Microservice + Production:**
+- Complete documentation suite with architecture diagrams
+- Comprehensive API reference with OpenAPI specs
+- Operational runbooks and monitoring setup
+- Security guidelines and compliance documentation
+
+---
 
 ## Workflow (Technology-Informed)
 

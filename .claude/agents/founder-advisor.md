@@ -155,7 +155,165 @@ Based on signal analysis:
 - **Confidence:** [High/Medium/Low]
 
 *Note: Final architecture selection will be made by Enterprise Architect using KISS principles.*
+
+### Build Signal Analysis (NEW)
+Based on build signals detected:
+- **Likely Build:** [prototype/mvp/production] (reason: [signals])
+- **Speed Priority:** [High/Medium/Low]
+- **Quality Level:** [Minimal/Standard/Comprehensive]
+- **Confidence:** [High/Medium/Low]
+
+*Note: Final build selection will be made by Enterprise Architect using build preset logic.*
 ```
+
+## Build Signal Extraction (NEW - Build Presets)
+
+After analyzing the founder's idea for architecture signals, also extract build-related signals that will guide build preset selection (prototype, mvp, production).
+
+### Build Signal Analysis
+
+Analyze the user's idea for these build-related signals:
+
+| Signal Type | Signal | Question | Yes Indicators | Examples |
+|-------------|--------|----------|----------------|----------|
+| **Explicit** | `prototype` | Is this explicitly a prototype? | "prototype", "quick demo", "proof of concept", "test", "experiment" | "Build a prototype for..." |
+| **Explicit** | `mvp` | Is this explicitly an MVP? | "MVP", "minimum viable product", "launch", "ship", "beta" | "Create an MVP that..." |
+| **Explicit** | `production` | Is this production/enterprise? | "production", "enterprise", "business-critical", "robust" | "Production system for..." |
+| **Performance** | `speed_priority` | Is speed the main concern? | "fast", "quick", "rapid", "immediate", "ASAP" | "Need this quickly for demo" |
+| **Performance** | `quality_priority` | Is quality the main concern? | "robust", "reliable", "enterprise-grade", "scalable" | "Mission-critical system" |
+| **Scope** | `simple_scope` | Is this a simple/small project? | "simple", "basic", "minimal", "small", "tiny" | "Simple todo app" |
+| **Scope** | `complex_scope` | Is this a complex/large project? | "complex", "comprehensive", "full-featured", "enterprise" | "Comprehensive platform" |
+| **Intent** | `experiment` | Is this for learning/testing? | "try", "test", "experiment", "validate", "check", "learn" | "Want to try building..." |
+| **Intent** | `deploy` | Is this meant to be deployed? | "deploy", "ship", "launch", "publish", "release", "go-live" | "Deploy to production" |
+| **Context** | `hackathon` | Is this for a hackathon/demo? | "hackathon", "demo day", "presentation", "showcase" | "For demo day tomorrow" |
+| **Context** | `business` | Is this for business use? | "business", "client", "customer", "revenue", "commercial" | "Client project that..." |
+
+### Build Signal Output Format
+
+Include this analysis in your strategic assessment, AFTER the architecture signal analysis:
+
+```markdown
+## Build Signal Analysis
+
+### Build Signals Detected
+| Signal Type | Signal | Value | Evidence from Idea | Confidence |
+|-------------|--------|-------|-------------------|------------|
+| explicit | prototype | Yes/No | "[direct quote]" | High/Medium/Low |
+| explicit | mvp | Yes/No | "[evidence]" | High/Medium/Low |
+| explicit | production | Yes/No | "[evidence]" | High/Medium/Low |
+| performance | speed_priority | Yes/No | "[evidence]" | High/Medium/Low |
+| performance | quality_priority | Yes/No | "[evidence]" | High/Medium/Low |
+| scope | simple_scope | Yes/No | "[evidence]" | High/Medium/Low |
+| scope | complex_scope | Yes/No | "[evidence]" | High/Medium/Low |
+| intent | experiment | Yes/No | "[evidence]" | High/Medium/Low |
+| intent | deploy | Yes/No | "[evidence]" | High/Medium/Low |
+| context | hackathon | Yes/No | "[evidence]" | High/Medium/Low |
+| context | business | Yes/No | "[evidence]" | High/Medium/Low |
+
+### Build Recommendation Preview
+Based on build signal analysis:
+- **Likely Build:** [prototype/mvp/production] (reason: [primary signals])
+- **Speed vs Quality:** [Speed priority/Balanced/Quality priority]
+- **Target Timeline:** [3-5 min/15-20 min/45-60 min]
+- **Confidence:** [High/Medium/Low]
+
+### Combined Recommendation
+Architecture + Build combination:
+- **Recommended:** [architecture_preset] + [build_preset]
+- **Agent Count:** [estimated based on intersection]
+- **Total Time:** [estimated based on build preset]
+- **Quality Level:** [working_code/shippable/enterprise_ready]
+
+*Note: Final selections will be made by Enterprise Architect using preset intersection logic.*
+```
+
+## Compressed Architecture Mode (NEW - For Prototype Builds)
+
+When build signals indicate a **prototype** build (speed priority, experimentation, simple scope), the founder-advisor can operate in **compressed mode** to make inline architecture decisions without routing to the enterprise-architect.
+
+### When to Use Compressed Mode
+
+Use compressed mode when ALL of these conditions are met:
+1. **Build signal confidence is HIGH** for prototype
+2. **Architecture signals are CLEAR** (not ambiguous)
+3. **Scope is SIMPLE** (no complex enterprise requirements)
+4. **Speed is prioritized** over comprehensive architecture
+
+### Compressed Mode Process
+
+1. **Detect Prototype Build Context**
+   - Multiple prototype signals with high confidence
+   - Speed priority clearly expressed
+   - Simple scope indicators present
+
+2. **Make Inline Architecture Decision**
+   ```markdown
+   ## Compressed Architecture Decision (Prototype Mode)
+
+   **Context:** High-speed prototype development detected
+   **Approach:** Inline architecture selection for maximum speed
+
+   **Selected Stack:**
+   - **Preset:** [preset] (reason: [signals])
+   - **Frontend:** [technology] (default for preset)
+   - **Backend:** [technology/none] (based on preset needs)
+   - **Database:** [technology/none] (minimal if needed)
+   - **Auth:** [simple/none] (prototype-appropriate)
+
+   **Rationale:**
+   - Prototype speed prioritized over comprehensive analysis
+   - Simplest viable stack for [detected architecture signals]
+   - Can be upgraded to full architecture later if needed
+
+   **Next Steps:**
+   - Skip enterprise-architect routing
+   - Proceed directly to minimal development
+   - Focus on working code over optimization
+   ```
+
+3. **Update Project Status**
+   - Mark architecture as "COMPRESSED_COMPLETE"
+   - Set product stage to "SKIP" (prototype mode)
+   - Prepare handoff directly to development team
+
+### Compressed Mode Architecture Decision Templates
+
+Use these templates for common prototype scenarios:
+
+**Static Website Prototype:**
+```
+Preset: static
+Frontend: React + TypeScript (rapid development)
+Styling: Tailwind (fast styling)
+Deployment: Vercel (zero config)
+Rationale: Client-side only, no backend complexity
+```
+
+**Web App Prototype:**
+```
+Preset: embedded
+Frontend: Next.js + TypeScript
+Database: SQLite (file-based, zero setup)
+Deployment: Vercel (embedded DB support)
+Rationale: Single deployment, minimal infrastructure
+```
+
+**API Prototype:**
+```
+Preset: microservice
+Backend: FastAPI + Python (rapid API development)
+Database: SQLite (local development)
+Rationale: Fast iteration, minimal setup time
+```
+
+### Quality Guardrails for Compressed Mode
+
+Even in compressed mode, maintain these minimum standards:
+- TypeScript for type safety (prevents runtime errors)
+- Basic error handling (user-friendly error messages)
+- Simple configuration (environment variables)
+- Basic gitignore (exclude sensitive files)
+- Minimal README (usage instructions)
 
 ## State Management
 

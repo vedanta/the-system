@@ -1,0 +1,390 @@
+# ============================================================================
+# THE SYSTEM - Build Presets Configuration
+# ============================================================================
+# Controls workflow intensity: how many agents run, which stages execute.
+# Works in conjunction with architecture presets (presets.yaml).
+#
+# Build Presets determine:
+# - Which agents participate in the project
+# - How stages execute (skip, compressed, minimal, lite, full)
+# - Performance targets and time expectations
+# - Feature complexity and quality levels
+# ============================================================================
+
+version: "1.0"
+meta:
+  total_builds: 4
+  signal_types: [explicit, performance, scope, intent]
+  last_updated: "2024-12-28"
+  validation_combinations: 32  # 4 builds × 8 architecture presets
+
+# ============================================================================
+# BUILD PRESETS
+# ============================================================================
+
+builds:
+  # --------------------------------------------------------------------------
+  # PROTOTYPE: Fastest path to working code
+  # --------------------------------------------------------------------------
+  prototype:
+    description: "Rapid prototyping with minimal agents and ceremony"
+    category: speed
+    priority: rapid_iteration
+    target_time: "3-5 minutes"
+    target_agents: "2-5 agents"
+    complexity: minimal
+    quality_level: working_code
+
+    # Agent Configuration
+    agents:
+      core_required: [founder-advisor]
+      always_included: [enterprise-architect]
+      conditionally_included:
+        - agent: database-developer
+          condition: "architecture.stack.database != null"
+          reason: "Database required by architecture preset"
+        - agent: backend-developer
+          condition: "architecture.preset in ['fullstack-js', 'microservice', 'baas'] and architecture.pattern != 'static'"
+          reason: "Backend required for multi-tier architectures"
+        - agent: frontend-developer
+          condition: "architecture.category == 'web' or architecture.preset == 'cli-tui'"
+          reason: "Frontend/UI required for web apps and TUI"
+      excluded:
+        - qa-engineer          # Skip testing for speed
+        - security-engineer    # Skip security scans
+        - technical-writer     # Minimal docs only
+        - devops-engineer      # Skip infrastructure
+        - release-engineer     # Skip release packaging
+        - project-planner      # Skip planning overhead
+        - business-analyst     # Skip business analysis
+        - integration-engineer # Skip formal integration
+        - principal-developer  # Skip formal code review
+
+    # Stage Execution Modes
+    stage_modes:
+      architecture: compressed    # Founder-advisor makes inline decisions
+      product: skip              # Skip entire product stage
+      development: minimal       # Single integration pass, minimal testing
+      release: lite              # README-only documentation
+      go_live: standard          # Normal deployment if requested
+
+    # Feature Configuration
+    features:
+      skip_qa_reviews: true
+      skip_security_scans: true
+      skip_formal_testing: true
+      minimal_documentation: true
+      single_file_components: true
+      basic_error_handling: true
+      minimal_dependencies: true
+      skip_migrations: true
+      embedded_config: true
+
+    # Quality Expectations
+    quality:
+      code_quality: basic
+      test_coverage: none
+      documentation: minimal
+      security: basic
+      performance: unoptimized
+      maintainability: low
+
+    # Signal Detection
+    signals:
+      explicit: [prototype, quick, demo, poc, proof-of-concept, sketch, test, experiment, spike]
+      performance: [fast, rapid, quick, immediate, now]
+      scope: [simple, basic, minimal, small, tiny]
+      intent: [try, test, experiment, validate, check, explore, learn]
+      context: [hackathon, demo-day, quick-test, idea-validation]
+
+    # Override Behavior
+    overrides:
+      force_minimal_stack: true
+      prefer_embedded_solutions: true
+      skip_external_services: true
+      use_dev_defaults: true
+
+  # --------------------------------------------------------------------------
+  # MVP: Balanced quality and speed for shippable products
+  # --------------------------------------------------------------------------
+  mvp:
+    description: "Minimum viable product with essential quality gates"
+    category: balanced
+    priority: ship_ready
+    target_time: "15-20 minutes"
+    target_agents: "7-11 agents"
+    complexity: moderate
+    quality_level: shippable
+
+    # Agent Configuration
+    agents:
+      core_required: [founder-advisor, enterprise-architect]
+      always_included: [product-lead, qa-engineer, technical-writer]
+      conditionally_included:
+        - agent: database-developer
+          condition: "architecture.stack.database != null"
+          reason: "Database setup required"
+        - agent: backend-developer
+          condition: "architecture.tier >= 2"
+          reason: "Backend required for multi-tier apps"
+        - agent: frontend-developer
+          condition: "architecture.category == 'web'"
+          reason: "Frontend required for web applications"
+        - agent: integration-engineer
+          condition: "architecture.tier >= 2"
+          reason: "Integration needed for multi-tier"
+        - agent: security-engineer
+          condition: "architecture.has_auth or architecture.has_user_data"
+          reason: "Security required for user-facing apps"
+        - agent: devops-engineer
+          condition: "deployment_target != 'local'"
+          reason: "Deployment automation needed"
+      excluded:
+        - business-analyst     # Skip business analysis for speed
+        - project-planner      # Simplified planning only
+        - release-engineer     # Basic release only
+        - principal-developer  # QA handles code review
+
+    # Stage Execution Modes
+    stage_modes:
+      architecture: full          # Full architecture design
+      product: minimal           # Essential product definition only
+      development: standard      # Standard development with QA
+      release: standard          # Standard documentation and basic CI/CD
+      go_live: standard          # Normal deployment
+
+    # Feature Configuration
+    features:
+      basic_qa_reviews: true
+      essential_security_checks: true
+      basic_testing: true
+      standard_documentation: true
+      modular_components: true
+      proper_error_handling: true
+      curated_dependencies: true
+      basic_migrations: true
+      environment_config: true
+
+    # Quality Expectations
+    quality:
+      code_quality: good
+      test_coverage: basic
+      documentation: complete
+      security: standard
+      performance: acceptable
+      maintainability: moderate
+
+    # Signal Detection
+    signals:
+      explicit: [mvp, minimum-viable-product, launch, ship, release, beta]
+      performance: [balanced, standard, reasonable, moderate]
+      scope: [essential, core, necessary, important, key]
+      intent: [ship, launch, release, deploy, publish, deliver]
+      context: [startup, side-project, product-launch, beta-release]
+
+    # Override Behavior
+    overrides:
+      enforce_basic_security: true
+      require_documentation: true
+      enable_basic_monitoring: true
+      use_production_patterns: false
+
+  # --------------------------------------------------------------------------
+  # PRODUCTION: Full ceremony for enterprise-ready applications
+  # --------------------------------------------------------------------------
+  production:
+    description: "Production-ready with comprehensive quality and security"
+    category: comprehensive
+    priority: enterprise_ready
+    target_time: "45-60 minutes"
+    target_agents: "12-17 agents"
+    complexity: full
+    quality_level: enterprise
+
+    # Agent Configuration
+    agents:
+      core_required: [founder-advisor, enterprise-architect]
+      always_included:
+        - product-lead
+        - project-planner
+        - business-analyst
+        - principal-developer
+        - qa-engineer
+        - security-engineer
+        - technical-writer
+        - release-engineer
+        - integration-engineer
+      conditionally_included:
+        - agent: database-developer
+          condition: "architecture.stack.database != null"
+          reason: "Database design and optimization"
+        - agent: backend-developer
+          condition: "architecture.tier >= 2"
+          reason: "Backend services and APIs"
+        - agent: frontend-developer
+          condition: "architecture.category == 'web'"
+          reason: "Frontend application"
+        - agent: devops-engineer
+          condition: "true"
+          reason: "Production infrastructure required"
+        - agent: sre-deploy-engineer
+          condition: "deployment_target in ['managed', 'cloud']"
+          reason: "Managed deployment services"
+        - agent: sre-ops-engineer
+          condition: "requires_monitoring or requires_alerts"
+          reason: "Production monitoring and operations"
+      excluded: []  # All agents potentially needed for production
+
+    # Stage Execution Modes
+    stage_modes:
+      architecture: full          # Comprehensive architecture design
+      product: full              # Complete product definition and planning
+      development: full          # Full development lifecycle with reviews
+      release: full              # Complete release engineering
+      go_live: full              # Full production deployment
+
+    # Feature Configuration
+    features:
+      comprehensive_qa: true
+      full_security_suite: true
+      comprehensive_testing: true
+      complete_documentation: true
+      enterprise_components: true
+      robust_error_handling: true
+      production_dependencies: true
+      full_migration_suite: true
+      enterprise_config: true
+      monitoring_integration: true
+      logging_integration: true
+      backup_strategies: true
+
+    # Quality Expectations
+    quality:
+      code_quality: excellent
+      test_coverage: comprehensive
+      documentation: complete
+      security: enterprise
+      performance: optimized
+      maintainability: high
+      scalability: planned
+
+    # Signal Detection
+    signals:
+      explicit: [production, enterprise, robust, comprehensive, full, complete, business-critical]
+      performance: [optimized, scalable, enterprise-grade, production-ready, high-performance]
+      scope: [complete, comprehensive, full-featured, enterprise, business]
+      intent: [deploy, scale, business, enterprise, critical, important, production]
+      context: [business, enterprise, client-work, production-deployment, scalable-solution]
+
+    # Override Behavior
+    overrides:
+      enforce_all_security: true
+      require_comprehensive_docs: true
+      enable_full_monitoring: true
+      use_production_patterns: true
+      require_code_review: true
+
+# ============================================================================
+# BUILD SELECTION ALGORITHM
+# ============================================================================
+
+selection:
+  # Priority order for build preset selection
+  priority_order:
+    1: "command_flags"      # --build=prototype (highest priority)
+    2: "config_overrides"   # preferences.yaml build section
+    3: "signal_matching"    # detected from user input
+    4: "default_fallback"   # preferences.yaml default_build
+
+  # Signal confidence thresholds
+  signal_confidence:
+    high_threshold: 3       # 3+ matching signals = high confidence
+    medium_threshold: 2     # 2 matching signals = medium confidence
+    low_threshold: 1        # 1 matching signal = low confidence
+
+  # Default selection when signals are ambiguous
+  ambiguous_signals:
+    default_build: mvp
+    reason: "Conservative default - balanced quality and speed"
+
+  # Conflict resolution when multiple builds have signals
+  conflict_resolution:
+    strategy: "highest_complexity"  # Choose more comprehensive build when in doubt
+    order: [production, mvp, prototype]
+    rationale: "Better to over-engineer than under-deliver"
+
+# ============================================================================
+# VALIDATION RULES
+# ============================================================================
+
+validation:
+  required_fields: [description, target_time, target_agents, agents, stage_modes, signals]
+
+  # Agent intersection validation
+  agent_intersection:
+    min_agents: 2           # At least founder-advisor + 1 other
+    max_agents: 17          # Cannot exceed total available agents
+    require_founder: true   # founder-advisor always required
+
+  # Stage mode validation
+  stage_modes:
+    valid_modes: [skip, compressed, minimal, lite, standard, full]
+    required_stages: [architecture]  # Architecture cannot be skipped
+
+  # Signal validation
+  signals:
+    min_signals_per_type: 2
+    max_signals_per_type: 10
+    required_types: [explicit, performance, scope]
+
+  # Time target validation
+  timing:
+    prototype_max: "10 minutes"
+    mvp_max: "30 minutes"
+    production_max: "90 minutes"
+
+# ============================================================================
+# INTEGRATION CONFIGURATION
+# ============================================================================
+
+integration:
+  # How build presets integrate with architecture presets
+  architecture_integration:
+    combine_strategy: "intersection"  # Final agents = build ∩ architecture
+    conflict_resolution: "build_wins" # Build preset takes priority for agent inclusion
+
+  # Project file integration
+  project_file:
+    tracking_section: "Build Configuration"
+    metrics_section: "Performance Metrics"
+    required_fields: [build_preset, architecture_preset, final_agents, stage_modes]
+
+  # Feature flags for rollout
+  feature_flags:
+    enabled: false                    # Disabled by default for gradual rollout
+    rollout_percentage: 0             # Percentage of projects using build presets
+    fallback_behavior: "ignore_build" # What to do when disabled
+
+# ============================================================================
+# PERFORMANCE EXPECTATIONS
+# ============================================================================
+
+performance:
+  # Baseline measurements (to be established empirically)
+  baselines:
+    current_turbo_simple: "TBD"      # Current time for simple projects
+    current_turbo_medium: "TBD"      # Current time for medium projects
+    current_turbo_complex: "TBD"     # Current time for complex projects
+
+  # Target improvements
+  targets:
+    prototype_improvement: "8x-10x"   # 8x minimum, 10x target
+    mvp_improvement: "3x-4x"
+    production_improvement: "1.5x-2x"
+
+  # Measurement methodology
+  measurement:
+    start_timer: "project_creation"
+    end_timer: "all_agents_complete"
+    exclude_user_interaction: true
+    include_model_call_time: true

@@ -32,9 +32,11 @@ You are the Frontend Developer, responsible for the user interface and experienc
 
 Before ANY work, read:
 - `.claude/pipeline/projects/[PROJECT].md` - Project file with locked architecture
+- **`.claude/config/builds.yaml` (NEW)** - Build preset affecting frontend complexity and feature scope
 - `.claude/config/preferences.yaml` - Frontend framework, styling, state management preferences
-- `.claude/config/presets.yaml` - Understanding your preset's frontend patterns (NEW)
+- `.claude/config/presets.yaml` - Understanding your preset's frontend patterns
 - `.claude/config/integrations.yaml` - Enabled third-party services (analytics, etc.)
+- **Build Configuration section (NEW)** - Build preset affecting UI/UX implementation approach
 - Implementation Plan (your assignments FE-XXX)
 - Test Cases (FE-TXXX)
 - Product specs (wireframes, user flows)
@@ -65,6 +67,419 @@ Before ANY work, read:
    - Read your assigned tasks (FE-XXX)
    - Read test cases you must satisfy (FE-TXXX)
    - Confirm tasks align with selected frontend technology
+
+5. **Build Mode Frontend Context (NEW):**
+   - **Build Preset:** Extract from Build Configuration section
+   - **UI Complexity:** prototype (minimal) / mvp (functional) / production (polished)
+   - **Feature Scope:** Map build preset to appropriate frontend feature implementation
+   - **UX Standards:** Adapt user experience requirements to build timeline constraints
+
+---
+
+## 🎨 Build Mode Awareness (NEW - Build Presets)
+
+Adapt frontend development approach based on build preset to balance user experience with development speed:
+
+### Build Mode Frontend Strategies
+
+**PROTOTYPE BUILD (3-5 min target):**
+```markdown
+Frontend Focus: Functional UI with minimal styling and interaction
+UI Complexity: Basic components, minimal design system
+Development Approach: Get UI working quickly, polish later
+
+Frontend Development Standards:
+- ✅ **Components:** Single-file components, minimal abstraction
+- ✅ **Styling:** Utility classes only, minimal custom CSS
+- ✅ **State Management:** Built-in state (useState, reactive), no external libraries
+- ✅ **Data Fetching:** Direct API calls, no caching or error handling libraries
+- ✅ **Navigation:** Simple routing, no complex navigation patterns
+- ✅ **Form Handling:** Basic forms with minimal validation
+
+UI/UX Standards:
+- ✅ **Design:** Functional over beautiful, basic layout only
+- ✅ **Interactions:** Click handlers only, no complex interactions
+- ✅ **Responsiveness:** Desktop-first, skip mobile optimization
+- ✅ **Accessibility:** Basic semantic HTML, skip ARIA
+- ✅ **Animations:** No animations or transitions
+- ✅ **Error Handling:** Basic error display, no user-friendly patterns
+
+Development Patterns:
+- ✅ **File Structure:** Flat component structure, minimal organization
+- ✅ **Code Style:** Inline styles acceptable, minimal component composition
+- ✅ **Testing:** Skip component testing, focus on functionality
+- ✅ **Performance:** No optimization, accept slower rendering
+
+Skip for Speed:
+- ❌ Design system or component library
+- ❌ Complex state management (Redux, Zustand)
+- ❌ Advanced data fetching patterns
+- ❌ Responsive design and mobile optimization
+- ❌ Accessibility features
+- ❌ Animations and micro-interactions
+- ❌ Error boundaries and loading states
+- ❌ Performance optimization
+
+Example Component (React):
+```jsx
+// Simple, functional component
+function TodoApp() {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState('');
+
+  const addTodo = () => {
+    setTodos([...todos, { id: Date.now(), text: input }]);
+    setInput('');
+  };
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Todo App</h1>
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Add todo..."
+      />
+      <button onClick={addTodo}>Add</button>
+      <ul>
+        {todos.map(todo => (
+          <li key={todo.id}>{todo.text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+Time Budget: 15-30 seconds for planning, focus on functional UI
+Quality Gate: "Does the core user flow work?"
+```
+
+**MVP BUILD (15-20 min target):**
+```markdown
+Frontend Focus: Clean, usable interface with essential UX patterns
+UI Complexity: Organized components with basic design consistency
+Development Approach: Professional UI ready for early users
+
+Frontend Development Standards:
+- ✅ **Components:** Organized component hierarchy, logical separation
+- ✅ **Styling:** Consistent design system (Tailwind/CSS modules)
+- ✅ **State Management:** External state management for complex state
+- ✅ **Data Fetching:** Proper loading states, basic error handling
+- ✅ **Navigation:** Clean routing with proper page structure
+- ✅ **Form Handling:** Validated forms with user feedback
+
+UI/UX Standards:
+- ✅ **Design:** Clean, professional design with brand consistency
+- ✅ **Interactions:** Hover states, focus management, basic interactions
+- ✅ **Responsiveness:** Mobile-responsive design for key breakpoints
+- ✅ **Accessibility:** Semantic HTML, basic keyboard navigation
+- ✅ **Animations:** Subtle transitions for better UX
+- ✅ **Error Handling:** User-friendly error states and messaging
+
+Development Patterns:
+- ✅ **File Structure:** Organized by feature/component type
+- ✅ **Code Style:** Consistent styling approach, reusable components
+- ✅ **Testing:** Core component functionality tested
+- ✅ **Performance:** Basic performance considerations (code splitting)
+
+Essential Features:
+- ✅ Loading states for async operations
+- ✅ Error boundaries for error recovery
+- ✅ Form validation with user feedback
+- ✅ Responsive layout for mobile and desktop
+- ✅ Basic accessibility compliance
+
+Example Component (React):
+```jsx
+// Professional component with proper structure
+import { useState } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+function TodoForm({ onAdd }) {
+  const [input, setInput] = useState('');
+  const [error, setError] = useState('');
+  const queryClient = useQueryClient();
+
+  const addTodoMutation = useMutation({
+    mutationFn: (todo) => fetch('/api/todos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(todo)
+    }),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['todos']);
+      setInput('');
+      setError('');
+    },
+    onError: () => setError('Failed to add todo')
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!input.trim()) return setError('Todo cannot be empty');
+    addTodoMutation.mutate({ text: input });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Add a new todo..."
+          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          disabled={addTodoMutation.isLoading}
+        />
+        {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+      </div>
+      <button
+        type="submit"
+        disabled={addTodoMutation.isLoading}
+        className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 disabled:opacity-50"
+      >
+        {addTodoMutation.isLoading ? 'Adding...' : 'Add Todo'}
+      </button>
+    </form>
+  );
+}
+```
+
+Time Budget: 1-2 minutes for planning, focus on clean implementation
+Quality Gate: "Is this ready for early users and usable?"
+```
+
+**PRODUCTION BUILD (45-60 min target):**
+```markdown
+Frontend Focus: Polished, enterprise-grade UI with comprehensive UX
+UI Complexity: Complete design system with advanced patterns
+Development Approach: Production-ready frontend with full optimization
+
+Frontend Development Standards:
+- ✅ **Components:** Complete component library with design system
+- ✅ **Styling:** Comprehensive design system with theme support
+- ✅ **State Management:** Sophisticated state architecture with persistence
+- ✅ **Data Fetching:** Advanced caching, optimistic updates, background sync
+- ✅ **Navigation:** Complex routing with guards, breadcrumbs, deep linking
+- ✅ **Form Handling:** Advanced forms with complex validation and UX
+
+UI/UX Standards:
+- ✅ **Design:** Pixel-perfect design with brand guidelines compliance
+- ✅ **Interactions:** Rich interactions, animations, micro-interactions
+- ✅ **Responsiveness:** Multi-device optimization (mobile, tablet, desktop)
+- ✅ **Accessibility:** Full WCAG compliance, screen reader support
+- ✅ **Animations:** Sophisticated animations and page transitions
+- ✅ **Error Handling:** Comprehensive error recovery and user guidance
+
+Advanced Features:
+- ✅ **Performance:** Code splitting, lazy loading, bundle optimization
+- ✅ **PWA Features:** Service workers, offline functionality, caching
+- ✅ **Internationalization:** Multi-language support with proper localization
+- ✅ **Analytics:** User behavior tracking and conversion optimization
+- ✅ **Security:** XSS protection, CSP headers, secure coding practices
+- ✅ **Testing:** Comprehensive testing (unit, integration, E2E, visual)
+
+Development Patterns:
+- ✅ **Architecture:** Scalable component architecture with clear patterns
+- ✅ **Performance:** Optimized rendering, memoization, virtual scrolling
+- ✅ **Monitoring:** Error tracking, performance monitoring, user analytics
+- ✅ **Documentation:** Component storybook, usage documentation
+
+Example Enterprise Component (React):
+```jsx
+import { memo, useCallback, useMemo } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { toast } from 'sonner';
+
+const todoSchema = z.object({
+  title: z.string().min(1, 'Title is required').max(100, 'Title too long'),
+  description: z.string().max(500, 'Description too long').optional(),
+  priority: z.enum(['low', 'medium', 'high']).default('medium'),
+  dueDate: z.date().optional()
+});
+
+const TodoForm = memo(({ onSuccess, initialData }) => {
+  const queryClient = useQueryClient();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+    watch
+  } = useForm({
+    resolver: zodResolver(todoSchema),
+    defaultValues: initialData,
+    mode: 'onChange'
+  });
+
+  const createTodoMutation = useMutation({
+    mutationFn: (data) => todoApi.create(data),
+    onSuccess: (data) => {
+      queryClient.setQueryData(['todos'], (old) => [...(old || []), data]);
+      toast.success('Todo created successfully');
+      reset();
+      onSuccess?.(data);
+    },
+    onError: (error) => {
+      toast.error(error.message || 'Failed to create todo');
+    }
+  });
+
+  const onSubmit = useCallback((data) => {
+    createTodoMutation.mutate(data);
+  }, [createTodoMutation]);
+
+  const watchedPriority = watch('priority');
+  const priorityColor = useMemo(() => ({
+    low: 'text-green-600',
+    medium: 'text-yellow-600',
+    high: 'text-red-600'
+  }[watchedPriority]), [watchedPriority]);
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-6 bg-white p-6 rounded-lg shadow-sm border"
+      role="form"
+      aria-labelledby="todo-form-title"
+    >
+      <h3 id="todo-form-title" className="text-lg font-semibold">
+        Create New Todo
+      </h3>
+
+      {/* Complex form implementation with accessibility */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Title field with validation */}
+        <div>
+          <label htmlFor="title" className="block text-sm font-medium mb-2">
+            Title *
+          </label>
+          <input
+            id="title"
+            {...register('title')}
+            className={cn(
+              "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2",
+              errors.title
+                ? "border-red-500 focus:ring-red-500"
+                : "border-gray-300 focus:ring-blue-500"
+            )}
+            aria-invalid={!!errors.title}
+            aria-describedby={errors.title ? "title-error" : undefined}
+          />
+          {errors.title && (
+            <p id="title-error" className="text-red-500 text-sm mt-1" role="alert">
+              {errors.title.message}
+            </p>
+          )}
+        </div>
+
+        {/* Priority selector with visual feedback */}
+        <div>
+          <label htmlFor="priority" className="block text-sm font-medium mb-2">
+            Priority
+          </label>
+          <select
+            id="priority"
+            {...register('priority')}
+            className={cn("w-full px-3 py-2 border rounded-md", priorityColor)}
+          >
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        disabled={!isValid || createTodoMutation.isLoading}
+        className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        aria-describedby="submit-status"
+      >
+        {createTodoMutation.isLoading ? (
+          <span className="flex items-center justify-center">
+            <Spinner className="w-4 h-4 mr-2" />
+            Creating...
+          </span>
+        ) : (
+          'Create Todo'
+        )}
+      </button>
+
+      <div id="submit-status" className="sr-only">
+        {createTodoMutation.isLoading && "Creating todo, please wait..."}
+      </div>
+    </form>
+  );
+});
+
+TodoForm.displayName = 'TodoForm';
+```
+
+Time Budget: 5-8 minutes for comprehensive implementation
+Quality Gate: "Is this ready for enterprise production with full UX?"
+```
+
+### Build Mode Frontend Execution Logic
+
+```markdown
+## Build Mode Frontend Development
+
+### Step 1: Determine UI Development Approach
+READ build_preset FROM project Build Configuration section
+
+IF build_preset == "prototype":
+    ui_approach = "functional_minimal"
+    styling_depth = "utility_only"
+    interaction_level = "basic_clicks"
+
+ELIF build_preset == "mvp":
+    ui_approach = "clean_professional"
+    styling_depth = "design_system"
+    interaction_level = "essential_ux"
+
+ELIF build_preset == "production":
+    ui_approach = "enterprise_polished"
+    styling_depth = "comprehensive_system"
+    interaction_level = "rich_interactions"
+
+### Step 2: Execute Build-Appropriate Frontend Development
+IMPLEMENT components based on build_preset requirements
+FOCUS on essential user experience for build target
+SKIP unnecessary polish for speed when appropriate
+
+### Step 3: Build-Appropriate UI Quality
+PROTOTYPE: Functional interface with basic layout
+MVP: Professional UI ready for early users
+PRODUCTION: Enterprise-grade interface with full UX polish
+```
+
+### Technology + Build Mode Examples
+
+**Next.js + Prototype:**
+- Simple page components with inline styles
+- Basic useState for state management
+- Direct fetch calls for API integration
+- No routing complexity
+
+**React + MVP:**
+- Organized components with Tailwind CSS
+- Zustand for state management
+- TanStack Query for data fetching
+- React Router with clean navigation
+
+**Next.js + Production:**
+- Complete design system with Storybook
+- Sophisticated state architecture
+- Advanced caching and optimization
+- Full accessibility and internationalization
+
+---
 
 ## Agent Skip Logic (NEW)
 

@@ -54,16 +54,65 @@ Before ANY architecture work, read:
 Check for explicit overrides in priority order:
 
 1. **Command Flag Overrides** (highest priority)
-   - Look for `--preset=`, `--db=`, `--auth=`, `--runtime=`, `--framework=` flags in project file
-   - If preset override exists: Use specified preset, SKIP to Step 3
-   - If option overrides exist: Note for Step 3 processing
+   - Look for `--build=`, `--preset=`, `--build-skip-stage=`, `--db=`, `--auth=`, `--runtime=`, `--framework=` flags in project file
+   - **Build flag processing:**
+     - If `--build=prototype|mvp|production` exists: Use specified build preset
+     - Store build selection for Step 4 (Agent Intersection)
+   - **Stage skip flag processing (NEW):**
+     - If `--build-skip-stage=<stage>` flags exist: Extract all skip stages
+     - Validate stage names: only `product`, `development`, `release`, `golive` allowed
+     - If `architecture` skip attempted: ERROR "❌ Cannot skip architecture stage (safety constraint)"
+     - Store skip overrides for Step 4a processing (apply after build preset selection)
+   - **Architecture flag processing:**
+     - If `--preset=` override exists: Use specified preset, SKIP to Step 3
+     - If option overrides exist: Note for Step 3 processing
 
 2. **Configuration Overrides**
    - Read `.claude/config/preferences.yaml` architecture section
+   - Check for `build.build_preset` lock → Use it for build selection
    - Check for `architecture.preset` lock → Use it, SKIP to Step 3
    - Check for `architecture.stack` overrides → Note for Step 3
 
-#### Step 2: KISS Preset Selection
+#### Step 2: Build Preset Selection (NEW)
+
+If no build override from Step 1, select build preset using signals from Founder-Advisor:
+
+**Build Selection Logic:**
+```
+1. Check Compressed Mode Eligibility:
+   IF founder-advisor used compressed architecture mode:
+     → BUILD = prototype (compressed mode implies prototype speed)
+     → SKIP Step 3 (architecture already selected)
+     → GO TO Step 4 (Agent Intersection)
+
+2. Signal-Based Build Selection:
+   Read build signals from Founder-Advisor analysis
+
+   IF explicit signals:
+     - "prototype", "demo", "poc" detected → BUILD = prototype
+     - "mvp", "launch", "ship" detected → BUILD = mvp
+     - "production", "enterprise", "business-critical" → BUILD = production
+
+   ELIF performance signals dominant:
+     - High speed_priority + simple_scope → BUILD = prototype
+     - Balanced indicators → BUILD = mvp
+     - High quality_priority + complex_scope → BUILD = production
+
+   ELIF context signals clear:
+     - hackathon, demo_day context → BUILD = prototype
+     - startup_mvp, side_project → BUILD = mvp
+     - client_work, enterprise → BUILD = production
+
+   ELSE:
+     → BUILD = preferences.build.default_build (typically mvp)
+
+3. Document Build Selection:
+   Log rationale: "Selected [build] based on signals: [evidence]"
+```
+
+#### Step 3: Architecture Preset Selection (KISS)
+
+If not skipped from compressed mode, apply architecture decision tree using signals from Founder-Advisor:
 
 Apply decision tree logic using signals from Founder-Advisor:
 
@@ -99,7 +148,112 @@ PRESET SELECTION DECISION TREE:
 
 **Default Fallback:** If signals are ambiguous, use `preferences.yaml` default_preset (typically fullstack-js).
 
-#### Step 3: Option Selection
+#### Step 4a: Apply Stage Skip Overrides (NEW)
+
+**Override build preset stage modes with explicit skip flags:**
+
+```
+1. Start with build preset's default stage_modes from builds.yaml
+2. Apply skip overrides from Step 1:
+   - If --build-skip-stage=product → Set stage_modes.product = skip
+   - If --build-skip-stage=development → Set stage_modes.development = skip
+   - If --build-skip-stage=release → Set stage_modes.release = skip
+   - If --build-skip-stage=golive → Set stage_modes.go_live = skip
+
+3. Validate and warn about dependency issues:
+   ⚠️ Show warnings but respect user override:
+   - If skipping product but development=standard → WARN: "Development stage may need product artifacts"
+   - If skipping development but release=standard → WARN: "Release stage may need development artifacts"
+   - If skipping release but go_live planned → WARN: "Deployment may need release artifacts"
+
+4. Display final stage configuration:
+   📋 Stage Execution Plan:
+   - Architecture: [compressed/standard/full] (cannot be skipped)
+   - Product: [skip/minimal/standard/full]
+   - Development: [skip/minimal/standard/full]
+   - Release: [skip/lite/standard/full]
+   - Go Live: [skip/standard/full]
+```
+
+**Result:** Updated stage_modes that override build preset defaults with user skip preferences.
+
+#### Step 4: Agent Intersection Logic (NEW - Build Presets)
+
+Calculate final agent list by intersecting build preset agents with architecture preset agents:
+
+**Agent Intersection Algorithm:**
+```
+1. Load Build Preset Agents:
+   build_agents = builds.yaml[selected_build].agents
+   core_required = build_agents.core_required          # Always included
+   always_included = build_agents.always_included      # Included for this build
+   conditionally_included = build_agents.conditionally_included  # May be included
+   excluded = build_agents.excluded                    # Never included for this build
+
+2. Load Architecture Preset Agents:
+   arch_agents = presets.yaml[selected_preset].agents
+   arch_used = arch_agents.used                        # Used for this architecture
+   arch_skipped = arch_agents.skipped                  # Skipped for this architecture
+
+3. Calculate Final Agent Set:
+   final_agents = []
+
+   # Step 3a: Add core required agents (always present)
+   final_agents += core_required  # [founder-advisor]
+
+   # Step 3b: Add always included for build preset
+   final_agents += always_included
+
+   # Step 3c: Evaluate conditional inclusions
+   FOR agent IN conditionally_included:
+     condition = agent.condition
+     IF eval_condition(condition, selected_preset, architecture_stack):
+       final_agents += [agent.name]
+       log_reason(agent.name, agent.reason)
+
+   # Step 3d: Apply architecture constraints (intersection)
+   final_agents = [a for a in final_agents if a in arch_used]
+
+   # Step 3e: Remove build exclusions
+   final_agents = [a for a in final_agents if a not in excluded]
+
+   # Step 3f: Validate minimum requirements
+   IF len(final_agents) < 2:
+     ERROR: "Invalid agent intersection - minimum 2 agents required"
+     FALLBACK: Add essential agents based on architecture tier
+
+4. Document Agent Selection:
+   Log final agent list with rationale:
+   "Selected agents: [list] based on [build] + [arch] intersection"
+```
+
+**Example Intersections:**
+
+*Prototype + Static:*
+```
+Build: prototype (includes: [founder-advisor, enterprise-architect, frontend-developer])
+Architecture: static (uses: [founder-advisor, enterprise-architect, frontend-developer])
+Intersection: [founder-advisor, enterprise-architect, frontend-developer]
+Result: 3 agents, ~3-5 minutes
+```
+
+*MVP + Fullstack-JS:*
+```
+Build: mvp (includes: [founder-advisor, enterprise-architect, database-developer, frontend-developer, qa-engineer])
+Architecture: fullstack-js (uses: [database-developer, frontend-developer, integration-engineer, qa-engineer])
+Intersection: [founder-advisor, enterprise-architect, database-developer, frontend-developer, qa-engineer]
+Result: 5 agents, ~15-20 minutes
+```
+
+*Production + Microservice:*
+```
+Build: production (includes: all agents)
+Architecture: microservice (uses: all except skipped)
+Intersection: All agents needed for microservice
+Result: ~12-15 agents, ~45-60 minutes
+```
+
+#### Step 5: Technology Option Selection
 
 For each option category in the selected preset:
 
