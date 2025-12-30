@@ -1,6 +1,6 @@
 # The System Agents
 
-> Complete reference for all 18 agents in the Autonomous Software Development Organization
+> Complete reference for all 19 agents in the Autonomous Software Development Organization
 
 ## Overview
 
