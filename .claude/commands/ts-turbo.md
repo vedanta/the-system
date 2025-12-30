@@ -51,16 +51,25 @@ You are now in **TURBO MODE**. Execute everything autonomously.
    - Project name: First argument
    - Idea: Everything in quotes after project name
    - **Build preset flag:** `--build=prototype|mvp|production`
-   - **Architecture preset flag:** `--preset=static|embedded|fullstack-js|etc`
-   - **Stage skip flags (NEW):** `--build-skip-stage=product|development|release|golive`
-   - **Technology flags:** `--db=`, `--auth=`, `--runtime=`, `--framework=`
+   - **Architecture preset flag:** `--preset=static|embedded|fullstack-js|baas|microservice`
+   - **Stage skip flags:** `--build-skip-stage=product|development|release|golive`
+   - **Technology override flags:**
+     - `--db=postgresql|mysql|sqlite` - Override database selection
+     - `--auth=nextauth|clerk|supabase|none` - Override authentication system
+     - `--runtime=node|python|go` - Override runtime (for CLI apps)
+     - `--framework=fastapi|express|fiber` - Override framework (for CLI apps)
+   - **SA Assessment flags:**
+     - `--detailed` - Include comprehensive risk analysis
+     - `--compare=N` - Show comparison of top N stack options
+     - `--quick` - Fast assessment for turbo mode (default for turbo)
 
    **Examples with flags:**
    ```
    /ts-turbo todo-app "task manager" --build=prototype
    /ts-turbo blog-platform "markdown blog" --build=mvp --preset=static
-   /ts-turbo enterprise-app "business platform" --build=production --db=postgresql
+   /ts-turbo enterprise-app "business platform" --build=production --db=postgresql --auth=clerk
    /ts-turbo quick-demo "demo app" --build-skip-stage=product --build-skip-stage=release
+   /ts-turbo cli-tool "file processor" --preset=cli-tool --runtime=python --framework=click
    ```
 
 2. Create project using founder-advisor:
@@ -89,14 +98,25 @@ You are now in **TURBO MODE**. Execute everything autonomously.
 ### Phase 1: Architecture (Auto)
 
 4. **Founder-Advisor**: Analyze idea, create strategic assessment
-5. **Enterprise Architect**: 
-   - Create system context diagram
-   - Define component architecture
-   - Design data model
-   - Specify API contracts
-   - Write ADRs
-   - Select tech stack
-6. **Auto-approve**: architecture-lock ✅
+5. **Solution Architect**:
+   - Parse project signals from idea description and CLI flags
+   - Select optimal build preset (prototype/mvp/production)
+   - Evaluate architecture preset options using AI success metrics
+   - Apply multi-criteria scoring for Claude Code build optimization
+   - Generate quantified technology recommendations
+   - Lock technology stack decisions
+   - Determine EA execution mode (skip/compressed/standard/full)
+6. **Auto-approve**: stack-assessment ✅
+7. **EA Execution Decision**:
+   - **If EA Skip (prototype + static/cli)**: Skip to Stage 2 (saves 15-25 minutes)
+   - **If EA Execute**: Continue with Enterprise Architect design
+8. **Enterprise Architect** (Conditional):
+   - Read locked technology stack from SA handoff
+   - Create technology-specific system architecture
+   - Design implementation-ready components using locked stack
+   - Generate stack-optimized deployment strategy
+   - Execute in mode determined by SA (compressed/standard/full)
+9. **Auto-approve**: architecture-lock ✅
 
 ```
 [Stage 1] ████████████████████ COMPLETE
@@ -202,11 +222,17 @@ Display final summary:
 ║                                                                  ║
 ║  Project: [PROJECT_NAME]                                         ║
 ║  Duration: [TIME]                                                ║
+║  AI Stack Score: [SA_SCORE]/10 ([SA_SUCCESS_RATE]% success)     ║
 ║                                                                  ║
-║  ✅ Stage 1: Architecture     - Complete                         ║
+║  ✅ Stage 1: Architecture     - [Complete/EA Skipped]            ║
 ║  ✅ Stage 2: Product          - Complete                         ║
 ║  ✅ Stage 3: Development      - Complete                         ║
 ║  ✅ Stage 4: Release          - Complete                         ║
+║                                                                  ║
+║  🚀 Optimizations Applied:                                       ║
+║  • AI-optimized technology stack selection                      ║
+║  • [EA time savings: Saved 15-25 minutes] (if EA skipped)       ║
+║  • Claude Code build success optimization                       ║
 ║                                                                  ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  OUTPUT                                                          ║

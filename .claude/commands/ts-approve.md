@@ -6,6 +6,8 @@ The founder is approving a gate to proceed.
 
 ### Stage 1-2 Gates
 - `architecture-start` - Approve proceeding to Architecture Department
+- `stack-assessment` - Approve Solution Architect technology recommendations
+- `ea-skip` - Approve skipping Enterprise Architect for simple stacks
 - `architecture-lock` - Lock the architecture, proceed to Product
 - `green-light` - 🚦 GREEN LIGHT: Approve proceeding to Development
 
@@ -29,9 +31,37 @@ The founder is approving a gate to proceed.
 ### architecture-start
 - Check the box: "Founder approved to proceed to Architecture"
 - Update Status to `ARCHITECTURE`
-- Update Current Owner to `enterprise-architect`
-- Add to Audit Log: "Founder approved → Architecture"
-- Say: "✅ Approved. Run `/ts-architect` to start architecture."
+- Update Current Owner to `solution-architect`
+- Add to Audit Log: "Founder approved → Architecture (SA→EA workflow)"
+- Say: "✅ Approved. Run `/ts-architect` to start SA→EA architecture workflow."
+
+---
+
+### stack-assessment
+- **Gate Check:** Solution Architect assessment must be complete
+- Check the box: "Stack Assessment Approved by Founder"
+- Update Status in project: `solution_architect_handoff.founder_approved = true`
+- Add to Audit Log: "Stack assessment approved → EA handoff"
+- **Decision Point:**
+  - If `sa_handoff.ea_decision.skip = true`: Say "✅ Stack approved. EA will be skipped for simple architecture."
+  - If `sa_handoff.ea_decision.skip = false`: Say "✅ Stack approved. EA will design comprehensive architecture."
+- Next step: "Architecture workflow will continue automatically."
+
+---
+
+### ea-skip
+- **Gate Check:** SA must have recommended EA skip (`sa_handoff.ea_decision.skip = true`)
+- Check the box: "EA Skip Approved by Founder"
+- Update Architecture Department Status to `EA_SKIPPED`
+- Update Status to `ARCHITECTURE_COMPLETE`
+- Add to Audit Log: "EA skip approved → Direct to Product"
+- Say: "✅ Enterprise Architect SKIPPED.
+
+  **Time Saved:** 15-25 minutes
+  **Reason:** [sa_handoff.ea_decision.reason]
+
+  Simple architecture sufficient for project requirements.
+  Run `/ts-product` to begin Product definition."
 
 ---
 
