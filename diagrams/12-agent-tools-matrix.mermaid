@@ -1,0 +1,116 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#dc2626'}}}%%
+flowchart LR
+    subgraph TOOLS["🔧 AVAILABLE TOOLS"]
+        READ["📖 Read<br/>File Reading"]
+        WRITE["✍️ Write<br/>File Creation"]
+        EDIT["✏️ Edit<br/>File Modification"]
+        BASH["💻 Bash<br/>Command Execution"]
+        GREP["🔍 Grep<br/>Code Search"]
+        WEB["🌐 WebSearch<br/>Research"]
+        TODO["📋 TodoWrite<br/>Task Tracking"]
+        TASK["🧪 Task<br/>Agent Coordination"]
+    end
+
+    subgraph MATRIX["📊 AGENT TOOL ACCESS MATRIX"]
+        subgraph FULL["🎩 FULL ACCESS (All Tools)"]
+            F1["🎩 Founder-Advisor"]
+        end
+
+        subgraph CORE["💻 CORE TOOLS (R/W/E/B/G)"]
+            C1["🏗️ Enterprise Architect"]
+            C2["👨‍💼 Principal Developer"]
+            C3["🧪 QA Engineer"]
+            C4["🗄️ Database Developer"]
+            C5["⚙️ Backend Developer"]
+            C6["🎨 Frontend Developer"]
+            C7["🔗 Integration Engineer"]
+            C8["📝 Technical Writer"]
+            C9["🔐 Security Engineer"]
+            C10["📦 Release Engineer"]
+            C11["🚀 DevOps Engineer"]
+            C12["🚀 SRE Deploy Engineer"]
+            C13["🛡️ SRE Ops Engineer"]
+            C14["🐛 Bug Fixer"]
+        end
+
+        subgraph DOC["📄 DOCUMENTATION TOOLS (R/W/E)"]
+            D1["👔 Product Lead"]
+            D2["📅 Project Planner"]
+        end
+
+        subgraph RESEARCH["🔍 RESEARCH TOOLS (R/G/W)"]
+            R1["🎯 Solution Architect"]
+            R2["💼 Business Analyst"]
+        end
+    end
+
+    subgraph CAPABILITIES["🎯 SPECIALIZED CAPABILITIES"]
+        subgraph AI["🤖 AI-POWERED"]
+            AI1["🎯 Solution Architect<br/>• Multi-criteria assessment<br/>• Technology evaluation<br/>• Risk analysis"]
+        end
+
+        subgraph TECH["⚙️ TECHNICAL"]
+            T1["🏗️ Enterprise Architect<br/>• System design<br/>• ADRs<br/>• API contracts"]
+            T2["👨‍💼 Principal Developer<br/>• Technical leadership<br/>• Code review<br/>• Quality gates"]
+            T3["🧪 QA Engineer<br/>• Testing strategy<br/>• Quality assurance<br/>• Build validation"]
+        end
+
+        subgraph BUILD["🔨 BUILD SPECIALISTS"]
+            B1["🗄️ Database Developer<br/>• Schema design<br/>• Migrations<br/>• Data models"]
+            B2["⚙️ Backend Developer<br/>• API development<br/>• Business logic<br/>• Services"]
+            B3["🎨 Frontend Developer<br/>• UI components<br/>• State management<br/>• User experience"]
+            B4["🔗 Integration Engineer<br/>• E2E testing<br/>• Docker config<br/>• System integration"]
+        end
+
+        subgraph OPS["🚀 OPERATIONS"]
+            O1["🚀 DevOps Engineer<br/>• Infrastructure as Code<br/>• CI/CD pipelines<br/>• Deployments"]
+            O2["🚀 SRE Deploy<br/>• Platform deployment<br/>• Domain config<br/>• Environment mgmt"]
+            O3["🛡️ SRE Ops<br/>• Monitoring<br/>• Incident response<br/>• SLO management"]
+        end
+
+        subgraph SUPPORT["🛠️ SUPPORT"]
+            S1["🔐 Security Engineer<br/>• Vulnerability scanning<br/>• Compliance<br/>• Security validation"]
+            S2["📝 Technical Writer<br/>• Documentation<br/>• User guides<br/>• API docs"]
+            S3["📦 Release Engineer<br/>• Version management<br/>• Changelogs<br/>• Artifacts"]
+            S4["🐛 Bug Fixer<br/>• Error diagnosis<br/>• Build fixes<br/>• Issue resolution"]
+        end
+    end
+
+    %% Tool Access Connections
+    READ -.-> F1
+    WRITE -.-> F1
+    EDIT -.-> F1
+    BASH -.-> F1
+    GREP -.-> F1
+    WEB -.-> F1
+    TODO -.-> F1
+    TASK -.-> F1
+
+    READ -.-> C1
+    WRITE -.-> C1
+    EDIT -.-> C1
+    BASH -.-> C1
+    GREP -.-> C1
+
+    READ -.-> D1
+    WRITE -.-> D1
+    EDIT -.-> D1
+
+    READ -.-> R1
+    GREP -.-> R1
+    WEB -.-> R1
+
+    %% Styling
+    classDef tools fill:#dc2626,stroke:#333,stroke-width:2px,color:#fff
+    classDef fullAccess fill:#059669,stroke:#333,stroke-width:2px,color:#fff
+    classDef coreAccess fill:#0ea5e9,stroke:#333,stroke-width:2px
+    classDef docAccess fill:#8b5cf6,stroke:#333,stroke-width:2px
+    classDef researchAccess fill:#f59e0b,stroke:#333,stroke-width:2px
+    classDef capability fill:#f3f4f6,stroke:#6b7280,stroke-width:1px
+
+    class READ,WRITE,EDIT,BASH,GREP,WEB,TODO,TASK tools
+    class F1 fullAccess
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14 coreAccess
+    class D1,D2 docAccess
+    class R1,R2 researchAccess
+    class AI1,T1,T2,T3,B1,B2,B3,B4,O1,O2,O3,S1,S2,S3,S4 capability

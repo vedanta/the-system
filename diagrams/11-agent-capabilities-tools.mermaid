@@ -1,0 +1,104 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#7c3aed'}}}%%
+flowchart TB
+    subgraph LEGEND["🔧 TOOLS LEGEND"]
+        T1["📖 Read - File reading"]
+        T2["✍️ Write - File creation"]
+        T3["✏️ Edit - File modification"]
+        T4["💻 Bash - Command execution"]
+        T5["🔍 Grep - Code search"]
+        T6["🌐 WebSearch - Research"]
+        T7["📋 TodoWrite - Task tracking"]
+        T8["🧪 Task - Agent coordination"]
+    end
+
+    %% EXECUTIVE LEVEL
+    subgraph EXEC["🎩 EXECUTIVE COORDINATION"]
+        FA["🎩 Founder-Advisor<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Strategic guidance & reviews<br/>• Cross-stage coordination<br/>• Decision facilitation<br/>• Communication routing<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: All tools<br/>📊 OUTPUTS: Reviews, decisions"]
+    end
+
+    %% STAGE 1: ARCHITECTURE
+    subgraph S1["📐 STAGE 1: ARCHITECTURE SPECIALISTS"]
+        SA["🎯 Solution Architect<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• AI-optimized tech assessment<br/>• Multi-criteria decision analysis<br/>• Risk assessment & mitigation<br/>• Architecture pattern selection<br/>• Success metrics evaluation<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Grep, WebSearch<br/>📊 OUTPUTS: Tech assessments, recommendations"]
+
+        EA["🏗️ Enterprise Architect<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• System design & modeling<br/>• Component architecture<br/>• Data model design<br/>• API contract definition<br/>• Technical documentation<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Grep<br/>📊 OUTPUTS: ADRs, system context, APIs"]
+    end
+
+    %% STAGE 2: PRODUCT
+    subgraph S2["📦 STAGE 2: PRODUCT STRATEGY"]
+        PL["👔 Product Lead<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• MVP scope definition<br/>• User story creation<br/>• Product requirements (PRD)<br/>• Feature prioritization<br/>• Stakeholder alignment<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit<br/>📊 OUTPUTS: PRD, user stories, MVP scope"]
+
+        PP["📅 Project Planner<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Roadmap creation<br/>• Sprint planning<br/>• Timeline estimation<br/>• Resource allocation<br/>• Progress tracking<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit<br/>📊 OUTPUTS: Roadmaps, sprint plans, estimates"]
+
+        BA["💼 Business Analyst<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Market analysis (JSA)<br/>• Revenue model design<br/>• GTM strategy<br/>• Competitive analysis<br/>• Business case validation<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, WebSearch<br/>📊 OUTPUTS: JSA reports, market analysis, GTM"]
+    end
+
+    %% STAGE 3: DEVELOPMENT
+    subgraph S3A["💻 STAGE 3: DEVELOPMENT LEADERSHIP"]
+        PD["👨‍💼 Principal Developer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Technical leadership<br/>• Implementation planning<br/>• Code review & quality gates<br/>• Architecture validation<br/>• Team coordination<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash, Grep<br/>📊 OUTPUTS: Implementation plans, code reviews"]
+
+        QA["🧪 QA Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Test strategy design<br/>• Quality assurance<br/>• Build validation<br/>• Integration testing<br/>• Sign-off authority<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Bash, Grep<br/>📊 OUTPUTS: Test plans, validation reports"]
+    end
+
+    subgraph S3B["💻 STAGE 3: DEVELOPMENT SPECIALISTS"]
+        DB["🗄️ Database Developer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Database schema design<br/>• Data model implementation<br/>• Migration scripts<br/>• Query optimization<br/>• Data layer architecture<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Schemas, migrations, models"]
+
+        BE["⚙️ Backend Developer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• API development<br/>• Business logic implementation<br/>• Service architecture<br/>• Integration patterns<br/>• Performance optimization<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: APIs, services, business logic"]
+
+        FE["🎨 Frontend Developer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• UI/UX implementation<br/>• Component development<br/>• State management<br/>• User experience design<br/>• Browser optimization<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Components, pages, UI systems"]
+
+        IE["🔗 Integration Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• System integration<br/>• E2E testing<br/>• Docker configuration<br/>• Service coordination<br/>• Build validation<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Docker configs, E2E tests"]
+    end
+
+    %% STAGE 4: RELEASE
+    subgraph S4["🚀 STAGE 4: RELEASE & DEPLOYMENT"]
+        TW["📝 Technical Writer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Technical documentation<br/>• User guides & tutorials<br/>• API documentation<br/>• Deployment guides<br/>• README creation<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Docs, guides, README"]
+
+        SE["🔐 Security Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Security validation<br/>• Vulnerability scanning<br/>• Compliance checking<br/>• Security documentation<br/>• Risk assessment<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Security reports, compliance docs"]
+
+        RE["📦 Release Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Version management<br/>• Changelog generation<br/>• Release artifact creation<br/>• Release documentation<br/>• Distribution coordination<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Releases, changelogs, artifacts"]
+
+        DO["🚀 DevOps Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Infrastructure as Code<br/>• CI/CD pipeline creation<br/>• Deployment automation<br/>• Environment management<br/>• Monitoring setup<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: IaC, CI/CD, deployments"]
+    end
+
+    %% STAGE 5: OPERATIONS
+    subgraph S5["🌐 STAGE 5: LIVE OPERATIONS"]
+        SRD["🚀 SRE Deploy Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Managed platform deployment<br/>• Domain configuration<br/>• Environment variable mgmt<br/>• Quick deployment paths<br/>• Platform integration<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Live deployments, domains"]
+
+        SRO["🛡️ SRE Ops Engineer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Monitoring & observability<br/>• Incident response<br/>• SLO management<br/>• Alerting configuration<br/>• Performance optimization<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash<br/>📊 OUTPUTS: Monitoring, alerts, SLOs"]
+    end
+
+    %% UTILITY
+    subgraph UTIL["🔧 UTILITY SPECIALISTS"]
+        BF["🐛 Bug Fixer<br/>━━━━━━━━━━━━━━━<br/>📋 CAPABILITIES:<br/>• Systematic error diagnosis<br/>• Build failure resolution<br/>• Dependency conflict fixing<br/>• TypeScript error resolution<br/>• Automated issue detection<br/>━━━━━━━━━━━━━━━<br/>🔧 TOOLS: Read, Write, Edit, Bash, Grep<br/>📊 OUTPUTS: Fixed code, diagnostic reports"]
+    end
+
+    %% Tool Access Patterns
+    FA -.->|"Coordinates all agents"| S1
+    SA -.->|"Assessment feeds"| EA
+    S1 -.->|"Architecture guides"| S2
+    S2 -.->|"Requirements feed"| S3A
+    S3A -.->|"Manages"| S3B
+    S3A -.->|"Code complete"| S4
+    S4 -.->|"Infrastructure ready"| S5
+    BF -.->|"Fixes issues for any stage"| S3B
+
+    %% Styling
+    classDef exec fill:#7c3aed,stroke:#333,stroke-width:3px,color:#fff
+    classDef arch fill:#0ea5e9,stroke:#333,stroke-width:2px
+    classDef product fill:#10b981,stroke:#333,stroke-width:2px
+    classDef devLead fill:#f59e0b,stroke:#333,stroke-width:2px
+    classDef devSpec fill:#8b5cf6,stroke:#333,stroke-width:2px
+    classDef release fill:#ef4444,stroke:#333,stroke-width:2px
+    classDef ops fill:#06b6d4,stroke:#333,stroke-width:2px
+    classDef utility fill:#ec4899,stroke:#333,stroke-width:2px
+    classDef legend fill:#f3f4f6,stroke:#6b7280,stroke-width:1px
+
+    class FA exec
+    class SA,EA arch
+    class PL,PP,BA product
+    class PD,QA devLead
+    class DB,BE,FE,IE devSpec
+    class TW,SE,RE,DO release
+    class SRD,SRO ops
+    class BF utility
+    class T1,T2,T3,T4,T5,T6,T7,T8 legend

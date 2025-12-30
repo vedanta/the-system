@@ -16,6 +16,8 @@ Visual documentation for The System's organizational structure and workflows.
 | `08-all-19-agents.mermaid` | Overview of all 19 agents |
 | `09-agent-interactions.mermaid` | Comprehensive agent-to-agent interactions |
 | `10-key-agent-interactions.mermaid` | Simplified key interaction patterns |
+| `11-agent-capabilities-tools.mermaid` | Detailed agent capabilities and tool access |
+| `12-agent-tools-matrix.mermaid` | Agent tool access matrix and specializations |
 
 ## How to Use
 
@@ -73,6 +75,27 @@ Simplified view highlighting critical patterns:
 - **Cross-stage Coordination** loops
 
 **Use when:** Quick understanding of how agents work together, onboarding new users, or explaining system design.
+
+## Agent Capabilities & Tools
+
+### 🔧 Detailed Capabilities (`11-agent-capabilities-tools.mermaid`)
+Comprehensive view of what each agent can actually DO:
+- **Individual capabilities** for all 19 agents
+- **Tool access levels** (Read, Write, Edit, Bash, Grep, WebSearch, etc.)
+- **Specialized knowledge domains** and expertise areas
+- **Primary outputs** and deliverables each agent produces
+- **Tools legend** showing what each tool enables
+
+**Use when:** Understanding agent expertise, assigning tasks appropriately, debugging capability gaps, or designing new agent roles.
+
+### 📊 Tools Access Matrix (`12-agent-tools-matrix.mermaid`)
+Simplified matrix showing tool access patterns:
+- **4 Access Levels**: Full Access, Core Tools, Documentation Tools, Research Tools
+- **Agent groupings** by tool access patterns
+- **Specialized capabilities** organized by domain (AI-powered, Technical, Build, Operations, Support)
+- **Clear tool → agent mappings** for quick reference
+
+**Use when:** Quick tool access reference, understanding agent permissions, planning tool usage, or capability planning.
 
 ## HITL Gates
 
