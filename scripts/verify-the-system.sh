@@ -71,11 +71,11 @@ for dir in "$PROJECT_ROOT/.claude" "$PROJECT_ROOT/.claude/agents" "$PROJECT_ROOT
 done
 
 # ----------------------------------------------------------------------------
-header "2. AGENTS (18 required)"
+header "2. AGENTS (19 required)"
 # ----------------------------------------------------------------------------
 
 # Stage 1
-for agent in "founder-advisor" "enterprise-architect"; do
+for agent in "founder-advisor" "enterprise-architect" "solution-architect"; do
     if [ -f "$PROJECT_ROOT/.claude/agents/${agent}.md" ]; then
         check_pass "${agent}.md (Stage 1)"
     else
@@ -129,7 +129,7 @@ for agent in "bug-fixer"; do
 done
 
 # ----------------------------------------------------------------------------
-header "3. COMMANDS (45 required)"
+header "3. COMMANDS (46 required)"
 # ----------------------------------------------------------------------------
 
 # Core commands
@@ -142,7 +142,7 @@ for cmd in "ts-new-project" "ts-status" "ts-view" "ts-brief" "ts-ask" "ts-approv
 done
 
 # Stage 1
-for cmd in "ts-architect"; do
+for cmd in "ts-architect" "ts-assess"; do
     if [ -f "$PROJECT_ROOT/.claude/commands/${cmd}.md" ]; then
         check_pass "${cmd}.md (Stage 1)"
     else

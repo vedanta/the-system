@@ -6,14 +6,14 @@ Visual documentation for The System's organizational structure and workflows.
 
 | File | Description |
 |------|-------------|
-| `01-org-structure.mermaid` | Full organizational structure showing all 17 agents |
+| `01-org-structure.mermaid` | Full organizational structure showing all 19 agents |
 | `02-full-workflow.mermaid` | Complete workflow from intake to launch |
 | `03-simplified-linear-flow.mermaid` | Simplified linear view of stages |
 | `04-hitl-gates-flow.mermaid` | Human-in-the-loop approval gates |
 | `05-stage3-build-test-cycle.mermaid` | Development build and test cycle |
 | `06-stage4-deployment-flow.mermaid` | Stage 4 deployment process |
 | `07-stage5-quick-deploy-flow.mermaid` | Stage 5 quick deploy to platforms |
-| `08-all-17-agents.mermaid` | Overview of all 17 agents |
+| `08-all-17-agents.mermaid` | Overview of all 19 agents |
 
 ## How to Use
 
@@ -48,7 +48,7 @@ Stage 3: Development     → 6 agents (Principal, QA, DB, BE, FE, Integration)
 Stage 4: Release         → 4 agents (Writer, Security, Release, DevOps)
 Stage 5: Go Live         → 2 agents (SRE Deploy, SRE Ops)
 ─────────────────────────────────────
-Total                    → 17 agents (+ Founder-Advisor)
+Total                    → 19 agents (+ Founder-Advisor)
 ```
 
 ## HITL Gates

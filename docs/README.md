@@ -7,13 +7,13 @@
 
 ## Overview
 
-This documentation provides everything you need to understand and use **The System** — an Autonomous Software Development Organization (ASDO) that orchestrates 18 specialized AI agents across 5 departments to transform your ideas into production-ready software.
+This documentation provides everything you need to understand and use **The System** — an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to transform your ideas into production-ready software.
 
 ### What You'll Find Here
 
 This user documentation covers:
 - Complete agent reference and workflows
-- All 45 commands with examples and usage
+- All 46 commands with examples and usage
 - Step-by-step workflow guides
 - Human-in-the-loop approval system
 - Configuration options and customization
@@ -26,8 +26,8 @@ This user documentation covers:
 | Document | Description | When to Use |
 |----------|-------------|-------------|
 | **[Architecture Guide](user/architecture.md)** | How The System works internally | Understanding system design, data flow, and core concepts |
-| **[Agent Reference](user/agents.md)** | Complete guide to all 18 agents | Understanding agent roles, responsibilities, and capabilities |
-| **[Command Reference](user/commands.md)** | All 45 commands with examples | Finding specific commands and learning proper usage |
+| **[Agent Reference](user/agents.md)** | Complete guide to all 19 agents | Understanding agent roles, responsibilities, and capabilities |
+| **[Command Reference](user/commands.md)** | All 46 commands with examples | Finding specific commands and learning proper usage |
 | **[Workflow Guide](user/workflow.md)** | Step-by-step implementation process | Following the complete development lifecycle |
 | **[HITL Gates](user/hitl-gates.md)** | Human approval system documentation | Understanding approval points and decision making |
 | **[Configuration](user/configuration.md)** | System configuration options | Customizing tech stack and integrations |
@@ -85,6 +85,7 @@ The System guides you through each stage:
 🎩 Founder-Advisor (Chief of Staff)
 │
 ├── 📐 Architecture Department
+│   ├── 🎯 Solution Architect
 │   └── 🏗️ Enterprise Architect
 │
 ├── 📦 Product Department
@@ -115,6 +116,8 @@ The System guides you through each stage:
 ### Key Capabilities
 
 **🏗️ System Design**
+- AI-optimized technology stack assessment and selection
+- Architecture pattern evaluation and recommendation
 - Technology selection and architecture decisions
 - Performance and scalability planning
 - Integration strategy and API design
@@ -156,6 +159,7 @@ The System guides you through each stage:
 ### Stage Progression
 ```bash
 # Stage 1: Architecture
+/ts-assess                    # AI-optimized technology assessment
 /ts-architect                 # Design system architecture
 /ts-approve architecture-lock # Lock technical decisions
 
@@ -305,6 +309,7 @@ authentication:
 /ts-new-project todo-app
 > "Todo app with auth and categories"
 /ts-approve architecture-start
+/ts-assess
 /ts-architect
 /ts-approve architecture-lock
 /ts-product

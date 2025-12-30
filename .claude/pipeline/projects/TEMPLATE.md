@@ -106,11 +106,149 @@
 
 ---
 
-## 📐 Architecture Department
+## 🤖 Solution Architect Assessment
 
 ### Status: NOT_STARTED
 
-[Architecture content...]
+### Assessment Overview
+- **Assessment Date:** [timestamp]
+- **Assessment Score:** [score]/10
+- **Claude Success Probability:** [percentage]%
+- **Expected Debug Time:** [time estimate]
+- **Confidence Level:** [High/Medium/Low]
+
+### Technology Stack (LOCKED)
+- **Build Preset:** [prototype/mvp/production]
+- **Architecture Preset:** [static/embedded/fullstack-js/baas/microservice]
+- **Frontend:** [technology choice]
+- **Backend:** [technology choice or N/A]
+- **Database:** [technology choice or N/A]
+- **Authentication:** [technology choice or none]
+- **Runtime:** [for CLI applications]
+- **Framework:** [for CLI applications]
+
+### Assessment Rationale
+- **Signal Analysis:** [detected signals from user input]
+- **AI Optimization:** [why this stack maximizes Claude Code success]
+- **Risk Assessment:** [identified risks and mitigations]
+- **Alternatives Considered:** [other viable options evaluated]
+
+### Success Factors
+- **Claude Success Rate:** [percentage]% build success probability
+- **Technology Strengths:** [key advantages of chosen stack]
+- **Optimization Strategies:** [recommended approaches for AI success]
+- **Common Pitfalls:** [known failure modes and avoidance strategies]
+
+### EA Handoff Status
+- **Stack Locked:** [ ] Yes
+- **EA Required:** [Yes/No]
+- **EA Mode:** [skip/compressed/standard/full]
+- **Skip Reason:** [if EA is skipped]
+- **Handoff Date:** [timestamp]
+
+### SA Solution Architect Handoff Data (FOR EA CONSUMPTION)
+```yaml
+solution_architect_handoff:
+  assessment_complete: false
+  recommended_stack: "[preset]"
+  technology_decisions:
+    frontend: "[technology]"
+    backend: "[technology or null]"
+    database: "[technology or null]"
+    auth: "[technology or none]"
+    runtime: "[for CLI - technology or null]"
+    framework: "[for CLI - technology or null]"
+  assessment_score: "[score]"
+  success_probability: "[decimal]"
+  risk_factors:
+    - "[risk factor 1]"
+    - "[risk factor 2]"
+  success_strategies:
+    - "[strategy 1]"
+    - "[strategy 2]"
+  ea_decision:
+    skip: false
+    mode: "[compressed/standard/full]"
+    reason: "[rationale]"
+  alternatives_considered:
+    - preset: "[alternative 1]"
+      score: "[score]"
+      reason_not_chosen: "[rationale]"
+    - preset: "[alternative 2]"
+      score: "[score]"
+      reason_not_chosen: "[rationale]"
+```
+
+### Architecture Lock
+- **Stack Locked:** [ ] Technology stack decisions are locked
+- **Lock Date:** [timestamp when stack was locked]
+- **Lock Rationale:** [reason for locking these technology choices]
+
+### SA Artifacts
+- [ ] Technology assessment completed
+- [ ] Risk analysis completed
+- [ ] Stack recommendation generated
+- [ ] EA handoff prepared
+- [ ] Architecture lock confirmed
+
+---
+
+## 📐 Architecture Department
+
+### Status: NOT_STARTED
+### Prerequisites: Solution Architect assessment must be complete
+
+### Architecture Configuration
+- **Stack Locked:** [ ] `architecture.stack_locked = true`
+- **SA Handoff Available:** [ ] SA handoff data exists in project file
+- **EA Execution Mode:** [skip/compressed/standard/full] (from SA recommendation)
+
+### Enterprise Architect Workflow
+**Phase 1: Prerequisites Check**
+- [ ] Read SA handoff data successfully
+- [ ] Validate technology stack is locked
+- [ ] Confirm EA execution mode
+- [ ] Verify founder approval for architecture
+
+**Phase 2: Requirements Analysis**
+- [ ] Business context analysis (within stack constraints)
+- [ ] Technology-constrained functional requirements
+- [ ] Stack-informed non-functional requirements
+- [ ] Technology integration constraints identified
+
+**Phase 3: System Design (Technology-Specific)**
+- [ ] System context diagram (using locked technologies)
+- [ ] Component architecture (implementation-ready)
+- [ ] Data architecture (database-specific)
+- [ ] API design (backend framework-specific)
+- [ ] Infrastructure architecture (stack-optimized)
+- [ ] Security architecture (auth system-specific)
+
+**Phase 4: Implementation Decisions**
+- [ ] ADR-001: SA Technology Acceptance
+- [ ] ADR-002: Component Architecture Pattern
+- [ ] ADR-003: Data Flow and State Management
+- [ ] ADR-004: Authentication Implementation
+- [ ] ADR-005: Performance Strategy
+- [ ] ADR-006: Deployment Strategy
+
+### Architecture Artifacts
+**Required for Development Handoff:**
+- [ ] All 6 design artifacts completed
+- [ ] Technology-specific implementation guidance
+- [ ] Stack-optimized deployment strategy
+- [ ] Security implementation plan
+- [ ] Performance optimization strategy
+- [ ] Cost estimates with technology details
+
+### EA Skip Logic
+- **Skip Conditions Met:** [ ] Simple stack + prototype build
+- **Skip Reason:** [if applicable]
+- **Skip Benefits:** [time saved, complexity avoided]
+
+### Architecture Status
+- [ ] **READY_FOR_REVIEW** (EA design complete)
+- [ ] **LOCKED** (Architecture approved for development)
 
 ---
 

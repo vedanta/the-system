@@ -32,7 +32,7 @@ This guide contains all the detailed information, workflows, commands, and advan
 
 ### What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **18 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+The System is an agentic framework that simulates a complete software development organization. It orchestrates **19 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Key Value Propositions
 
@@ -45,7 +45,7 @@ The System is an agentic framework that simulates a complete software developmen
 | Manual deployment setup | DevOps agent generates Infrastructure as Code |
 | You make every micro-decision | You make *strategic* decisions at HITL gates |
 | Single tech stack expertise | Multi-stack expertise across all modern technologies |
-| Solo development bottlenecks | 18 agents working in parallel coordination |
+| Solo development bottlenecks | 19 agents working in parallel coordination |
 
 ---
 
@@ -100,472 +100,466 @@ git commit -m "Add The System framework"
 For standalone use or framework development:
 
 ```bash
+# Clone the repository
 git clone https://github.com/YOUR_USERNAME/the-system.git
 cd the-system
-mkdir -p input output
+
+# Verify installation
 ./scripts/verify-the-system.sh
+
+# Create project directories
+mkdir -p input output
 ```
 
-### Your First Project
+### Option C: Manual Setup
+
+Extract The System into your existing project:
 
 ```bash
-# Launch Claude Code in your project directory
-claude
+# In your existing project directory
+git clone https://github.com/YOUR_USERNAME/the-system.git .the-system
 
-# Start a new project
-> /ts-new-project my-awesome-app
+# Create symbolic links
+ln -s .the-system/.claude .claude
+ln -s .the-system/CLAUDE.md CLAUDE.md
 
-# Describe your idea to the Founder-Advisor
-> "I want to build a task management app with AI-powered prioritization,
-  user authentication, team collaboration, and real-time sync"
+# Update .gitignore
+echo "output/" >> .gitignore
+echo "input/" >> .gitignore
+echo ".the-system/" >> .gitignore
 
-# Begin the structured development process
-> /ts-approve architecture-start
+# Verify setup
+.the-system/scripts/verify-the-system.sh
+```
+
+### Updating The System
+
+When using submodules (recommended), update The System:
+
+```bash
+# Pull latest changes to The System submodule
+git submodule update --remote .the-system
+
+# Commit the update
+git add .the-system
+git commit -m "Update The System to latest version"
 ```
 
 ---
 
 ## The Organization
 
-### Organizational Structure
+### Company Structure
 
 ```
-👤 Human Founder (You)
-│
-└── 🎩 Founder-Advisor (Chief of Staff)
-    │
-    ├── 📐 Architecture Department
-    │   └── 🏗️ Enterprise Architect
-    │
-    ├── 📦 Product Department
-    │   ├── 👔 Product Lead
-    │   ├── 📅 Project Planner
-    │   └── 💼 Business Analyst
-    │
-    ├── 💻 Development Department
-    │   ├── 👨‍💼 Principal Developer
-    │   ├── 🧪 QA Engineer
-    │   ├── 🗄️ Database Developer
-    │   ├── ⚙️ Backend Developer
-    │   ├── 🎨 Frontend Developer
-    │   ├── 🔗 Integration Engineer
-    │   └── 🐛 Bug Fixer (Utility)
-    │
-    ├── 🚀 Release & Deployment Department
-    │   ├── 📝 Technical Writer
-    │   ├── 🔐 Security Engineer
-    │   ├── 📦 Release Engineer
-    │   └── 🚀 DevOps Engineer
-    │
-    └── 🌐 Operations Department
-        ├── 🚀 SRE Deploy Engineer
-        └── 🛡️ SRE Ops Engineer
+👤 You (Founder)
+     │
+🎩 Founder-Advisor ────────── Your Strategic Partner
+     │
+     ├──────────────┬──────────────┬──────────────┬──────────────┐
+     ▼              ▼              ▼              ▼              ▼
+📐 Architecture  📦 Product    💻 Development  🚀 Release     🌐 Operations
+   Department       Department     Department      Department     Department
+     │              │              │              │              │
+     │              │              │              │              │
+🏗️ Enterprise    👔 Product      👨‍💼 Principal   📝 Technical    🚀 SRE Deploy
+   Architect        Lead          Developer       Writer         Engineer
+                    │              │              │              │
+🔍 Solution      📅 Project      🧪 QA           🔐 Security      🛡️ SRE Ops
+   Architect        Planner        Engineer       Engineer       Engineer
+                    │              │              │
+                 💼 Business     🗄️ Database     📦 Release
+                    Analyst        Developer      Engineer
+                                   │              │
+                                 ⚙️ Backend      🚀 DevOps
+                                   Developer      Engineer
+                                   │
+                                 🎨 Frontend
+                                   Developer
+                                   │
+                                 🔗 Integration
+                                   Engineer
 ```
 
-### Agent Specializations
+### The 19 Specialists
 
-Each agent brings deep domain expertise:
+#### 🎩 Strategic Layer (1)
+- **Founder-Advisor** - Your chief of staff and communication hub
 
-- **🎩 Founder-Advisor** - Chief of staff, strategic guidance, workflow orchestration
-- **🏗️ Enterprise Architect** - System design, technology selection, architectural decisions
-- **👔 Product Lead** - MVP definition, user stories, product requirements
-- **📅 Project Planner** - Roadmap creation, sprint planning, timeline estimation
-- **💼 Business Analyst** - Market analysis, revenue modeling, go-to-market strategy
-- **👨‍💼 Principal Developer** - Implementation planning, code review, technical leadership
-- **🧪 QA Engineer** - Test strategy, quality gates, validation protocols
-- **🗄️ Database Developer** - Schema design, migrations, data modeling
-- **⚙️ Backend Developer** - API development, business logic, service architecture
-- **🎨 Frontend Developer** - UI/UX implementation, state management, user experience
-- **🔗 Integration Engineer** - Component integration, E2E testing, system verification
-- **🐛 Bug Fixer** - Systematic error diagnosis, dependency resolution, build fixes
-- **📝 Technical Writer** - Documentation, architecture guides, API references
-- **🔐 Security Engineer** - Security scanning, vulnerability assessment, compliance
-- **📦 Release Engineer** - Versioning, changelog generation, release packaging
-- **🚀 DevOps Engineer** - Infrastructure as Code, CI/CD, deployment automation
-- **🚀 SRE Deploy Engineer** - Quick deployment to managed platforms
-- **🛡️ SRE Ops Engineer** - Monitoring, alerting, incident response, SLOs
+#### 📐 Architecture Department (2)
+- **Enterprise Architect** - System design, technical architecture, ADRs
+- **Solution Architect** - Technology assessment, stack selection, preset recommendations
 
-👉 **[Complete Agent Reference →](docs/user/agents.md)**
+#### 📦 Product Department (3)
+- **Product Lead** - MVP definition, user stories, PRD
+- **Project Planner** - Roadmap, sprints, estimates
+- **Business Analyst** - Market analysis, revenue model, GTM
+
+#### 💻 Development Department (6)
+- **Principal Developer** - Implementation planning, code review, quality gates
+- **QA Engineer** - Test planning, reviews, integration testing, sign-off
+- **Database Developer** - Schema, models, migrations
+- **Backend Developer** - APIs, services, business logic
+- **Frontend Developer** - Components, pages, state management
+- **Integration Engineer** - Connects components, E2E verification
+
+#### 🚀 Release Department (4)
+- **Technical Writer** - Architecture docs, guides, README
+- **Security Engineer** - Security validation, compliance, scanning
+- **Release Engineer** - Versioning, changelog, artifacts
+- **DevOps Engineer** - IaC, CI/CD, deployment, monitoring
+
+#### 🌐 Operations Department (2)
+- **SRE Deploy Engineer** - Quick deploy to managed platforms
+- **SRE Ops Engineer** - Monitoring, alerting, incidents, SLOs
+
+#### 🔧 Utility Agents (1)
+- **Bug Fixer** - Standalone utility for systematic error diagnosis
 
 ---
 
 ## Complete Workflow
 
-### The Five-Stage Development Process
+### The Five-Stage Development Cycle
 
-| Stage | Department | Focus | Duration | Key Outputs |
-|-------|------------|-------|----------|-------------|
-| **Stage 1** | 📐 Architecture | System Design | 2-5 min | Architecture Decision Records, Tech Stack Selection |
-| **Stage 2** | 📦 Product | Business Strategy | 3-8 min | MVP Definition, User Stories, Business Analysis |
-| **Stage 3** | 💻 Development | Implementation | 10-30 min | Database, Backend, Frontend, Integration |
-| **Stage 4** | 🚀 Release | Deployment | 5-15 min | Documentation, Security, Infrastructure, CI/CD |
-| **Stage 5** | 🌐 Operations | Go Live | 5-10 min | Quick Deploy, Monitoring, Alerting, SLOs |
+| Stage | Department | Focus | Duration | Key Agents | Output |
+|-------|------------|-------|----------|------------|--------|
+| **Stage 1** | 📐 Architecture | System Design | 2-5 min | Enterprise Architect, Solution Architect | Locked tech stack & architecture |
+| **Stage 2** | 📦 Product | Business Strategy | 3-8 min | Product Lead, Planner, Analyst | MVP definition & business plan |
+| **Stage 3** | 💻 Development | Implementation | 10-30 min | All development team | Working application |
+| **Stage 4** | 🚀 Release | Deployment Ready | 5-15 min | Release team | Production deployment package |
+| **Stage 5** | 🌐 Operations | Go Live | 5-10 min | SRE team | Live, monitored application |
 
 ### Standard Workflow (Supervised)
 
-```
-/ts-new-project my-app
-├── Describe your idea to Founder-Advisor
-│
-┌─[ Stage 1: Architecture ]─────────────────────────┐
-│ /ts-architect                                     │
-│ /ts-approve architecture-lock                     │
-└───────────────────────────────────────────────────┘
-│
-┌─[ Stage 2: Product ]──────────────────────────────┐
-│ /ts-product     → Define MVP & user stories       │
-│ /ts-plan        → Create roadmap & sprints        │
-│ /ts-analyze     → Business & market analysis      │
-│ /ts-approve green-light 🚦 → APPROVE FOR DEV      │
-└───────────────────────────────────────────────────┘
-│
-┌─[ Stage 3: Development ]──────────────────────────┐
-│ /ts-develop     → Implementation planning         │
-│ /ts-test-plan   → QA strategy definition          │
-│                                                   │
-│ Build Phase:                                      │
-│ /ts-build database  → /ts-test database           │
-│ /ts-build backend   → /ts-test backend            │
-│ /ts-build frontend  → /ts-test frontend           │
-│ /ts-integrate       → /ts-test integration        │
-│                                                   │
-│ /ts-gate        → Principal Developer review      │
-│ /ts-signoff     → QA final approval               │
-│ /ts-approve development → READY FOR RELEASE       │
-└───────────────────────────────────────────────────┘
-│
-┌─[ Stage 4: Release & Deployment ]─────────────────┐
-│ /ts-docs        → Documentation generation        │
-│ /ts-security    → Security scanning               │
-│ /ts-release     → Release package creation        │
-│ /ts-infra       → Terraform infrastructure        │
-│ /ts-pipeline    → CI/CD workflow generation       │
-│ /ts-deploy staging → Deploy to staging            │
-│ /ts-verify staging → Verify staging deployment    │
-│ /ts-approve staging → STAGING VERIFIED            │
-│ /ts-deploy production → Deploy to production      │
-│ /ts-verify production → Verify production         │
-│ /ts-approve launch 🚀 → GO LIVE!                  │
-└───────────────────────────────────────────────────┘
-│
-┌─[ Stage 5: Operations (Optional Quick Deploy) ]───┐
-│ /ts-push vercel     → Frontend to Vercel          │
-│ /ts-push railway    → Backend to Railway           │
-│ /ts-push neon       → Database to Neon            │
-│ /ts-domain vercel myapp.com → Custom domain       │
-│ /ts-monitor         → Monitoring setup            │
-│ /ts-alerts          → Alerting configuration      │
-│ /ts-slo            → SLO definition & tracking    │
-│ /ts-health         → Health check verification    │
-└───────────────────────────────────────────────────┘
-│
-🎉 PRODUCTION READY
-```
-
-### Turbo Mode (Autonomous)
-
-For rapid prototyping or experimentation, bypass all approval gates:
+The complete human-in-the-loop workflow with strategic decision points:
 
 ```bash
-/ts-turbo my-app "Build a task management app with user auth and team collaboration"
+# 1. Project Initiation
+/ts-new-project my-awesome-app
+# → Share your idea with Founder-Advisor
+# → Get preliminary technology assessment
+
+# 2. Architecture & Planning (Stage 1)
+/ts-approve architecture-start          # Gate 1: Begin design
+/ts-assess                              # Solution Architect: Technology assessment
+/ts-architect                           # Enterprise Architect: System design
+/ts-review architecture
+/ts-approve architecture-lock           # Gate 2: Lock technical decisions
+
+# 3. Product & Business (Stage 2)
+/ts-product                            # Product Lead: MVP definition
+/ts-plan                               # Project Planner: Roadmap & sprints
+/ts-analyze                            # Business Analyst: Market & revenue
+/ts-review product
+/ts-approve green-light                # Gate 3: 🚦 Authorize development
+
+# 4. Development & Implementation (Stage 3)
+/ts-develop                            # Principal Developer: Implementation plan
+/ts-test-plan                          # QA Engineer: Test strategy
+/ts-build database                     # Database Developer: Schema & models
+/ts-test database                      # QA Engineer: Test database layer
+/ts-build backend                      # Backend Developer: APIs & services
+/ts-test backend                       # QA Engineer: Test backend
+/ts-build frontend                     # Frontend Developer: UI & components
+/ts-test frontend                      # QA Engineer: Test frontend
+/ts-integrate                          # Integration Engineer: Connect components
+/ts-test integration                   # QA Engineer: E2E testing
+/ts-gate                               # Principal Developer: Quality review
+/ts-signoff                            # QA Engineer: Final sign-off
+/ts-review development
+/ts-approve development                # Gate 4: Code complete
+
+# 5. Release & Deployment (Stage 4)
+/ts-docs                               # Technical Writer: Documentation
+/ts-security                           # Security Engineer: Security scan
+/ts-release                            # Release Engineer: Release package
+/ts-infra                              # DevOps Engineer: Infrastructure code
+/ts-pipeline                           # DevOps Engineer: CI/CD workflows
+/ts-review release
+/ts-approve release                    # Gate 5: Release package approved
+/ts-deploy staging                     # DevOps Engineer: Deploy to staging
+/ts-verify staging                     # DevOps Engineer: Verify staging
+/ts-approve staging                    # Gate 6: Staging verified
+/ts-deploy production                  # DevOps Engineer: Deploy to production
+/ts-verify production                  # DevOps Engineer: Verify production
+/ts-approve production                 # Gate 7: Production ready
+/ts-approve launch                     # Gate 8: 🚀 Go live!
+
+# 6. Operations & Go Live (Stage 5) - Optional
+/ts-push neon                          # Deploy database to Neon
+/ts-push railway                       # Deploy backend to Railway
+/ts-push vercel                        # Deploy frontend to Vercel
+/ts-live-status                        # Check deployment status
+/ts-domain vercel my-app.com           # Configure custom domain
+/ts-monitor                            # SRE Ops: Setup monitoring
+/ts-alerts                             # SRE Ops: Configure alerts
+/ts-slo                                # SRE Ops: Define SLOs
+/ts-status-page                        # SRE Ops: Public status page
 ```
 
-**⚡ Turbo Mode runs Stages 1-4 automatically:**
-- Architecture decisions made autonomously
-- MVP scope defined without approval
-- Complete development cycle executed
-- All release artifacts generated
-- Stops at deployment (requires manual approval)
+### Build Presets
 
-**⚠️ Use Responsibly:**
-- Perfect for learning, prototypes, and experiments
-- Review all outputs before deploying to production
-- Not recommended for production or client projects
-- All changes isolated to `output/` directory
+Control the speed vs. completeness trade-off with intelligent build presets:
 
-👉 **[Complete Workflow Guide →](docs/user/workflow.md)**
+| **Build Preset** | **Duration** | **Agent Usage** | **Best For** |
+|------------------|-------------|----------------|--------------|
+| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-19 agents** | Architecture design only, ultra-fast validation |
+| **🚀 Prototype** | **3-5 min** | **3-19 agents** | Working app, basic features, rapid iteration |
+| **📦 MVP** | **15-20 min** | **7-19 agents** | Production-ready, professional quality, proper testing |
+| **📦 MVP + Skip Release** | **12-15 min** | **6-19 agents** | Production-ready without docs/security scans |
+| **🏢 Production** | **45-60 min** | **12-19 agents** | Enterprise-grade, full compliance, comprehensive docs |
 
----
+#### Preset Detection
 
-## Build Presets
+Build presets are automatically detected from your project description:
 
-Build Presets are intelligent workflow modes that automatically adjust the complexity and speed of project generation based on your goals.
+**Prototype Triggers:**
+- Keywords: "rapid", "demo", "prototype", "quick test", "POC", "experiment"
+- Time phrases: "in 5 minutes", "quickly", "fast"
+- Casual language: "just want to try", "simple app"
 
-### Three Build Modes
+**Production Triggers:**
+- Keywords: "enterprise", "mission-critical", "compliant", "scalable"
+- Compliance: "HIPAA", "SOC2", "GDPR", "financial"
+- Scale: "high-traffic", "production-grade", "enterprise"
 
-| Mode | Target Time | Best For | Quality Level |
-|------|-------------|----------|---------------|
-| **🚀 Prototype** | **3-5 minutes** | Demos, rapid iteration, proof-of-concepts | Working code, minimal polish |
-| **📦 MVP** | **15-20 minutes** | Production launches, client projects | Professional quality |
-| **🏢 Production** | **45-60 minutes** | Enterprise applications, critical systems | Enterprise-grade, fully optimized |
-
-### Stage Skipping for Ultimate Control
-
-**NEW:** Take control even further with `--build-skip-stage` flags that allow you to skip specific workflow stages:
-
-| Stage | Skip Flag | Result | Use Cases |
-|-------|-----------|--------|-----------|
-| **Product** | `--build-skip-stage=product` | Skip product planning, MVP definition | Architecture-only, direct development |
-| **Development** | `--build-skip-stage=development` | Skip code generation | Architecture + docs only |
-| **Release** | `--build-skip-stage=release` | Skip documentation, security scans | Quick development iteration |
-
-### Performance Comparison
-
-Build Presets + Stage Skipping deliver **up to 20x faster** project generation:
-
-| Build Type | Time | Agents Used | What You Get |
-|------------|------|-------------|--------------|
-| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-18 agents** | Architecture design only, ultra-fast validation |
-| **🚀 Prototype** | **3-5 min** | **3-18 agents** | Working app, basic features, rapid iteration |
-| **📦 MVP** | **15-20 min** | **7-18 agents** | Production-ready, professional quality, proper testing |
-| **📦 MVP + Skip Release** | **12-15 min** | **6-18 agents** | Production-ready without docs/security scans |
-| **🏢 Production** | **45-60 min** | **12+ agents** | Enterprise-grade, full compliance, comprehensive docs |
-
-### What Each Mode Delivers
-
-#### 🚀 Prototype Mode (3-5 minutes)
-
-**You Get:**
-- ✅ Working application with core functionality
-- ✅ Basic UI - functional but minimal styling
-- ✅ Simple authentication (often hardcoded for demos)
-- ✅ Docker setup for easy running
-- ✅ Basic README with quick start instructions
-
-**You Don't Get:**
-- ❌ Comprehensive testing
-- ❌ Production security hardening
-- ❌ Detailed documentation
-- ❌ Performance optimization
-- ❌ Enterprise patterns
-
-#### 📦 MVP Mode (15-20 minutes)
-
-**You Get:**
-- ✅ Production-ready application with proper architecture
-- ✅ Professional UI with design system and responsive layout
-- ✅ Secure authentication with JWT/OAuth integration
-- ✅ Comprehensive testing (unit, integration, E2E)
-- ✅ Professional documentation (API docs, setup guide, deployment)
-- ✅ CI/CD pipelines ready for deployment
-- ✅ Security scanning and vulnerability assessment
-
-#### 🏢 Production Mode (45-60 minutes)
-
-**You Get Everything from MVP Plus:**
-- ✅ Enterprise architecture with full scalability patterns
-- ✅ Advanced security (RBAC, audit trails, compliance reporting)
-- ✅ Performance optimization (caching, database optimization)
-- ✅ Multi-environment support (dev, staging, production)
-- ✅ Monitoring & observability (metrics, logging, tracing)
-- ✅ Disaster recovery plans and procedures
-- ✅ Compliance documentation (SOC2, GDPR considerations)
-- ✅ Advanced deployment (blue/green, canary releases)
-
-### Usage Examples
+#### Manual Preset Override
 
 ```bash
-# Fast prototyping (3-5 min)
-/ts-turbo my-prototype "simple todo app" --build=prototype
+# Explicit preset selection
+/ts-turbo my-app "todo app with auth" --build=prototype
+/ts-turbo my-app "todo app with auth" --build=mvp
+/ts-turbo my-app "todo app with auth" --build=production
 
-# Professional MVP (15-20 min)
-/ts-turbo my-mvp "todo app with auth" --build=mvp
-
-# Enterprise production (45-60 min)
-/ts-turbo my-enterprise "todo app" --build=production
-
-# Ultra-fast architecture only (1-2 min)
-/ts-turbo quick-arch "payment system" --build-skip-stage=product --build-skip-stage=development
-
-# Skip product planning, go straight to development (8-12 min)
-/ts-turbo dev-direct "calculator app" --build-skip-stage=product
-
-# Skip documentation and security for rapid iteration (10-15 min)
-/ts-turbo iterate-fast "user dashboard" --build-skip-stage=release
+# Skip stages
+/ts-turbo my-app "todo app with auth" --skip=product
+/ts-turbo my-app "todo app with auth" --skip=release
 ```
-
-👉 **[Complete Build Presets Guide →](docs/user/build-presets.md)**
-👉 **[Practical Build Decision Guide →](docs/user/build-presets-practical.md)**
 
 ---
 
 ## Commands Reference
 
+The System provides **46 commands** organized by stage and function:
+
 ### Core Project Management (8)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| `/ts-new-project <name>` | Start a new project | `/ts-new-project ecommerce-app` |
+| Command | Purpose | Usage |
+|---------|---------|-------|
+| `/ts-new-project <name>` | Start a new project | `/ts-new-project my-app` |
 | `/ts-status` | Check current project status | `/ts-status` |
-| `/ts-view [section]` | View project details | `/ts-view architecture` |
+| `/ts-view [section]` | View project file sections | `/ts-view architecture` |
 | `/ts-brief` | Get executive summary | `/ts-brief` |
-| `/ts-ask "<question>"` | Ask the Founder-Advisor | `/ts-ask "How do I add authentication?"` |
+| `/ts-ask <question>` | Ask Founder-Advisor a question | `/ts-ask "How do I add auth?"` |
+| `/ts-exec-summary` | Full executive summary | `/ts-exec-summary` |
 | `/ts-approve <gate>` | Approve at HITL gate | `/ts-approve green-light` |
-| `/ts-review <stage>` | Request stage review | `/ts-review development` |
-| `/ts-turbo <name> "<idea>"` | ⚡ Autonomous execution with Build Presets | `/ts-turbo blog "Personal blog with CMS" --build=mvp` |
+| `/ts-review <stage>` | Request stage review | `/ts-review architecture` |
 
-### Stage 1: Architecture (1 command)
+### Stage 1: Architecture (2)
 
-| Command | Agent | Description |
-|---------|-------|-------------|
-| `/ts-architect` | Enterprise Architect | Design complete system architecture |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-assess` | Solution Architect | Technology assessment and preset recommendation |
+| `/ts-architect` | Enterprise Architect | Run architecture design phase |
 
-### Stage 2: Product (45 commands)
+### Stage 2: Product (3)
 
-| Command | Agent | Description |
-|---------|-------|-------------|
-| `/ts-product` | Product Lead | Define MVP and detailed user stories |
-| `/ts-plan` | Project Planner | Create roadmap, sprints, and estimates |
-| `/ts-analyze` | Business Analyst | Market analysis and business strategy |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-product` | Product Lead | Define MVP and user stories |
+| `/ts-plan` | Project Planner | Create roadmap and sprints |
+| `/ts-analyze` | Business Analyst | Market and business analysis |
 
-### Stage 3: Development (45 commands)
+### Stage 3: Development (7)
 
-| Command | Agent | Description |
-|---------|-------|-------------|
-| `/ts-develop` | Principal Developer | Create comprehensive implementation plan |
-| `/ts-test-plan` | QA Engineer | Define testing strategy and protocols |
-| `/ts-build <layer>` | Development Team | Build database/backend/frontend layers |
-| `/ts-test <layer>` | QA Engineer | Test each layer systematically |
-| `/ts-integrate` | Integration Engineer | Connect and verify all components |
-| `/ts-gate` | Principal Developer | Quality gate review and approval |
-| `/ts-signoff` | QA Engineer | Final quality assurance sign-off |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-develop` | Principal Developer | Create implementation plan |
+| `/ts-test-plan` | QA Engineer | Define test strategy |
+| `/ts-build <layer>` | Dev Team | Build database/backend/frontend layer |
+| `/ts-test <layer>` | QA Engineer | Test each layer |
+| `/ts-integrate` | Integration Engineer | Connect all components |
+| `/ts-gate` | Principal Developer | Quality gate review |
+| `/ts-signoff` | QA Engineer | Final QA sign-off |
 
-### Stage 4: Release & Deployment (45 commands)
+### Stage 4: Release & Deployment (8)
 
-| Command | Agent | Description |
-|---------|-------|-------------|
-| `/ts-docs` | Technical Writer | Generate comprehensive documentation |
-| `/ts-security` | Security Engineer | Security scanning and vulnerability assessment |
-| `/ts-release` | Release Engineer | Create release package with versioning |
-| `/ts-infra` | DevOps Engineer | Generate Terraform infrastructure code |
-| `/ts-pipeline` | DevOps Engineer | Create CI/CD workflow automation |
-| `/ts-deploy <env>` | DevOps Engineer | Deploy to specified environment |
-| `/ts-verify <env>` | DevOps Engineer | Verify deployment health and functionality |
-| `/ts-rollback <env>` | DevOps Engineer | Rollback deployment if needed |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-docs` | Technical Writer | Generate documentation |
+| `/ts-security` | Security Engineer | Run security scans |
+| `/ts-release` | Release Engineer | Create release package |
+| `/ts-infra` | DevOps Engineer | Generate Terraform infrastructure |
+| `/ts-pipeline` | DevOps Engineer | Generate CI/CD workflows |
+| `/ts-deploy <env>` | DevOps Engineer | Deploy to environment |
+| `/ts-verify <env>` | DevOps Engineer | Verify deployment |
+| `/ts-rollback <env>` | DevOps Engineer | Rollback deployment |
 
-### Stage 5: Operations (45 commands)
+### Stage 5: Operations (12)
 
-| Command | Agent | Description |
-|---------|-------|-------------|
-| `/ts-push <target>` | SRE Deploy | Quick deploy to managed platforms |
-| `/ts-live-status` | SRE Deploy | Check status of all deployments |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-push <target>` | SRE Deploy | Deploy to managed platform |
+| `/ts-live-status` | SRE Deploy | Check all deployments |
 | `/ts-live-env <target>` | SRE Deploy | Manage environment variables |
-| `/ts-domain <target> <domain>` | SRE Deploy | Configure custom domains |
-| `/ts-teardown <target>` | SRE Deploy | Remove deployment cleanly |
-| `/ts-monitor` | SRE Ops | Set up monitoring and observability |
-| `/ts-alerts` | SRE Ops | Configure alerting and notifications |
-| `/ts-logs [target]` | SRE Ops | View and analyze application logs |
+| `/ts-domain <target> <domain>` | SRE Deploy | Configure custom domain |
+| `/ts-teardown <target>` | SRE Deploy | Remove deployment |
+| `/ts-monitor` | SRE Ops | Setup monitoring stack |
+| `/ts-alerts` | SRE Ops | Configure alerting |
+| `/ts-logs [target]` | SRE Ops | View logs |
 | `/ts-health` | SRE Ops | Health check all services |
 | `/ts-status-page` | SRE Ops | Create public status page |
-| `/ts-incident [action]` | SRE Ops | Incident response and management |
-| `/ts-slo` | SRE Ops | Define and track Service Level Objectives |
+| `/ts-incident [action]` | SRE Ops | Incident management |
+| `/ts-slo` | SRE Ops | Define and track SLOs |
 
-### Utility Commands (45 commands)
+### Utility Commands (5)
 
-| Command | Agent | Description |
-|---------|-------|-------------|
-| `/ts-fix [type]` | Bug Fixer | Systematic error diagnosis and fixing |
-| `/ts-validate [layer]` | QA Engineer | Build verification and validation |
-| `/ts-turbo <name> "<idea>"` | System | Autonomous execution with Build Presets (Stages 1-4) |
-| `/ts-turbo-quick <name> "<idea>"` | System | Fast autonomous mode |
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-fix [type]` | Bug Fixer | Fix build errors systematically |
+| `/ts-validate [layer]` | QA Engineer | Run build verification |
+| `/ts-turbo <name> "<idea>"` | System | Run Stages 1-4 autonomously |
+| `/ts-turbo-quick <name> "<idea>"` | System | Quick turbo mode |
 | `/ts-self-document` | System | Generate framework documentation |
 
-👉 **[Complete Commands Reference →](docs/user/commands.md)**
+### Special Commands (1)
+
+| Command | Purpose |
+|---------|---------|
+| `/ts-user-docs-update` | Update user documentation with accurate counts |
 
 ---
 
 ## HITL Gates
 
-You maintain strategic control at **8 critical decision points**:
+You maintain control through **8 Human-in-the-Loop Gates**:
 
-| Gate | Command | What You're Approving | Blocking Conditions |
-|------|---------|----------------------|-------------------|
-| **Architecture Start** | `/ts-approve architecture-start` | Begin system design phase | None |
-| **Architecture Lock** | `/ts-approve architecture-lock` | Lock technical decisions | Incomplete ADRs |
-| **🚦 Green Light** | `/ts-approve green-light` | **Authorize development start** | No MVP definition |
-| **Development Done** | `/ts-approve development` | Code complete, ready for release | Failed tests, build errors |
-| **Release Ready** | `/ts-approve release` | Release package approved | Security FAIL |
-| **Staging Verified** | `/ts-approve staging` | Staging deployment successful | Failed verification |
-| **Production Ready** | `/ts-approve production` | Production deployment approved | Staging not verified |
-| **🚀 Launch** | `/ts-approve launch` | **Go live to users!** | Production not verified |
+| Gate # | Gate Name | Command | Decision Point |
+|--------|-----------|---------|----------------|
+| **1** | Architecture Start | `/ts-approve architecture-start` | Begin design phase |
+| **2** | Architecture Lock | `/ts-approve architecture-lock` | Lock technical decisions |
+| **3** | 🚦 Green Light | `/ts-approve green-light` | **Authorize development start** |
+| **4** | Development Done | `/ts-approve development` | Code complete, ready for release |
+| **5** | Release Ready | `/ts-approve release` | Release package approved |
+| **6** | Staging Verified | `/ts-approve staging` | Staging deployment OK |
+| **7** | Production Ready | `/ts-approve production` | Production deployment approved |
+| **8** | 🚀 Launch | `/ts-approve launch` | **Go live to users!** |
 
 ### Gate Philosophy
 
-- **You remain in control** of all strategic decisions
-- **Agents handle execution** while you focus on direction
-- **Quality gates ensure** nothing proceeds with critical issues
-- **Flexible workflow** allows skipping or repeating stages
+**Strategic Control**: You make high-level decisions while agents handle detailed execution.
 
-👉 **[Complete HITL Gates Guide →](docs/user/hitl-gates.md)**
+| **Traditional Development** | **The System Gates** |
+|----------------------------|---------------------|
+| You decide every implementation detail | Agents handle implementation, you approve direction |
+| Context switching between tasks | Focus only on strategic decisions |
+| Micromanaging code quality | Trust QA processes, approve outcomes |
+| Manual deployment coordination | Approve deployments, not deployment mechanics |
+
+### Gate Bypass Options
+
+```bash
+# Standard mode - all gates required
+/ts-architect
+# ... requires /ts-approve architecture-lock
+
+# Turbo mode - bypass all gates automatically
+/ts-turbo my-app "simple blog"
+# ... runs through all stages autonomously
+
+# Hybrid mode - selective gate bypass
+/ts-turbo my-app "simple blog" --gates=critical-only
+# ... only requires green-light and launch approval
+```
 
 ---
 
 ## Quick Deploy Targets
 
-Skip Infrastructure as Code and deploy directly to managed platforms:
+Skip Infrastructure as Code and deploy directly to managed platforms in Stage 5:
 
 ### Frontend Platforms
 
 | Platform | Command | Free Tier | Best For |
 |----------|---------|-----------|----------|
-| **Vercel** | `/ts-push vercel` | ✅ Generous | Next.js, React, Vue, static sites |
-| **Netlify** | `/ts-push netlify` | ✅ Good | JAMstack, static sites, forms |
-| **Cloudflare Pages** | `/ts-push cloudflare` | ✅ Unlimited | Global CDN, edge computing |
+| **Vercel** | `/ts-push vercel` | ✅ Generous | Next.js, React, Vue, Static sites |
+| **Netlify** | `/ts-push netlify` | ✅ | JAMstack, Static sites, Form handling |
+| **Cloudflare Pages** | `/ts-push cloudflare` | ✅ | Global CDN, Edge computing, Fast builds |
 
 ### Backend Platforms
 
 | Platform | Command | Free Tier | Best For |
 |----------|---------|-----------|----------|
-| **Railway** | `/ts-push railway` | ✅ Limited | Full-stack apps, databases included |
-| **Fly.io** | `/ts-push fly` | ✅ Limited | Global deployment, edge locations |
-| **Render** | `/ts-push render` | ✅ Limited | Simple deployment, managed services |
+| **Railway** | `/ts-push railway` | ✅ Limited | Full-stack apps, Databases included |
+| **Fly.io** | `/ts-push fly` | ✅ Limited | Global deployment, Docker containers |
+| **Render** | `/ts-push render` | ✅ Limited | Simple deployment, Background jobs |
 
 ### Database Platforms
 
-| Platform | Command | Free Tier | Database Type |
-|----------|---------|-----------|---------------|
-| **Neon** | `/ts-push neon` | ✅ 3GB | PostgreSQL (serverless, branching) |
-| **PlanetScale** | `/ts-push planetscale` | ✅ 5GB | MySQL (serverless, branching) |
-| **Supabase** | `/ts-push supabase` | ✅ 500MB | PostgreSQL + Auth + Storage |
-| **Turso** | `/ts-push turso` | ✅ 9GB | SQLite (edge, distributed) |
+| Platform | Command | Free Tier | Best For |
+|----------|---------|-----------|----------|
+| **Neon** | `/ts-push neon` | ✅ | PostgreSQL, Serverless, Branching |
+| **PlanetScale** | `/ts-push planetscale` | ✅ | MySQL, Branching, Connection pooling |
+| **Supabase** | `/ts-push supabase` | ✅ | PostgreSQL + Auth + Real-time |
+| **Turso** | `/ts-push turso` | ✅ | SQLite, Edge deployment |
 
-### Full-Stack Options
+### Full-Stack Platforms
 
-| Platform | Command | What's Included |
-|----------|---------|-----------------|
+| Platform | Command | Includes |
+|----------|---------|----------|
 | **Railway** | `/ts-push railway full` | Frontend + Backend + Database |
-| **Supabase** | `/ts-push supabase full` | Frontend + Backend + Auth + Database |
+| **Render** | `/ts-push render full` | Frontend + Backend + Database |
 
-### Quick Deploy Workflow
+### Deployment Workflow
 
 ```bash
-# After Stage 3 (Development Complete)
-/ts-approve development
+# Stage 5: Quick Deploy (after Stage 4 completion)
 
-# Skip Stage 4 IaC and go directly to managed platforms
-/ts-push neon          # Database live in ~2 minutes
-/ts-push railway       # Backend live in ~3 minutes
-/ts-push vercel        # Frontend live in ~1 minute
+# Option A: Traditional separation
+/ts-push neon              # Database
+/ts-push railway           # Backend
+/ts-push vercel            # Frontend
 
-# Configure and monitor
-/ts-domain vercel myapp.com    # Custom domain
-/ts-live-status               # Check all deployments
-/ts-monitor                   # Set up monitoring
-/ts-alerts                    # Configure alerts
+# Option B: Full-stack platform
+/ts-push railway full      # Everything in one platform
 
-# 🎉 Production ready in under 10 minutes!
+# Post-deployment setup
+/ts-live-status            # Verify all deployments
+/ts-domain vercel my-app.com  # Custom domain
+/ts-monitor                # Setup monitoring
+/ts-alerts                 # Configure alerts
+
+# 🎉 You're live!
+```
+
+### Environment Management
+
+```bash
+# Manage environment variables
+/ts-live-env vercel           # View Vercel env vars
+/ts-live-env railway set DATABASE_URL="..."
+/ts-live-env neon get         # Get Neon connection strings
+
+# Health monitoring
+/ts-health                    # Check all deployments
+/ts-logs vercel              # View Vercel logs
+/ts-logs railway             # View Railway logs
 ```
 
 ---
 
 ## Framework Structure
 
+### Directory Layout
+
 ```
 the-system/
-├── .claude/                    # Claude Code configuration
-│   ├── agents/                 # 18 agent definitions
+├── .claude/                   # Framework core
+│   ├── agents/                # 19 agent definitions
 │   │   ├── founder-advisor.md
 │   │   ├── enterprise-architect.md
+│   │   ├── solution-architect.md
 │   │   ├── product-lead.md
 │   │   ├── project-planner.md
 │   │   ├── business-analyst.md
@@ -583,163 +577,187 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/               # 45 command definitions
+│   ├── commands/              # 46 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
+│   │   ├── ts-view.md
+│   │   ├── ts-brief.md
+│   │   ├── ts-ask.md
+│   │   ├── ts-exec-summary.md
+│   │   ├── ts-approve.md
+│   │   ├── ts-review.md
+│   │   ├── ts-assess.md
 │   │   ├── ts-architect.md
+│   │   ├── ts-product.md
+│   │   ├── ts-plan.md
+│   │   ├── ts-analyze.md
+│   │   ├── ts-develop.md
+│   │   ├── ts-test-plan.md
+│   │   ├── ts-build.md
+│   │   ├── ts-test.md
+│   │   ├── ts-integrate.md
+│   │   ├── ts-gate.md
+│   │   ├── ts-signoff.md
+│   │   ├── ts-docs.md
+│   │   ├── ts-security.md
+│   │   ├── ts-release.md
+│   │   ├── ts-infra.md
+│   │   ├── ts-pipeline.md
+│   │   ├── ts-deploy.md
+│   │   ├── ts-verify.md
+│   │   ├── ts-rollback.md
+│   │   ├── ts-push.md
+│   │   ├── ts-live-status.md
+│   │   ├── ts-live-env.md
+│   │   ├── ts-domain.md
+│   │   ├── ts-teardown.md
+│   │   ├── ts-monitor.md
+│   │   ├── ts-alerts.md
+│   │   ├── ts-logs.md
+│   │   ├── ts-health.md
+│   │   ├── ts-status-page.md
+│   │   ├── ts-incident.md
+│   │   ├── ts-slo.md
+│   │   ├── ts-fix.md
+│   │   ├── ts-validate.md
 │   │   ├── ts-turbo.md
-│   │   ├── ... (41 more commands)
-│   │   └── ts-slo.md
+│   │   ├── ts-turbo-quick.md
+│   │   ├── ts-self-document.md
+│   │   └── ts-user-docs-update.md
 │   │
-│   ├── config/                 # System configuration
+│   ├── config/
 │   │   ├── preferences.yaml    # Tech stack defaults
-│   │   └── integrations.yaml   # External service config
+│   │   ├── presets.yaml       # Build preset definitions
+│   │   └── builds.yaml        # Build configuration
 │   │
-│   ├── knowledge/              # Shared knowledge base
+│   ├── knowledge/
 │   │   ├── architecture-standards.md
 │   │   └── gitignore-template.md
 │   │
-│   ├── hooks/                  # Automation hooks
-│   │   └── checkpoint.sh       # Auto-save project state
+│   ├── hooks/
+│   │   └── checkpoint.sh      # Auto-save hooks
 │   │
-│   └── pipeline/               # Project tracking
-│       └── projects/           # Active project files
-│           └── TEMPLATE.md     # Project template
+│   └── pipeline/
+│       └── projects/
+│           └── TEMPLATE.md    # Project template
 │
-├── docs/                       # Documentation
-│   ├── user/                   # User-facing guides and references
-│   │   ├── agents.md           # Complete agent reference
-│   │   ├── commands.md         # Complete command reference
-│   │   ├── workflow.md         # Step-by-step guides
-│   │   ├── hitl-gates.md       # Approval gate documentation
-│   │   ├── architecture.md     # System design and concepts
-│   │   ├── architecture-tutorial.md  # Hands-on architecture guide
-│   │   ├── configuration.md    # Configuration options
-│   │   ├── customization.md    # Extending The System
-│   │   ├── build-presets.md    # Complete build presets guide
-│   │   ├── build-presets-practical.md  # Decision-focused guide
-│   │   └── build-presets-quickref.md   # Quick reference
-│   │
-│   ├── developer/              # Development docs and proposals
-│   │   ├── THE_SYSTEM_TODO.md  # Framework roadmap
-│   │   ├── AGENT_ENHANCEMENT_PROPOSAL.md
-│   │   ├── DEVELOPMENT-CONTEXT.md
-│   │   └── ... (phase reports, design docs)
-│   │
-│   └── README.md               # Documentation index
-│
-├── diagrams/                   # Visual documentation
-│   ├── 01-org-structure.mermaid
-│   ├── 02-full-workflow.mermaid
-│   ├── 03-simplified-linear-flow.mermaid
-│   ├── 04-hitl-gates-flow.mermaid
-│   ├── 05-stage3-build-test-cycle.mermaid
-│   ├── 06-stage4-deployment-flow.mermaid
-│   ├── 07-stage5-quick-deploy-flow.mermaid
-│   └── 08-all-18-agents.mermaid
-│
-├── scripts/                    # Utility scripts
-│   └── verify-the-system.sh    # Installation verification
-│
-├── input/                      # Reference materials (gitignored)
-├── output/                     # Generated projects (gitignored)
-│
-├── README.md                   # Streamlined welcome and quick start
-├── USER-GUIDE.md               # This comprehensive guide
-├── QUICKSTART.md               # 5-minute onboarding
-├── CLAUDE.md                   # Framework instructions for Claude Code
-├── CHANGELOG.md                # Version history and release notes
-├── .env.example                # Environment template
-├── .gitignore                  # Git ignore configuration
-├── VERSION                     # Current version
-└── version.json                # Version metadata
+├── input/                     # Reference materials (gitignored)
+├── output/                    # Generated projects (gitignored)
+├── docs/                      # Generated documentation
+├── scripts/                   # Utility scripts
+├── diagrams/                  # Mermaid diagrams
+├── CLAUDE.md                  # Framework instructions
+├── README.md                  # User-facing documentation
+├── USER-GUIDE.md             # This comprehensive guide
+└── QUICKSTART.md             # 5-minute onboarding
 ```
 
 ---
 
 ## Configuration
 
-### Tech Stack Preferences
+### Technology Stack Preferences
 
-Customize default technology choices in `.claude/config/preferences.yaml`:
-
-```yaml
-# Backend Configuration
-backend:
-  language: python              # python | typescript | go | rust
-  framework: fastapi            # fastapi | django | express | nestjs | gin
-
-# Database Configuration
-database:
-  primary: postgresql           # postgresql | mysql | mongodb | sqlite
-  orm: sqlalchemy              # sqlalchemy | prisma | mongoose | gorm
-
-# Frontend Configuration
-frontend:
-  framework: nextjs             # nextjs | react | vue | svelte | angular
-  language: typescript          # typescript | javascript
-  styling: tailwindcss          # tailwindcss | styled-components | scss
-
-# Infrastructure Preferences
-infrastructure:
-  provider: aws                 # aws | gcp | azure | digital_ocean
-  container: docker             # docker | podman
-  orchestration: kubernetes     # kubernetes | docker-compose
-
-# Stage 5 Quick Deploy Defaults
-go_live:
-  targets:
-    frontend: vercel            # vercel | netlify | cloudflare
-    backend: railway            # railway | fly | render
-    database: neon              # neon | planetscale | supabase | turso
-    monitoring: sentry          # sentry | datadog | newrelic
-```
-
-### External Service Integrations
-
-Configure external services in `.claude/config/integrations.yaml`:
+Configure your default technology preferences in `.claude/config/preferences.yaml`:
 
 ```yaml
-# Monitoring & Observability
-monitoring:
-  sentry:
-    enabled: true
-    dsn: ${SENTRY_DSN}
-  datadog:
-    enabled: false
-    api_key: ${DATADOG_API_KEY}
+# Technology Stack Defaults
+technology:
+  frontend:
+    default: "nextjs"
+    options: ["nextjs", "react", "vue", "svelte"]
 
-# Communication & Notifications
-communication:
-  slack:
-    enabled: true
-    channels:
-      alerts: "#alerts"
-      deployments: "#deployments"
-  discord:
-    enabled: false
-    webhook_url: ${DISCORD_WEBHOOK}
+  backend:
+    default: "nextjs-api"
+    options: ["nextjs-api", "fastapi", "express", "nestjs"]
 
-# Authentication & Security
-authentication:
-  auth0:
-    enabled: false
-    domain: ${AUTH0_DOMAIN}
-    client_id: ${AUTH0_CLIENT_ID}
-  clerk:
-    enabled: true
-    publishable_key: ${CLERK_PUBLISHABLE_KEY}
-    secret_key: ${CLERK_SECRET_KEY}
+  database:
+    default: "postgresql"
+    options: ["postgresql", "sqlite", "mysql", "mongodb"]
 
-# Payment Processing
-payments:
-  stripe:
-    enabled: false
-    publishable_key: ${STRIPE_PUBLISHABLE_KEY}
-    secret_key: ${STRIPE_SECRET_KEY}
+  auth:
+    default: "nextauth"
+    options: ["nextauth", "clerk", "lucia", "firebase"]
+
+# Build Preferences
+builds:
+  default_preset: "mvp"
+  auto_detect: true
+  skip_confirmations: false
+
+# Deployment Preferences
+deployment:
+  preferred_platforms:
+    frontend: "vercel"
+    backend: "railway"
+    database: "neon"
+
+  auto_domain: true
+  monitoring_enabled: true
 ```
 
-👉 **[Complete Configuration Guide →](docs/user/configuration.md)**
+### Build Presets Configuration
+
+Customize build presets in `.claude/config/presets.yaml`:
+
+```yaml
+presets:
+  prototype:
+    description: "Fast iteration, basic features"
+    target_duration: "3-5 min"
+    agent_strategy: "minimal"
+    skip_stages: []
+    skip_agents: ["security-engineer", "technical-writer"]
+
+  mvp:
+    description: "Production-ready, professional quality"
+    target_duration: "15-20 min"
+    agent_strategy: "optimized"
+    skip_stages: []
+    skip_agents: []
+
+  production:
+    description: "Enterprise-grade, full compliance"
+    target_duration: "45-60 min"
+    agent_strategy: "comprehensive"
+    skip_stages: []
+    skip_agents: []
+```
+
+### Build Configuration
+
+Control build behavior in `.claude/config/builds.yaml`:
+
+```yaml
+# Build System Configuration
+build_system:
+  default_mode: "mvp"
+
+  modes:
+    prototype:
+      time_target: "3-5 minutes"
+      quality_level: "working_demo"
+      documentation: "minimal"
+      testing: "basic"
+
+    mvp:
+      time_target: "15-20 minutes"
+      quality_level: "production_ready"
+      documentation: "essential"
+      testing: "comprehensive"
+
+    production:
+      time_target: "45-60 minutes"
+      quality_level: "enterprise_grade"
+      documentation: "complete"
+      testing: "exhaustive"
+
+# Agent Coordination
+coordination:
+  parallel_execution: true
+  dependency_tracking: true
+  quality_gates: true
+```
 
 ---
 
@@ -747,152 +765,101 @@ payments:
 
 ### Custom Agent Development
 
-Create specialized agents for your domain:
-
-```bash
-# Create custom agent
-touch .claude/agents/my-specialist.md
-```
+Add your own specialized agents:
 
 ```markdown
 ---
-name: my-specialist
-description: Specialized agent for my domain
-tools: Read, Write, Bash, WebSearch
+name: custom-agent
+description: My custom agent for specific tasks
+tools: Read, Write, Bash
 model: inherit
 ---
 
-# My Specialist Agent
+# Custom Agent
 
-You are a specialized agent for [your domain].
-
-## Responsibilities
-- Specific task 1
-- Specific task 2
-- Domain expertise
-
-## Process
-1. Analyze requirements
-2. Apply domain expertise
-3. Generate specialized output
+Instructions for your custom agent...
 ```
 
-### Custom Command Creation
+### Custom Command Development
 
-Add domain-specific commands:
-
-```bash
-# Create custom command
-touch .claude/commands/ts-my-workflow.md
-```
+Create custom commands:
 
 ```markdown
-# My Workflow: $ARGUMENTS
+# Custom Command: $ARGUMENTS
 
-Execute my custom workflow process.
+Description of what this command does.
 
 ## Usage
 ```
-/ts-my-workflow <parameters>
+/ts-custom-command <args>
 ```
 
 ## Process
-1. Validate inputs
-2. Execute workflow steps
-3. Generate outputs
-4. Update project state
-
-## Example
-```
-/ts-my-workflow user-onboarding --platform mobile
-```
+1. Step one
+2. Step two
+3. Step three
 ```
 
-### Input Directory Usage
+### Integration with Existing Workflows
 
-Provide reference materials for agents:
+Use The System in existing development workflows:
 
 ```bash
-# Add reference materials
-mkdir -p input
-cd input
+# Integrate with existing project
+cd my-existing-project
+git submodule add https://github.com/YOUR_USERNAME/the-system.git .the-system
+ln -s .the-system/.claude .claude
 
-# Clone reference repositories
-git clone https://github.com/company/style-guide.git
-git clone https://github.com/company/component-library.git
-
-# Add documentation
-cp ~/Documents/requirements.pdf .
-cp ~/Documents/brand-guidelines.pdf .
+# Generate components for existing codebase
+/ts-new-project existing-enhancement
+/ts-build frontend    # Generate new components
+# Copy generated components to existing project
 ```
-
-Use in Claude Code:
-```bash
-claude
-> Read input/style-guide/README.md and apply these patterns
-> Use input/component-library/src/Button.tsx as a reference
-> Follow the requirements in input/requirements.pdf
-```
-
-👉 **[Complete Customization Guide →](docs/user/customization.md)**
 
 ---
 
 ## Example Projects
 
-### Simple Todo App
+### Quick Prototypes (3-5 minutes)
 
 ```bash
-/ts-new-project simple-todo
-> "A basic todo app with user authentication, task categories, and due dates"
-/ts-approve architecture-start
-# ... follow workflow
+# Simple web app prototypes
+/ts-turbo todo-prototype "simple todo app with local storage" --build=prototype
+/ts-turbo blog-prototype "personal blog with markdown posts" --build=prototype
+/ts-turbo calculator-prototype "scientific calculator web app" --build=prototype
+
+# CLI tool prototypes
+/ts-turbo file-organizer-cli "CLI tool to organize files by type" --build=prototype
+/ts-turbo json-formatter-cli "CLI JSON formatter and validator" --build=prototype
 ```
 
-**Generated Stack:** Next.js + FastAPI + PostgreSQL + Clerk Auth
-
-### E-commerce Platform
+### Production MVPs (15-20 minutes)
 
 ```bash
-/ts-turbo ecommerce "Full e-commerce platform with product catalog, shopping cart,
-payment processing, order management, and admin dashboard"
+# E-commerce applications
+/ts-turbo shop-mvp "e-commerce platform with Stripe payments and inventory" --build=mvp
+/ts-turbo marketplace-mvp "multi-vendor marketplace with user auth" --build=mvp
+
+# SaaS applications
+/ts-turbo analytics-mvp "SaaS analytics dashboard with API integrations" --build=mvp
+/ts-turbo project-mgmt-mvp "project management tool with team collaboration" --build=mvp
+
+# Content platforms
+/ts-turbo cms-mvp "headless CMS with admin panel and API" --build=mvp
+/ts-turbo forum-mvp "community forum with moderation and voting" --build=mvp
 ```
 
-**Generated Stack:** Next.js + FastAPI + PostgreSQL + Stripe + Admin Panel
-
-### SaaS Analytics Dashboard
+### Enterprise Systems (45-60 minutes)
 
 ```bash
-/ts-new-project analytics-saas
-> "Multi-tenant analytics dashboard with real-time data visualization,
-custom reports, team collaboration, and API access"
-/ts-approve architecture-start
-# ... follow workflow with custom requirements
-```
-
-**Generated Stack:** React + Node.js + ClickHouse + Auth0 + Charts.js
-
-### Build Preset Examples
-
-#### Quick Prototypes (3-5 minutes)
-```bash
-/ts-turbo todo-demo "simple todo app prototype" --build=prototype
-/ts-turbo blog-demo "personal blog demo" --build=prototype
-/ts-turbo calc-demo "calculator app with history" --build=prototype
-```
-
-#### Production MVPs (15-20 minutes)
-```bash
-/ts-turbo ecommerce-mvp "e-commerce platform with payments" --build=mvp
-/ts-turbo saas-mvp "SaaS analytics dashboard" --build=mvp
-/ts-turbo crm-mvp "customer relationship management system" --build=mvp
-```
-
-#### Enterprise Systems (45-60 minutes)
-```bash
+# Compliance-heavy applications
 /ts-turbo healthcare-system "patient management with HIPAA compliance" --build=production
-/ts-turbo fintech-platform "trading platform with regulatory compliance" --build=production
-/ts-turbo enterprise-erp "enterprise resource planning system" --build=production
+/ts-turbo fintech-platform "trading platform with SOC2 compliance" --build=production
+/ts-turbo hr-system "HR management with GDPR compliance" --build=production
+
+# High-scale applications
+/ts-turbo social-platform "social media platform with real-time features" --build=production
+/ts-turbo iot-dashboard "IoT device management with real-time monitoring" --build=production
 ```
 
 ---
@@ -901,115 +868,127 @@ custom reports, team collaboration, and API access"
 
 ### Installation Verification
 
-Ensure The System is properly installed:
-
 ```bash
+# Verify The System installation
 ./scripts/verify-the-system.sh
+
+# Expected output:
+✅ Framework structure validated
+✅ All 19 agents found
+✅ All 46 commands found
+✅ Configuration files valid
+✅ The System ready for use
 ```
 
-**Expected Output:**
-```
-╔══════════════════════════════════════════════════════════════════╗
-║           THE SYSTEM IS CORRECTLY INSTALLED (Stage 1-5)          ║
-╚══════════════════════════════════════════════════════════════════╝
-
-Framework Components:
-  ✅ Agents: 18/18    (.claude/agents/)
-  ✅ Commands: 45/45    (.claude/commands/)
-  ✅ Config Files:     2/2      (.claude/config/)
-  ✅ Knowledge Base:   2/2      (.claude/knowledge/)
-  ✅ Documentation:    15/15    (docs/)
-  ✅ Diagrams:         8/8      (diagrams/)
-  ✅ Scripts:          1/1      (scripts/)
-
-Project Structure:
-  ✅ Input Directory:  Created   (input/)
-  ✅ Output Directory: Created   (output/)
-  ✅ Git Repository:   Valid     (.git/)
-
-  Passed:   79
-  Failed:   0
-  Warnings: 0
-
-🚀 Ready to build amazing software!
-```
-
-### Health Monitoring
-
-Check system health during development:
+### Project Health Checks
 
 ```bash
-# Overall project health
+# Check current project status
 /ts-status
 
-# Specific component health
-/ts-validate database
-/ts-validate backend
-/ts-validate frontend
+# Validate build setup
+/ts-validate
 
-# Security health
-/ts-security scan
-
-# Deployment health
+# Health check all services
 /ts-health
+
+# Fix common issues automatically
+/ts-fix
+```
+
+### Build Verification
+
+The System includes automatic build verification:
+
+```bash
+# Manual build verification
+/ts-validate frontend    # Verify frontend builds
+/ts-validate backend     # Verify backend builds
+/ts-validate database    # Verify database setup
+/ts-validate integration # Verify full integration
+
+# Automatic verification (runs before QA sign-off)
+# TypeScript compilation must pass
+# Tests must pass
+# Linting must pass
+# No critical security issues
+```
+
+### Framework Verification
+
+```bash
+# Count agents and commands
+ls .claude/agents/*.md | wc -l      # Should show 19 agent files
+ls .claude/commands/*.md | wc -l    # Should show 46 command files
+
+# Verify specific components
+ls .claude/agents/                  # List all agents
+ls .claude/commands/               # List all commands
+
+# Test core functionality
+/ts-new-project test-verification
+/ts-status                         # Should show project initialized
 ```
 
 ---
 
 ## Troubleshooting
 
-### Common Issues & Solutions
+### Common Issues
 
-#### Build Errors After Generation
+| Issue | Symptoms | Solution |
+|-------|----------|----------|
+| **Command not found** | `/ts-*` commands fail | Check `.claude/commands/` directory exists |
+| **Agent missing** | "Agent not found" errors | Verify `.claude/agents/` has all 19 files |
+| **Build failures** | Generated code won't compile | Run `/ts-fix` for automatic diagnosis |
+| **Deployment errors** | `/ts-deploy` or `/ts-push` fails | Check platform credentials and quotas |
+
+### Diagnostic Commands
 
 ```bash
-# Automatic diagnosis and fixes
-/ts-fix
+# Check framework installation
+./scripts/verify-the-system.sh
 
-# Specific issue types
-/ts-fix typescript      # TypeScript errors
-/ts-fix dependencies    # Dependency conflicts
-/ts-fix scan           # Diagnostic mode only
+# Check project status
+/ts-status
+/ts-brief
+
+# Fix build issues
+/ts-fix                    # General error fixing
+/ts-fix typescript         # TypeScript-specific issues
+/ts-fix dependencies       # Dependency conflicts
+
+# Validate layers individually
+/ts-validate database      # Test database setup
+/ts-validate backend       # Test backend compilation
+/ts-validate frontend      # Test frontend build
 ```
 
-#### Dependency Conflicts
+### Framework Issues
 
 ```bash
-cd output/my-project
-rm -rf node_modules package-lock.json
-npm install --legacy-peer-deps
+# Verify framework structure
+find .claude -name "*.md" | wc -l   # Should show 65+ files
+
+# Check for missing components
+test -f .claude/agents/founder-advisor.md && echo "✅ Core agent found"
+test -f .claude/commands/ts-status.md && echo "✅ Core command found"
+
+# Reinstall framework (submodule)
+git submodule deinit .the-system
+git submodule update --init --recursive .the-system
 ```
 
-#### Submodule Issues
+### Agent Communication Issues
 
 ```bash
-# Re-initialize submodules
-git submodule update --init --recursive
+# Test agent communication
+/ts-ask "Can you hear me?"         # Test Founder-Advisor
+/ts-status                         # Test project state reading
 
-# Recreate broken symlinks
-rm -f .claude CLAUDE.md
-ln -s .the-system/.claude .claude
-ln -s .the-system/CLAUDE.md CLAUDE.md
-```
-
-#### Claude Code Not Finding Commands
-
-```bash
-# Verify command files exist
-ls -la .claude/commands/ | wc -l
-# Should show 45 command files
-
-# Ensure you're in correct directory
-pwd
-ls -la .claude/
-```
-
-#### Permission Denied Errors
-
-```bash
-# Make scripts executable
-chmod +x scripts/verify-the-system.sh
-chmod +x .claude/hooks/checkpoint.sh
+# Clear project state (if corrupted)
+rm .claude/pipeline/projects/*.md
+/ts-new-project fresh-start        # Reinitialize
 ```
 
 ---
@@ -1018,41 +997,48 @@ chmod +x .claude/hooks/checkpoint.sh
 
 ### Updating The System
 
-#### Submodule Updates
+When using submodules (recommended):
 
 ```bash
-cd my-project
+# Check current version
+cd .the-system && git describe --tags
 
 # Update to latest version
-cd .the-system
-git fetch origin && git checkout main && git pull origin main
-cd ..
-
-# Commit the update
+git submodule update --remote .the-system
 git add .the-system
-git commit -m "Update The System to latest version"
+git commit -m "Update The System framework"
 
-# Verify update
-.the-system/scripts/verify-the-system.sh
+# Update documentation
+/ts-user-docs-update
 ```
 
-#### Update to Specific Version
+### Version Management
 
 ```bash
+# Pin to specific version
 cd .the-system
-git fetch --tags
-git tag --list                    # See available versions
-git checkout v1.2.0              # Use specific version
+git checkout v1.2.0
 cd ..
 git add .the-system
-git commit -m "Update The System to v1.2.0"
+git commit -m "Pin The System to v1.2.0"
+
+# Return to latest
+git submodule update --remote .the-system
 ```
 
-### Staying Current
+### Maintenance Commands
 
-- **GitHub Releases** - Subscribe to releases for notifications
-- **Version Checking** - Run verification script regularly
-- **Documentation Updates** - Re-run `/ts-self-document` after updates
+```bash
+# Update framework documentation
+/ts-self-document              # Regenerate all docs
+/ts-user-docs-update          # Update user documentation
+
+# Clean up old projects
+rm -rf output/old-project-*
+
+# Verify framework integrity
+./scripts/verify-the-system.sh
+```
 
 ---
 
@@ -1060,45 +1046,114 @@ git commit -m "Update The System to v1.2.0"
 
 ### Project Organization
 
-- **Use descriptive project names** - `ecommerce-mvp` not `test-app`
-- **Leverage the input directory** - Provide reference materials for agents
-- **Review all HITL gates carefully** - You're making strategic decisions
-- **Keep projects focused** - Use MVP scope, expand in iterations
+```bash
+# Use descriptive project names
+/ts-new-project ecommerce-mvp          # ✅ Clear purpose
+/ts-new-project my-app                 # ❌ Generic name
 
-### Development Workflow
+# Organize related projects
+mkdir projects/ecommerce
+cd projects/ecommerce
+/ts-new-project customer-portal
+/ts-new-project admin-dashboard
+/ts-new-project mobile-app
+```
 
-- **Start with standard mode** - Learn the workflow before using Turbo
-- **Use Stage 5 for MVPs** - Quick deploy for validation and testing
-- **Use Stage 4 for production** - Full IaC for serious deployments
-- **Customize thoughtfully** - Modify preferences before starting projects
+### Workflow Optimization
 
-### Build Preset Selection
+```bash
+# Use appropriate build presets
+/ts-turbo demo "quick demo app" --build=prototype        # For demos
+/ts-turbo mvp "production app" --build=mvp              # For launches
+/ts-turbo enterprise "critical system" --build=production # For compliance
 
-- **Prototype for validation** - Quick demos, proof-of-concepts, iteration
-- **MVP for production launches** - Real customers, professional quality
-- **Production for enterprise** - Compliance, scale, mission-critical systems
-- **Stage skipping for specific workflows** - Architecture-only, rapid iteration
+# Skip unnecessary stages when appropriate
+/ts-turbo api-only "REST API service" --skip=frontend   # API-only projects
+/ts-turbo static "marketing site" --skip=backend       # Static sites
+```
 
-### Quality Assurance
+### Quality Control
 
-- **Trust but verify** - Review generated code before deployment
-- **Test thoroughly** - Use generated test suites and add custom tests
-- **Monitor actively** - Set up proper monitoring and alerting
-- **Backup regularly** - Version control everything, backup databases
+```bash
+# Always run validation before important deployments
+/ts-validate                    # Before /ts-signoff
+/ts-security                   # Before production deploy
+/ts-health                     # After deployment
+
+# Use proper approval workflow
+/ts-approve green-light        # Don't skip product approval
+/ts-approve production         # Always verify production deployment
+```
+
+### Deployment Strategy
+
+```bash
+# Test staging first
+/ts-deploy staging
+/ts-verify staging
+/ts-approve staging           # Only then deploy production
+
+# Use appropriate platforms
+/ts-push vercel              # For frontend (fast, reliable)
+/ts-push railway             # For backend (includes database)
+/ts-push neon                # For database (PostgreSQL, scalable)
+```
+
+### Development Efficiency
+
+```bash
+# Use /ts-ask for guidance
+/ts-ask "What's the best auth solution for this project?"
+/ts-ask "How should I structure the database for multi-tenancy?"
+/ts-ask "What's the recommended deployment strategy?"
+
+# Leverage automatic error fixing
+/ts-fix                      # Run when build fails
+/ts-validate                 # Verify fixes worked
+```
+
+### Documentation Habits
+
+```bash
+# Keep documentation fresh
+/ts-docs                     # Generate technical documentation
+/ts-self-document           # Update framework documentation
+/ts-user-docs-update        # Update user guides
+
+# Use built-in documentation
+/ts-view architecture       # Review system design
+/ts-brief                   # Quick project overview
+/ts-status                  # Current progress status
+```
 
 ---
 
-**📚 This guide provides comprehensive coverage of all The System capabilities. For hands-on tutorials and specific use cases, explore the tutorial documentation linked throughout this guide.**
+## 🎯 Quick Reference Summary
+
+### Essential Commands
+```bash
+/ts-new-project <name>       # Start new project
+/ts-status                   # Check progress
+/ts-turbo <name> "<idea>"   # Full autonomous build
+/ts-ask "<question>"        # Get help
+/ts-fix                     # Fix errors automatically
+```
+
+### Standard Workflow
+```bash
+Architecture → Product → Development → Release → Operations
+   1-2 min     3-8 min     10-30 min     5-15 min    5-10 min
+```
+
+### Quick Deploy
+```bash
+/ts-push neon|railway|vercel    # Deploy to managed platforms
+/ts-domain <platform> <domain>  # Configure custom domain
+/ts-monitor                     # Setup monitoring
+```
 
 ---
 
-<p align="center">
-  <strong>The System User Guide</strong><br/>
-  <em>Complete Reference for ASDO Framework</em><br/>
-  <sub>Master every aspect of autonomous software development</sub><br/>
-  <br/>
-  <a href="README.md">🏠 Main README</a> •
-  <a href="QUICKSTART.md">🚀 5-Minute Quickstart</a> •
-  <a href="docs/user/">📚 Tutorial Documentation</a> •
-  <a href="CHANGELOG.md">📋 Changelog</a>
-</p>
+*This User Guide covers all features of The System. For quick onboarding, see [QUICKSTART.md](QUICKSTART.md). For framework development, see [CLAUDE.md](CLAUDE.md).*
+
+**Ready to build amazing software with The System!** 🚀

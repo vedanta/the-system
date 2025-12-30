@@ -3,13 +3,13 @@
 
 > *An AI-powered software company in your terminal*
 
-Transform your ideas into production-ready software with 18 specialized AI agents across 5 departments, all working under your strategic guidance.
+Transform your ideas into production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
 
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-18-blue?style=for-the-badge" alt="18 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-45-green?style=for-the-badge" alt="45 Commands"/>
+  <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 Agents"/>
+  <img src="https://img.shields.io/badge/Commands-46-green?style=for-the-badge" alt="46 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -18,9 +18,87 @@ Transform your ideas into production-ready software with 18 specialized AI agent
 
 ---
 
+## 🛠️ Capabilities & Technology Support
+
+### Architecture Patterns
+<p align="center">
+  <img src="https://img.shields.io/badge/Static-Sites-blueviolet?style=flat-square&logo=html5" alt="Static Sites"/>
+  <img src="https://img.shields.io/badge/Embedded-DB-blue?style=flat-square&logo=sqlite" alt="Embedded DB"/>
+  <img src="https://img.shields.io/badge/Full--Stack-JS-yellow?style=flat-square&logo=javascript" alt="Full-Stack JS"/>
+  <img src="https://img.shields.io/badge/BaaS-green?style=flat-square&logo=supabase" alt="BaaS"/>
+  <img src="https://img.shields.io/badge/Microservices-orange?style=flat-square&logo=docker" alt="Microservices"/>
+  <img src="https://img.shields.io/badge/CLI-Scripts-lightgrey?style=flat-square&logo=gnubash" alt="CLI Scripts"/>
+  <img src="https://img.shields.io/badge/CLI-Tools-grey?style=flat-square&logo=terminal" alt="CLI Tools"/>
+  <img src="https://img.shields.io/badge/CLI-TUI-darkgrey?style=flat-square&logo=vim" alt="CLI TUI"/>
+</p>
+
+### Build Speeds
+<p align="center">
+  <img src="https://img.shields.io/badge/Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Prototype Build"/>
+  <img src="https://img.shields.io/badge/MVP-15--20min-yellow?style=flat-square&logo=target" alt="MVP Build"/>
+  <img src="https://img.shields.io/badge/Production-45--60min-red?style=flat-square&logo=shield" alt="Production Build"/>
+</p>
+
+### Key Technology Support
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-TypeScript-black?style=flat-square&logo=next.js" alt="Next.js + TypeScript"/>
+  <img src="https://img.shields.io/badge/React-Vue-blue?style=flat-square&logo=react" alt="React + Vue"/>
+  <img src="https://img.shields.io/badge/FastAPI-Python-teal?style=flat-square&logo=fastapi" alt="FastAPI + Python"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-SQLite-blue?style=flat-square&logo=postgresql" alt="PostgreSQL + SQLite"/>
+  <img src="https://img.shields.io/badge/Vercel-Railway-purple?style=flat-square&logo=vercel" alt="Vercel + Railway"/>
+  <img src="https://img.shields.io/badge/50+-Technologies-orange?style=flat-square&logo=stackshare" alt="50+ Technologies"/>
+</p>
+
+<details>
+<summary><strong>📋 Complete Technology Stack</strong></summary>
+
+#### Frontend Technologies
+- **Next.js 14+** (App Router, TypeScript, Tailwind CSS)
+- **React 18+** (Vite, TypeScript, Component libraries)
+- **Vue 3+** (Nuxt, Composition API, TypeScript)
+- **SvelteKit** (TypeScript, Reactive patterns)
+
+#### Backend Technologies
+- **Next.js API Routes** (TypeScript, Middleware, CORS)
+- **FastAPI** (Python, Async, Auto-documentation)
+- **Express.js** (Node.js, TypeScript, RESTful)
+- **NestJS** (Enterprise, Decorators, Dependency injection)
+- **Django** (Python, Batteries-included, Admin panel)
+
+#### Database Support
+- **PostgreSQL** (Prisma ORM, ACID compliance, JSON support)
+- **MySQL** (PlanetScale, Branching, Connection pooling)
+- **SQLite** (Drizzle ORM, Embedded, File-based)
+- **Supabase** (PostgreSQL + Auth + Real-time)
+- **MongoDB** (NoSQL, Flexible schema, Aggregations)
+
+#### Authentication
+- **NextAuth.js** (OAuth providers, Session management, JWT)
+- **Clerk** (Managed auth, Drop-in UI, Organizations)
+- **Lucia** (Type-safe, Lightweight, Custom sessions)
+- **Firebase Auth** (Google ecosystem, Mobile integration)
+
+#### Deployment Platforms
+- **Vercel** (Frontend, Edge functions, Global CDN)
+- **Railway** (Backend, Databases, Environment management)
+- **Fly.io** (Global deployment, Docker, Persistent volumes)
+- **Netlify** (JAMstack, Build plugins, Form handling)
+- **Cloudflare Pages** (Edge computing, Workers, Analytics)
+- **Render** (Full-stack, Background jobs, Cron jobs)
+
+#### Infrastructure & DevOps
+- **Terraform** (Infrastructure as Code, Multi-cloud, State management)
+- **GitHub Actions** (CI/CD, Automated testing, Deployments)
+- **Docker** (Containerization, Multi-stage builds, Compose)
+- **Monitoring** (Observability, Alerting, Performance tracking)
+
+</details>
+
+---
+
 ## 🚀 What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **18 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+The System is an agentic framework that simulates a complete software development organization. It orchestrates **19 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### The Complete Software Company
 
@@ -266,8 +344,8 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 - **[Build Presets Tutorial](docs/user/build-presets-practical.md)** - Speed optimization guide
 
 ### Reference Documentation
-- **[Agent Reference](docs/user/agents.md)** - All 18 agents and capabilities
-- **[Command Reference](docs/user/commands.md)** - All 45 commands with examples
+- **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
+- **[Command Reference](docs/user/commands.md)** - All 46 commands with examples
 - **[Configuration Guide](docs/user/configuration.md)** - Customization options
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes
 
@@ -341,7 +419,7 @@ The System is built on these principles:
 │                                                                 │
 │ 🏗️  START         /ts-new-project <name>                        │
 │                                                                 │
-│ 📐  ARCHITECTURE  /ts-architect                                 │
+│ 📐  ARCHITECTURE  /ts-assess | /ts-architect                    │
 │                   /ts-approve architecture-lock                 │
 │                                                                 │
 │ 📦  PRODUCT       /ts-product → /ts-plan → /ts-analyze          │
