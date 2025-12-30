@@ -13,7 +13,7 @@ Visual documentation for The System's organizational structure and workflows.
 | `05-stage3-build-test-cycle.mermaid` | Development build and test cycle |
 | `06-stage4-deployment-flow.mermaid` | Stage 4 deployment process |
 | `07-stage5-quick-deploy-flow.mermaid` | Stage 5 quick deploy to platforms |
-| `08-all-17-agents.mermaid` | Overview of all 19 agents |
+| `08-all-19-agents.mermaid` | Overview of all 19 agents |
 
 ## How to Use
 
@@ -42,13 +42,13 @@ mmdc -i diagram.mermaid -o diagram.png
 ## Stages Overview
 
 ```
-Stage 1: Architecture    → 1 agent  (Enterprise Architect)
+Stage 1: Architecture    → 2 agents (Solution Architect, Enterprise Architect)
 Stage 2: Product         → 3 agents (Product Lead, Planner, Analyst)
 Stage 3: Development     → 6 agents (Principal, QA, DB, BE, FE, Integration)
 Stage 4: Release         → 4 agents (Writer, Security, Release, DevOps)
 Stage 5: Go Live         → 2 agents (SRE Deploy, SRE Ops)
 ─────────────────────────────────────
-Total                    → 19 agents (+ Founder-Advisor)
+Total                    → 18 agents (+ Founder-Advisor = 19)
 ```
 
 ## HITL Gates
@@ -66,9 +66,9 @@ launch 🚀           → Final go-live approval
 
 ## Quick Reference
 
-### Full IaC Path (Stage 4)
+### Full IaC Path (Stage 1-4)
 ```
-/ts-docs → /ts-security → /ts-release → /ts-infra → /ts-pipeline → /ts-deploy
+/ts-assess → /ts-architect → /ts-product → /ts-develop → /ts-docs → /ts-security → /ts-release → /ts-infra → /ts-pipeline → /ts-deploy
 ```
 
 ### Quick Deploy Path (Stage 5)

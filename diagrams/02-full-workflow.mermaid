@@ -7,7 +7,9 @@ flowchart TD
     end
 
     subgraph STAGE1["📐 STAGE 1: ARCHITECTURE"]
-        GATE1 -->|approved| ARCH["/ts-architect<br/>🏗️ Enterprise Architect"]
+        GATE1 -->|approved| ASSESS["/ts-assess<br/>🎯 Solution Architect"]
+        ASSESS --> ASSESS_OUT["Outputs:<br/>• Technology Assessment<br/>• Architecture Recommendations<br/>• Risk Analysis"]
+        ASSESS_OUT --> ARCH["/ts-architect<br/>🏗️ Enterprise Architect"]
         ARCH --> ARCH_OUT["Outputs:<br/>• System Context<br/>• Components<br/>• Data Model<br/>• API Contracts<br/>• ADRs"]
         ARCH_OUT --> ARCH_REVIEW["/ts-review architecture<br/>🎩 Founder-Advisor"]
         ARCH_REVIEW --> GATE2{{"👤 /ts-approve<br/>architecture-lock"}}
@@ -95,7 +97,7 @@ flowchart TD
     classDef success fill:#2ecc71,stroke:#333,stroke-width:3px,color:#fff
     
     class GATE1,GATE2,GATE3,GATE4,GATE5,GATE6,GATE7,GATE8 gate
-    class ARCH,PRODUCT,PLAN,ANALYZE,DEVELOP,TEST_PLAN,BUILD_DB,BUILD_BE,BUILD_FE,INTEGRATE,DOCS,SECURITY,RELEASE,INFRA,PIPELINE,DEPLOY_STG,DEPLOY_PROD,VERIFY_STG,VERIFY_PROD,SEC_PROD,PUSH_DB,PUSH_BE,PUSH_FE,MONITOR,ALERTS,SLO,STATUS_PAGE,DOMAIN,LIVE_STATUS command
-    class ARCH_OUT,PRODUCT_OUT,PLAN_OUT,ANALYZE_OUT,DEV_PLAN,TEST_STRATEGY,DOCS_OUT,RELEASE_OUT,INFRA_OUT,PIPELINE_OUT output
+    class ASSESS,ARCH,PRODUCT,PLAN,ANALYZE,DEVELOP,TEST_PLAN,BUILD_DB,BUILD_BE,BUILD_FE,INTEGRATE,DOCS,SECURITY,RELEASE,INFRA,PIPELINE,DEPLOY_STG,DEPLOY_PROD,VERIFY_STG,VERIFY_PROD,SEC_PROD,PUSH_DB,PUSH_BE,PUSH_FE,MONITOR,ALERTS,SLO,STATUS_PAGE,DOMAIN,LIVE_STATUS command
+    class ASSESS_OUT,ARCH_OUT,PRODUCT_OUT,PLAN_OUT,ANALYZE_OUT,DEV_PLAN,TEST_STRATEGY,DOCS_OUT,RELEASE_OUT,INFRA_OUT,PIPELINE_OUT output
     class ARCH_REVIEW,PRODUCT_REVIEW,DEV_REVIEW,RELEASE_REVIEW review
     class LAUNCHED,OPERATIONAL success
