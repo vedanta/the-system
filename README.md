@@ -25,7 +25,7 @@ Transform your ideas into production-ready software with 19 specialized AI agent
   <img src="https://img.shields.io/badge/Static-Sites-blueviolet?style=flat-square&logo=html5" alt="Static Sites"/>
   <img src="https://img.shields.io/badge/Embedded-DB-blue?style=flat-square&logo=sqlite" alt="Embedded DB"/>
   <img src="https://img.shields.io/badge/Full--Stack-JS-yellow?style=flat-square&logo=javascript" alt="Full-Stack JS"/>
-  <img src="https://img.shields.io/badge/Backend-as-a-Service-green?style=flat-square&logo=firebase" alt="BaaS"/>
+  <img src="https://img.shields.io/badge/BaaS-green?style=flat-square&logo=supabase" alt="BaaS"/>
   <img src="https://img.shields.io/badge/Microservices-orange?style=flat-square&logo=docker" alt="Microservices"/>
   <img src="https://img.shields.io/badge/CLI-Scripts-lightgrey?style=flat-square&logo=gnubash" alt="CLI Scripts"/>
   <img src="https://img.shields.io/badge/CLI-Tools-grey?style=flat-square&logo=terminal" alt="CLI Tools"/>
