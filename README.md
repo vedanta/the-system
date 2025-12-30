@@ -18,9 +18,9 @@ Transform your ideas into production-ready software with 19 specialized AI agent
 
 ---
 
-## 🛠️ Technology Stack & Capabilities
+## 🛠️ Capabilities & Technology Support
 
-### Architecture Support
+### Architecture Patterns
 <p align="center">
   <img src="https://img.shields.io/badge/Static-Sites-blueviolet?style=flat-square&logo=html5" alt="Static Sites"/>
   <img src="https://img.shields.io/badge/Embedded-DB-blue?style=flat-square&logo=sqlite" alt="Embedded DB"/>
@@ -32,66 +32,67 @@ Transform your ideas into production-ready software with 19 specialized AI agent
   <img src="https://img.shields.io/badge/CLI-TUI-darkgrey?style=flat-square&logo=vim" alt="CLI TUI"/>
 </p>
 
-### Build Configurations
+### Build Speeds
 <p align="center">
   <img src="https://img.shields.io/badge/Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Prototype Build"/>
   <img src="https://img.shields.io/badge/MVP-15--20min-yellow?style=flat-square&logo=target" alt="MVP Build"/>
   <img src="https://img.shields.io/badge/Production-45--60min-red?style=flat-square&logo=shield" alt="Production Build"/>
 </p>
 
-### Frontend Technologies
+### Key Technology Support
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js-14+-black?style=flat-square&logo=next.js" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/React-18+-blue?style=flat-square&logo=react" alt="React"/>
-  <img src="https://img.shields.io/badge/Vue-3+-green?style=flat-square&logo=vue.js" alt="Vue.js"/>
-  <img src="https://img.shields.io/badge/Svelte-Kit-orange?style=flat-square&logo=svelte" alt="SvelteKit"/>
-  <img src="https://img.shields.io/badge/TypeScript-5+-blue?style=flat-square&logo=typescript" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Tailwind-CSS-cyan?style=flat-square&logo=tailwindcss" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/Next.js-TypeScript-black?style=flat-square&logo=next.js" alt="Next.js + TypeScript"/>
+  <img src="https://img.shields.io/badge/React-Vue-blue?style=flat-square&logo=react" alt="React + Vue"/>
+  <img src="https://img.shields.io/badge/FastAPI-Python-teal?style=flat-square&logo=fastapi" alt="FastAPI + Python"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-SQLite-blue?style=flat-square&logo=postgresql" alt="PostgreSQL + SQLite"/>
+  <img src="https://img.shields.io/badge/Vercel-Railway-purple?style=flat-square&logo=vercel" alt="Vercel + Railway"/>
+  <img src="https://img.shields.io/badge/50+-Technologies-orange?style=flat-square&logo=stackshare" alt="50+ Technologies"/>
 </p>
 
-### Backend Technologies
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-API-black?style=flat-square&logo=next.js" alt="Next.js API"/>
-  <img src="https://img.shields.io/badge/FastAPI-Python-teal?style=flat-square&logo=fastapi" alt="FastAPI"/>
-  <img src="https://img.shields.io/badge/Express.js-Node-green?style=flat-square&logo=express" alt="Express.js"/>
-  <img src="https://img.shields.io/badge/NestJS-Enterprise-red?style=flat-square&logo=nestjs" alt="NestJS"/>
-  <img src="https://img.shields.io/badge/Django-Python-darkgreen?style=flat-square&logo=django" alt="Django"/>
-</p>
+<details>
+<summary><strong>📋 Complete Technology Stack</strong></summary>
 
-### Database Support
-<p align="center">
-  <img src="https://img.shields.io/badge/PostgreSQL-Prisma-blue?style=flat-square&logo=postgresql" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/MySQL-PlanetScale-orange?style=flat-square&logo=mysql" alt="MySQL"/>
-  <img src="https://img.shields.io/badge/SQLite-Drizzle-lightblue?style=flat-square&logo=sqlite" alt="SQLite"/>
-  <img src="https://img.shields.io/badge/Supabase-PostgreSQL-green?style=flat-square&logo=supabase" alt="Supabase"/>
-  <img src="https://img.shields.io/badge/MongoDB-NoSQL-green?style=flat-square&logo=mongodb" alt="MongoDB"/>
-</p>
+#### Frontend Technologies
+- **Next.js 14+** (App Router, TypeScript, Tailwind CSS)
+- **React 18+** (Vite, TypeScript, Component libraries)
+- **Vue 3+** (Nuxt, Composition API, TypeScript)
+- **SvelteKit** (TypeScript, Reactive patterns)
 
-### Authentication
-<p align="center">
-  <img src="https://img.shields.io/badge/NextAuth.js-OAuth-purple?style=flat-square&logo=auth0" alt="NextAuth.js"/>
-  <img src="https://img.shields.io/badge/Clerk-Managed-blue?style=flat-square&logo=clerk" alt="Clerk"/>
-  <img src="https://img.shields.io/badge/Lucia-TypeSafe-yellow?style=flat-square&logo=typescript" alt="Lucia"/>
-  <img src="https://img.shields.io/badge/Firebase-Auth-orange?style=flat-square&logo=firebase" alt="Firebase Auth"/>
-</p>
+#### Backend Technologies
+- **Next.js API Routes** (TypeScript, Middleware, CORS)
+- **FastAPI** (Python, Async, Auto-documentation)
+- **Express.js** (Node.js, TypeScript, RESTful)
+- **NestJS** (Enterprise, Decorators, Dependency injection)
+- **Django** (Python, Batteries-included, Admin panel)
 
-### Deployment Platforms
-<p align="center">
-  <img src="https://img.shields.io/badge/Vercel-Frontend-black?style=flat-square&logo=vercel" alt="Vercel"/>
-  <img src="https://img.shields.io/badge/Railway-Backend-purple?style=flat-square&logo=railway" alt="Railway"/>
-  <img src="https://img.shields.io/badge/Fly.io-Global-blue?style=flat-square&logo=fly" alt="Fly.io"/>
-  <img src="https://img.shields.io/badge/Netlify-JAMstack-teal?style=flat-square&logo=netlify" alt="Netlify"/>
-  <img src="https://img.shields.io/badge/Cloudflare-Pages-orange?style=flat-square&logo=cloudflare" alt="Cloudflare"/>
-  <img src="https://img.shields.io/badge/Render-FullStack-green?style=flat-square&logo=render" alt="Render"/>
-</p>
+#### Database Support
+- **PostgreSQL** (Prisma ORM, ACID compliance, JSON support)
+- **MySQL** (PlanetScale, Branching, Connection pooling)
+- **SQLite** (Drizzle ORM, Embedded, File-based)
+- **Supabase** (PostgreSQL + Auth + Real-time)
+- **MongoDB** (NoSQL, Flexible schema, Aggregations)
 
-### Infrastructure & DevOps
-<p align="center">
-  <img src="https://img.shields.io/badge/Terraform-IaC-purple?style=flat-square&logo=terraform" alt="Terraform"/>
-  <img src="https://img.shields.io/badge/GitHub-Actions-black?style=flat-square&logo=githubactions" alt="GitHub Actions"/>
-  <img src="https://img.shields.io/badge/Docker-Containerization-blue?style=flat-square&logo=docker" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Monitoring-Observability-orange?style=flat-square&logo=prometheus" alt="Monitoring"/>
-</p>
+#### Authentication
+- **NextAuth.js** (OAuth providers, Session management, JWT)
+- **Clerk** (Managed auth, Drop-in UI, Organizations)
+- **Lucia** (Type-safe, Lightweight, Custom sessions)
+- **Firebase Auth** (Google ecosystem, Mobile integration)
+
+#### Deployment Platforms
+- **Vercel** (Frontend, Edge functions, Global CDN)
+- **Railway** (Backend, Databases, Environment management)
+- **Fly.io** (Global deployment, Docker, Persistent volumes)
+- **Netlify** (JAMstack, Build plugins, Form handling)
+- **Cloudflare Pages** (Edge computing, Workers, Analytics)
+- **Render** (Full-stack, Background jobs, Cron jobs)
+
+#### Infrastructure & DevOps
+- **Terraform** (Infrastructure as Code, Multi-cloud, State management)
+- **GitHub Actions** (CI/CD, Automated testing, Deployments)
+- **Docker** (Containerization, Multi-stage builds, Compose)
+- **Monitoring** (Observability, Alerting, Performance tracking)
+
+</details>
 
 ---
 
