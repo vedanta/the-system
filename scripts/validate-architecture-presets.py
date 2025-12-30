@@ -10,7 +10,7 @@ Validates the presets.yaml configuration file for:
 - Agent relationships
 - Required fields
 
-Usage: python3 scripts/validate-presets.py
+Usage: python3 scripts/validate-architecture-presets.py
 """
 
 import yaml
@@ -45,9 +45,12 @@ class PresetValidator:
         self.valid_patterns = {"jamstack", "monolith", "distributed", "script", "package", "application"}
         self.valid_tiers = {"single", "two", "three"}
         self.valid_agents = {
-            "founder-advisor", "enterprise-architect", "database-developer",
+            "founder-advisor", "enterprise-architect", "solution-architect", "database-developer",
             "backend-developer", "frontend-developer", "integration-engineer",
-            "devops-engineer", "qa-engineer", "technical-writer"
+            "devops-engineer", "qa-engineer", "technical-writer", "product-lead",
+            "project-planner", "business-analyst", "principal-developer",
+            "security-engineer", "release-engineer", "sre-deploy-engineer",
+            "sre-ops-engineer", "bug-fixer"
         }
 
         # Signal definitions

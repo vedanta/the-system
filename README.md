@@ -3,13 +3,13 @@
 
 > *An AI-powered software company in your terminal*
 
-Transform your ideas into production-ready software with 18 specialized AI agents across 5 departments, all working under your strategic guidance.
+Transform your ideas into production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
 
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-18-blue?style=for-the-badge" alt="18 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-45-green?style=for-the-badge" alt="45 Commands"/>
+  <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 Agents"/>
+  <img src="https://img.shields.io/badge/Commands-46-green?style=for-the-badge" alt="46 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -18,9 +18,86 @@ Transform your ideas into production-ready software with 18 specialized AI agent
 
 ---
 
+## 🛠️ Technology Stack & Capabilities
+
+### Architecture Support
+<p align="center">
+  <img src="https://img.shields.io/badge/Static-Sites-blueviolet?style=flat-square&logo=html5" alt="Static Sites"/>
+  <img src="https://img.shields.io/badge/Embedded-DB-blue?style=flat-square&logo=sqlite" alt="Embedded DB"/>
+  <img src="https://img.shields.io/badge/Full--Stack-JS-yellow?style=flat-square&logo=javascript" alt="Full-Stack JS"/>
+  <img src="https://img.shields.io/badge/Backend-as-a-Service-green?style=flat-square&logo=firebase" alt="BaaS"/>
+  <img src="https://img.shields.io/badge/Microservices-orange?style=flat-square&logo=docker" alt="Microservices"/>
+  <img src="https://img.shields.io/badge/CLI-Scripts-lightgrey?style=flat-square&logo=gnubash" alt="CLI Scripts"/>
+  <img src="https://img.shields.io/badge/CLI-Tools-grey?style=flat-square&logo=terminal" alt="CLI Tools"/>
+  <img src="https://img.shields.io/badge/CLI-TUI-darkgrey?style=flat-square&logo=vim" alt="CLI TUI"/>
+</p>
+
+### Build Configurations
+<p align="center">
+  <img src="https://img.shields.io/badge/Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Prototype Build"/>
+  <img src="https://img.shields.io/badge/MVP-15--20min-yellow?style=flat-square&logo=target" alt="MVP Build"/>
+  <img src="https://img.shields.io/badge/Production-45--60min-red?style=flat-square&logo=shield" alt="Production Build"/>
+</p>
+
+### Frontend Technologies
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-14+-black?style=flat-square&logo=next.js" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/React-18+-blue?style=flat-square&logo=react" alt="React"/>
+  <img src="https://img.shields.io/badge/Vue-3+-green?style=flat-square&logo=vue.js" alt="Vue.js"/>
+  <img src="https://img.shields.io/badge/Svelte-Kit-orange?style=flat-square&logo=svelte" alt="SvelteKit"/>
+  <img src="https://img.shields.io/badge/TypeScript-5+-blue?style=flat-square&logo=typescript" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Tailwind-CSS-cyan?style=flat-square&logo=tailwindcss" alt="Tailwind CSS"/>
+</p>
+
+### Backend Technologies
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-API-black?style=flat-square&logo=next.js" alt="Next.js API"/>
+  <img src="https://img.shields.io/badge/FastAPI-Python-teal?style=flat-square&logo=fastapi" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/Express.js-Node-green?style=flat-square&logo=express" alt="Express.js"/>
+  <img src="https://img.shields.io/badge/NestJS-Enterprise-red?style=flat-square&logo=nestjs" alt="NestJS"/>
+  <img src="https://img.shields.io/badge/Django-Python-darkgreen?style=flat-square&logo=django" alt="Django"/>
+</p>
+
+### Database Support
+<p align="center">
+  <img src="https://img.shields.io/badge/PostgreSQL-Prisma-blue?style=flat-square&logo=postgresql" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/MySQL-PlanetScale-orange?style=flat-square&logo=mysql" alt="MySQL"/>
+  <img src="https://img.shields.io/badge/SQLite-Drizzle-lightblue?style=flat-square&logo=sqlite" alt="SQLite"/>
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL-green?style=flat-square&logo=supabase" alt="Supabase"/>
+  <img src="https://img.shields.io/badge/MongoDB-NoSQL-green?style=flat-square&logo=mongodb" alt="MongoDB"/>
+</p>
+
+### Authentication
+<p align="center">
+  <img src="https://img.shields.io/badge/NextAuth.js-OAuth-purple?style=flat-square&logo=auth0" alt="NextAuth.js"/>
+  <img src="https://img.shields.io/badge/Clerk-Managed-blue?style=flat-square&logo=clerk" alt="Clerk"/>
+  <img src="https://img.shields.io/badge/Lucia-TypeSafe-yellow?style=flat-square&logo=typescript" alt="Lucia"/>
+  <img src="https://img.shields.io/badge/Firebase-Auth-orange?style=flat-square&logo=firebase" alt="Firebase Auth"/>
+</p>
+
+### Deployment Platforms
+<p align="center">
+  <img src="https://img.shields.io/badge/Vercel-Frontend-black?style=flat-square&logo=vercel" alt="Vercel"/>
+  <img src="https://img.shields.io/badge/Railway-Backend-purple?style=flat-square&logo=railway" alt="Railway"/>
+  <img src="https://img.shields.io/badge/Fly.io-Global-blue?style=flat-square&logo=fly" alt="Fly.io"/>
+  <img src="https://img.shields.io/badge/Netlify-JAMstack-teal?style=flat-square&logo=netlify" alt="Netlify"/>
+  <img src="https://img.shields.io/badge/Cloudflare-Pages-orange?style=flat-square&logo=cloudflare" alt="Cloudflare"/>
+  <img src="https://img.shields.io/badge/Render-FullStack-green?style=flat-square&logo=render" alt="Render"/>
+</p>
+
+### Infrastructure & DevOps
+<p align="center">
+  <img src="https://img.shields.io/badge/Terraform-IaC-purple?style=flat-square&logo=terraform" alt="Terraform"/>
+  <img src="https://img.shields.io/badge/GitHub-Actions-black?style=flat-square&logo=githubactions" alt="GitHub Actions"/>
+  <img src="https://img.shields.io/badge/Docker-Containerization-blue?style=flat-square&logo=docker" alt="Docker"/>
+  <img src="https://img.shields.io/badge/Monitoring-Observability-orange?style=flat-square&logo=prometheus" alt="Monitoring"/>
+</p>
+
+---
+
 ## 🚀 What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **18 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+The System is an agentic framework that simulates a complete software development organization. It orchestrates **19 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### The Complete Software Company
 
@@ -266,8 +343,8 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 - **[Build Presets Tutorial](docs/user/build-presets-practical.md)** - Speed optimization guide
 
 ### Reference Documentation
-- **[Agent Reference](docs/user/agents.md)** - All 18 agents and capabilities
-- **[Command Reference](docs/user/commands.md)** - All 45 commands with examples
+- **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
+- **[Command Reference](docs/user/commands.md)** - All 46 commands with examples
 - **[Configuration Guide](docs/user/configuration.md)** - Customization options
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes
 

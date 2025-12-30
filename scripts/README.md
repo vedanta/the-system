@@ -7,7 +7,8 @@ This directory contains utility scripts for The System framework validation, tes
 | Script | Language | Purpose | Usage Location |
 |--------|----------|---------|----------------|
 | `verify-the-system.sh` | Bash | Framework verification and health check | Any location |
-| `validate-presets.py` | Python | Architecture presets validation | Project root |
+| `validate-architecture-presets.py` | Python | Architecture presets validation | Project root |
+| `validate-build-presets.py` | Python | Build presets validation | Project root |
 
 ---
 
@@ -17,8 +18,8 @@ This directory contains utility scripts for The System framework validation, tes
 Comprehensive verification script that validates The System framework installation and configuration across all 5 stages.
 
 ### Features
-- ✅ **18 Agents Verification** - Checks all agent definition files
-- ✅ **44 Commands Verification** - Validates all command files
+- ✅ **19 Agents Verification** - Checks all agent definition files
+- ✅ **46 Commands Verification** - Validates all command files
 - ✅ **Configuration Validation** - Verifies config files and settings
 - ✅ **Stage 5 Support** - Includes Go Live & Operate validation
 - ✅ **Cross-Location Compatible** - Works from any directory
@@ -49,10 +50,11 @@ cd scripts && ./verify-the-system.sh
 - `.claude/pipeline/` - Pipeline templates
 - `.claude/pipeline/projects/` - Project templates
 
-#### 2. Agents (18 checks)
+#### 2. Agents (19 checks)
 **Stage 1 - Architecture:**
 - `founder-advisor.md`
 - `enterprise-architect.md`
+- `solution-architect.md`
 
 **Stage 2 - Product:**
 - `product-lead.md`
@@ -80,12 +82,12 @@ cd scripts && ./verify-the-system.sh
 **Utility:**
 - `bug-fixer.md`
 
-#### 3. Commands (44 checks)
+#### 3. Commands (46 checks)
 **Core Commands (8):**
 - Core management and orchestration commands
 
-**Stage 1 Commands (1):**
-- Architecture design commands
+**Stage 1 Commands (2):**
+- Architecture design and assessment commands
 
 **Stage 2 Commands (3):**
 - Product definition commands
@@ -132,11 +134,19 @@ cd scripts && ./verify-the-system.sh
   ✓ .claude/commands/
   ...
 
+═══════════════════════════════════════════════════════════════
+  2. AGENTS (19 required)
+═══════════════════════════════════════════════════════════════
+  ✓ founder-advisor.md (Stage 1)
+  ✓ enterprise-architect.md (Stage 1)
+  ✓ solution-architect.md (Stage 1)
+  ...
+
 ╔══════════════════════════════════════════════════════════════════╗
 ║                      VERIFICATION SUMMARY                        ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-  Passed:   87
+  Passed:   90
   Failed:   0
   Warnings: 0
 
@@ -147,7 +157,7 @@ cd scripts && ./verify-the-system.sh
 
 ---
 
-## 🧪 validate-presets.py
+## 🧪 validate-architecture-presets.py
 
 ### Purpose
 Advanced validation script for architecture presets configuration (`presets.yaml`). Ensures presets are properly configured for framework architecture selection.
@@ -168,10 +178,10 @@ Advanced validation script for architecture presets configuration (`presets.yaml
 
 ```bash
 # Run from project root
-python3 scripts/validate-presets.py
+python3 scripts/validate-architecture-presets.py
 
 # With pip install
-cd scripts && python3 validate-presets.py
+cd scripts && python3 validate-architecture-presets.py
 ```
 
 ### What It Validates
@@ -250,6 +260,124 @@ cd scripts && python3 validate-presets.py
 
 ---
 
+## 🏗️ validate-build-presets.py
+
+### Purpose
+Advanced validation script for build presets configuration (`builds.yaml`). Ensures build presets are properly configured for framework workflow control and agent intersection planning.
+
+### Features
+- ✅ **Schema Validation** - Validates YAML structure and required fields
+- ✅ **Agent Configuration** - Checks agent inclusion/exclusion logic
+- ✅ **Stage Mode Validation** - Verifies stage execution modes
+- ✅ **Signal Pattern Validation** - Ensures proper signal detection patterns
+- ✅ **Quality Expectation Validation** - Validates quality dimension definitions
+- ✅ **Conditional Logic Verification** - Checks agent conditional inclusion rules
+- ✅ **Cross-Build Consistency** - Validates relationships between builds
+
+### Requirements
+- Python 3.7+
+- PyYAML library (`pip install pyyaml`)
+
+### Usage
+
+```bash
+# Run from project root
+python3 scripts/validate-build-presets.py
+
+# With pip install
+cd scripts && python3 validate-build-presets.py
+```
+
+### What It Validates
+
+#### 1. Schema Compliance
+- Root structure validation
+- Required fields per build preset
+- Metadata consistency
+- Build count validation
+
+#### 2. Build Structure
+**Required Fields:**
+- `description`, `category`, `priority`, `target_time`
+- `target_agents`, `complexity`, `quality_level`, `agents`
+
+**Optional Sections:**
+- `stage_modes`, `features`, `quality`, `signals`, `overrides`
+
+#### 3. Agent Configuration
+**Validation Rules:**
+- No agent can be both included and excluded
+- All agent names must be valid/known
+- Conditional inclusion must have proper conditions
+- `founder-advisor` should be in `core_required`
+- Proper agent intersection logic
+
+**Agent Categories:**
+- `core_required` - Always included, never excluded
+- `always_included` - Included regardless of architecture
+- `conditionally_included` - Included based on conditions
+- `excluded` - Never included in this build
+
+#### 4. Stage Modes
+**Valid Modes:**
+- `skip`, `compressed`, `minimal`, `lite`, `standard`, `full`, `comprehensive`
+
+**Valid Stages:**
+- `architecture`, `product`, `development`, `release`, `go_live`
+
+#### 5. Quality Expectations
+**Quality Dimensions:**
+- `code_quality`, `test_coverage`, `documentation`
+- `security`, `performance`, `maintainability`
+
+**Quality Values:**
+- `none`, `basic`, `minimal`, `standard`, `comprehensive`
+- `low`, `medium`, `high`, `unoptimized`, `optimized`
+
+#### 6. Signal Patterns
+**Signal Types:**
+- `explicit` - Direct build keywords (prototype, mvp, production)
+- `performance` - Speed/quality indicators (fast, rapid, optimized)
+- `scope` - Project scope indicators (simple, complex, enterprise)
+- `intent` - Purpose indicators (experiment, ship, deploy)
+- `context` - Situational indicators (hackathon, business, client)
+
+#### 7. Build Categories
+**Valid Categories:**
+- `speed` - Prioritizes rapid iteration
+- `balanced` - Balances speed and quality
+- `quality` - Prioritizes comprehensive quality
+- `enterprise` - Full enterprise-grade workflow
+
+### Output Example
+
+```
+🔍 Validating Build Presets Configuration...
+============================================================
+
+❌ ERRORS:
+  mvp (agents): Unknown agent: {'unknown-developer'}
+  production (stage_modes): Invalid mode 'invalid' for stage 'development'
+
+⚠️  WARNINGS:
+  prototype (agents): founder-advisor should typically be core_required
+  mvp (quality): Unknown quality dimension: custom_metric
+
+ℹ️  INFO:
+  prototype (signals): Missing signal types: {'context'}
+  enterprise (quality): Missing quality dimensions: {'performance'}
+
+============================================================
+📊 Validation Summary:
+  Errors:   2
+  Warnings: 2
+  Info:     2
+
+❌ Build configuration has errors that must be fixed.
+```
+
+---
+
 ## 🚀 Quick Usage Reference
 
 ### Daily Verification
@@ -257,14 +385,17 @@ cd scripts && python3 validate-presets.py
 # Quick health check
 ./scripts/verify-the-system.sh
 
-# Presets validation
-python3 scripts/validate-presets.py
+# Architecture presets validation
+python3 scripts/validate-architecture-presets.py
+
+# Build presets validation
+python3 scripts/validate-build-presets.py
 ```
 
 ### Integration Testing
 ```bash
 # Full framework validation
-./scripts/verify-the-system.sh && python3 scripts/validate-presets.py
+./scripts/verify-the-system.sh && python3 scripts/validate-architecture-presets.py && python3 scripts/validate-build-presets.py
 echo "✅ All systems operational"
 ```
 
@@ -280,7 +411,7 @@ cd /path/to/the-system
 ./scripts/verify-the-system.sh
 ```
 
-#### validate-presets.py Issues
+#### validate-architecture-presets.py Issues
 ```bash
 # Missing PyYAML
 pip install pyyaml
@@ -290,7 +421,20 @@ python3 --version  # Should be 3.7+
 
 # File not found - run from project root
 cd /path/to/the-system
-python3 scripts/validate-presets.py
+python3 scripts/validate-architecture-presets.py
+```
+
+#### validate-build-presets.py Issues
+```bash
+# Missing PyYAML
+pip install pyyaml
+
+# Python version
+python3 --version  # Should be 3.7+
+
+# File not found - run from project root
+cd /path/to/the-system
+python3 scripts/validate-build-presets.py
 ```
 
 ---
@@ -342,6 +486,33 @@ cd /path/to/the-system/scripts && ./my-script.sh
 - [CLAUDE.md](../CLAUDE.md) - Complete framework reference
 - [Architecture Documentation](../docs/) - Detailed guides
 - [User Guide](../user-guide.md) - Getting started
+
+---
+
+## 🔄 Recent Updates
+
+### v1.1 - Solution Architect Integration (December 2024)
+- ✅ **Added Solution Architect Agent** - AI-optimized technology assessment
+- ✅ **Added `ts-assess` Command** - Technology stack assessment workflow
+- ✅ **Updated Agent Count** - 18 → 19 agents
+- ✅ **Updated Command Count** - 45 → 46 commands
+- ✅ **Enhanced Validation** - All scripts updated to reflect new components
+- ✅ **Script Reorganization** - Split preset validation into architecture and build presets
+- ✅ **New Build Validator** - Added `validate-build-presets.py` for builds.yaml validation
+
+### Key Improvements
+- **`verify-the-system.sh`** - Now validates solution-architect agent and ts-assess command
+- **`validate-architecture-presets.py`** - Updated with all 19 agent definitions for proper validation
+- **`validate-build-presets.py`** - New comprehensive validator for builds.yaml configuration
+- **README.md** - Comprehensive documentation updates with accurate counts and new script coverage
+
+### Framework Enhancement Details
+The Solution Architect agent introduces AI-optimized technology stack assessment:
+- **Multi-criteria scoring** using Claude Code success metrics
+- **Automated preset selection** based on project signals
+- **Risk assessment** and mitigation strategies
+- **Agent intersection optimization** for efficient workflows
+- **EA skip logic** for simple stacks requiring minimal oversight
 
 ---
 
