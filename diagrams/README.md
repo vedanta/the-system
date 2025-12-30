@@ -14,6 +14,8 @@ Visual documentation for The System's organizational structure and workflows.
 | `06-stage4-deployment-flow.mermaid` | Stage 4 deployment process |
 | `07-stage5-quick-deploy-flow.mermaid` | Stage 5 quick deploy to platforms |
 | `08-all-19-agents.mermaid` | Overview of all 19 agents |
+| `09-agent-interactions.mermaid` | Comprehensive agent-to-agent interactions |
+| `10-key-agent-interactions.mermaid` | Simplified key interaction patterns |
 
 ## How to Use
 
@@ -50,6 +52,27 @@ Stage 5: Go Live         → 2 agents (SRE Deploy, SRE Ops)
 ─────────────────────────────────────
 Total                    → 18 agents (+ Founder-Advisor = 19)
 ```
+
+## Agent Interactions
+
+### 🔄 Comprehensive Interactions (`09-agent-interactions.mermaid`)
+Shows detailed agent-to-agent relationships:
+- **Communication flows** between all 19 agents
+- **Review relationships** (who reviews whose work)
+- **Handoff patterns** between stages
+- **Coordination mechanisms** within teams
+- **Cross-stage dependencies** and feedback loops
+
+**Use when:** Understanding complete system coordination, debugging workflow issues, or designing new agent relationships.
+
+### ⚡ Key Interaction Patterns (`10-key-agent-interactions.mermaid`)
+Simplified view highlighting critical patterns:
+- **Central Coordination Hub** (Founder-Advisor)
+- **6 Core Interaction Patterns** (Architecture Assessment, Product Collaboration, QA Review Cycle, Release Pipeline, Operations Coordination, Emergency Support)
+- **Stage Handoffs** between departments
+- **Cross-stage Coordination** loops
+
+**Use when:** Quick understanding of how agents work together, onboarding new users, or explaining system design.
 
 ## HITL Gates
 
