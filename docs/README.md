@@ -7,7 +7,7 @@
 
 ## Overview
 
-This documentation provides everything you need to understand and use **The System** — an Autonomous Software Development Organization (ASDO) that orchestrates 18 specialized AI agents across 5 departments to transform your ideas into production-ready software.
+This documentation provides everything you need to understand and use **The System** — an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to transform your ideas into production-ready software.
 
 ### What You'll Find Here
 
@@ -85,6 +85,7 @@ The System guides you through each stage:
 🎩 Founder-Advisor (Chief of Staff)
 │
 ├── 📐 Architecture Department
+│   ├── 🎯 Solution Architect
 │   └── 🏗️ Enterprise Architect
 │
 ├── 📦 Product Department
@@ -115,6 +116,8 @@ The System guides you through each stage:
 ### Key Capabilities
 
 **🏗️ System Design**
+- AI-optimized technology stack assessment and selection
+- Architecture pattern evaluation and recommendation
 - Technology selection and architecture decisions
 - Performance and scalability planning
 - Integration strategy and API design
@@ -156,6 +159,7 @@ The System guides you through each stage:
 ### Stage Progression
 ```bash
 # Stage 1: Architecture
+/ts-assess                    # AI-optimized technology assessment
 /ts-architect                 # Design system architecture
 /ts-approve architecture-lock # Lock technical decisions
 
@@ -305,6 +309,7 @@ authentication:
 /ts-new-project todo-app
 > "Todo app with auth and categories"
 /ts-approve architecture-start
+/ts-assess
 /ts-architect
 /ts-approve architecture-lock
 /ts-product
