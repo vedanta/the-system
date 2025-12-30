@@ -419,7 +419,7 @@ The System is built on these principles:
 │                                                                 │
 │ 🏗️  START         /ts-new-project <name>                        │
 │                                                                 │
-│ 📐  ARCHITECTURE  /ts-architect                                 │
+│ 📐  ARCHITECTURE  /ts-assess | /ts-architect                    │
 │                   /ts-approve architecture-lock                 │
 │                                                                 │
 │ 📦  PRODUCT       /ts-product → /ts-plan → /ts-analyze          │
