@@ -1,23 +1,24 @@
 {
-  "version": "1.0.0",
-  "release_name": "Basil",
-  "release_code": "basil",
-  "build_date": "2025-12-26",
+  "version": "1.1.0",
+  "release_name": "Sage",
+  "release_code": "sage",
+  "build_date": "2025-12-30",
   "major": 1,
-  "minor": 0,
+  "minor": 1,
   "patch": 0,
   "pre_release": null,
-  "agents_count": 18,
-  "commands_count": 44,
+  "agents_count": 19,
+  "commands_count": 47,
   "stages_count": 5,
   "hitl_gates_count": 8,
-  "description": "The first official release of The System ASDO framework - a complete autonomous software development organization with 18 specialized AI agents.",
+  "description": "Enhanced user experience release with comprehensive help system, file-based ideas input, and AI-optimized technology assessment capabilities.",
   "features": [
-    "18 specialized AI agents across 5 departments",
-    "44 commands for complete software lifecycle",
-    "5-stage development process with HITL gates",
-    "Autonomous turbo mode for rapid development",
-    "Full-stack application generation",
-    "Architecture, Product, Development, Release & Operations"
+    "19 specialized AI agents including Solution Architect with AI-optimized technology assessment",
+    "47 commands including comprehensive help system (/ts-help, /ts-quickref)",
+    "File-based ideas input with support for .txt, .md, .json, .yaml formats",
+    "Interactive command discovery and context-aware suggestions",
+    "Enhanced documentation with agent interaction diagrams and capabilities matrix",
+    "Organized workflow patterns and reduced learning curve",
+    "Flexible input methods and smart flag merging from structured files"
   ]
 }

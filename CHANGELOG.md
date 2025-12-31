@@ -5,6 +5,79 @@ All notable changes to The System ASDO framework will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-12-30
+
+### 🧠 **Release "Sage" - Enhanced User Experience**
+
+A significant user experience enhancement release focused on discoverability, accessibility, and intelligent workflow organization. Named "Sage" for its wisdom in guiding users through the framework with comprehensive help and intelligent assistance.
+
+### ✨ **Major Features**
+
+#### **📚 Comprehensive Help System**
+- **`/ts-help`** - Interactive command browser with 47 commands grouped by category
+- **`/ts-help <command>`** - Detailed help for any specific command
+- **`/ts-help --stage <stage>`** - Stage-specific command suggestions
+- **`/ts-help --search <term>`** - Search commands by keyword
+- **`/ts-quickref`** - Compact quick reference with workflow patterns
+- **`--help` flag support** - Available for all major commands (e.g., `/ts-turbo --help`)
+
+#### **📁 File-Based Ideas Input**
+- **Multiple formats supported**: `.txt`, `.md`, `.json`, `.yaml`
+- **Organized workflows**: Store ideas in `ideas/` or `input/` directories
+- **Smart flag merging**: JSON/YAML files can include build flags that override CLI flags
+- **Enhanced commands**:
+  - `/ts-new-project --idea=file-path`
+  - `/ts-turbo --idea=file-path`
+  - `/ts-turbo-quick --idea=file-path`
+
+#### **🏗️ AI-Optimized Technology Assessment**
+- **Solution Architect agent** (#19) with Claude Code success metrics integration
+- **Quantified stack recommendations** using real-world performance data
+- **Technology assessment command** (`/ts-assess`) for intelligent stack selection
+- **AI-optimized recommendations** based on project requirements and constraints
+
+#### **📊 Enhanced Documentation & Visualization**
+- **Agent interaction diagrams** showing communication flows and collaboration patterns
+- **Agent capabilities matrix** detailing tool access and expertise domains
+- **Updated organizational diagrams** reflecting 19-agent framework
+- **Comprehensive workflow visualizations** with all new capabilities
+
+### 🔧 **Improvements**
+
+#### **User Experience Enhancements**
+- **Discoverable commands** through interactive browsing and categorization
+- **Reduced learning curve** with context-aware suggestions and comprehensive help
+- **Flexible input methods** supporting both quoted strings and organized file workflows
+- **Consistent help formatting** with professional boxed displays and clear syntax guides
+
+#### **Framework Architecture**
+- **Updated agent count** from 18 to 19 with Solution Architect integration
+- **Updated command count** from 44 to 47 with help system additions
+- **Enhanced technology assessment** with quantified recommendations
+- **Improved workflow organization** with file-based project management
+
+#### **Documentation Quality**
+- **Complete framework status update** reflecting current 19-agent, 47-command architecture
+- **Visual documentation enhancement** with 12 comprehensive Mermaid diagrams
+- **User guidance improvements** with practical examples and workflow patterns
+- **Developer experience optimization** with clear contribution guidelines
+
+### 📈 **Framework Statistics**
+- **Agents**: 19 (↑1 from v1.0.0)
+- **Commands**: 47 (↑3 from v1.0.0)
+- **Stages**: 5 (unchanged)
+- **HITL Gates**: 8 (unchanged)
+- **Deployment Targets**: 13+ managed platforms
+- **File Format Support**: 4 formats (.txt, .md, .json, .yaml)
+
+### 🎯 **Impact**
+- **Significantly improved discoverability** for new users
+- **Enhanced productivity** with organized file-based workflows
+- **Better decision-making** with AI-optimized technology assessment
+- **Professional user experience** with comprehensive help and guidance
+
+---
+
 ## [1.0.0-basil] - 2025-12-26
 
 ### 🌿 **Release "Basil" - The Essential Foundation**
