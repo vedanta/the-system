@@ -10,9 +10,43 @@ Build a specific component (database, backend, frontend).
 
 ## Process
 
-1. Read the active project file
+1. **Parse Arguments:**
 
-2. Based on $ARGUMENTS:
+   **If --help flag detected, show help and exit:**
+   ```
+   ╔══════════════════════════════════════════════════════════════════╗
+   ║  📖 /ts-build - Build Application Layer                         ║
+   ╠══════════════════════════════════════════════════════════════════╣
+   ║                                                                  ║
+   ║  📝 SYNTAX                                                       ║
+   ║     /ts-build <layer>                                            ║
+   ║                                                                  ║
+   ║  📊 LAYERS                                                       ║
+   ║     database      Schema, models, migrations                    ║
+   ║     backend       APIs, services, business logic                ║
+   ║     frontend      Components, pages, state management           ║
+   ║                                                                  ║
+   ║  ⚡ EXAMPLES                                                     ║
+   ║     /ts-build database                                           ║
+   ║     /ts-build backend                                            ║
+   ║     /ts-build frontend                                           ║
+   ║                                                                  ║
+   ║  🔗 WORKFLOW                                                     ║
+   ║     1. /ts-build database → /ts-test database                    ║
+   ║     2. /ts-build backend → /ts-test backend                      ║
+   ║     3. /ts-build frontend → /ts-test frontend                    ║
+   ║     4. /ts-integrate → /ts-test integration                      ║
+   ║                                                                  ║
+   ║  💡 MORE HELP: /ts-help build                                    ║
+   ║                                                                  ║
+   ╚══════════════════════════════════════════════════════════════════╝
+   ```
+
+   **Otherwise, continue with layer building:**
+
+2. Read the active project file
+
+3. Based on $ARGUMENTS:
 
 ### database
 

@@ -6,6 +6,43 @@ Deploy to a managed hosting platform.
 
 ```
 /ts-push <target> [environment]
+/ts-push --help
+```
+
+**If --help flag detected, show help and exit:**
+```
+╔══════════════════════════════════════════════════════════════════╗
+║  📖 /ts-push - Quick Deploy to Managed Platforms               ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  📝 SYNTAX                                                       ║
+║     /ts-push <target> [environment]                              ║
+║                                                                  ║
+║  🌐 FRONTEND                                                     ║
+║     vercel          Vercel (preview|production)                 ║
+║     netlify         Netlify                                     ║
+║     cloudflare      Cloudflare Pages                            ║
+║                                                                  ║
+║  ⚙️ BACKEND                                                      ║
+║     railway         Railway (Node.js/Python/Go)                 ║
+║     fly             Fly.io (Docker)                             ║
+║     render          Render (Web Services)                       ║
+║                                                                  ║
+║  🗄️ DATABASE                                                     ║
+║     neon            Neon (PostgreSQL serverless)                ║
+║     supabase        Supabase (PostgreSQL + Auth)                ║
+║     planetscale     PlanetScale (MySQL branching)               ║
+║     turso           Turso (SQLite at the edge)                  ║
+║                                                                  ║
+║  ⚡ QUICK EXAMPLES                                               ║
+║     /ts-push vercel              # Frontend to Vercel           ║
+║     /ts-push railway             # Backend to Railway           ║
+║     /ts-push neon                # Database to Neon             ║
+║     /ts-push railway full        # Full-stack to Railway        ║
+║                                                                  ║
+║  💡 MORE HELP: /ts-help push                                     ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
 ```
 
 ### Examples

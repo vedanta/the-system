@@ -9,7 +9,7 @@ Transform your ideas into production-ready software with 19 specialized AI agent
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-46-green?style=for-the-badge" alt="46 Commands"/>
+  <img src="https://img.shields.io/badge/Commands-47-green?style=for-the-badge" alt="47 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -165,12 +165,16 @@ git add . && git commit -m "Add The System framework"
 # Launch Claude Code in your project directory
 claude
 
-# Start a new project
+# Option 1: Interactive project creation
 > /ts-new-project my-awesome-app
-
-# Describe your idea to the Founder-Advisor
 > "I want to build a task management app with AI-powered prioritization,
   user authentication, team collaboration, and real-time sync"
+
+# Option 2: Project from idea file
+> mkdir -p ideas
+> echo "A task management app with AI-powered prioritization, user auth,
+  team collaboration, and real-time sync" > ideas/my-app.txt
+> /ts-new-project my-awesome-app --idea=ideas/my-app.txt
 
 # Begin the structured development process
 > /ts-approve architecture-start
@@ -189,12 +193,15 @@ Choose the perfect balance of speed vs. quality for your project needs:
 ```bash
 # 🚀 PROTOTYPE (3-5 min) - Fast iteration, demos, proof-of-concepts
 /ts-turbo demo-app "simple todo app prototype" --build=prototype
+/ts-turbo demo-app --idea=ideas/prototype.txt --build=prototype
 
 # 📦 MVP (15-20 min) - Production launches, professional quality
 /ts-turbo todo-app "todo app with authentication" --build=mvp
+/ts-turbo todo-app --idea=ideas/mvp-app.md --build=mvp
 
 # 🏢 PRODUCTION (45-60 min) - Enterprise-grade, full compliance
 /ts-turbo enterprise-app "mission-critical todo system" --build=production
+/ts-turbo enterprise-app --idea=ideas/enterprise.json --build=production
 ```
 
 ### Smart Detection
@@ -254,10 +261,15 @@ The system automatically detects your intent from keywords:
 For rapid prototyping, bypass all approval gates:
 
 ```bash
+# With quoted idea
 /ts-turbo my-app "Build a task management app with user auth and team collaboration"
+
+# With idea from file
+/ts-turbo my-app --idea=ideas/task-manager.txt
+/ts-turbo my-app --idea=ideas/complex-app.json  # JSON can include build flags
 ```
 
-**⚡ Turbo Mode runs Stages 1-4 automatically** with build presets for speed control.
+**⚡ Turbo Mode runs Stages 1-4 automatically** with build presets for speed control and file-based ideas for organized workflows.
 
 👉 **[Complete Workflow Guide →](USER-GUIDE.md#complete-workflow)**
 
@@ -266,15 +278,16 @@ For rapid prototyping, bypass all approval gates:
 ## 🎮 Essential Commands
 
 ### Project Management
-- `/ts-new-project <name>` - Start a new project
+- `/ts-new-project <name>` - Start a new project (interactive)
+- `/ts-new-project <name> --idea=file` - Start project from idea file
 - `/ts-status` - Check current project status
 - `/ts-brief` - Get executive summary
 - `/ts-ask "<question>"` - Ask the Founder-Advisor
 
 ### Quick Development
 - `/ts-turbo <name> "<idea>" --build=prototype` - Fast prototyping (3-5 min)
-- `/ts-turbo <name> "<idea>" --build=mvp` - Production-ready (15-20 min)
-- `/ts-turbo <name> "<idea>" --build=production` - Enterprise (45-60 min)
+- `/ts-turbo <name> --idea=file --build=mvp` - Production-ready from file (15-20 min)
+- `/ts-turbo-quick <name> --idea=file` - Silent turbo mode from file
 
 ### Stage Commands
 - `/ts-architect` - Design system architecture
@@ -283,10 +296,13 @@ For rapid prototyping, bypass all approval gates:
 - `/ts-deploy <env>` - Deploy to environment
 - `/ts-push <target>` - Quick deploy to managed platforms
 
-### Utilities
+### Utilities & Help
 - `/ts-fix` - Automatic error diagnosis and fixing
 - `/ts-validate` - Run build verification
 - `/ts-health` - Health check all services
+- `/ts-help [command]` - Interactive help and command discovery
+- `/ts-quickref` - Quick reference with workflow patterns
+- `<any-command> --help` - Quick usage for any command
 
 👉 **[Complete Commands Reference →](USER-GUIDE.md#commands-reference)**
 
@@ -397,6 +413,14 @@ The System is built on these principles:
 
 ### Within The System
 ```bash
+# Interactive help and discovery
+/ts-help                     # Browse all commands by category
+/ts-help <command>           # Detailed help for specific command
+/ts-help --stage development # Commands for current stage
+/ts-quickref                 # Compact quick reference
+<any-command> --help         # Quick usage (e.g. /ts-turbo --help)
+
+# Project assistance
 /ts-ask "How do I add authentication to my app?"
 /ts-brief                    # Project summary
 /ts-status                   # Current status
@@ -437,10 +461,12 @@ The System is built on these principles:
 │                   /ts-monitor → /ts-alerts                      │
 │                                                                 │
 │ ⚡  TURBO MODES   /ts-turbo <name> "<idea>" --build=prototype   │
-│                   /ts-turbo <name> "<idea>" --build=mvp         │
-│                   /ts-turbo <name> "<idea>" --build=production  │
+│                   /ts-turbo <name> --idea=file --build=mvp     │
+│                   /ts-turbo-quick <name> --idea=file           │
 │                                                                 │
 │ 🔧  UTILITIES     /ts-fix | /ts-validate | /ts-status | /ts-ask │
+│                                                                 │
+│ 🆘  HELP          /ts-help | /ts-help <cmd> | /ts-quickref     │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
