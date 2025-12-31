@@ -758,6 +758,6 @@ claude
 
 ---
 
-**Framework Version:** 1.1.0 (Cedar Release)
+**Framework Version:** 1.1.0 (Sage Release)
 **Last Updated:** December 2024
 **Status:** Active Development

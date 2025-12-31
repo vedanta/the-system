@@ -3,7 +3,7 @@
 **Release Date:** December 31, 2025
 **Version:** 1.1.0
 **Previous Version:** 1.0.0-basil
-**Release Name:** Cedar
+**Release Name:** Sage
 
 ---
 
