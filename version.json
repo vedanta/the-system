@@ -1,23 +1,24 @@
 {
-  "version": "1.0.0",
-  "release_name": "Basil",
-  "release_code": "basil",
-  "build_date": "2025-12-26",
+  "version": "1.1.0",
+  "release_name": "Cedar",
+  "release_code": "cedar",
+  "build_date": "2025-12-31",
   "major": 1,
-  "minor": 0,
+  "minor": 1,
   "patch": 0,
   "pre_release": null,
-  "agents_count": 18,
-  "commands_count": 44,
+  "agents_count": 19,
+  "commands_count": 47,
   "stages_count": 5,
   "hitl_gates_count": 8,
-  "description": "The first official release of The System ASDO framework - a complete autonomous software development organization with 18 specialized AI agents.",
+  "description": "Enhanced user experience release with command-line help system, file-based project input, and AI-optimized technology assessment.",
   "features": [
-    "18 specialized AI agents across 5 departments",
-    "44 commands for complete software lifecycle",
-    "5-stage development process with HITL gates",
-    "Autonomous turbo mode for rapid development",
-    "Full-stack application generation",
-    "Architecture, Product, Development, Release & Operations"
+    "19 specialized AI agents including Solution Architect",
+    "47 commands including comprehensive help system",
+    "File-based ideas input supporting .txt, .md, .json, .yaml formats",
+    "Interactive command discovery with /ts-help and /ts-quickref",
+    "AI-optimized technology assessment and recommendations",
+    "Build presets system for prototype, MVP, and production workflows",
+    "Enhanced documentation with 12 comprehensive diagrams"
   ]
 }

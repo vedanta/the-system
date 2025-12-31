@@ -5,6 +5,65 @@ All notable changes to The System ASDO framework will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-12-31
+
+### Added
+- **Help System Commands**
+  - `/ts-help` - Interactive command browser showing all 47 commands grouped by category
+  - `/ts-quickref` - Compact reference card with workflow patterns
+  - `--help` flag support for major commands (`/ts-turbo --help`, `/ts-push --help`)
+  - Search functionality: `/ts-help --search <term>`
+  - Stage-specific help: `/ts-help --stage <stage>`
+
+- **File-Based Ideas Input**
+  - Support for `.txt`, `.md`, `.json`, `.yaml` project idea files
+  - Updated commands: `/ts-new-project --idea=file`, `/ts-turbo --idea=file`, `/ts-turbo-quick --idea=file`
+  - JSON/YAML flag merging: files can include build flags that override CLI flags
+  - Organized workflow support with `ideas/` directory pattern
+
+- **Solution Architect Agent**
+  - 19th agent for AI-optimized technology assessment
+  - `/ts-assess` command for technology stack evaluation
+  - `ai-success-profiles.yaml` configuration with assessment data
+  - Integration with `/ts-turbo` mode for automatic assessment
+
+- **Build Presets System**
+  - 3 build modes: prototype, MVP, production
+  - `--build` flag support for `/ts-turbo` and `/ts-new-project`
+  - Automatic signal detection from project descriptions
+  - Agent optimization based on build complexity
+
+- **Documentation**
+  - 12 new Mermaid diagrams covering agent interactions and capabilities
+  - Updated README.md and CLAUDE.md with accurate command counts
+  - Contributing guidelines and branch naming standards
+  - User documentation reorganization (USER-GUIDE.md, QUICKSTART.md)
+
+### Changed
+- **Framework Statistics**
+  - Agent count: 18 → 19 (added Solution Architect)
+  - Command count: 44 → 47 (added /ts-help, /ts-quickref, /ts-assess)
+  - File format support: 0 → 4 formats (.txt, .md, .json, .yaml)
+
+- **Enhanced Agent Capabilities**
+  - 10 agents updated with build preset awareness
+  - Enterprise Architect workflow optimization
+  - QA Engineer enhanced validation requirements
+  - All development agents support build complexity modes
+
+### Fixed
+- README badge layout issues
+- 404 errors in documentation badges
+- Framework documentation counts accuracy
+- Quick Reference Card with Solution Architect commands
+
+### Technical Details
+- **Main Features**: 9 files changed, 869 insertions, 30 deletions
+- **Solution Architect**: 15 files changed, 5,029 insertions, 606 deletions
+- **Build Presets**: 20 files changed, 4,080+ insertions
+- **Documentation**: 12 files changed, 1,015 insertions, 17 deletions
+- **Breaking Changes**: None - fully backward compatible
+
 ## [1.0.0-basil] - 2025-12-26
 
 ### 🌿 **Release "Basil" - The Essential Foundation**
