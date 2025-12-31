@@ -6,30 +6,51 @@ Run The System stages 1-4 autonomously without HITL gates.
 
 ```
 /ts-turbo <project-name> "<idea description>" [--build=preset] [--preset=arch] [--build-skip-stage=stage] [--option=value]
+/ts-turbo <project-name> --idea=<file-path> [--build=preset] [--preset=arch] [--build-skip-stage=stage] [--option=value]
 ```
 
 ### Examples
 
 ```
-# Basic usage (auto-detected presets)
+# Basic usage with quoted idea (auto-detected presets)
 /ts-turbo todo-app "A task management app with user auth, categories, and due date reminders"
+
+# Basic usage with idea from file
+/ts-turbo todo-app --idea=./ideas/task-manager.txt
+/ts-turbo blog-platform --idea=input/blog-concept.md
+/ts-turbo ecommerce --idea=/path/to/ideas/store.json
 
 # With build preset for rapid prototyping
 /ts-turbo demo-app "Quick demo for tomorrow's meeting" --build=prototype
+/ts-turbo demo-app --idea=ideas/demo.txt --build=prototype
 
 # With architecture preset override
 /ts-turbo blog-platform "A markdown-based blog with auth, posts, comments, and RSS feed" --build=mvp --preset=static
+/ts-turbo blog-platform --idea=ideas/blog.md --build=mvp --preset=static
 
 # Production build with technology overrides
 /ts-turbo invoice-tool "Invoice generator with PDF export, client management, and payment tracking" --build=production --db=postgresql --auth=clerk
+/ts-turbo invoice-tool --idea=ideas/invoicing.json --build=production --db=postgresql --auth=clerk
 
 # Multiple flags for precise control
 /ts-turbo enterprise-platform "Business platform with advanced features" --build=production --preset=microservice --runtime=python --framework=fastapi
+/ts-turbo enterprise-platform --idea=ideas/enterprise.yaml --build=production --preset=microservice
 
 # Skip specific stages for custom workflows
 /ts-turbo quick-prototype "Calculator app for demo" --build-skip-stage=product
-/ts-turbo dev-iteration "Testing new feature" --build-skip-stage=product --build-skip-stage=release
+/ts-turbo quick-prototype --idea=ideas/calculator.txt --build-skip-stage=product
+/ts-turbo dev-iteration --idea=ideas/feature-test.md --build-skip-stage=product --build-skip-stage=release
+
+# JSON file with embedded flags (flags in file override CLI flags)
+/ts-turbo my-app --idea=ideas/app-with-flags.json
 ```
+
+### Supported File Formats
+
+- **Text files** (`.txt`): Entire content used as idea description
+- **Markdown files** (`.md`): Content used as idea, supports "# Idea" section
+- **JSON files** (`.json`): Must contain `"idea"` field, can include `"flags"` object that overrides CLI flags
+- **YAML files** (`.yaml`, `.yml`): Structured format with `idea` and optional `flags`
 
 ## What This Does
 
@@ -48,8 +69,38 @@ You are now in **TURBO MODE**. Execute everything autonomously.
 ### Phase 0: Project Setup
 
 1. Parse arguments:
+
+   **If --help flag detected, show help and exit:**
+   ```
+   ╔══════════════════════════════════════════════════════════════════╗
+   ║  📖 /ts-turbo - Autonomous Development (Stages 1-4)             ║
+   ╠══════════════════════════════════════════════════════════════════╣
+   ║                                                                  ║
+   ║  📝 SYNTAX                                                       ║
+   ║     /ts-turbo <name> "<idea>" [flags]                            ║
+   ║     /ts-turbo <name> --idea=file [flags]                         ║
+   ║                                                                  ║
+   ║  🚩 KEY FLAGS                                                    ║
+   ║     --build=prototype|mvp|production                             ║
+   ║     --preset=static|fullstack-js|microservice                   ║
+   ║     --idea=file.txt|.md|.json|.yaml                             ║
+   ║                                                                  ║
+   ║  ⚡ QUICK EXAMPLES                                               ║
+   ║     /ts-turbo todo "task app" --build=prototype                  ║
+   ║     /ts-turbo blog --idea=ideas/blog.md --build=mvp             ║
+   ║     /ts-turbo app --idea=ideas/enterprise.json                   ║
+   ║                                                                  ║
+   ║  💡 MORE HELP: /ts-help turbo                                    ║
+   ║                                                                  ║
+   ╚══════════════════════════════════════════════════════════════════╝
+   ```
+
+   **Otherwise, continue with normal argument parsing:**
+
    - Project name: First argument
-   - Idea: Everything in quotes after project name
+   - **Idea source (choose one):**
+     - Quoted idea: Everything in quotes after project name
+     - File idea: `--idea=file-path` flag
    - **Build preset flag:** `--build=prototype|mvp|production`
    - **Architecture preset flag:** `--preset=static|embedded|fullstack-js|baas|microservice`
    - **Stage skip flags:** `--build-skip-stage=product|development|release|golive`
@@ -63,24 +114,44 @@ You are now in **TURBO MODE**. Execute everything autonomously.
      - `--compare=N` - Show comparison of top N stack options
      - `--quick` - Fast assessment for turbo mode (default for turbo)
 
+   **If --idea flag provided:**
+   - Read idea from file using the Read tool
+   - Support file formats:
+     - `.txt`: Use entire file content as idea
+     - `.md`: Use entire content, or extract "# Idea" section if present
+     - `.json`: Extract `idea` field, merge any `flags` with CLI flags (file flags take precedence)
+     - `.yaml/.yml`: Extract `idea` field, merge any `flags` with CLI flags (file flags take precedence)
+   - If file doesn't exist or can't be read: show error and exit
+   - If file contains flags, merge them with CLI flags (file flags override CLI flags)
+
    **Examples with flags:**
    ```
+   # Quoted ideas
    /ts-turbo todo-app "task manager" --build=prototype
    /ts-turbo blog-platform "markdown blog" --build=mvp --preset=static
    /ts-turbo enterprise-app "business platform" --build=production --db=postgresql --auth=clerk
    /ts-turbo quick-demo "demo app" --build-skip-stage=product --build-skip-stage=release
    /ts-turbo cli-tool "file processor" --preset=cli-tool --runtime=python --framework=click
+
+   # File-based ideas
+   /ts-turbo todo-app --idea=ideas/task-manager.txt --build=prototype
+   /ts-turbo blog-platform --idea=ideas/blog.md --build=mvp --preset=static
+   /ts-turbo enterprise-app --idea=ideas/enterprise.json --build=production
+   /ts-turbo my-app --idea=ideas/with-flags.json  # JSON file contains both idea and flags
    ```
 
 2. Create project using founder-advisor:
    - Initialize project file from TEMPLATE.md
-   - Record idea in Founder Input section
-   - **Store CLI flags in "Handoff Notes for Architecture":**
+   - **Record idea in Founder Input section:**
+     - If idea from file: Record file path and extracted idea content
+     - If quoted idea: Record the quoted idea text
+   - **Store ALL flags in "Handoff Notes for Architecture":**
      ```
      Override Flags: --build=prototype --preset=static --build-skip-stage=product --db=sqlite
+     Idea Source: [quoted text] OR [file: path/to/file.txt]
      ```
    - Set status to TURBO_MODE
-   - **Enable build preset mode** if --build flag detected
+   - **Enable build preset mode** if --build flag detected (from CLI or file)
 
 3. Announce:
 ```

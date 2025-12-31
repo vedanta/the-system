@@ -10,10 +10,10 @@
 
 ### Current Framework Status
 - **Agents:** 18
-- **Commands:** 45
+- **Commands:** 47
 - **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
 - **HITL Gates:** 8
-- **Status:** Production-ready framework with comprehensive documentation
+- **Status:** Production-ready framework with comprehensive documentation and help system
 
 ---
 
@@ -83,7 +83,7 @@ Your chief of staff. All communication flows through this agent.
 
 ---
 
-## Commands Reference (45 Total)
+## Commands Reference (47 Total)
 
 ### Core Project Management (8)
 | Command | Purpose |
@@ -148,7 +148,7 @@ Your chief of staff. All communication flows through this agent.
 | `/ts-incident [action]` | SRE Ops | Incident management |
 | `/ts-slo` | SRE Ops | Define and track SLOs |
 
-### Utility Commands (5)
+### Utility Commands (8)
 | Command | Agent | Purpose |
 |---------|-------|---------|
 | `/ts-fix [type]` | Bug Fixer | Fix build errors systematically |
@@ -156,6 +156,9 @@ Your chief of staff. All communication flows through this agent.
 | `/ts-turbo <name> "<idea>"` | System | Run Stages 1-4 autonomously |
 | `/ts-turbo-quick <name> "<idea>"` | System | Quick turbo mode |
 | `/ts-self-document` | System | Generate framework documentation |
+| `/ts-help [command]` | System | Interactive help and command discovery |
+| `/ts-quickref [--stage]` | System | Quick reference and workflow patterns |
+| `/ts-user-docs-update` | System | Update user documentation |
 
 ---
 
@@ -245,9 +248,11 @@ You maintain control at critical decision points:
 
 ```
 /ts-turbo my-app "Build a task management app with user auth"
+/ts-turbo my-app --idea=ideas/task-manager.txt
 
 ⚡ Runs Stages 1-4 automatically
 ⚡ Bypasses all HITL gates
+⚡ Supports file-based ideas (.txt, .md, .json, .yaml)
 ⚡ Stops on CRITICAL security findings
 ⚡ Generates complete project in output/
 ```
@@ -301,6 +306,24 @@ After Stage 3 (/ts-approve development):
 - **Comprehensive docs** in `docs/` directory
 - **8 documentation files** covering all aspects
 - **Auto-generated** from framework source files
+
+### ✅ File-Based Ideas Input
+- **`/ts-new-project --idea=file`** - Read project ideas from files
+- **`/ts-turbo project-name --idea=file`** - Turbo mode with file input
+- **`/ts-turbo-quick project-name --idea=file`** - Quick turbo with file input
+- **Multiple formats supported**: `.txt`, `.md`, `.json`, `.yaml`
+- **Structured ideas**: JSON/YAML files can include build flags
+- **Organized workflow**: Store ideas in `input/` or `ideas/` directories
+
+### ✅ Comprehensive Help System
+- **`/ts-help`** - Interactive command browser with 46 commands grouped by category
+- **`/ts-help <command>`** - Detailed help for any specific command
+- **`/ts-help --stage <stage>`** - Stage-specific command suggestions
+- **`/ts-help --search <term>`** - Search commands by keyword
+- **`--help` flag support** - Quick usage for any command (e.g. `/ts-turbo --help`)
+- **`/ts-quickref`** - Compact quick reference with workflow patterns
+- **Context-aware suggestions** - Smart next-step recommendations
+- **Error guidance** - Helpful hints when commands fail
 
 ---
 
@@ -681,11 +704,18 @@ claude
 
 # See all components
 ls -la .claude/agents/    # 19 agents
-ls -la .claude/commands/  # 46 commands
+ls -la .claude/commands/  # 47 commands
 
 # Search framework
 grep -r "HITL" .claude/
 grep -r "subagent" .claude/
+
+# Framework help system
+claude
+> /ts-help                    # Browse all commands
+> /ts-help turbo              # Help for specific command
+> /ts-quickref                # Quick reference
+> /ts-turbo --help            # Command usage
 
 # Generate documentation
 claude
@@ -694,7 +724,18 @@ claude
 # Test framework changes
 claude
 > /ts-turbo test-changes "Simple blog app"
+> /ts-turbo test-file-input --idea=ideas/sample-app.txt
 > Check output/test-changes/
+
+# Create idea files for testing
+mkdir -p ideas/
+echo "A task management app with user auth and categories" > ideas/todo.txt
+echo "A blog platform with markdown posts and comments" > ideas/blog.txt
+
+# Test with file input
+claude
+> /ts-turbo todo-app --idea=ideas/todo.txt
+> /ts-turbo-quick blog-app --idea=ideas/blog.txt
 ```
 
 ---
