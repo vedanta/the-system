@@ -428,7 +428,7 @@ The System is built on these principles:
 
 ### Community & Support
 - **📚 Documentation**: [USER-GUIDE.md](USER-GUIDE.md) and [docs/user/](docs/user/)
-- **🐛 GitHub Issues**: [Report bugs and request features](https://github.com/anthropics/claude-code/issues)
+- **🐛 GitHub Issues**: [Report bugs and request features](https://github.com/vedanta/the-system/issues)
 - **🔧 Verification**: Run `./scripts/verify-the-system.sh` for diagnostics
 - **📖 Self-Help**: Use `/ts-self-document` for fresh documentation
 
@@ -520,5 +520,5 @@ git branch -d feat/your-feature
   <a href="USER-GUIDE.md">📚 Complete User Guide</a> •
   <a href="QUICKSTART.md">🚀 5-Minute Quickstart</a> •
   <a href="CHANGELOG.md">📋 Changelog</a> •
-  <a href="https://github.com/anthropics/claude-code/issues">🐛 Issues</a>
+  <a href="https://github.com/vedanta/the-system/issues">🐛 Issues</a>
 </p>
