@@ -9,6 +9,7 @@ flowchart TB
     end
     
     subgraph STAGE1["📐 STAGE 1: ARCHITECTURE"]
+        SA[("🎯 Solution Architect<br/>Technology Assessment")]
         EA[("🏗️ Enterprise Architect<br/>System Design, ADRs")]
     end
     
@@ -44,12 +45,13 @@ flowchart TB
     
     %% Relationships
     F --> FA
-    FA --> EA
+    FA --> SA
     FA --> PL
     FA --> PD
     FA --> TW
     FA --> SRD
-    
+
+    SA --> EA
     EA -.->|architecture| PL
     PL --> PP
     PL --> BA
@@ -84,7 +86,7 @@ flowchart TB
     
     class F founder
     class FA executive
-    class EA stage1
+    class SA,EA stage1
     class PL,PP,BA stage2
     class PD,QA,DB,BE,FE,IE stage3
     class TW,SE,RE,DO stage4

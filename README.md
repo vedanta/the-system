@@ -447,11 +447,44 @@ The System is built on these principles:
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributions to **The System**! To maintain code quality and consistency:
+
+### **Branch Naming Convention (New Standards)**
+Use short, descriptive branch names with prefixes:
+```bash
+feat/auth        # New features (max 20 chars total)
+fix/badges       # Bug fixes
+docs/api         # Documentation updates
+chore/cleanup    # Maintenance tasks
+```
+
+### **Quick Contribution Flow**
+```bash
+git checkout main && git pull
+git checkout -b feat/your-feature
+# Make your changes
+git push -u origin feat/your-feature
+# Create PR, then after merge:
+git branch -d feat/your-feature
+```
+
+### **Before Submitting PRs**
+- ✅ Run `./scripts/verify-the-system.sh`
+- ✅ Test changes thoroughly
+- ✅ Update documentation if needed
+- ✅ Follow existing patterns
+
+**📋 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for complete guidelines**
+
+---
+
 ## 📄 License
 
 **LGPL-3.0** - Use commercially, modify freely, keep The System improvements open source.
 
-📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
+📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](.github/CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
 
 ---
 

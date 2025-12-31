@@ -13,7 +13,11 @@ Visual documentation for The System's organizational structure and workflows.
 | `05-stage3-build-test-cycle.mermaid` | Development build and test cycle |
 | `06-stage4-deployment-flow.mermaid` | Stage 4 deployment process |
 | `07-stage5-quick-deploy-flow.mermaid` | Stage 5 quick deploy to platforms |
-| `08-all-17-agents.mermaid` | Overview of all 19 agents |
+| `08-all-19-agents.mermaid` | Overview of all 19 agents |
+| `09-agent-interactions.mermaid` | Comprehensive agent-to-agent interactions |
+| `10-key-agent-interactions.mermaid` | Simplified key interaction patterns |
+| `11-agent-capabilities-tools.mermaid` | Detailed agent capabilities and tool access |
+| `12-agent-tools-matrix.mermaid` | Agent tool access matrix and specializations |
 
 ## How to Use
 
@@ -42,14 +46,56 @@ mmdc -i diagram.mermaid -o diagram.png
 ## Stages Overview
 
 ```
-Stage 1: Architecture    → 1 agent  (Enterprise Architect)
+Stage 1: Architecture    → 2 agents (Solution Architect, Enterprise Architect)
 Stage 2: Product         → 3 agents (Product Lead, Planner, Analyst)
 Stage 3: Development     → 6 agents (Principal, QA, DB, BE, FE, Integration)
 Stage 4: Release         → 4 agents (Writer, Security, Release, DevOps)
 Stage 5: Go Live         → 2 agents (SRE Deploy, SRE Ops)
 ─────────────────────────────────────
-Total                    → 19 agents (+ Founder-Advisor)
+Total                    → 18 agents (+ Founder-Advisor = 19)
 ```
+
+## Agent Interactions
+
+### 🔄 Comprehensive Interactions (`09-agent-interactions.mermaid`)
+Shows detailed agent-to-agent relationships:
+- **Communication flows** between all 19 agents
+- **Review relationships** (who reviews whose work)
+- **Handoff patterns** between stages
+- **Coordination mechanisms** within teams
+- **Cross-stage dependencies** and feedback loops
+
+**Use when:** Understanding complete system coordination, debugging workflow issues, or designing new agent relationships.
+
+### ⚡ Key Interaction Patterns (`10-key-agent-interactions.mermaid`)
+Simplified view highlighting critical patterns:
+- **Central Coordination Hub** (Founder-Advisor)
+- **6 Core Interaction Patterns** (Architecture Assessment, Product Collaboration, QA Review Cycle, Release Pipeline, Operations Coordination, Emergency Support)
+- **Stage Handoffs** between departments
+- **Cross-stage Coordination** loops
+
+**Use when:** Quick understanding of how agents work together, onboarding new users, or explaining system design.
+
+## Agent Capabilities & Tools
+
+### 🔧 Detailed Capabilities (`11-agent-capabilities-tools.mermaid`)
+Comprehensive view of what each agent can actually DO:
+- **Individual capabilities** for all 19 agents
+- **Tool access levels** (Read, Write, Edit, Bash, Grep, WebSearch, etc.)
+- **Specialized knowledge domains** and expertise areas
+- **Primary outputs** and deliverables each agent produces
+- **Tools legend** showing what each tool enables
+
+**Use when:** Understanding agent expertise, assigning tasks appropriately, debugging capability gaps, or designing new agent roles.
+
+### 📊 Tools Access Matrix (`12-agent-tools-matrix.mermaid`)
+Simplified matrix showing tool access patterns:
+- **4 Access Levels**: Full Access, Core Tools, Documentation Tools, Research Tools
+- **Agent groupings** by tool access patterns
+- **Specialized capabilities** organized by domain (AI-powered, Technical, Build, Operations, Support)
+- **Clear tool → agent mappings** for quick reference
+
+**Use when:** Quick tool access reference, understanding agent permissions, planning tool usage, or capability planning.
 
 ## HITL Gates
 
@@ -66,9 +112,9 @@ launch 🚀           → Final go-live approval
 
 ## Quick Reference
 
-### Full IaC Path (Stage 4)
+### Full IaC Path (Stage 1-4)
 ```
-/ts-docs → /ts-security → /ts-release → /ts-infra → /ts-pipeline → /ts-deploy
+/ts-assess → /ts-architect → /ts-product → /ts-develop → /ts-docs → /ts-security → /ts-release → /ts-infra → /ts-pipeline → /ts-deploy
 ```
 
 ### Quick Deploy Path (Stage 5)

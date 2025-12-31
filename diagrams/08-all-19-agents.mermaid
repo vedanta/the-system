@@ -8,7 +8,8 @@ flowchart TB
         FA["🎩 Founder-Advisor<br/>Chief of Staff<br/>Strategic guidance, reviews"]
     end
 
-    subgraph S1["📐 STAGE 1: ARCHITECTURE (1 Agent)"]
+    subgraph S1["📐 STAGE 1: ARCHITECTURE (2 Agents)"]
+        SA["🎯 Solution Architect<br/>AI-optimized assessment<br/>Technology selection"]
         EA["🏗️ Enterprise Architect<br/>System design, ADRs<br/>Tech stack decisions"]
     end
 
@@ -40,7 +41,8 @@ flowchart TB
     end
 
     FOUNDER --> FA
-    FA --> EA
+    FA --> SA
+    SA --> EA
     FA --> PL
     FA --> PD
     FA --> TW
@@ -57,7 +59,7 @@ flowchart TB
 
     class FOUNDER human
     class FA exec
-    class EA s1
+    class SA,EA s1
     class PL,PP,BA s2
     class PD,QAE,DBD,BED,FED,IE s3
     class TW,SE,RE,DO s4

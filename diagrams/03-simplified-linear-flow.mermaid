@@ -5,7 +5,7 @@ flowchart LR
     end
     
     subgraph S1["Stage 1"]
-        B["/ts-architect"]
+        B["/ts-assess"] --> B2["/ts-architect"]
     end
     
     subgraph S2["Stage 2"]
@@ -25,7 +25,7 @@ flowchart LR
     end
     
     A -->|"approve<br/>arch-start"| B
-    B -->|"approve<br/>arch-lock"| C
+    B2 -->|"approve<br/>arch-lock"| C
     E -->|"approve<br/>green-light 🚦"| F
     H -->|"approve<br/>development"| I
     M -->|"approve<br/>launch 🚀"| DONE["🎉 LIVE"]
