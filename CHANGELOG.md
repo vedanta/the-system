@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Help System Commands**
-  - `/ts-help` - Interactive command browser showing all 47 commands grouped by category
+  - `/ts-help` - Interactive command browser showing all 48 commands grouped by category
   - `/ts-quickref` - Compact reference card with workflow patterns
   - `--help` flag support for major commands (`/ts-turbo --help`, `/ts-push --help`)
   - Search functionality: `/ts-help --search <term>`

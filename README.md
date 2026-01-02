@@ -9,7 +9,7 @@ Transform your ideas into production-ready software with 19 specialized AI agent
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-47-green?style=for-the-badge" alt="47 Commands"/>
+  <img src="https://img.shields.io/badge/Commands-48-green?style=for-the-badge" alt="48 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -361,7 +361,7 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 
 ### Reference Documentation
 - **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
-- **[Command Reference](docs/user/commands.md)** - All 46 commands with examples
+- **[Command Reference](docs/user/commands.md)** - All 48 commands with examples
 - **[Configuration Guide](docs/user/configuration.md)** - Customization options
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes
 

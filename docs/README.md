@@ -11,7 +11,7 @@ This documentation is organized into focused directories for different audiences
 
 ### 🎯 **[User Documentation](user/)** - For Framework Users
 Complete guides for using The System to build production-ready software:
-- All 46 commands with examples and usage patterns
+- All 48 commands with examples and usage patterns
 - Step-by-step workflow guides and best practices
 - Human-in-the-loop approval system documentation
 - Configuration options and deployment strategies
@@ -49,7 +49,7 @@ This documentation hub provides:
 |----------|-------------|-------------|
 | **[Architecture Guide](user/architecture.md)** | How The System works internally | Understanding system design, data flow, and core concepts |
 | **[Agent Reference](user/agents.md)** | Complete guide to all 19 agents | Understanding agent roles, responsibilities, and capabilities |
-| **[Command Reference](user/commands.md)** | All 46 commands with examples | Finding specific commands and learning proper usage |
+| **[Command Reference](user/commands.md)** | All 48 commands with examples | Finding specific commands and learning proper usage |
 | **[Workflow Guide](user/workflow.md)** | Step-by-step implementation process | Following the complete development lifecycle |
 | **[HITL Gates](user/hitl-gates.md)** | Human approval system documentation | Understanding approval points and decision making |
 | **[Configuration](user/configuration.md)** | System configuration options | Customizing tech stack and integrations |
@@ -502,7 +502,7 @@ docs/
 ├── README.md           # This overview and navigation hub
 ├── user/              # User-facing guides and tutorials
 │   ├── agents.md      # Complete agent reference
-│   ├── commands.md    # All 46 commands with examples
+│   ├── commands.md    # All 48 commands with examples
 │   ├── workflow.md    # Step-by-step development process
 │   └── [9 more guides]
 └── dev/               # Developer technical documentation

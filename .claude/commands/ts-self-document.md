@@ -121,7 +121,7 @@ ASDO — Autonomous Software Development Organization
 |----------|-------------|
 | [Architecture](architecture.md) | How The System works |
 | [Agents](agents.md) | All 19 agents reference |
-| [Commands](commands.md) | All 46 commands reference |
+| [Commands](commands.md) | All 48 commands reference |
 | [Workflow](workflow.md) | Stage-by-stage guide |
 | [HITL Gates](hitl-gates.md) | Approval gates |
 | [Configuration](configuration.md) | Config options |

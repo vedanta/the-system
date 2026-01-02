@@ -341,7 +341,7 @@ Build presets are automatically detected from your project description:
 
 ## Commands Reference
 
-The System provides **46 commands** organized by stage and function:
+The System provides **48 commands** organized by stage and function:
 
 ### Core Project Management (8)
 
@@ -875,7 +875,7 @@ ln -s .the-system/.claude .claude
 # Expected output:
 ✅ Framework structure validated
 ✅ All 19 agents found
-✅ All 46 commands found
+✅ All 48 commands found
 ✅ Configuration files valid
 ✅ The System ready for use
 ```

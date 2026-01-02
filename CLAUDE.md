@@ -6,11 +6,11 @@
 
 ## Framework Overview
 
-**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 18 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 19 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Current Framework Status
-- **Agents:** 18
-- **Commands:** 47
+- **Agents:** 19
+- **Commands:** 48
 - **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
 - **HITL Gates:** 8
 - **Status:** Production-ready framework with comprehensive documentation and help system
@@ -47,13 +47,13 @@
 
 ---
 
-## Departments & Agents (18 Total)
+## Departments & Agents (19 Total)
 
 ### 🎩 Founder-Advisor
 Your chief of staff. All communication flows through this agent.
 
 ### 📐 Architecture Department (Stage 1)
-- **🏗️ Enterprise Architect** - System design, technical architecture, ADRs
+- **🏗️ Solution Architect** - System design, technical architecture, ADRs
 
 ### 📦 Product Department (Stage 2)
 - **👔 Product Lead** - MVP definition, user stories, PRD
@@ -83,7 +83,7 @@ Your chief of staff. All communication flows through this agent.
 
 ---
 
-## Commands Reference (47 Total)
+## Commands Reference (48 Total)
 
 ### Core Project Management (8)
 | Command | Purpose |
@@ -97,10 +97,11 @@ Your chief of staff. All communication flows through this agent.
 | `/ts-approve <gate>` | Approve at HITL gate |
 | `/ts-review <stage>` | Request stage review |
 
-### Stage 1: Architecture (1)
+### Stage 1: Architecture (2)
 | Command | Agent | Purpose |
 |---------|-------|---------|
-| `/ts-architect` | Enterprise Architect | Run architecture design phase |
+| `/ts-assess` | Solution Architect | Assess project requirements and recommend architecture |
+| `/ts-architect` | Solution Architect | Run architecture design phase |
 
 ### Stage 2: Product (3)
 | Command | Agent | Purpose |
@@ -191,56 +192,57 @@ You maintain control at critical decision points:
 3.  /ts-approve architecture-start
 
 ── Stage 1: Architecture ──
-4.  /ts-architect
-5.  /ts-review architecture
-6.  /ts-approve architecture-lock
+4.  /ts-assess
+5.  /ts-architect
+6.  /ts-review architecture
+7.  /ts-approve architecture-lock
 
 ── Stage 2: Product ──
-7.  /ts-product
-8.  /ts-plan
-9.  /ts-analyze
-10. /ts-review product
-11. /ts-approve green-light  🚦
+8.  /ts-product
+9.  /ts-plan
+10. /ts-analyze
+11. /ts-review product
+12. /ts-approve green-light  🚦
 
 ── Stage 3: Development ──
-12. /ts-develop
-13. /ts-test-plan
-14. /ts-build database    →  /ts-test database
-15. /ts-build backend     →  /ts-test backend
-16. /ts-build frontend    →  /ts-test frontend
-17. /ts-integrate         →  /ts-test integration
-18. /ts-gate
-19. /ts-signoff
-20. /ts-review development
-21. /ts-approve development
+13. /ts-develop
+14. /ts-test-plan
+15. /ts-build database    →  /ts-test database
+16. /ts-build backend     →  /ts-test backend
+17. /ts-build frontend    →  /ts-test frontend
+18. /ts-integrate         →  /ts-test integration
+19. /ts-gate
+20. /ts-signoff
+21. /ts-review development
+22. /ts-approve development
 
 ── Stage 4: Release & Deployment ──
-22. /ts-docs
-23. /ts-security
-24. /ts-release
-25. /ts-infra
-26. /ts-pipeline
-27. /ts-review release
-28. /ts-approve release
-29. /ts-deploy staging
-30. /ts-verify staging
-31. /ts-approve staging
-32. /ts-security production
-33. /ts-deploy production
-34. /ts-verify production
-35. /ts-approve production
-36. /ts-approve launch  🚀
+23. /ts-docs
+24. /ts-security
+25. /ts-release
+26. /ts-infra
+27. /ts-pipeline
+28. /ts-review release
+29. /ts-approve release
+30. /ts-deploy staging
+31. /ts-verify staging
+32. /ts-approve staging
+33. /ts-security production
+34. /ts-deploy production
+35. /ts-verify production
+36. /ts-approve production
+37. /ts-approve launch  🚀
 
 ── Stage 5: Go Live (Optional) ──
-37. /ts-push neon           # Database
-38. /ts-push railway        # Backend
-39. /ts-push vercel         # Frontend
-40. /ts-live-status
-41. /ts-domain vercel app.example.com
-42. /ts-monitor
-43. /ts-alerts
-44. /ts-slo
-45. /ts-status-page
+38. /ts-push neon           # Database
+39. /ts-push railway        # Backend
+40. /ts-push vercel         # Frontend
+41. /ts-live-status
+42. /ts-domain vercel app.example.com
+43. /ts-monitor
+44. /ts-alerts
+45. /ts-slo
+46. /ts-status-page
     🌐 OPERATIONAL!
 ```
 
@@ -316,7 +318,7 @@ After Stage 3 (/ts-approve development):
 - **Organized workflow**: Store ideas in `input/` or `ideas/` directories
 
 ### ✅ Comprehensive Help System
-- **`/ts-help`** - Interactive command browser with 46 commands grouped by category
+- **`/ts-help`** - Interactive command browser with 48 commands grouped by category
 - **`/ts-help <command>`** - Detailed help for any specific command
 - **`/ts-help --stage <stage>`** - Stage-specific command suggestions
 - **`/ts-help --search <term>`** - Search commands by keyword
@@ -363,7 +365,7 @@ the-system/
 ├── .claude/
 │   ├── agents/              # 19 agent definitions
 │   │   ├── founder-advisor.md
-│   │   ├── enterprise-architect.md
+│   │   ├── solution-architect.md
 │   │   ├── product-lead.md
 │   │   ├── project-planner.md
 │   │   ├── business-analyst.md
@@ -381,7 +383,7 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/            # 46 command definitions
+│   ├── commands/            # 48 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-view.md
@@ -390,6 +392,7 @@ the-system/
 │   │   ├── ts-exec-summary.md
 │   │   ├── ts-approve.md
 │   │   ├── ts-review.md
+│   │   ├── ts-assess.md
 │   │   ├── ts-architect.md
 │   │   ├── ts-product.md
 │   │   ├── ts-plan.md
@@ -426,7 +429,8 @@ the-system/
 │   │   ├── ts-turbo.md
 │   │   ├── ts-turbo-quick.md
 │   │   ├── ts-self-document.md
-│   │   └── ts-user-docs-update.md
+│   │   ├── ts-user-docs-update.md
+│   │   └── ts-quickref.md
 │   │
 │   ├── config/
 │   │   ├── preferences.yaml  # Tech stack defaults, conventions
@@ -624,7 +628,7 @@ claude
 - [ ] **UI Engineer Agent** - Design systems, visual polish, accessibility
 - [ ] **Better error handling** in generated code templates
 - [ ] **Robust build testing** - Actually run `npm run build` in QA
-- [ ] **Command validation** - Ensure all 46 commands work correctly
+- [ ] **Command validation** - Ensure all 48 commands work correctly
 
 ### Medium Priority
 - [ ] **Additional deployment targets** - AWS, GCP, Azure options
@@ -639,7 +643,7 @@ claude
 - [ ] **Multi-project support** - Manage multiple projects simultaneously
 
 ### Completed ✅
-- [x] Stage 1-5 implementation (19 agents, 46 commands)
+- [x] Stage 1-5 implementation (19 agents, 48 commands)
 - [x] Turbo Mode autonomous execution
 - [x] QA improvements with mandatory build verification
 - [x] Bug Fixer utility agent
@@ -704,7 +708,7 @@ claude
 
 # See all components
 ls -la .claude/agents/    # 19 agents
-ls -la .claude/commands/  # 47 commands
+ls -la .claude/commands/  # 48 commands
 
 # Search framework
 grep -r "HITL" .claude/
