@@ -5,9 +5,20 @@ Run The System stages 1-4 autonomously without HITL gates.
 ## Usage
 
 ```
-/ts-turbo <project-name> "<idea description>" [--build=preset] [--preset=arch] [--build-skip-stage=stage] [--option=value]
-/ts-turbo <project-name> --idea=<file-path> [--build=preset] [--preset=arch] [--build-skip-stage=stage] [--option=value]
+/ts-turbo <project-name> "<idea description>" [--build=preset] [--preset=arch] [--docs=lean|full] [--build-skip-stage=stage] [--option=value]
+/ts-turbo <project-name> --idea=<file-path> [--build=preset] [--preset=arch] [--docs=lean|full] [--build-skip-stage=stage] [--option=value]
 ```
+
+### Documentation Mode Flags
+
+```bash
+--docs=lean              # Force lean documentation (2-3 min, default for turbo)
+--docs=full              # Force comprehensive documentation (20-30 min)
+--lean                   # Shorthand for lean documentation
+--full                   # Shorthand for comprehensive documentation
+```
+
+**Note:** Turbo mode defaults to lean documentation for speed unless explicitly overridden with --docs=full or --full.
 
 ### Examples
 
@@ -40,6 +51,11 @@ Run The System stages 1-4 autonomously without HITL gates.
 /ts-turbo quick-prototype "Calculator app for demo" --build-skip-stage=product
 /ts-turbo quick-prototype --idea=ideas/calculator.txt --build-skip-stage=product
 /ts-turbo dev-iteration --idea=ideas/feature-test.md --build-skip-stage=product --build-skip-stage=release
+
+# Documentation mode override examples
+/ts-turbo client-demo "Demo app for presentation" --docs=full  # Force comprehensive docs
+/ts-turbo mvp-app "Quick MVP validation" --build=production --docs=lean  # Production build with lean docs
+/ts-turbo prototype --idea=ideas/concept.txt --lean  # Shorthand for lean docs
 
 # JSON file with embedded flags (flags in file override CLI flags)
 /ts-turbo my-app --idea=ideas/app-with-flags.json
@@ -83,6 +99,7 @@ You are now in **TURBO MODE**. Execute everything autonomously.
    ║  🚩 KEY FLAGS                                                    ║
    ║     --build=prototype|mvp|production                             ║
    ║     --preset=static|fullstack-js|microservice                   ║
+   ║     --docs=lean|full (lean default)                             ║
    ║     --idea=file.txt|.md|.json|.yaml                             ║
    ║                                                                  ║
    ║  ⚡ QUICK EXAMPLES                                               ║
@@ -103,6 +120,7 @@ You are now in **TURBO MODE**. Execute everything autonomously.
      - File idea: `--idea=file-path` flag
    - **Build preset flag:** `--build=prototype|mvp|production`
    - **Architecture preset flag:** `--preset=static|embedded|fullstack-js|baas|microservice`
+   - **Documentation mode flags:** `--docs=lean|full`, `--lean`, `--full` (defaults to lean in turbo)
    - **Stage skip flags:** `--build-skip-stage=product|development|release|golive`
    - **Technology override flags:**
      - `--db=postgresql|mysql|sqlite` - Override database selection
@@ -147,8 +165,9 @@ You are now in **TURBO MODE**. Execute everything autonomously.
      - If quoted idea: Record the quoted idea text
    - **Store ALL flags in "Handoff Notes for Architecture":**
      ```
-     Override Flags: --build=prototype --preset=static --build-skip-stage=product --db=sqlite
+     Override Flags: --build=prototype --preset=static --docs=lean --build-skip-stage=product --db=sqlite
      Idea Source: [quoted text] OR [file: path/to/file.txt]
+     Turbo Mode: ACTIVE (docs=lean default)
      ```
    - Set status to TURBO_MODE
    - **Enable build preset mode** if --build flag detected (from CLI or file)
@@ -254,26 +273,29 @@ You are now in **TURBO MODE**. Execute everything autonomously.
 
 ### Phase 4: Release (Auto)
 
+**DOCUMENTATION MODE ENFORCEMENT:**
+- **LEAN MODE (default turbo)**: Essential files only, 2-3 min total
+- **FULL MODE (--docs=full)**: Comprehensive docs, 20-30 min total
+
+**ALL Stage 4 agents receive documentation_mode flag:**
+```yaml
+documentation_mode: "lean"  # or "full"
+turbo_mode: true
+time_target: "2-3 minutes"  # for lean mode
+```
+
 24. **Technical Writer**:
-    - Architecture documentation
-    - Deployment guide
-    - User guide
-    - API reference
-    - README
+    - **LEAN MODE**: README.md + DEPLOYMENT.md only (2 min)
+    - **FULL MODE**: Architecture, API, user guides (8-12 min)
 25. **Security Engineer**:
-    - Dependency scan
-    - SAST scan
-    - Secrets detection
-    - Generate security report
+    - **LEAN MODE**: Basic security status only (30 sec)
+    - **FULL MODE**: Comprehensive security reports (8-12 min)
 26. **Release Engineer**:
-    - Determine version
-    - Generate CHANGELOG
-    - Create release notes
-    - Build artifacts
+    - **LEAN MODE**: Version bump only (15 sec)
+    - **FULL MODE**: Changelog, release notes, artifacts (4-6 min)
 27. **DevOps Engineer**:
-    - Generate Terraform modules
-    - Generate CI/CD pipelines (GitHub Actions)
-    - Create deployment scripts
+    - **LEAN MODE**: Basic deploy script only (1 min)
+    - **FULL MODE**: Terraform, CI/CD, Docker configs (15-20 min)
 28. **Auto-approve**: release ✅
 
 ```
