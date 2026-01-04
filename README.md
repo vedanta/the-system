@@ -159,7 +159,7 @@ Access your Command Center with: `/ts-status --dashboard`
 
 ```bash
 # Create your project directory
-mkdir my-awesome-project && cd my-awesome-project
+mkdir my-project && cd my-project
 git init
 
 # Add The System as a submodule
@@ -185,7 +185,7 @@ git add . && git commit -m "Add The System framework"
 claude
 
 # Option 1: Interactive project creation
-> /ts-new-project my-awesome-app
+> /ts-new-project my-app
 > "I want to build a task management app with AI-powered prioritization,
   user authentication, team collaboration, and real-time sync"
 
@@ -193,7 +193,7 @@ claude
 > mkdir -p ideas
 > echo "A task management app with AI-powered prioritization, user auth,
   team collaboration, and real-time sync" > ideas/my-app.txt
-> /ts-new-project my-awesome-app --idea=ideas/my-app.txt
+> /ts-new-project my-app --idea=ideas/my-app.txt
 
 # Begin the structured development process
 > /ts-approve architecture-start
@@ -534,7 +534,7 @@ git branch -d feat/your-feature
 ---
 
 <p align="center">
-  <strong>Ready to build amazing software?</strong><br/>
+  <strong>Ready to build production software?</strong><br/>
   <br/>
   <a href="USER-GUIDE.md">📚 Complete User Guide</a> •
   <a href="QUICKSTART.md">🚀 5-Minute Quickstart</a> •

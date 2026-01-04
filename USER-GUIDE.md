@@ -64,7 +64,7 @@ Use The System as a submodule to keep it updated while maintaining your project 
 
 ```bash
 # Create your project directory
-mkdir my-awesome-project && cd my-awesome-project
+mkdir my-project && cd my-project
 git init
 
 # Add The System as a submodule
@@ -236,7 +236,7 @@ The complete human-in-the-loop workflow with strategic decision points:
 
 ```bash
 # 1. Project Initiation
-/ts-new-project my-awesome-app
+/ts-new-project my-app
 # → Share your idea with Founder-Advisor
 # → Get preliminary technology assessment
 
@@ -304,7 +304,7 @@ Control the speed vs. completeness trade-off with intelligent build presets:
 
 | **Build Preset** | **Duration** | **Agent Usage** | **Best For** |
 |------------------|-------------|----------------|--------------|
-| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-19 agents** | Architecture design only, ultra-fast validation |
+| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-19 agents** | Architecture design only, rapid validation |
 | **🚀 Prototype** | **3-5 min** | **3-19 agents** | Working app, basic features, rapid iteration |
 | **📦 MVP** | **15-20 min** | **7-19 agents** | Production-ready, professional quality, proper testing |
 | **📦 MVP + Skip Release** | **12-15 min** | **6-19 agents** | Production-ready without docs/security scans |
@@ -1156,4 +1156,4 @@ Architecture → Product → Development → Release → Operations
 
 *This User Guide covers all features of The System. For quick onboarding, see [QUICKSTART.md](QUICKSTART.md). For framework development, see [CLAUDE.md](CLAUDE.md).*
 
-**Ready to build amazing software with The System!** 🚀
+**Ready to build production software with The System!** 🚀

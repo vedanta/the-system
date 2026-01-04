@@ -460,7 +460,7 @@ Generates comprehensive documentation including:
 ### Specialized Expertise
 - **Domain experts** - Each agent has deep knowledge
 - **No context switching** - Agents maintain focus
-- **Coordinated execution** - Agents work together seamlessly
+- **Coordinated execution** - Agents work together efficiently
 
 ### Production Ready
 - **Best practices** - Generated code follows standards
