@@ -1,9 +1,9 @@
 # The System
 **ASDO — Autonomous Software Development Organization**
 
-> *An AI-powered software company in your terminal*
+> *Autonomous software development with AI agents*
 
-Transform your ideas into production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
+Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
 
 ---
 
@@ -203,11 +203,11 @@ claude
 
 ---
 
-## ⚡ Build Presets - Work at the Speed of Thought
+## ⚡ Build Presets - Configure Speed vs Quality
 
-Choose the perfect balance of speed vs. quality for your project needs:
+Configure the balance of speed vs. quality for your project needs:
 
-### Three Intelligent Build Modes
+### Three Build Modes
 
 ```bash
 # 🚀 PROTOTYPE (3-5 min) - Fast iteration, demos, proof-of-concepts
@@ -223,7 +223,7 @@ Choose the perfect balance of speed vs. quality for your project needs:
 /ts-turbo enterprise-app --idea=ideas/enterprise.json --build=production
 ```
 
-### Smart Detection
+### Keyword Detection
 
 The system automatically detects your intent from keywords:
 - **Prototype triggers**: "rapid", "demo", "prototype", "quick test", "POC"

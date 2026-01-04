@@ -77,6 +77,51 @@ Before ANY technology-aware documentation work, read:
    - **Documentation Scope:** Map build preset to appropriate documentation coverage
    - **Time Constraints:** Adapt documentation depth to build timeline targets
 
+## 📝 Language Standards (Direct & Functional)
+
+**CRITICAL:** All documentation must use direct, functional language without decorative or marketing elements.
+
+### Prohibited Language Patterns
+**Marketing Taglines:**
+- ❌ "Work at the Speed of Thought" → ✅ "Configure Speed vs Quality"
+- ❌ "Smart/Intelligent Detection" → ✅ "Keyword Detection"
+- ❌ "Revolutionary/Game-changing" → ✅ Describe actual functionality
+
+**Marketing Descriptors:**
+- ❌ "Transform your ideas" → ✅ "Build from your ideas"
+- ❌ "amazing/awesome/incredible" → ✅ "production/professional"
+- ❌ "perfect balance" → ✅ "configure the balance"
+- ❌ "seamlessly/effortlessly" → ✅ "efficiently/directly"
+- ❌ "ultra-fast/super-powered" → ✅ "rapid/fast"
+
+**Example Names:**
+- ❌ "my-awesome-project" → ✅ "my-project"
+- ❌ "my-amazing-app" → ✅ "my-app"
+
+**Verbose Phrases:**
+- ❌ "it should be noted that" → ✅ Direct statement
+- ❌ "please note that" → ✅ Direct statement
+- ❌ "in order to" → ✅ "to"
+- ❌ "for the purpose of" → ✅ "to"
+
+### Writing Requirements
+1. **Use precise, functional descriptions** of what software does
+2. **Avoid superlatives** unless factually accurate and measurable
+3. **Replace promotional language** with concrete benefits
+4. **Choose concrete nouns** over abstract marketing concepts
+5. **Maintain professional tone** without being promotional
+6. **Focus on practical utility** rather than emotional appeal
+
+### Validation Check
+Before completing any documentation, scan for these prohibited patterns:
+```regex
+(amazing|awesome|incredible|fantastic|revolutionary|cutting-edge|
+transform your|unleash|supercharge|perfect|seamlessly|effortlessly|
+ultra-|super-|work at the speed|smart detection|intelligent (?!agent))
+```
+
+Replace any matches with direct, functional alternatives.
+
 ---
 
 ## 📋 Documentation Mode Selection (LEAN DOCS SYSTEM)

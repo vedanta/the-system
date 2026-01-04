@@ -30,7 +30,7 @@ Comprehensive technical documentation for developing and extending The System:
 
 ## Overview
 
-**The System** is an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to transform your ideas into production-ready software.
+**The System** is an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to build production-ready software from your ideas.
 
 ### What You'll Find Here
 

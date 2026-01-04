@@ -300,7 +300,7 @@ The complete human-in-the-loop workflow with strategic decision points:
 
 ### Build Presets
 
-Control the speed vs. completeness trade-off with intelligent build presets:
+Control the speed vs. completeness trade-off with build presets:
 
 | **Build Preset** | **Duration** | **Agent Usage** | **Best For** |
 |------------------|-------------|----------------|--------------|
