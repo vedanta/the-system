@@ -547,4 +547,4 @@ Try these exercises to master architecture:
 
 ---
 
-*Updated by /ts-user-docs-update • Framework: 19 agents, 46 commands*
+*Updated by /ts-user-docs-update • Framework: 19 agents, 48 commands*

@@ -549,4 +549,4 @@ Ready to build at the perfect speed for your needs?
 
 ---
 
-*Updated by /ts-user-docs-update • Framework: 19 agents, 46 commands*
+*Updated by /ts-user-docs-update • Framework: 19 agents, 48 commands*

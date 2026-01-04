@@ -40,6 +40,45 @@ Maintains user-facing documentation accuracy and generates quickstart guides fol
 - **Focus on function**: Prioritize practical utility over decoration
 - **Use minimal prose**: Concise writing that respects user time
 
+## Language Standards (Direct & Functional)
+### Prohibited Decorative Language
+**Marketing Taglines:**
+- ❌ "Work at the Speed of Thought" → ✅ "Configure Speed vs Quality"
+- ❌ "Smart/Intelligent Detection" → ✅ "Keyword Detection"
+- ❌ "Revolutionary/Game-changing" → ✅ Describe actual functionality
+
+**Marketing Descriptors:**
+- ❌ "Transform your ideas" → ✅ "Build from your ideas"
+- ❌ "amazing/awesome/incredible software" → ✅ "production software"
+- ❌ "perfect balance" → ✅ "configure the balance"
+- ❌ "seamlessly/effortlessly" → ✅ "efficiently/directly"
+- ❌ "ultra-fast/super-powered" → ✅ "rapid/fast"
+
+**Example Names:**
+- ❌ "my-awesome-project" → ✅ "my-project"
+- ❌ "my-amazing-app" → ✅ "my-app"
+
+**Verbose Phrases:**
+- ❌ "it should be noted that" → ✅ Direct statement
+- ❌ "please note that" → ✅ Direct statement
+- ❌ "in order to" → ✅ "to"
+- ❌ "for the purpose of" → ✅ "to"
+
+### Required Approach
+1. **Replace promotional language** with precise descriptions
+2. **Use functional terminology** that describes what something does
+3. **Avoid superlatives** unless factually accurate
+4. **Choose concrete nouns** over abstract concepts
+5. **Maintain professional tone** without being promotional
+
+### Validation Patterns
+The system must scan for and flag these patterns:
+```regex
+(amazing|awesome|incredible|fantastic|revolutionary|cutting-edge|
+transform your|unleash|supercharge|perfect|seamlessly|effortlessly|
+ultra-|super-|work at the speed|smart detection|intelligent (?!agent))
+```
+
 ## Agent
 Use `technical-writer` agent for implementation.
 

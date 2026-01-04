@@ -1,15 +1,19 @@
 # The System
 **ASDO — Autonomous Software Development Organization**
 
-> *An AI-powered software company in your terminal*
+> *Autonomous software development with AI agents*
 
-Transform your ideas into production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
+Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
+
+<p align="center">
+  <img src="images/system.png" alt="The System - Autonomous Software Development Organization" width="800"/>
+</p>
 
 ---
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 Agents"/>
-  <img src="https://img.shields.io/badge/Commands-47-green?style=for-the-badge" alt="47 Commands"/>
+  <img src="https://img.shields.io/badge/Commands-48-green?style=for-the-badge" alt="48 Commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -140,7 +144,7 @@ The System is an agentic framework that simulates a complete software developmen
 
 ```bash
 # Create your project directory
-mkdir my-awesome-project && cd my-awesome-project
+mkdir my-project && cd my-project
 git init
 
 # Add The System as a submodule
@@ -166,7 +170,7 @@ git add . && git commit -m "Add The System framework"
 claude
 
 # Option 1: Interactive project creation
-> /ts-new-project my-awesome-app
+> /ts-new-project my-app
 > "I want to build a task management app with AI-powered prioritization,
   user authentication, team collaboration, and real-time sync"
 
@@ -174,7 +178,7 @@ claude
 > mkdir -p ideas
 > echo "A task management app with AI-powered prioritization, user auth,
   team collaboration, and real-time sync" > ideas/my-app.txt
-> /ts-new-project my-awesome-app --idea=ideas/my-app.txt
+> /ts-new-project my-app --idea=ideas/my-app.txt
 
 # Begin the structured development process
 > /ts-approve architecture-start
@@ -184,11 +188,11 @@ claude
 
 ---
 
-## ⚡ Build Presets - Work at the Speed of Thought
+## ⚡ Build Presets - Configure Speed vs Quality
 
-Choose the perfect balance of speed vs. quality for your project needs:
+Configure the balance of speed vs. quality for your project needs:
 
-### Three Intelligent Build Modes
+### Three Build Modes
 
 ```bash
 # 🚀 PROTOTYPE (3-5 min) - Fast iteration, demos, proof-of-concepts
@@ -204,7 +208,7 @@ Choose the perfect balance of speed vs. quality for your project needs:
 /ts-turbo enterprise-app --idea=ideas/enterprise.json --build=production
 ```
 
-### Smart Detection
+### Keyword Detection
 
 The system automatically detects your intent from keywords:
 - **Prototype triggers**: "rapid", "demo", "prototype", "quick test", "POC"
@@ -361,7 +365,7 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 
 ### Reference Documentation
 - **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
-- **[Command Reference](docs/user/commands.md)** - All 46 commands with examples
+- **[Command Reference](docs/user/commands.md)** - All 48 commands with examples
 - **[Configuration Guide](docs/user/configuration.md)** - Customization options
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes
 
@@ -502,7 +506,7 @@ git branch -d feat/your-feature
 - ✅ Update documentation if needed
 - ✅ Follow existing patterns
 
-**📋 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for complete guidelines**
+**📋 See [CONTRIBUTING.md](CONTRIBUTING.md) for complete guidelines**
 
 ---
 
@@ -510,12 +514,12 @@ git branch -d feat/your-feature
 
 **LGPL-3.0** - Use commercially, modify freely, keep The System improvements open source.
 
-📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](.github/CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
+📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
 
 ---
 
 <p align="center">
-  <strong>Ready to build amazing software?</strong><br/>
+  <strong>Ready to build production software?</strong><br/>
   <br/>
   <a href="USER-GUIDE.md">📚 Complete User Guide</a> •
   <a href="QUICKSTART.md">🚀 5-Minute Quickstart</a> •

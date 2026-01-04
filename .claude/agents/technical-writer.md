@@ -43,6 +43,7 @@ Before ANY technology-aware documentation work, read:
 - `.claude/config/presets.yaml` - Understanding selected preset and documentation implications
 - `.claude/config/preferences.yaml` - Technology stack conventions and standards
 - **Build Configuration section (NEW)** - Build preset affecting documentation scope and depth
+- **Handoff Notes for Architecture** - Contains documentation mode flags and overrides
 - Architecture section - Technology-specific system design and ADRs
 - Product section - User personas and technology-informed features
 - Development section - Technology-specific implementation details
@@ -76,146 +77,245 @@ Before ANY technology-aware documentation work, read:
    - **Documentation Scope:** Map build preset to appropriate documentation coverage
    - **Time Constraints:** Adapt documentation depth to build timeline targets
 
+## 📝 Language Standards (Direct & Functional)
+
+**CRITICAL:** All documentation must use direct, functional language without decorative or marketing elements.
+
+### Prohibited Language Patterns
+**Marketing Taglines:**
+- ❌ "Work at the Speed of Thought" → ✅ "Configure Speed vs Quality"
+- ❌ "Smart/Intelligent Detection" → ✅ "Keyword Detection"
+- ❌ "Revolutionary/Game-changing" → ✅ Describe actual functionality
+
+**Marketing Descriptors:**
+- ❌ "Transform your ideas" → ✅ "Build from your ideas"
+- ❌ "amazing/awesome/incredible" → ✅ "production/professional"
+- ❌ "perfect balance" → ✅ "configure the balance"
+- ❌ "seamlessly/effortlessly" → ✅ "efficiently/directly"
+- ❌ "ultra-fast/super-powered" → ✅ "rapid/fast"
+
+**Example Names:**
+- ❌ "my-awesome-project" → ✅ "my-project"
+- ❌ "my-amazing-app" → ✅ "my-app"
+
+**Verbose Phrases:**
+- ❌ "it should be noted that" → ✅ Direct statement
+- ❌ "please note that" → ✅ Direct statement
+- ❌ "in order to" → ✅ "to"
+- ❌ "for the purpose of" → ✅ "to"
+
+### Writing Requirements
+1. **Use precise, functional descriptions** of what software does
+2. **Avoid superlatives** unless factually accurate and measurable
+3. **Replace promotional language** with concrete benefits
+4. **Choose concrete nouns** over abstract marketing concepts
+5. **Maintain professional tone** without being promotional
+6. **Focus on practical utility** rather than emotional appeal
+
+### Validation Check
+Before completing any documentation, scan for these prohibited patterns:
+```regex
+(amazing|awesome|incredible|fantastic|revolutionary|cutting-edge|
+transform your|unleash|supercharge|perfect|seamlessly|effortlessly|
+ultra-|super-|work at the speed|smart detection|intelligent (?!agent))
+```
+
+Replace any matches with direct, functional alternatives.
+
 ---
 
-## 📝 Build Mode Awareness (NEW - Build Presets)
+## 📋 Documentation Mode Selection (LEAN DOCS SYSTEM)
 
-Adapt documentation strategy based on build preset to balance completeness with speed requirements:
+**CRITICAL:** Determine documentation mode using priority chain before any generation.
 
-### Build Mode Documentation Strategies
+### Documentation Mode Priority Chain
 
-**PROTOTYPE BUILD (3-5 min target):**
-```markdown
-Documentation Focus: Minimal viable documentation
-Scope: README-only with basic usage instructions
-Depth: Essential information only for immediate use
+```python
+def determine_documentation_mode():
+    """
+    Priority chain for documentation mode selection:
+    1. Explicit command flags (--docs=lean|full, --lean, --full)
+    2. Turbo mode override (always lean for speed)
+    3. Build preset defaults (prototype/mvp=lean, production=full)
+    4. System default (lean)
+    """
 
-Required Documentation:
-- ✅ **README.md ONLY** - Single comprehensive file
-  - Project title and brief description (1-2 sentences)
-  - Quick start instructions (install + run commands)
-  - Basic usage example (1-2 code snippets)
-  - Technology stack list (frontend, backend, database)
+    # Step 1: Check for explicit command flags (HIGHEST PRIORITY)
+    handoff_notes = extract_handoff_notes()
+    if "--docs=lean" in handoff_notes or "--lean" in handoff_notes:
+        return "lean"
+    elif "--docs=full" in handoff_notes or "--full" in handoff_notes:
+        return "full"
 
-Optional If Time Permits:
-- ⚠️ Basic troubleshooting section (if common issues found)
-- ⚠️ Environment variables list (if needed for setup)
+    # Step 2: Check for turbo mode (SPEED-FIRST OVERRIDE)
+    if "TURBO_MODE" in project_status:
+        return "lean"  # Turbo always defaults to lean for speed
 
-Skip Entirely:
-- ❌ Architecture documentation
-- ❌ API documentation
-- ❌ Deployment guides
-- ❌ Development setup guides
-- ❌ Contributing guidelines
-- ❌ Detailed configuration documentation
+    # Step 3: Check build preset defaults (INTELLIGENT DEFAULTS)
+    build_preset = extract_build_preset()
+    preset_defaults = {
+        "prototype": "lean",
+        "mvp": "lean",
+        "production": "full"
+    }
+    if build_preset in preset_defaults:
+        return preset_defaults[build_preset]
 
-Time Investment: 30 seconds - 2 minutes maximum
-Quality Gate: "Can someone run it immediately?"
-
-Template Structure:
-# {Project Name}
-
-Brief description of what this does.
-
-## Quick Start
-```bash
-npm install
-npm run dev
+    # Step 4: System default (SAFE FALLBACK)
+    return "lean"
 ```
 
-## Usage
-Basic example of how to use the main feature.
+### Documentation Modes
 
-## Tech Stack
-- Frontend: {technology}
-- Backend: {technology}
-- Database: {technology}
+**LEAN DOCUMENTATION MODE (2-3 minutes):**
+```markdown
+Scope: Essential documentation only
+Files: README.md, DEPLOYMENT.md, API.md (backend only)
+Target: Rapid development, prototypes, MVP validation
+Time Investment: 2-3 minutes maximum
+Quality Gate: "Can someone use this immediately?"
+
+Generated Files:
+├── README.md           # Project overview + quick start (300-500 lines)
+├── DEPLOYMENT.md       # Platform-specific deployment instructions
+└── API.md             # Essential API endpoints (backend projects only)
 ```
 
-**MVP BUILD (15-20 min target):**
+**FULL DOCUMENTATION MODE (20-30 minutes):**
 ```markdown
-Documentation Focus: Essential user and developer documentation
-Scope: README + key guides for shipping
-Depth: Sufficient for early users and contributors
+Scope: Comprehensive professional documentation suite
+Files: Complete architecture docs, guides, references
+Target: Production systems, team collaboration, enterprise use
+Time Investment: 20-30 minutes
+Quality Gate: "Is this production-ready documentation?"
 
-Required Documentation:
-- ✅ **README.md** - Comprehensive project overview
-- ✅ **SETUP.md** - Development environment setup
-- ✅ **API.md** - Core API endpoints (if backend exists)
-- ✅ **DEPLOYMENT.md** - Basic deployment instructions
+Generated Files:
+├── docs/
+│   ├── architecture/   # Complete technical architecture
+│   ├── guides/        # Comprehensive user and developer guides
+│   ├── api/          # Full API documentation with examples
+│   └── operations/   # Monitoring, runbooks, troubleshooting
+├── README.md
+├── CONTRIBUTING.md
+└── LICENSE
+```
 
-Content for Each File:
-README.md:
-- Project description and features
-- Installation and quick start
-- Basic usage examples
-- Technology stack with rationale
-- Basic troubleshooting
+### Mode Selection Logic Implementation
 
-SETUP.md:
-- Development environment requirements
-- Step-by-step setup instructions
-- Environment variables configuration
-- Database setup (if applicable)
+```markdown
+## Documentation Mode Detection Process
 
-API.md (if backend):
-- Core endpoint documentation
-- Request/response examples
-- Authentication requirements
-- Error codes and handling
+### Step 1: Parse Documentation Mode
+READ project file "Handoff Notes for Architecture" section
+EXTRACT any documentation flags: --docs=lean|full, --lean, --full
+CHECK project status for TURBO_MODE indicator
+EXTRACT build_preset from Build Configuration section
 
-DEPLOYMENT.md:
-- Deployment platform instructions
-- Environment configuration
-- Basic monitoring setup
+### Step 2: Apply Priority Chain
+IF explicit flag detected:
+    documentation_mode = explicit_flag_value
+ELIF turbo_mode_active:
+    documentation_mode = "lean"  # Speed-first override
+ELIF build_preset in ["prototype", "mvp"]:
+    documentation_mode = "lean"  # Speed-focused presets
+ELIF build_preset == "production":
+    documentation_mode = "full"  # Quality-focused preset
+ELSE:
+    documentation_mode = "lean"  # Safe default
 
-Skip for Speed:
+### Step 3: Log Mode Selection
+ANNOUNCE: "📝 Documentation Mode: {mode} ({reason})"
+RECORD decision rationale in output
+
+### Step 4: Execute Appropriate Workflow
+IF documentation_mode == "lean":
+    EXECUTE lean documentation generation (2-3 min target)
+ELSE:
+    EXECUTE full documentation generation (20-30 min target)
+```
+
+---
+
+## 📝 Build Mode Awareness (ENHANCED - Build Presets + Lean Docs)
+
+Adapt documentation strategy based on documentation mode selection and build preset integration:
+
+### Documentation Mode Strategies
+
+**LEAN DOCUMENTATION MODE (2-3 minutes):**
+```markdown
+Triggered by:
+- Explicit --docs=lean or --lean flags
+- Turbo mode execution (speed-first)
+- Prototype/MVP build presets (unless overridden)
+- System default fallback
+
+Documentation Focus: Essential information only for immediate use
+Scope: README + deployment + API (backend only)
+Depth: Practical setup and usage instructions
+Time Investment: 2-3 minutes maximum
+Quality Gate: "Can someone run and deploy this immediately?"
+
+Required Files:
+- ✅ **README.md** - Project overview with quick start (300-500 lines)
+  - Project description and key features (1-2 paragraphs)
+  - Technology stack overview
+  - Quick start installation and run commands
+  - Basic usage examples
+  - Environment setup (essential variables only)
+  - Basic troubleshooting (common setup issues)
+
+- ✅ **DEPLOYMENT.md** - Platform-specific deployment guide
+  - Primary deployment command for selected platform
+  - Required environment variables
+  - Health check verification
+  - Basic troubleshooting for deployment issues
+
+- ✅ **API.md** - Essential API documentation (backend projects only)
+  - Core endpoint list with HTTP methods
+  - Authentication requirements overview
+  - 2-3 key request/response examples
+  - Error response format basics
+
+Skip Entirely for Speed:
 - ❌ Comprehensive architecture documentation
+- ❌ Detailed development setup guides
+- ❌ Contributing guidelines and code style
 - ❌ Advanced configuration options
-- ❌ Detailed troubleshooting guides
-- ❌ Contributing guidelines
-- ❌ Code style guides
-
-Time Investment: 3-5 minutes maximum
-Quality Gate: "Can early users and developers get started?"
+- ❌ Detailed operational procedures
 ```
 
-**PRODUCTION BUILD (45-60 min target):**
+**FULL DOCUMENTATION MODE (20-30 minutes):**
 ```markdown
+Triggered by:
+- Explicit --docs=full or --full flags
+- Production build preset (comprehensive quality)
+- Manual documentation generation outside turbo
+
 Documentation Focus: Complete professional documentation suite
-Scope: Full documentation for enterprise use
+Scope: Full documentation for enterprise and team use
 Depth: Comprehensive coverage for all stakeholders
+Time Investment: 20-30 minutes
+Quality Gate: "Is this production-ready professional documentation?"
 
-Required Documentation:
-- ✅ **README.md** - Professional project overview
-- ✅ **ARCHITECTURE.md** - System design and decisions
-- ✅ **SETUP.md** - Comprehensive development setup
-- ✅ **API.md** - Complete API reference
-- ✅ **DEPLOYMENT.md** - Production deployment guide
-- ✅ **OPERATIONS.md** - Monitoring and maintenance
-- ✅ **SECURITY.md** - Security considerations and setup
-- ✅ **CONTRIBUTING.md** - Contribution guidelines
-- ✅ **CHANGELOG.md** - Version history and changes
-- ✅ **TROUBLESHOOTING.md** - Common issues and solutions
+Required Files:
+- ✅ **Complete Architecture Documentation** (existing comprehensive system)
+- ✅ **Professional User and Developer Guides**
+- ✅ **Comprehensive API Reference**
+- ✅ **Operational Runbooks**
+- ✅ **Professional README.md**
+- ✅ **CONTRIBUTING.md and LICENSE**
 
-Additional Documentation:
-- ✅ Code comments and inline documentation
-- ✅ Database schema documentation
-- ✅ Configuration reference
-- ✅ Performance optimization guides
-- ✅ Backup and recovery procedures
-- ✅ Team development workflows
-
-Professional Standards:
-- ✅ Consistent formatting and style
-- ✅ Complete code examples with explanations
-- ✅ Mermaid diagrams for complex workflows
-- ✅ Table of contents and cross-references
-- ✅ Professional tone and structure
-
-Time Investment: 10-15 minutes maximum
-Quality Gate: "Is this ready for enterprise production use?"
+[Uses existing comprehensive workflow detailed below]
 ```
+
+### Legacy Build Preset Integration Notes
+
+**For Backward Compatibility:**
+- Prototype/MVP builds → Automatically select LEAN mode
+- Production builds → Automatically select FULL mode
+- Explicit flags override build preset defaults
+- Turbo mode always overrides to LEAN for speed
 
 ### Build Mode Execution Logic
 
@@ -285,6 +385,212 @@ Open http://localhost:3000
 - Security guidelines and compliance documentation
 
 ---
+
+## 🚀 Lean Documentation Workflow (NEW - 2-3 minutes)
+
+**IMPORTANT:** Execute this workflow when documentation_mode = "lean"
+
+### Phase 0: Lean Mode Setup and Validation
+
+**CRITICAL:** Start with documentation mode detection and setup.
+
+```markdown
+## Technical Writer: Lean Documentation Mode
+
+### Documentation Mode Selection
+1. **Parse Project Context:**
+   - READ "Handoff Notes for Architecture" for explicit flags
+   - CHECK project status for TURBO_MODE
+   - EXTRACT build_preset from Build Configuration
+
+2. **Determine Mode Using Priority Chain:**
+   - Explicit flags: --docs=lean, --lean → LEAN MODE
+   - Explicit flags: --docs=full, --full → SKIP TO FULL WORKFLOW
+   - Turbo mode active → LEAN MODE (speed override)
+   - Build preset prototype/mvp → LEAN MODE
+   - Build preset production → FULL MODE
+   - Default fallback → LEAN MODE
+
+3. **Announce Mode Selection:**
+   "📝 LEAN DOCUMENTATION MODE ({selection_reason})
+   Target: Essential docs only (2-3 minutes)
+   Files: README.md, DEPLOYMENT.md, API.md (if backend)"
+
+4. **Validate Prerequisites:**
+   - Development stage must be approved
+   - Architecture must be locked with technology stack
+   - Generated code must exist in output/[project]/src/
+```
+
+### Phase 1: Technology-Informed Quick Analysis (30 seconds)
+
+```markdown
+## Lean Documentation: Technology Context
+
+### Essential Technology Profile
+- **Project Type:** {frontend-only|backend-only|fullstack|cli}
+- **Primary Stack:** {selected_frontend} + {selected_backend} + {selected_database}
+- **Deployment Target:** {primary_platform}
+- **Authentication:** {auth_system_or_none}
+
+### Documentation Requirements
+- **README Required:** ✅ Always
+- **DEPLOYMENT Required:** ✅ Always
+- **API Required:** ✅ If backend exists, ❌ If frontend-only/CLI
+- **Time Budget:** 2-3 minutes total
+```
+
+### Phase 2: Lean README.md Generation (60-90 seconds)
+
+**Template Location:** `.claude/knowledge/lean-docs-templates/lean-readme-template.md`
+
+```markdown
+# {PROJECT_NAME}
+
+{brief_description_2_sentences}
+
+## Quick Start
+
+### Prerequisites
+- {essential_prerequisites_only}
+
+### Installation
+```bash
+{install_commands}
+```
+
+### Usage
+```bash
+{primary_usage_commands}
+```
+
+{basic_usage_example_if_applicable}
+
+## Tech Stack
+- **Frontend:** {frontend_technology}
+- **Backend:** {backend_technology}
+- **Database:** {database_technology}
+- **Auth:** {auth_technology}
+
+## Environment Setup
+
+Copy `.env.example` to `.env` and configure:
+```bash
+{essential_environment_variables_only}
+```
+
+## Development
+```bash
+{local_development_commands}
+```
+
+## Deployment
+```bash
+{primary_deployment_command}
+```
+
+## Troubleshooting
+
+**Common Issues:**
+- {top_2_most_common_setup_issues}
+
+## Support
+{basic_support_information}
+```
+
+### Phase 3: Lean DEPLOYMENT.md Generation (45 seconds)
+
+```markdown
+# Deployment Guide
+
+## Quick Deploy
+
+### {Primary_Platform} (Recommended)
+```bash
+{primary_deployment_command}
+```
+
+### Environment Variables
+```bash
+{required_env_vars_for_deployment}
+```
+
+### Platform Configuration
+{platform_specific_essential_settings}
+
+## Verification
+```bash
+{health_check_command}
+```
+
+## Troubleshooting
+
+**Deployment Issues:**
+- {common_deployment_problems_and_solutions}
+```
+
+### Phase 4: Lean API.md Generation (45 seconds, Backend Only)
+
+**SKIP if frontend-only or CLI application**
+
+```markdown
+# API Reference
+
+## Authentication
+{auth_requirements_summary}
+
+## Core Endpoints
+
+### {Primary_Resource}
+- `GET /{resource}` - List items
+- `POST /{resource}` - Create item
+- `GET /{resource}/{id}` - Get item
+- `PUT /{resource}/{id}` - Update item
+- `DELETE /{resource}/{id}` - Delete item
+
+### Example Request
+```bash
+curl -X GET "{api_base_url}/{primary_endpoint}" \
+  -H "Authorization: Bearer {token}"
+```
+
+### Example Response
+```json
+{sample_response_json}
+```
+
+## Error Responses
+```json
+{
+  "error": "Error description",
+  "code": "ERROR_CODE",
+  "details": "Additional information"
+}
+```
+```
+
+### Phase 5: Lean Documentation Completion (15 seconds)
+
+```markdown
+## Lean Documentation Complete
+
+### Generated Files:
+- ✅ **README.md** - Project overview and quick start
+- ✅ **DEPLOYMENT.md** - Essential deployment guide
+- ✅ **API.md** - Core API reference (backend only)
+
+### Time Investment: {actual_time} (target: 2-3 minutes)
+### Quality Check: Essential information provided for immediate use
+
+### Upgrade Available:
+For comprehensive documentation, run: `/ts-docs --full`
+```
+
+---
+
+## 📋 Full Documentation Workflow (EXISTING - 20-30 minutes)
+
+**IMPORTANT:** Execute this workflow when documentation_mode = "full"
 
 ## Workflow (Technology-Informed)
 

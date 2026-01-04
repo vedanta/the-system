@@ -64,7 +64,7 @@ Use The System as a submodule to keep it updated while maintaining your project 
 
 ```bash
 # Create your project directory
-mkdir my-awesome-project && cd my-awesome-project
+mkdir my-project && cd my-project
 git init
 
 # Add The System as a submodule
@@ -236,7 +236,7 @@ The complete human-in-the-loop workflow with strategic decision points:
 
 ```bash
 # 1. Project Initiation
-/ts-new-project my-awesome-app
+/ts-new-project my-app
 # → Share your idea with Founder-Advisor
 # → Get preliminary technology assessment
 
@@ -300,11 +300,11 @@ The complete human-in-the-loop workflow with strategic decision points:
 
 ### Build Presets
 
-Control the speed vs. completeness trade-off with intelligent build presets:
+Control the speed vs. completeness trade-off with build presets:
 
 | **Build Preset** | **Duration** | **Agent Usage** | **Best For** |
 |------------------|-------------|----------------|--------------|
-| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-19 agents** | Architecture design only, ultra-fast validation |
+| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-19 agents** | Architecture design only, rapid validation |
 | **🚀 Prototype** | **3-5 min** | **3-19 agents** | Working app, basic features, rapid iteration |
 | **📦 MVP** | **15-20 min** | **7-19 agents** | Production-ready, professional quality, proper testing |
 | **📦 MVP + Skip Release** | **12-15 min** | **6-19 agents** | Production-ready without docs/security scans |
@@ -341,7 +341,7 @@ Build presets are automatically detected from your project description:
 
 ## Commands Reference
 
-The System provides **46 commands** organized by stage and function:
+The System provides **48 commands** organized by stage and function:
 
 ### Core Project Management (8)
 
@@ -875,7 +875,7 @@ ln -s .the-system/.claude .claude
 # Expected output:
 ✅ Framework structure validated
 ✅ All 19 agents found
-✅ All 46 commands found
+✅ All 48 commands found
 ✅ Configuration files valid
 ✅ The System ready for use
 ```
@@ -1156,4 +1156,4 @@ Architecture → Product → Development → Release → Operations
 
 *This User Guide covers all features of The System. For quick onboarding, see [QUICKSTART.md](QUICKSTART.md). For framework development, see [CLAUDE.md](CLAUDE.md).*
 
-**Ready to build amazing software with The System!** 🚀
+**Ready to build production software with The System!** 🚀

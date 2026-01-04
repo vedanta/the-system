@@ -229,7 +229,7 @@ ts-ask              Ask Founder-Advisor
 ts-brief            Executive summary
 ts-build            Build database/backend/frontend
 ...
-[continues with all 46 commands and descriptions]
+[continues with all 48 commands and descriptions]
 ```
 
 ### 8. Error Handling

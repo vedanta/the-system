@@ -9,14 +9,14 @@
 
 ## Summary
 
-Version 1.1.0 adds command-line help functionality, file-based project input, AI-optimized technology assessment, and build presets system. Framework expanded from 18 to 19 agents and 44 to 47 commands.
+Version 1.1.0 adds command-line help functionality, file-based project input, AI-optimized technology assessment, and build presets system. Framework expanded from 18 to 19 agents and 44 to 48 commands.
 
 ---
 
 ## New Features
 
 ### Help System Commands
-- **`/ts-help`** - Interactive command browser with 47 commands grouped by category
+- **`/ts-help`** - Interactive command browser with 48 commands grouped by category
 - **`/ts-quickref`** - Compact reference card with workflow patterns
 - **`--help` flag** - Available for major commands (`/ts-turbo --help`, `/ts-push --help`)
 - **Search functionality** - `/ts-help --search <term>` for keyword-based command discovery

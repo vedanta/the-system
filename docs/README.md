@@ -1,37 +1,72 @@
-# The System User Documentation
-**Complete Guide to Using The ASDO Framework**
+# The System Documentation
+**Complete Documentation Hub for The ASDO Framework**
 
-> *Learn how to use The System to build production-ready software with AI agents*
+> *Everything you need to understand, use, and develop The System framework*
+
+---
+
+## 📁 Documentation Structure
+
+This documentation is organized into focused directories for different audiences:
+
+### 🎯 **[User Documentation](user/)** - For Framework Users
+Complete guides for using The System to build production-ready software:
+- All 48 commands with examples and usage patterns
+- Step-by-step workflow guides and best practices
+- Human-in-the-loop approval system documentation
+- Configuration options and deployment strategies
+- Architecture concepts and design principles
+
+### 🛠️ **[Developer Documentation](dev/)** - For Framework Developers
+Comprehensive technical documentation for developing and extending The System:
+- Design specifications for implemented features
+- Architecture documentation and system design
+- Implementation plans and development roadmaps
+- Historical development reports and phase documentation
+- Testing validation procedures and QA standards
+- Agent enhancement proposals and system extensions
 
 ---
 
 ## Overview
 
-This documentation provides everything you need to understand and use **The System** — an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to transform your ideas into production-ready software.
+**The System** is an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to build production-ready software from your ideas.
 
 ### What You'll Find Here
 
-This user documentation covers:
-- Complete agent reference and workflows
-- All 46 commands with examples and usage
-- Step-by-step workflow guides
-- Human-in-the-loop approval system
-- Configuration options and customization
-- Architecture concepts and design principles
+This documentation hub provides:
+- **User Guides** - Learn how to use The System effectively
+- **Developer Specs** - Technical documentation for framework development
+- **Complete Agent Reference** - All 19 agents and their capabilities
+- **Workflow Documentation** - End-to-end development processes
+- **Configuration Guides** - Customization and integration options
 
 ---
 
-## 📖 Documentation Index
+## 📖 User Documentation Index
 
 | Document | Description | When to Use |
 |----------|-------------|-------------|
 | **[Architecture Guide](user/architecture.md)** | How The System works internally | Understanding system design, data flow, and core concepts |
 | **[Agent Reference](user/agents.md)** | Complete guide to all 19 agents | Understanding agent roles, responsibilities, and capabilities |
-| **[Command Reference](user/commands.md)** | All 46 commands with examples | Finding specific commands and learning proper usage |
+| **[Command Reference](user/commands.md)** | All 48 commands with examples | Finding specific commands and learning proper usage |
 | **[Workflow Guide](user/workflow.md)** | Step-by-step implementation process | Following the complete development lifecycle |
 | **[HITL Gates](user/hitl-gates.md)** | Human approval system documentation | Understanding approval points and decision making |
 | **[Configuration](user/configuration.md)** | System configuration options | Customizing tech stack and integrations |
 | **[Customization](user/customization.md)** | Extending The System | Adding agents, commands, and workflows |
+
+## 🛠️ Developer Documentation Index
+
+| Category | Key Documents | Purpose |
+|----------|--------------|---------|
+| **[Design Specifications](dev/)** | Command Center Dashboard, Status Intelligence, Performance Optimization | Current feature designs and technical specifications |
+| **[Architecture & Core](dev/)** | Architecture Selection (v3), Solution Architect, Build Presets | Framework architecture and core system design |
+| **[Implementation Plans](dev/)** | Build Presets, Solution Architect, User Docs Updates | Step-by-step development roadmaps and implementation guides |
+| **[Phase Reports](dev/)** | Phase 1-4 Completion Reports | Historical development progress and milestone documentation |
+| **[Testing & Validation](dev/)** | Build Presets Validation, SA Testing, Integration Testing | Quality assurance procedures and validation reports |
+| **[Enhancement Proposals](dev/)** | Agent Enhancements, System Extensions | Future feature designs and improvement proposals |
+
+> **📋 Complete Developer Index**: See **[dev/README.md](dev/README.md)** for the comprehensive developer documentation guide with all 31 technical documents organized by category.
 
 ---
 
@@ -425,7 +460,7 @@ Generates comprehensive documentation including:
 ### Specialized Expertise
 - **Domain experts** - Each agent has deep knowledge
 - **No context switching** - Agents maintain focus
-- **Coordinated execution** - Agents work together seamlessly
+- **Coordinated execution** - Agents work together efficiently
 
 ### Production Ready
 - **Best practices** - Generated code follows standards
@@ -442,12 +477,13 @@ Generates comprehensive documentation including:
 ## 📞 Support & Community
 
 ### Documentation
-- **Complete Reference** - This documentation covers everything
+- **[User Guides](user/)** - Complete reference for using The System
+- **[Developer Docs](dev/)** - Technical documentation for framework development
 - **Self-Generating** - Use `/ts-self-document` for fresh docs
-- **Architecture Guides** - Understand how everything works
+- **Architecture Guides** - Understand how everything works internally
 
 ### Issue Reporting
-- **GitHub Issues** - [Report bugs and request features](https://github.com/anthropics/claude-code/issues)
+- **GitHub Issues** - [Report bugs and request features](https://github.com/vedanta/the-system/issues)
 - **Verification** - Use `./scripts/verify-the-system.sh` for diagnostics
 - **Built-in Help** - Ask Founder-Advisor with `/ts-ask`
 
@@ -455,11 +491,34 @@ Generates comprehensive documentation including:
 - **Example Projects** - See various project types in action
 - **Configuration Patterns** - Common tech stack configurations
 - **Deployment Guides** - Multiple deployment strategy examples
+- **Developer Resources** - Design specs and implementation guides in `dev/`
+
+---
+
+## 📁 Documentation Organization
+
+```
+docs/
+├── README.md           # This overview and navigation hub
+├── user/              # User-facing guides and tutorials
+│   ├── agents.md      # Complete agent reference
+│   ├── commands.md    # All 48 commands with examples
+│   ├── workflow.md    # Step-by-step development process
+│   └── [9 more guides]
+└── dev/               # Developer technical documentation
+    ├── README.md      # Developer documentation index
+    ├── [4 Design Specs] # Current feature specifications
+    ├── [5 Architecture Docs] # Framework design and core systems
+    ├── [5 Implementation Plans] # Development roadmaps
+    ├── [5 Phase Reports] # Historical development progress
+    ├── [3 Testing Docs] # Quality assurance and validation
+    └── [9 more technical docs] # Guides, enhancements, references
+```
 
 ---
 
 <p align="center">
-  <strong>The System User Documentation</strong><br/>
-  <em>Complete Guide to the ASDO Framework</em><br/>
-  <sub>Everything you need to build production-ready software with AI agents</sub>
+  <strong>The System Documentation Hub</strong><br/>
+  <em>Complete Documentation for the ASDO Framework</em><br/>
+  <sub>Everything you need to use and develop production-ready AI agent systems</sub>
 </p>
