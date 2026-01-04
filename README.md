@@ -5,6 +5,10 @@
 
 Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
 
+<p align="center">
+  <img src="images/system.png" alt="The System - Autonomous Software Development Organization" width="800"/>
+</p>
+
 ---
 
 <p align="center">
@@ -125,12 +129,6 @@ The System is an agentic framework that simulates a complete software developmen
 | Inconsistent code quality | QA engineer reviews every component systematically |
 | Manual deployment setup | DevOps agent generates Infrastructure as Code |
 | You make every micro-decision | You make *strategic* decisions at HITL gates |
-
----
-
-<p align="center">
-  <img src="images/system.png" alt="The System - Autonomous Software Development Organization" width="800"/>
-</p>
 
 ---
 
