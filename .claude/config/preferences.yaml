@@ -107,6 +107,24 @@ build:
     mvp_target: "15-20 minutes"
     production_target: "45-60 minutes"
 
+  # Documentation mode defaults for build presets
+  documentation:
+    prototype:
+      mode: lean
+      rationale: "Speed priority - essential docs only"
+      time_target: "2-3 minutes"
+      files: ["README.md", "DEPLOYMENT.md"]
+    mvp:
+      mode: lean
+      rationale: "Balance speed/quality - core docs sufficient"
+      time_target: "2-3 minutes"
+      files: ["README.md", "DEPLOYMENT.md", "API.md"]
+    production:
+      mode: full
+      rationale: "Quality priority - comprehensive documentation"
+      time_target: "20-30 minutes"
+      files: ["complete_suite"]
+
   # Override defaults for specific project types
   overrides:
     # For prototyping contexts
@@ -267,6 +285,45 @@ monitoring:
   
   # Health checks
   health_check_endpoint: /health
+
+# ----------------------------------------------------------------------------
+# DOCUMENTATION SYSTEM
+# ----------------------------------------------------------------------------
+documentation:
+  # Default documentation mode when no other preferences apply
+  default_mode: lean
+
+  # Mode selection priority chain (cannot be changed)
+  # 1. Explicit command flags (--docs=lean|full, --lean, --full)
+  # 2. Turbo mode override (always lean for speed)
+  # 3. Build preset defaults (prototype/mvp=lean, production=full)
+  # 4. System default (lean)
+
+  # Lean documentation features
+  lean:
+    time_target: "2-3 minutes"
+    quality_gate: "Can someone use this immediately?"
+    files:
+      - README.md
+      - DEPLOYMENT.md
+      - API.md  # backend only
+
+  # Full documentation features
+  full:
+    time_target: "20-30 minutes"
+    quality_gate: "Is this production-ready documentation?"
+    files:
+      - README.md
+      - CONTRIBUTING.md
+      - LICENSE
+      - docs/architecture/
+      - docs/guides/
+      - docs/operations/
+
+  # Templates location
+  templates:
+    lean: ".claude/knowledge/lean-docs-templates/"
+    full: "existing comprehensive system"
 # ============================================================================
 # THE SYSTEM - Stage 5 Preferences (merge with existing preferences.yaml)
 # ============================================================================
@@ -393,9 +450,16 @@ autonomous:
   
   # Verbose output
   verbose: true               # Show agent work, set false for minimal output
-  
+
   # Auto-deploy after Stage 4
   auto_deploy: false          # Set true to auto-deploy to Stage 5 targets
+
+  # Documentation mode overrides for turbo
+  documentation:
+    mode: lean                # Turbo always uses lean docs for speed
+    override_preset_defaults: true  # Override build preset documentation defaults
+    allow_full_override: true # Permit --docs=full explicit override
+    rationale: "Speed-first philosophy - lean docs preserve turbo performance"
 
 # ----------------------------------------------------------------------------
 # TURBO MODE PRESETS

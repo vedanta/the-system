@@ -9,6 +9,11 @@ This directory contains utility scripts for The System framework validation, tes
 | `verify-the-system.sh` | Bash | Framework verification and health check | Any location |
 | `validate-architecture-presets.py` | Python | Architecture presets validation | Project root |
 | `validate-build-presets.py` | Python | Build presets validation | Project root |
+| `test-lean-docs.sh` | Bash | Lean documentation system testing | Project root |
+| `test-lean-mode.sh` | Bash | Lean mode turbo execution testing | Project root |
+| `test-lean-mode-alt.sh` | Bash | Alternative lean mode testing (script command) | Project root |
+| `test-lean-mode-simple.sh` | Bash | Simple lean mode testing (pipe method) | Project root |
+| `validate-agent-compliance.sh` | Bash | Individual agent lean mode compliance testing | Project root |
 
 ---
 
@@ -378,6 +383,291 @@ cd scripts && python3 validate-build-presets.py
 
 ---
 
+## 🧪 test-lean-docs.sh
+
+### Purpose
+Comprehensive testing script for the lean documentation system implementation. Validates template correctness, performance, and agent compliance with lean mode requirements.
+
+### Features
+- ✅ **Template Validation** - Checks lean documentation templates exist and are properly formatted
+- ✅ **Performance Testing** - Measures documentation generation time and file count
+- ✅ **Agent Compliance** - Validates agents produce minimal documentation in lean mode
+- ✅ **Mode Testing** - Tests both lean and full documentation modes
+- ✅ **Quick Mode** - Skips performance tests for faster validation
+- ✅ **Comparative Analysis** - Compares lean vs full mode outputs
+
+### Usage
+
+```bash
+# Run all tests
+./scripts/test-lean-docs.sh
+
+# Test specific mode
+./scripts/test-lean-docs.sh --mode=lean
+./scripts/test-lean-docs.sh --mode=full
+
+# Quick validation (skip performance tests)
+./scripts/test-lean-docs.sh --quick
+
+# Help
+./scripts/test-lean-docs.sh --help
+```
+
+### What It Tests
+
+#### 1. Template Validation
+- Lean templates directory exists (`.claude/knowledge/lean-docs-templates/`)
+- Required template files are present
+- Template structure and formatting
+- Variable substitution patterns
+
+#### 2. Performance Testing
+- Documentation generation time (target: <3 minutes for lean mode)
+- File count limits (target: ≤2 files for lean mode)
+- Memory usage during generation
+- Agent execution efficiency
+
+#### 3. Agent Compliance
+- **Technical Writer** - Generates only README.md and DEPLOYMENT.md
+- **Security Engineer** - Produces single status file, no detailed reports
+- **Release Engineer** - Creates version bump only, no changelog/release notes
+- **DevOps Engineer** - Basic deployment script, no comprehensive IaC docs
+
+#### 4. Mode Comparison
+- Lean mode: 2-3 files, <3 minutes
+- Full mode: 8-15 files, 20-30 minutes
+- Quality difference validation
+- Feature completeness verification
+
+### Output Example
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  🧪 TEMPLATE VALIDATION
+╚══════════════════════════════════════════════════════════════╝
+
+  Lean templates directory exists                    ✅ PASSED
+  README template exists                             ✅ PASSED
+  DEPLOYMENT template exists                         ✅ PASSED
+
+╔══════════════════════════════════════════════════════════════╗
+║  🧪 LEAN MODE PERFORMANCE TEST
+╚══════════════════════════════════════════════════════════════╝
+
+  Documentation generation time: 142s (target: <180s) ✅ PASSED
+  Documentation files: 2 (target: ≤2)               ✅ PASSED
+  Agent compliance check                             ✅ PASSED
+```
+
+---
+
+## 🧪 test-lean-mode.sh (and variants)
+
+### Purpose
+Testing scripts for validating lean mode turbo execution functionality. Multiple variants provided to handle different terminal environments and input methods.
+
+### Features
+- ✅ **Turbo Mode Testing** - Tests autonomous `/ts-turbo` execution with `--docs=lean`
+- ✅ **Performance Validation** - Ensures execution time under 3 minutes
+- ✅ **File Count Verification** - Validates minimal documentation output
+- ✅ **Agent Compliance Checking** - Tests individual agent lean mode behavior
+- ✅ **Multiple Execution Methods** - Three different approaches for terminal compatibility
+
+### Script Variants
+
+#### 1. test-lean-mode.sh (expect method)
+```bash
+./scripts/test-lean-mode.sh
+```
+Uses `expect` to provide pseudo-terminal for Claude CLI interaction.
+
+**Requirements:**
+- `expect` command installed
+- Proper TTY environment
+
+#### 2. test-lean-mode-alt.sh (script command)
+```bash
+./scripts/test-lean-mode-alt.sh
+```
+Uses `script` command to provide PTY for Claude CLI.
+
+**Requirements:**
+- `script` command (available on macOS/Linux)
+- Works in most terminal environments
+
+#### 3. test-lean-mode-simple.sh (pipe method)
+```bash
+./scripts/test-lean-mode-simple.sh
+```
+Uses simple echo and pipe to send commands to Claude CLI.
+
+**Requirements:**
+- Basic bash environment
+- Most compatible method
+
+### What It Tests
+
+#### 1. Execution Performance
+- Total execution time (target: <180 seconds)
+- Framework startup and initialization
+- Agent coordination efficiency
+- Output generation speed
+
+#### 2. Documentation Output
+- File count validation (target: ≤2 files)
+- Proper file locations and naming
+- Content quality verification
+- Template compliance
+
+#### 3. Agent Compliance
+- **Security Engineer**: ≤1 security file
+- **Release Engineer**: No changelog/release notes files
+- **DevOps Engineer**: No infrastructure documentation
+- **Technical Writer**: Only essential docs
+
+#### 4. Framework Integration
+- Turbo mode flag recognition (`--docs=lean`)
+- Proper agent orchestration
+- Error handling and recovery
+- Output directory structure
+
+### Usage Recommendations
+
+1. **Try simple method first** (most reliable):
+```bash
+./scripts/test-lean-mode-simple.sh
+```
+
+2. **Use alternative if simple fails**:
+```bash
+./scripts/test-lean-mode-alt.sh
+```
+
+3. **Use expect method if available**:
+```bash
+./scripts/test-lean-mode.sh
+```
+
+### Troubleshooting
+
+#### Raw Mode Error
+```
+ERROR Raw mode is not supported on the current process.stdin
+```
+**Solution:** Use `test-lean-mode-simple.sh` or `test-lean-mode-alt.sh`
+
+#### Command Not Found
+```bash
+# Install expect (if needed)
+brew install expect  # macOS
+apt-get install expect  # Ubuntu
+
+# script command should be available by default on Unix systems
+```
+
+---
+
+## 🤖 validate-agent-compliance.sh
+
+### Purpose
+Individual agent lean mode compliance validator. Tests specific agents in isolation to ensure they follow lean documentation principles.
+
+### Features
+- ✅ **Individual Agent Testing** - Tests agents separately for precise validation
+- ✅ **Compliance Metrics** - Measures file count, execution time, output quality
+- ✅ **Simulation Mode** - Can simulate agent behavior for testing
+- ✅ **Configurable Limits** - Customizable thresholds per agent type
+- ✅ **Detailed Reporting** - Agent-specific compliance reports
+
+### Usage
+
+```bash
+# Test all agents
+./scripts/validate-agent-compliance.sh
+
+# Test specific agent
+./scripts/validate-agent-compliance.sh technical-writer
+
+# Test with custom limits
+./scripts/validate-agent-compliance.sh security-engineer 1 60
+```
+
+### Agent Compliance Standards
+
+#### Technical Writer
+- **Max Files**: 2 (README.md, DEPLOYMENT.md)
+- **Max Time**: 120 seconds
+- **Content**: Essential information only, no comprehensive guides
+
+#### Security Engineer
+- **Max Files**: 1 (SECURITY_STATUS.txt)
+- **Max Time**: 60 seconds
+- **Content**: Basic security scan results, no detailed reports
+
+#### Release Engineer
+- **Max Files**: 1 (VERSION file)
+- **Max Time**: 30 seconds
+- **Content**: Version bump only, no changelog or release notes
+
+#### DevOps Engineer
+- **Max Files**: 0 (infrastructure docs)
+- **Max Time**: 45 seconds
+- **Content**: Basic deployment script only, no comprehensive IaC
+
+### What It Validates
+
+#### 1. File Output Compliance
+- Count of generated documentation files
+- File naming conventions
+- Directory structure adherence
+- Content size limitations
+
+#### 2. Execution Performance
+- Agent initialization time
+- Processing duration
+- Resource usage
+- Memory footprint
+
+#### 3. Content Quality
+- Essential information preservation
+- Unnecessary detail elimination
+- Template compliance
+- Format consistency
+
+#### 4. Integration Behavior
+- Agent communication protocols
+- State management
+- Error handling
+- Cleanup procedures
+
+### Output Example
+
+```
+🔍 Individual Agent Lean Mode Compliance Validator
+
+🤖 Testing technical-writer compliance...
+   📄 Max files: 2
+   ⏱️  Max time: 120s
+   🧪 Running lean mode test...
+
+✅ COMPLIANT: technical-writer
+   📄 Files generated: 2/2
+   ⏱️  Execution time: 89s/120s
+   📝 Content: Essential documentation only
+
+🤖 Testing security-engineer compliance...
+   📄 Max files: 1
+   ⏱️  Max time: 60s
+   🧪 Running lean mode test...
+
+✅ COMPLIANT: security-engineer
+   📄 Files generated: 1/1
+   ⏱️  Execution time: 34s/60s
+   🔒 Content: Security status only
+```
+
+---
+
 ## 🚀 Quick Usage Reference
 
 ### Daily Verification
@@ -390,6 +680,12 @@ python3 scripts/validate-architecture-presets.py
 
 # Build presets validation
 python3 scripts/validate-build-presets.py
+
+# Lean mode testing
+./scripts/test-lean-mode-simple.sh
+
+# Documentation system testing
+./scripts/test-lean-docs.sh --quick
 ```
 
 ### Integration Testing
@@ -397,6 +693,15 @@ python3 scripts/validate-build-presets.py
 # Full framework validation
 ./scripts/verify-the-system.sh && python3 scripts/validate-architecture-presets.py && python3 scripts/validate-build-presets.py
 echo "✅ All systems operational"
+
+# Complete testing suite including lean mode
+./scripts/verify-the-system.sh && \
+python3 scripts/validate-architecture-presets.py && \
+python3 scripts/validate-build-presets.py && \
+./scripts/test-lean-docs.sh && \
+./scripts/test-lean-mode-simple.sh && \
+./scripts/validate-agent-compliance.sh
+echo "✅ All systems tested and operational"
 ```
 
 ### Troubleshooting
@@ -435,6 +740,44 @@ python3 --version  # Should be 3.7+
 # File not found - run from project root
 cd /path/to/the-system
 python3 scripts/validate-build-presets.py
+```
+
+#### test-lean-docs.sh Issues
+```bash
+# Permission denied
+chmod +x scripts/test-lean-docs.sh
+
+# Template directory missing
+mkdir -p .claude/knowledge/lean-docs-templates
+
+# Quick validation only
+./scripts/test-lean-docs.sh --quick
+```
+
+#### test-lean-mode.sh Issues
+```bash
+# Raw mode error - use alternative scripts
+./scripts/test-lean-mode-simple.sh
+./scripts/test-lean-mode-alt.sh
+
+# Permission denied
+chmod +x scripts/test-lean-mode*.sh
+
+# Missing expect command
+brew install expect  # macOS
+apt-get install expect  # Ubuntu
+```
+
+#### validate-agent-compliance.sh Issues
+```bash
+# Permission denied
+chmod +x scripts/validate-agent-compliance.sh
+
+# Specific agent testing
+./scripts/validate-agent-compliance.sh technical-writer
+
+# Output directory issues
+mkdir -p output/
 ```
 
 ---
@@ -490,6 +833,21 @@ cd /path/to/the-system/scripts && ./my-script.sh
 ---
 
 ## 🔄 Recent Updates
+
+### v1.2 - Lean Documentation Testing Suite (January 2025)
+- ✅ **Added Lean Mode Testing** - Complete test suite for lean documentation mode
+- ✅ **Multiple Test Methods** - Three different approaches for terminal compatibility
+- ✅ **Agent Compliance Testing** - Individual agent validation for lean mode behavior
+- ✅ **Documentation System Testing** - Comprehensive template and performance validation
+- ✅ **Raw Mode Error Fix** - Solutions for Claude CLI terminal compatibility issues
+- ✅ **Test Script Documentation** - Complete documentation for all testing utilities
+
+### Test Scripts Added
+- **`test-lean-docs.sh`** - Comprehensive lean documentation system testing
+- **`test-lean-mode.sh`** - Turbo mode lean execution testing (expect method)
+- **`test-lean-mode-alt.sh`** - Alternative lean mode testing (script command)
+- **`test-lean-mode-simple.sh`** - Simple lean mode testing (pipe method)
+- **`validate-agent-compliance.sh`** - Individual agent lean mode compliance testing
 
 ### v1.1 - Solution Architect Integration (December 2024)
 - ✅ **Added Solution Architect Agent** - AI-optimized technology assessment
