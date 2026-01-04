@@ -128,22 +128,9 @@ The System is an agentic framework that simulates a complete software developmen
 
 ---
 
-## 🎯 Command Center Dashboard
-
-Monitor your projects with comprehensive intelligence and real-time metrics:
-
 <p align="center">
-  <img src="images/dashboard.png" alt="The System Command Center Dashboard" width="800"/>
+  <img src="images/system.png" alt="The System - Autonomous Software Development Organization" width="800"/>
 </p>
-
-**Professional Project Intelligence:**
-- **Executive Overview** - Project status, AI optimization scores, quality metrics
-- **Execution Pipeline** - Visual stage progression with agent flows and checkmarks
-- **Real-Time Metrics** - Bundle size, response times, uptime, security status
-- **Smart Insights** - AI-driven recommendations and architectural analysis
-- **Live Deployment Status** - Direct integration with production applications
-
-Access your Command Center with: `/ts-status --dashboard`
 
 ---
 
