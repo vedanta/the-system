@@ -5,6 +5,52 @@ All notable changes to The System ASDO framework will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2025-01-03
+
+### Added
+- **Lean Documentation Mode**
+  - Complete implementation with 3-minute generation target vs 20-30 minutes for full mode
+  - Template system in `.claude/knowledge/lean-docs-templates/`
+  - Priority chain for mode selection (flags → turbo → preset → default)
+  - Agent-specific lean behavior with file count and time limits
+
+- **Testing Suite for Lean Mode**
+  - `test-lean-docs.sh` - Comprehensive lean documentation system testing
+  - `test-lean-mode.sh` (3 variants) - Turbo mode lean execution testing
+  - `test-lean-mode-simple.sh` - Simple pipe method for terminal compatibility
+  - `validate-agent-compliance.sh` - Individual agent lean mode compliance testing
+  - Terminal compatibility solutions for Claude CLI raw mode issues
+
+- **Language Standards Enforcement**
+  - Comprehensive marketing language elimination with regex validation
+  - Direct, functional documentation standards with prohibited patterns
+  - Enhanced `/ts-user-docs-update` command with language compliance checking
+  - Technical Writer agent with critical language validation requirements
+
+### Changed
+- **Documentation Quality**
+  - Eliminated all decorative/marketing language for 100% direct, functional communication
+  - Updated taglines: "Work at the Speed of Thought" → "Configure Speed vs Quality"
+  - Replaced promotional descriptions with precise, practical terminology
+  - Enhanced visual presentation with new professional hero image
+
+- **Project Structure**
+  - Root directory reorganization: essential files only in root
+  - Development files moved to `docs/dev/`, user files to `docs/user/`
+  - Cleaner project presentation for professional first impression
+  - Fixed internal links after file reorganization
+
+- **Agent Enhancements**
+  - Technical Writer agent updated with lean mode system and language standards
+  - Enhanced documentation principles compliance validation
+  - Improved agent intersection optimization for lean workflows
+
+### Fixed
+- Internal documentation links after file reorganization
+- Terminal compatibility issues with Claude CLI in testing scripts
+- Progressive disclosure structure validation
+- Command count accuracy in scripts (46 → 48 commands)
+
 ## [1.1.0] - 2025-12-31
 
 ### Added
