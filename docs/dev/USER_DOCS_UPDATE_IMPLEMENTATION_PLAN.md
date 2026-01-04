@@ -426,9 +426,9 @@ claude
 - Agent questions → Use `/ts-ask "your question"`
 
 **Documentation:**
-- **Overview:** [Main README](README.md)
-- **Complete Guide:** [Framework Instructions](CLAUDE.md)
-- **User Docs:** [Documentation Directory](docs/user/)
+- **Overview:** [Main README](../../README.md)
+- **Complete Guide:** [Framework Instructions](../../CLAUDE.md)
+- **User Docs:** [Documentation Directory](../user/)
 
 **Community:**
 - Issues: [GitHub Issues](https://github.com/anthropics/claude-code/issues)

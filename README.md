@@ -521,7 +521,7 @@ git branch -d feat/your-feature
 - ✅ Update documentation if needed
 - ✅ Follow existing patterns
 
-**📋 See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for complete guidelines**
+**📋 See [CONTRIBUTING.md](CONTRIBUTING.md) for complete guidelines**
 
 ---
 
@@ -529,7 +529,7 @@ git branch -d feat/your-feature
 
 **LGPL-3.0** - Use commercially, modify freely, keep The System improvements open source.
 
-📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](.github/CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
+📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
 
 ---
 

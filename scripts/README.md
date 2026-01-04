@@ -828,7 +828,7 @@ cd /path/to/the-system/scripts && ./my-script.sh
 - [Main README](../README.md) - Framework overview
 - [CLAUDE.md](../CLAUDE.md) - Complete framework reference
 - [Architecture Documentation](../docs/) - Detailed guides
-- [User Guide](../user-guide.md) - Getting started
+- [User Guide](../USER-GUIDE.md) - Getting started
 
 ---
 
