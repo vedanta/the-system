@@ -154,11 +154,11 @@ cd YOUR_REPOSITORY_NAME
 
 # Start Claude Code and create your first project
 claude
-> /ts-new-project my-app
-> "Build a task management app with AI-powered prioritization and real-time sync"
+> /ts-new-project my-blog
+> "Simple blog website with posts and comments"
 
 # Let AI build it autonomously
-> /ts-turbo my-app "task management app with auth, AI prioritization, and team collaboration"
+> /ts-turbo my-blog "blog with posts, comments, and basic admin"
 ```
 
 **Result:** Complete production app in ~15-20 minutes with frontend, backend, database, tests, and docs!
@@ -224,12 +224,12 @@ Configure the balance of speed vs. quality for your project needs:
 /ts-turbo demo-app --idea=ideas/prototype.txt --build=prototype
 
 # 📦 MVP (15-20 min) - Production launches, professional quality
-/ts-turbo todo-app "todo app with authentication" --build=mvp
-/ts-turbo todo-app --idea=ideas/mvp-app.md --build=mvp
+/ts-turbo blog-site "blog with user accounts and comments" --build=mvp
+/ts-turbo blog-site --idea=ideas/mvp-blog.md --build=mvp
 
 # 🏢 PRODUCTION (45-60 min) - Enterprise-grade, full compliance
-/ts-turbo enterprise-app "mission-critical todo system" --build=production
-/ts-turbo enterprise-app --idea=ideas/enterprise.json --build=production
+/ts-turbo business-app "inventory management system" --build=production
+/ts-turbo business-app --idea=ideas/production-app.json --build=production
 ```
 
 ### Keyword Detection
@@ -290,11 +290,11 @@ For rapid prototyping, bypass all approval gates:
 
 ```bash
 # With quoted idea
-/ts-turbo my-app "Build a task management app with user auth and team collaboration"
+/ts-turbo my-portfolio "Personal portfolio website with contact form"
 
 # With idea from file
-/ts-turbo my-app --idea=ideas/task-manager.txt
-/ts-turbo my-app --idea=ideas/complex-app.json  # JSON can include build flags
+/ts-turbo my-blog --idea=ideas/simple-blog.txt
+/ts-turbo my-inventory --idea=ideas/inventory-tracker.json  # JSON can include build flags
 ```
 
 **⚡ Turbo Mode runs Stages 1-4 automatically** with build presets for speed control and file-based ideas for organized workflows.
@@ -410,14 +410,14 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 
 ### Production MVPs (15-20 minutes)
 ```bash
-/ts-turbo ecommerce-mvp "e-commerce platform with payments" --build=mvp
-/ts-turbo saas-mvp "SaaS analytics dashboard" --build=mvp
+/ts-turbo recipe-site "recipe sharing website with ratings" --build=mvp
+/ts-turbo photo-gallery "photo gallery with user uploads" --build=mvp
 ```
 
-### Enterprise Systems (45-60 minutes)
+### Business Applications (45-60 minutes)
 ```bash
-/ts-turbo healthcare-system "patient management with HIPAA compliance" --build=production
-/ts-turbo fintech-platform "trading platform with regulatory compliance" --build=production
+/ts-turbo employee-directory "company staff directory with search" --build=production
+/ts-turbo event-manager "conference booking system" --build=production
 ```
 
 👉 **[More Examples →](USER-GUIDE.md#example-projects)**
