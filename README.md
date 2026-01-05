@@ -8,7 +8,7 @@
 Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
 
 <p align="center">
-  <img src="images/system.png" alt="The System - Autonomous Software Development Organization" width="800"/>
+  <img src="images/system-hero.png" alt="The System - Autonomous Software Development Organization" width="800"/>
 </p>
 
 ---
