@@ -41,8 +41,8 @@ This project is licensed under **LGPL 3.0** (see [LICENSE](LICENSE)). All contri
 
 1. **Set up your development environment:**
    ```bash
-   git clone https://github.com/yourusername/the-system.git
-   cd the-system
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+   cd YOUR_REPOSITORY_NAME
 
    # Verify the framework
    ./scripts/verify-the-system.sh
