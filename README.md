@@ -3,6 +3,8 @@
 
 > *Autonomous software development with AI agents*
 
+**→ [🚀 Quick Start Guide](#-quick-start) | Get building in 2 minutes**
+
 Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
 
 <p align="center">
@@ -134,13 +136,41 @@ The System is an agentic framework that simulates a complete software developmen
 
 ## ⚡ Quick Start
 
-### Prerequisites
+### 🎯 Fastest Way: Use GitHub Template (2 minutes)
 
-- **[Claude Code](https://claude.ai/code)** - The AI-powered development environment
-- **Git** - For version control and submodule management
-- **Node.js 18+** / **Python 3.10+** - Automatically detected per project
+> **Recommended for new users** - Get a complete AI development team instantly
 
-### Installation (Recommended: Submodule)
+1. **Click "Use this template"** at the top of this repository
+2. **Name your new repository** and create it
+3. **Clone and start building:**
+
+```bash
+# Clone your new repository
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+cd YOUR_REPOSITORY_NAME
+
+# Verify installation
+./scripts/verify-the-system.sh
+
+# Start Claude Code and create your first project
+claude
+> /ts-new-project my-app
+> "Build a task management app with AI-powered prioritization and real-time sync"
+
+# Let AI build it autonomously
+> /ts-turbo my-app "task management app with auth, AI prioritization, and team collaboration"
+```
+
+**Result:** Complete production app in ~15-20 minutes with frontend, backend, database, tests, and docs!
+
+### 🔧 Alternative: Submodule Installation
+
+<details>
+<summary>Click to expand submodule installation method</summary>
+
+**Prerequisites:**
+- [Claude Code](https://claude.ai/code) - AI development environment
+- Git and Node.js 18+
 
 ```bash
 # Create your project directory
@@ -148,7 +178,7 @@ mkdir my-project && cd my-project
 git init
 
 # Add The System as a submodule
-git submodule add https://github.com/YOUR_USERNAME/the-system.git .the-system
+git submodule add https://github.com/vedanta/the-system.git .the-system
 git submodule update --init --recursive
 
 # Create symbolic links
@@ -161,30 +191,24 @@ mkdir -p input output
 # Verify installation
 .the-system/scripts/verify-the-system.sh
 git add . && git commit -m "Add The System framework"
-```
 
-### Your First Project
-
-```bash
-# Launch Claude Code in your project directory
+# Launch Claude Code and start building
 claude
-
-# Option 1: Interactive project creation
 > /ts-new-project my-app
-> "I want to build a task management app with AI-powered prioritization,
-  user authentication, team collaboration, and real-time sync"
-
-# Option 2: Project from idea file
-> mkdir -p ideas
-> echo "A task management app with AI-powered prioritization, user auth,
-  team collaboration, and real-time sync" > ideas/my-app.txt
-> /ts-new-project my-app --idea=ideas/my-app.txt
-
-# Begin the structured development process
 > /ts-approve architecture-start
 ```
+</details>
 
-**That's it!** The System guides you through each stage with clear next steps.
+### 🚀 What You Get
+
+After setup, you have **19 AI agents** ready to build complete applications:
+- **🏗️ Architecture** - System design and tech selection
+- **📦 Product** - MVP planning and user stories
+- **💻 Development** - Full-stack coding with tests
+- **🚀 Release** - Documentation, CI/CD, and deployment
+- **🌐 Go Live** - Production deployment to 13+ platforms
+
+**Next:** Try the [5-minute tutorial](#-build-presets---configure-speed-vs-quality) below!
 
 ---
 
