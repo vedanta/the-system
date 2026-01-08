@@ -19,7 +19,21 @@ This directory contains all development-related documentation for The System fra
 - **[architecture-selection-design-doc.md](./architecture-selection-design-doc.md)** - Original architecture design
 - **[solution-architect-design.md](./solution-architect-design.md)** - Solution Architect agent design
 - **[build-presets-design-doc.md](./build-presets-design-doc.md)** - Build presets system design
-- **[build-presets-architecture.mermaid](./build-presets-architecture.mermaid)** - Build presets architecture diagrams
+
+## 📊 Technical Diagrams
+
+**Mermaid Architecture Diagrams:**
+
+- **[flow-hl.mermaid](./flow-hl.mermaid)** - High-level system overview (idea → production)
+- **[agent-interaction-flow.mermaid](./agent-interaction-flow.mermaid)** - Agent communication & coordination sequence
+- **[state-management-flow.mermaid](./state-management-flow.mermaid)** - Project state transitions & lifecycle
+- **[command-execution-flow.mermaid](./command-execution-flow.mermaid)** - Command parsing, routing & execution
+- **[hitl-gate-flow.mermaid](./hitl-gate-flow.mermaid)** - Human-in-the-loop decision gates
+- **[build-preset-decision.mermaid](./build-preset-decision.mermaid)** - Build preset selection logic
+- **[build-presets-architecture.mermaid](./build-presets-architecture.mermaid)** - Build presets system architecture
+- **[deployment-pipeline-flow.mermaid](./deployment-pipeline-flow.mermaid)** - Deployment process (Stage 4 & 5)
+- **[technology-decision-matrix.mermaid](./technology-decision-matrix.mermaid)** - Technology stack selection
+- **[flow-detailed.mermaid](./flow-detailed.mermaid)** - Comprehensive technical system flow
 
 ## 📋 Implementation Plans
 

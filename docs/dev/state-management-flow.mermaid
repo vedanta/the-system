@@ -1,0 +1,95 @@
+```mermaid
+stateDiagram-v2
+    [*] --> PROJECT_INIT: /ts-new-project
+
+    PROJECT_INIT --> IDEA_CAPTURE: User provides idea
+    IDEA_CAPTURE --> ARCHITECTURE_ASSESS: /ts-assess
+
+    state "Architecture Phase" as ARCH_PHASE {
+        ARCHITECTURE_ASSESS --> ARCH_IN_PROGRESS: Solution Architect working
+        ARCH_IN_PROGRESS --> ARCH_COMPLETE: Architecture designed
+        ARCH_COMPLETE --> ARCH_LOCKED: /ts-approve architecture-lock
+    }
+
+    ARCH_LOCKED --> PRODUCT_PLANNING: Route to Product Department
+
+    state "Product Phase" as PROD_PHASE {
+        PRODUCT_PLANNING --> PROD_LEAD_WORK: Product Lead defining MVP
+        PROD_LEAD_WORK --> PLANNER_WORK: Project Planner creating roadmap
+        PLANNER_WORK --> ANALYST_WORK: Business Analyst validation
+        ANALYST_WORK --> PROD_COMPLETE: All product work done
+        PROD_COMPLETE --> GREEN_LIGHT: /ts-approve green-light
+    }
+
+    GREEN_LIGHT --> DEV_PLANNING: Route to Development
+
+    state "Development Phase" as DEV_PHASE {
+        DEV_PLANNING --> DB_LAYER: Database Developer
+        DB_LAYER --> BE_LAYER: Backend Developer
+        BE_LAYER --> FE_LAYER: Frontend Developer
+        FE_LAYER --> INTEGRATION: Integration Engineer
+        INTEGRATION --> QA_TESTING: QA Engineer validation
+        QA_TESTING --> QUALITY_GATE: Principal Developer review
+        QUALITY_GATE --> DEV_COMPLETE: /ts-signoff
+    }
+
+    DEV_COMPLETE --> RELEASE_PREP: Route to Release Department
+
+    state "Release Phase" as REL_PHASE {
+        RELEASE_PREP --> DOCS_GEN: Technical Writer
+        DOCS_GEN --> SECURITY_SCAN: Security Engineer
+        SECURITY_SCAN --> RELEASE_PKG: Release Engineer
+        RELEASE_PKG --> INFRA_GEN: DevOps Engineer
+        INFRA_GEN --> REL_COMPLETE: All artifacts ready
+    }
+
+    REL_COMPLETE --> STAGING_DEPLOY: /ts-deploy staging
+    STAGING_DEPLOY --> STAGING_VERIFY: /ts-verify staging
+    STAGING_VERIFY --> PROD_DEPLOY: /ts-approve production
+    PROD_DEPLOY --> PROD_VERIFY: /ts-verify production
+    PROD_VERIFY --> LAUNCH_READY: /ts-approve launch
+
+    state "Operations Phase" as OPS_PHASE {
+        LAUNCH_READY --> PLATFORM_DEPLOY: SRE Deploy Engineer
+        PLATFORM_DEPLOY --> MONITORING: SRE Ops Engineer
+        MONITORING --> OPERATIONAL: Live system
+    }
+
+    OPERATIONAL --> [*]: Project complete
+
+    %% Error states
+    ARCH_IN_PROGRESS --> ARCH_ERROR: Critical issue
+    PROD_LEAD_WORK --> PROD_ERROR: Requirements unclear
+    DEV_PLANNING --> DEV_ERROR: Build failure
+    SECURITY_SCAN --> SEC_ERROR: Critical vulnerability
+    STAGING_DEPLOY --> DEPLOY_ERROR: Deployment failure
+
+    %% Error recovery
+    ARCH_ERROR --> BUG_FIXER: /ts-fix
+    PROD_ERROR --> BUG_FIXER: /ts-fix
+    DEV_ERROR --> BUG_FIXER: /ts-fix
+    SEC_ERROR --> BUG_FIXER: /ts-fix
+    DEPLOY_ERROR --> BUG_FIXER: /ts-fix
+
+    BUG_FIXER --> ARCH_IN_PROGRESS: Issue resolved
+    BUG_FIXER --> PROD_LEAD_WORK: Issue resolved
+    BUG_FIXER --> DEV_PLANNING: Issue resolved
+    BUG_FIXER --> SECURITY_SCAN: Issue resolved
+    BUG_FIXER --> STAGING_DEPLOY: Issue resolved
+
+    %% Turbo mode bypass
+    IDEA_CAPTURE --> TURBO_MODE: /ts-turbo
+    TURBO_MODE --> REL_COMPLETE: Skip HITL gates
+
+    note right of TURBO_MODE
+        Autonomous execution
+        Stages 1-4 automatic
+        Build preset determines speed
+    end note
+
+    note right of BUG_FIXER
+        Available from any state
+        Systematic error resolution
+        Returns to previous state
+    end note
+```
