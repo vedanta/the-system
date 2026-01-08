@@ -1,0 +1,97 @@
+```mermaid
+flowchart TD
+    CMD[User Command Input] --> PARSE[Command Parser]
+
+    PARSE --> CORE{Core Command?}
+    PARSE --> STAGE{Stage Command?}
+    PARSE --> UTIL{Utility Command?}
+
+    %% Core Commands
+    CORE -->|Yes| NEW[/ts-new-project]
+    CORE --> STATUS[/ts-status]
+    CORE --> APPROVE[/ts-approve]
+    CORE --> REVIEW[/ts-review]
+
+    NEW --> FA1[🎩 Founder-Advisor]
+    STATUS --> FA1
+    APPROVE --> FA1
+    REVIEW --> FA1
+
+    %% Stage Commands
+    STAGE -->|Yes| ARCH[Architecture Commands]
+    STAGE --> PROD[Product Commands]
+    STAGE --> DEV[Development Commands]
+    STAGE --> REL[Release Commands]
+    STAGE --> OPS[Operations Commands]
+
+    ARCH --> SA[🏗️ Solution Architect]
+    PROD --> PL[👔 Product Lead]
+    PROD --> PP[📅 Project Planner]
+    PROD --> BA[💼 Business Analyst]
+
+    DEV --> PD[👨‍💼 Principal Developer]
+    DEV --> QA[🧪 QA Engineer]
+    DEV --> DB[🗄️ Database Developer]
+    DEV --> BE[⚙️ Backend Developer]
+    DEV --> FE[🎨 Frontend Developer]
+    DEV --> IE[🔗 Integration Engineer]
+
+    REL --> TW[📝 Technical Writer]
+    REL --> SE[🔐 Security Engineer]
+    REL --> RE[📦 Release Engineer]
+    REL --> DE[🚀 DevOps Engineer]
+
+    OPS --> SRE1[🚀 SRE Deploy Engineer]
+    OPS --> SRE2[🛡️ SRE Ops Engineer]
+
+    %% Utility Commands
+    UTIL -->|Yes| BF[🐛 Bug Fixer]
+    UTIL --> HELP[Help System]
+    UTIL --> VERIFY[Verification Tools]
+
+    %% All agents interact with project file
+    FA1 --> PF[📋 Project File]
+    SA --> PF
+    PL --> PF
+    PP --> PF
+    BA --> PF
+    PD --> PF
+    QA --> PF
+    DB --> PF
+    BE --> PF
+    FE --> PF
+    IE --> PF
+    TW --> PF
+    SE --> PF
+    RE --> PF
+    DE --> PF
+    SRE1 --> PF
+    SRE2 --> PF
+    BF --> PF
+
+    %% Output back to user
+    PF --> OUTPUT[Command Result]
+    OUTPUT --> USER[👤 User Response]
+
+    %% Error handling
+    PARSE --> ERROR{Parse Error?}
+    ERROR -->|Yes| HELP_MSG[Show Help Message]
+    ERROR -->|No| EXEC[Execute Command]
+
+    %% State validation
+    EXEC --> VALIDATE[Validate Project State]
+    VALIDATE --> PREREQ{Prerequisites Met?}
+    PREREQ -->|No| PREREQ_ERROR[Show Prerequisites]
+    PREREQ -->|Yes| AGENT_EXEC[Execute Agent]
+
+    %% Style classes
+    classDef command fill:#FFE4B5,stroke:#D2691E,stroke-width:2px
+    classDef agent fill:#F0FFF0,stroke:#32CD32,stroke-width:1px
+    classDef system fill:#E6F3FF,stroke:#4169E1,stroke-width:2px
+    classDef error fill:#FFE4E1,stroke:#DC143C,stroke-width:2px
+
+    class CMD,NEW,STATUS,APPROVE,REVIEW command
+    class SA,PL,PP,BA,PD,QA,DB,BE,FE,IE,TW,SE,RE,DE,SRE1,SRE2,BF agent
+    class PF,PARSE,EXEC,VALIDATE system
+    class ERROR,PREREQ_ERROR,HELP_MSG error
+```

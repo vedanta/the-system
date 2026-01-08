@@ -1,0 +1,120 @@
+```mermaid
+flowchart TD
+    START[Agent Work Complete] --> GATE_CHECK{HITL Gate Required?}
+
+    GATE_CHECK -->|No| CONTINUE[Continue to Next Agent]
+    GATE_CHECK -->|Yes| GATE_TYPE{Which Gate Type?}
+
+    %% Gate Types
+    GATE_TYPE --> ARCH_START[🏗️ Architecture Start]
+    GATE_TYPE --> ARCH_LOCK[🔒 Architecture Lock]
+    GATE_TYPE --> GREEN_LIGHT[🚦 Green Light]
+    GATE_TYPE --> DEV_COMPLETE[💻 Development Complete]
+    GATE_TYPE --> REL_READY[📦 Release Ready]
+    GATE_TYPE --> STAGING_OK[🧪 Staging Verified]
+    GATE_TYPE --> PROD_READY[🚀 Production Ready]
+    GATE_TYPE --> LAUNCH[🌐 Launch]
+
+    %% Architecture Start Gate
+    ARCH_START --> ARCH_START_PRESENT[Present to User:<br/>• Project scope<br/>• Resource requirements<br/>• Timeline estimate]
+    ARCH_START_PRESENT --> ARCH_START_WAIT[Wait for /ts-approve architecture-start]
+    ARCH_START_WAIT --> ARCH_START_DECISION{User Decision}
+    ARCH_START_DECISION -->|Approve| ARCH_START_APPROVED[Begin Solution Architect]
+    ARCH_START_DECISION -->|Reject| ARCH_START_REJECTED[Return to ideation]
+
+    %% Architecture Lock Gate
+    ARCH_LOCK --> ARCH_LOCK_PRESENT[Present to User:<br/>• Technology stack<br/>• Architecture decisions<br/>• Success probability]
+    ARCH_LOCK_PRESENT --> ARCH_LOCK_WAIT[Wait for /ts-approve architecture-lock]
+    ARCH_LOCK_WAIT --> ARCH_LOCK_DECISION{User Decision}
+    ARCH_LOCK_DECISION -->|Approve| ARCH_LOCK_APPROVED[Lock decisions, proceed to Product]
+    ARCH_LOCK_DECISION -->|Reject| ARCH_LOCK_REJECTED[Return to Solution Architect]
+
+    %% Green Light Gate
+    GREEN_LIGHT --> GREEN_LIGHT_PRESENT[Present to User:<br/>• MVP definition<br/>• User stories<br/>• Business case<br/>• Implementation roadmap]
+    GREEN_LIGHT_PRESENT --> GREEN_LIGHT_WAIT[Wait for /ts-approve green-light]
+    GREEN_LIGHT_WAIT --> GREEN_LIGHT_DECISION{User Decision}
+    GREEN_LIGHT_DECISION -->|Approve| GREEN_LIGHT_APPROVED[Begin Development Phase]
+    GREEN_LIGHT_DECISION -->|Reject| GREEN_LIGHT_REJECTED[Return to Product refinement]
+
+    %% Development Complete Gate
+    DEV_COMPLETE --> DEV_COMPLETE_PRESENT[Present to User:<br/>• Implementation complete<br/>• Test results<br/>• Quality metrics<br/>• Performance benchmarks]
+    DEV_COMPLETE_PRESENT --> DEV_COMPLETE_WAIT[Wait for /ts-approve development]
+    DEV_COMPLETE_WAIT --> DEV_COMPLETE_DECISION{User Decision}
+    DEV_COMPLETE_DECISION -->|Approve| DEV_COMPLETE_APPROVED[Begin Release preparation]
+    DEV_COMPLETE_DECISION -->|Reject| DEV_COMPLETE_REJECTED[Return to Development fixes]
+
+    %% Release Ready Gate
+    REL_READY --> REL_READY_PRESENT[Present to User:<br/>• Documentation complete<br/>• Security scans passed<br/>• Release artifacts ready<br/>• Infrastructure code generated]
+    REL_READY_PRESENT --> REL_READY_WAIT[Wait for /ts-approve release]
+    REL_READY_WAIT --> REL_READY_DECISION{User Decision}
+    REL_READY_DECISION -->|Approve| REL_READY_APPROVED[Deploy to staging]
+    REL_READY_DECISION -->|Reject| REL_READY_REJECTED[Return to Release refinement]
+
+    %% Staging Verified Gate
+    STAGING_OK --> STAGING_OK_PRESENT[Present to User:<br/>• Staging deployment successful<br/>• Integration tests passed<br/>• Performance verified<br/>• Ready for production]
+    STAGING_OK_PRESENT --> STAGING_OK_WAIT[Wait for /ts-approve staging]
+    STAGING_OK_WAIT --> STAGING_OK_DECISION{User Decision}
+    STAGING_OK_DECISION -->|Approve| STAGING_OK_APPROVED[Deploy to production]
+    STAGING_OK_DECISION -->|Reject| STAGING_OK_REJECTED[Return to staging fixes]
+
+    %% Production Ready Gate
+    PROD_READY --> PROD_READY_PRESENT[Present to User:<br/>• Production deployment successful<br/>• Health checks passing<br/>• Monitoring active<br/>• Ready for traffic]
+    PROD_READY_PRESENT --> PROD_READY_WAIT[Wait for /ts-approve production]
+    PROD_READY_WAIT --> PROD_READY_DECISION{User Decision}
+    PROD_READY_DECISION -->|Approve| PROD_READY_APPROVED[Enable production access]
+    PROD_READY_DECISION -->|Reject| PROD_READY_REJECTED[Return to production fixes]
+
+    %% Launch Gate
+    LAUNCH --> LAUNCH_PRESENT[Present to User:<br/>• System fully operational<br/>• Users can access<br/>• Analytics tracking<br/>• Support processes active]
+    LAUNCH_PRESENT --> LAUNCH_WAIT[Wait for /ts-approve launch]
+    LAUNCH_WAIT --> LAUNCH_DECISION{User Decision}
+    LAUNCH_DECISION -->|Approve| LAUNCH_APPROVED[🎉 Project successfully launched]
+    LAUNCH_DECISION -->|Reject| LAUNCH_REJECTED[Return to pre-launch preparation]
+
+    %% Common flows
+    ARCH_START_APPROVED --> CONTINUE
+    ARCH_LOCK_APPROVED --> CONTINUE
+    GREEN_LIGHT_APPROVED --> CONTINUE
+    DEV_COMPLETE_APPROVED --> CONTINUE
+    REL_READY_APPROVED --> CONTINUE
+    STAGING_OK_APPROVED --> CONTINUE
+    PROD_READY_APPROVED --> CONTINUE
+    LAUNCH_APPROVED --> PROJECT_COMPLETE[🎯 Project Complete]
+
+    %% Rejection flows - return to previous agent
+    ARCH_START_REJECTED --> RESTART_PHASE[Restart current phase]
+    ARCH_LOCK_REJECTED --> RESTART_PHASE
+    GREEN_LIGHT_REJECTED --> RESTART_PHASE
+    DEV_COMPLETE_REJECTED --> RESTART_PHASE
+    REL_READY_REJECTED --> RESTART_PHASE
+    STAGING_OK_REJECTED --> RESTART_PHASE
+    PROD_READY_REJECTED --> RESTART_PHASE
+    LAUNCH_REJECTED --> RESTART_PHASE
+
+    %% Turbo mode bypass
+    GATE_CHECK -->|Turbo Mode| TURBO_BYPASS[Skip all gates<br/>Autonomous execution]
+    TURBO_BYPASS --> CONTINUE
+
+    %% Emergency stops
+    ARCH_LOCK_DECISION -->|Critical Security Issue| EMERGENCY_STOP[🛑 Emergency Stop]
+    GREEN_LIGHT_DECISION -->|Critical Security Issue| EMERGENCY_STOP
+    DEV_COMPLETE_DECISION -->|Critical Security Issue| EMERGENCY_STOP
+    REL_READY_DECISION -->|Critical Security Issue| EMERGENCY_STOP
+
+    EMERGENCY_STOP --> SECURITY_REVIEW[Security Engineer Review]
+    SECURITY_REVIEW --> SECURITY_FIX[Fix security issues]
+    SECURITY_FIX --> RESTART_PHASE
+
+    %% Style classes
+    classDef gate fill:#FFE4E1,stroke:#DC143C,stroke-width:2px
+    classDef decision fill:#E6F3FF,stroke:#4169E1,stroke-width:2px
+    classDef approve fill:#F0FFF0,stroke:#32CD32,stroke-width:2px
+    classDef reject fill:#FFE4B5,stroke:#D2691E,stroke-width:2px
+    classDef emergency fill:#FF6B6B,stroke:#CC0000,stroke-width:3px
+
+    class ARCH_START,ARCH_LOCK,GREEN_LIGHT,DEV_COMPLETE,REL_READY,STAGING_OK,PROD_READY,LAUNCH gate
+    class ARCH_START_DECISION,ARCH_LOCK_DECISION,GREEN_LIGHT_DECISION,DEV_COMPLETE_DECISION,REL_READY_DECISION,STAGING_OK_DECISION,PROD_READY_DECISION,LAUNCH_DECISION decision
+    class ARCH_START_APPROVED,ARCH_LOCK_APPROVED,GREEN_LIGHT_APPROVED,DEV_COMPLETE_APPROVED,REL_READY_APPROVED,STAGING_OK_APPROVED,PROD_READY_APPROVED,LAUNCH_APPROVED approve
+    class ARCH_START_REJECTED,ARCH_LOCK_REJECTED,GREEN_LIGHT_REJECTED,DEV_COMPLETE_REJECTED,REL_READY_REJECTED,STAGING_OK_REJECTED,PROD_READY_REJECTED,LAUNCH_REJECTED reject
+    class EMERGENCY_STOP,SECURITY_REVIEW emergency
+```
