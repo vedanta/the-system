@@ -1,0 +1,91 @@
+flowchart TD
+      %% Input & Central Command
+      IDEA[💡 Idea Input<br/>Text/File/Interactive] --> FA[🎩 Founder-Advisor<br/>Central Router & State Manager]
+
+      %% State Management
+      FA --> PROJECT[📋 Project File<br/>State & Progress Tracking]
+      PROJECT --> FA
+
+      %% Stage 1: Architecture
+      FA -->|/ts-assess<br/>/ts-architect| STAGE1[📐 Architecture Department]
+      STAGE1 --> SA[🏗️ Solution Architect<br/>• System Design<br/>• Tech Stack Selection<br/>• Architecture Decisions]
+      SA --> GATE1{🚦 Architecture Lock<br/>HITL Gate}
+
+      %% Stage 2: Product
+      GATE1 -->|Approved| STAGE2[📦 Product Department]
+      STAGE2 --> PL[👔 Product Lead<br/>• MVP Definition<br/>• User Stories<br/>• PRD Creation]
+      STAGE2 --> PP[📅 Project Planner<br/>• Roadmap<br/>• Sprint Planning<br/>• Timeline Estimates]
+      STAGE2 --> BA[💼 Business Analyst<br/>• Market Analysis<br/>• Revenue Model<br/>• GTM Strategy]
+      PL --> GATE2{🚦 Green Light<br/>HITL Gate}
+      PP --> GATE2
+      BA --> GATE2
+
+      %% Stage 3: Development
+      GATE2 -->|Approved| STAGE3[💻 Development Department]
+      STAGE3 --> PD[👨‍💼 Principal Developer<br/>• Implementation Planning<br/>• Code Review<br/>• Quality Gates]
+      STAGE3 --> QA[🧪 QA Engineer<br/>• Test Strategy<br/>• Component Testing<br/>• Integration Testing]
+      STAGE3 --> DB[🗄️ Database Developer<br/>• Schema Design<br/>• Migrations<br/>• Data Models]
+      STAGE3 --> BE[⚙️ Backend Developer<br/>• APIs<br/>• Business Logic<br/>• Services]
+      STAGE3 --> FE[🎨 Frontend Developer<br/>• Components<br/>• UI/UX<br/>• State Management]
+      STAGE3 --> IE[🔗 Integration Engineer<br/>• Component Integration<br/>• E2E Verification<br/>• System Testing]
+
+      %% Development Flow
+      DB --> BE
+      BE --> FE
+      FE --> IE
+      IE --> QA
+      QA --> PD
+      PD --> GATE3{🚦 Development Complete<br/>HITL Gate}
+
+      %% Stage 4: Release & Deployment
+      GATE3 -->|Approved| STAGE4[🚀 Release & Deployment]
+      STAGE4 --> TW[📝 Technical Writer<br/>• Documentation<br/>• API Guides<br/>• User Manuals]
+      STAGE4 --> SE[🔐 Security Engineer<br/>• Security Scanning<br/>• Compliance Checks<br/>• Vulnerability Assessment]
+      STAGE4 --> RE[📦 Release Engineer<br/>• Version Management<br/>• Changelog<br/>• Release Artifacts]
+      STAGE4 --> DE[🚀 DevOps Engineer<br/>• Infrastructure as Code<br/>• CI/CD Pipelines<br/>• Deployment Automation]
+
+      TW --> GATE4{🚦 Production Ready<br/>HITL Gate}
+      SE --> GATE4
+      RE --> GATE4
+      DE --> GATE4
+
+      %% Stage 5: Go Live & Operations (Optional)
+      GATE4 -->|Approved| STAGE5[🌐 Go Live & Operations]
+      STAGE5 --> SRE1[🚀 SRE Deploy Engineer<br/>• Platform Deployment<br/>• Domain Configuration<br/>• Environment Management]
+      STAGE5 --> SRE2[🛡️ SRE Ops Engineer<br/>• Monitoring<br/>• Alerting<br/>• Incident Response]
+
+      SRE1 --> GATE5{🚦 Launch<br/>HITL Gate}
+      SRE2 --> GATE5
+
+      %% Utility Agent
+      BF[🐛 Bug Fixer<br/>• Error Diagnosis<br/>• Systematic Fixes<br/>• Build Validation]
+      BF -.->|/ts-fix| STAGE3
+      BF -.->|On Demand| STAGE4
+
+      %% Final Output
+      GATE5 -->|Approved| OUTPUT[🎉 Production System<br/>• Full-Stack Application<br/>• Tests & Documentation<br/>• CI/CD & Monitoring<br/>• 13+ Deployment Options]
+
+      %% Turbo Mode (Autonomous)
+      FA -.->|/ts-turbo<br/>Bypass Gates| TURBO[⚡ Turbo Mode<br/>Autonomous Execution<br/>Stages 1-4]
+      TURBO -.-> OUTPUT
+
+      %% Core Commands
+      CMD[📋 Core Commands<br/>/ts-new-project<br/>/ts-status<br/>/ts-approve<br/>/ts-review<br/>/ts-help]
+      CMD -.-> FA
+
+      %% Style Classes
+      classDef advisor fill:#FFE4B5,stroke:#D2691E,stroke-width:3px
+      classDef stage fill:#E6F3FF,stroke:#4169E1,stroke-width:2px
+      classDef agent fill:#F0FFF0,stroke:#32CD32,stroke-width:1px
+      classDef gate fill:#FFE4E1,stroke:#DC143C,stroke-width:2px
+      classDef util fill:#F5F5DC,stroke:#8B4513,stroke-width:2px
+      classDef output fill:#E0FFE0,stroke:#228B22,stroke-width:3px
+      classDef turbo fill:#FFB6C1,stroke:#FF1493,stroke-width:2px
+
+      class FA advisor
+      class STAGE1,STAGE2,STAGE3,STAGE4,STAGE5 stage
+      class SA,PL,PP,BA,PD,QA,DB,BE,FE,IE,TW,SE,RE,DE,SRE1,SRE2 agent
+      class GATE1,GATE2,GATE3,GATE4,GATE5 gate
+      class BF util
+      class OUTPUT output
+      class TURBO turbo
