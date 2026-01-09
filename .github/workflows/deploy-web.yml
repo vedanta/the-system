@@ -15,6 +15,8 @@ on:
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
+    # DISABLED: Uncomment when domain and secrets are configured
+    if: false
 
     steps:
     - name: Checkout repository
@@ -117,7 +119,8 @@ jobs:
   security-scan:
     runs-on: ubuntu-latest
     needs: update-and-deploy
-    if: github.ref == 'refs/heads/main'
+    # DISABLED: Uncomment when domain and secrets are configured
+    if: false
 
     steps:
     - name: Checkout repository
