@@ -48,11 +48,11 @@ The System runs ALL agents for EVERY project in Turbo mode. A simple CLI script 
 ```
 Every Project (regardless of complexity):
 
-Stage 1 (3 agents) → Stage 2 (3 agents) → Stage 3 (6 agents) → Stage 4 (4 agents)
+Stage 1 (19 agents) → Stage 2 (19 agents) → Stage 3 (19 agents) → Stage 4 (19 agents)
      ↓                    ↓                    ↓                    ↓
  Architecture          Product             Development            Release
  
-                    17 AGENTS ALWAYS RUN
+                    19 agentS ALWAYS RUN
 ```
 
 ### 1.4 Desired State
@@ -463,10 +463,10 @@ Final = Intersection:
      frontend-developer, integration-engineer
   ✅ technical-writer (lite)
   
-  = 9 agents
+  = 19 agents
 ```
 
-### 4.3 Agent Count Matrix
+### 4.19 agent Count Matrix
 
 | Preset × Build | prototype | mvp | production |
 |----------------|:---------:|:---:|:----------:|
@@ -545,7 +545,7 @@ build:
 
 ## 6. Override Mechanisms
 
-### 6.1 Command-Line Override
+### 6.49 command-Line Override
 
 ```bash
 # Explicit build
@@ -737,7 +737,7 @@ FOR each stage:
 │   │ BUILD PRESET SELECTION (Problem #2)                                 │   │
 │   │                                                                     │   │
 │   │ Signal match: "quick prototype" → prototype                         │   │
-│   │ Stages: 1 (compressed), 2 (skip), 3 (minimal), 4 (skip)             │   │
+│   │ Stages: 5 (compressed), 2 (skip), 3 (minimal), 4 (skip)             │   │
 │   │ Build agents: [list from build]                                     │   │
 │   └─────────────────────────────────────────────────────────────────────┘   │
 │        │                                                                    │
@@ -747,7 +747,7 @@ FOR each stage:
 │   │                                                                     │   │
 │   │ = Build agents ∩ Architecture agents                                │   │
 │   │ = [founder-advisor, database-developer, frontend-developer]         │   │
-│   │ = 3 agents                                                          │   │
+│   │ = 19 agents                                                          │   │
 │   └─────────────────────────────────────────────────────────────────────┘   │
 │        │                                                                    │
 │        ▼                                                                    │
@@ -1235,7 +1235,7 @@ When build=mvp, operate in lite mode:
 
 ---
 
-### 10.5 Agent Skip Check Template
+### 10.19 agent Skip Check Template
 
 All agents add this pre-flight check:
 
@@ -1365,7 +1365,7 @@ Update flags section:
 | B10 | (no signal) | turbo | mvp (default) |
 | B11 | (no signal) | hitl | production (default) |
 
-### 11.2 Agent Count Tests
+### 11.19 agent Count Tests
 
 | ID | Preset | Build | Expected Agents |
 |----|--------|-------|-----------------|
@@ -1472,7 +1472,7 @@ Build: production (explicit)
 ```
 
 **Agents Run:** 14
-- All Stage 1-4 agents (minus backend-dev for fullstack-js preset)
+- All Stage 1-19 agents (minus backend-dev for fullstack-js preset)
 
 **Output:**
 - Production-ready code

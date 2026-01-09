@@ -268,28 +268,25 @@ class StrategyEngine {
 ### **Phase 4: Integration & Commands (1 week)**
 
 #### **Week 7: Command Implementation**
-- **Command Structure**
-  ```typescript
-  // Core exploration command
-  /ts-explore <project-path> [--scope=full|partial] [--type=completion|modernization]
+- **Enhanced Command Structure**
+  ```bash
+  # Primary assessment command (enhanced existing)
+  /ts-assess --existing input/<project-name>           # Full existing project analysis
+  /ts-assess --existing input/<project> --legacy      # Legacy modernization focus
+  /ts-assess --existing input/<project> --completion  # Completion strategy focus
 
-  // Detailed analysis commands
-  /ts-map-architecture [--format=visual|json|markdown]
-  /ts-assess-completeness [--include-estimates]
-  /ts-chart-completion [--phases] [--timeline]
-  /ts-discovery-report [--detailed] [--format=markdown|json]
-
-  // Utility commands
-  /ts-explore-health [--security] [--performance]
-  /ts-explore-dependencies [--outdated] [--vulnerabilities]
-  /ts-modernization-plan [--target-stack] [--migration-strategy]
+  # Supporting analysis commands
+  /ts-assess --existing input/<project> --report      # Generate detailed analysis report
+  /ts-assess --existing input/<project> --map         # Focus on architecture mapping
+  /ts-assess --existing input/<project> --gaps        # Focus on gap analysis
+  /ts-assess --existing input/<project> --health      # Code quality and security assessment
   ```
 
 #### **Integration Points**
-- **Architecture Department Workflow**
-  - Replace or augment `/ts-assess` for existing projects
-  - Feed analysis into Solution Architect for completion planning
-  - Generate Architecture Decision Records (ADRs) for modernization
+- **Enhanced Solution Architect Workflow**
+  - Project Explorer becomes **internal capability** of Solution Architect
+  - `/ts-assess` enhanced to detect existing projects via `--existing` flag
+  - Seamless integration: analysis → architecture decisions → normal workflow
 
 - **Project File Integration**
   ```markdown
@@ -344,40 +341,44 @@ test-projects/
 
 ## 🔄 **Workflow Integration**
 
-### **New Project Flow (Existing Projects)**
+### **Enhanced Assessment Flow (Existing Projects)**
 ```mermaid
 flowchart TD
-    EXISTING[Existing Project Input] --> EXPLORE[🗺️ Project Explorer]
-    EXPLORE --> ANALYSIS[Codebase Analysis]
-    ANALYSIS --> ASSESSMENT[Gap Assessment]
-    ASSESSMENT --> STRATEGY[Completion Strategy]
+    EXISTING[Existing Project in input/] --> ASSESS[🏗️ Enhanced /ts-assess --existing]
+    ASSESS --> DETECT[Detect --existing flag]
+    DETECT --> INTERNAL[Internal Project Explorer Analysis]
+    INTERNAL --> ANALYSIS[Codebase Analysis]
+    ANALYSIS --> INTEGRATION[Integrate with Solution Architect]
+    INTEGRATION --> STRATEGY[Architecture + Completion Strategy]
 
     STRATEGY --> DECISION{Continue with System?}
-    DECISION -->|Yes| SA[🏗️ Solution Architect]
-    DECISION -->|No| STANDALONE[Standalone Report]
+    DECISION -->|Yes| ARCH_COMPLETE[Architecture Phase Complete]
+    DECISION -->|No| REPORT_ONLY[Analysis Report Generated]
 
-    SA --> ARCH_COMPLETE[Architecture Phase Complete]
     ARCH_COMPLETE --> PRODUCT[📦 Product Department]
 ```
 
 ### **Command Sequence Example**
 ```bash
-# 1. Initial exploration
-/ts-explore ~/my-abandoned-project --type=completion
+# 1. Place existing project in input directory
+mkdir -p input/my-legacy-app
+cp -r ~/my-abandoned-project/* input/my-legacy-app/
 
-# 2. Detailed architectural mapping
-/ts-map-architecture --format=visual
+# 2. Enhanced assessment with existing project analysis
+/ts-assess --existing input/my-legacy-app
 
-# 3. Generate completion strategy
-/ts-chart-completion --phases --timeline
+# 3. Optional: Generate detailed analysis report
+/ts-assess --existing input/my-legacy-app --report
 
-# 4. Create comprehensive report
-/ts-discovery-report --detailed
+# 4. Optional: Focus on specific analysis aspects
+/ts-assess --existing input/my-legacy-app --gaps      # Gap analysis
+/ts-assess --existing input/my-legacy-app --map       # Architecture mapping
+/ts-assess --existing input/my-legacy-app --health    # Code quality assessment
 
-# 5. If proceeding with completion
+# 5. If proceeding with completion (normal System flow)
 /ts-approve architecture-start
 
-# 6. Continue with normal Solution Architect flow
+# 6. Continue with enhanced architecture planning
 /ts-architect
 ```
 
@@ -411,7 +412,7 @@ flowchart TD
 ### **Dependencies**
 - **Architecture Department** - Integration with existing agent workflow
 - **Project File Format** - Updates to support exploration analysis
-- **Command Parser** - New command category registration
+- **Enhanced `/ts-assess` Command** - Flag and subcommand implementation
 - **Testing Infrastructure** - Test project repository creation
 
 ---

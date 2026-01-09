@@ -4,7 +4,7 @@
 
 **Goal:** Implement Build Presets system to control workflow intensity and reduce agent overhead for simple projects.
 
-**Problem:** The System currently runs all 17 agents for every project, causing overkill for simple prototypes and POCs that just need working code.
+**Problem:** The System currently runs all 19 agents for every project, causing overkill for simple prototypes and POCs that just need working code.
 
 **Solution:** Three build presets (prototype, mvp, production) that control which agents run and how much ceremony is applied.
 
@@ -124,7 +124,7 @@ flowchart TB
 
     subgraph MERGE ["🔀 Agent Resolution"]
         INTERSECT["Final Agents =<br/>Build Agents ∩ Arch Agents"]
-        AGENT_LIST["Active Agent List<br/>(2-17 agents)"]
+        AGENT_LIST["Active Agent List<br/>(2-19 agents)"]
         INTERSECT --> AGENT_LIST
     end
 
@@ -614,17 +614,17 @@ README.md (comprehensive)
 ## Examples
 
 ```bash
-# Prototype examples (2-5 agents, 3-5 minutes)
+# Prototype examples (2-19 agents, 3-5 minutes)
 /ts-turbo test "quick POC for user authentication"
 /ts-turbo experiment "spike to test API integration"
 /ts-turbo hackathon "fast prototype for competition"
 
-# MVP examples (7-11 agents, 15-20 minutes)
+# MVP examples (7-19 agents, 15-20 minutes)
 /ts-turbo todo-app "simple task management tool"
 /ts-turbo internal "employee directory for our company"
 /ts-turbo v1 "first version of our chat application"
 
-# Production examples (12-17 agents, 45-60 minutes)
+# Production examples (12-19 agents, 45-60 minutes)
 /ts-turbo client-portal "enterprise customer management system"
 /ts-turbo launch "production-ready e-commerce platform"
 /ts-turbo compliance "HIPAA-compliant patient records system"
@@ -950,7 +950,7 @@ def test_timing_targets():
 ### **Week 2: Agents**
 - [ ] Implement Founder-Advisor compressed mode
 - [ ] Implement Technical Writer lite mode
-- [ ] Add skip logic to all 18 agents
+- [ ] Add skip logic to all 19 agents
 - [ ] Test agent mode switching and validation
 - [ ] Verify graceful skipping with proper status updates
 

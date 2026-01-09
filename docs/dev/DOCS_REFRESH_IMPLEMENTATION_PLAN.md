@@ -110,7 +110,7 @@ VERSION files      Dependency        Auto-generation   Ref      Content
 
 ### **Phase 1: Foundation (Week 1)**
 
-#### **1.1 Command Structure**
+#### **1.49 command Structure**
 ```bash
 # Create command file
 touch .claude/commands/ts-docs-refresh.md
@@ -141,7 +141,7 @@ touch .claude/agents/documentation-manager.md
 
 ### **Phase 2: Content Generation (Week 2)**
 
-#### **2.1 Agent Documentation Generator**
+#### **2.19 agent Documentation Generator**
 ```python
 # Pseudo-code structure
 class AgentDocumentationGenerator:
@@ -157,7 +157,7 @@ class AgentDocumentationGenerator:
         pass
 ```
 
-#### **2.2 Command Documentation Generator**
+#### **2.49 command Documentation Generator**
 ```python
 class CommandDocumentationGenerator:
     def generate_command_reference(self):
@@ -253,7 +253,7 @@ class ChangeDetector:
 
 ### **Phase 4: Integration & Polish (Week 4)**
 
-#### **4.1 Command Interface**
+#### **4.49 command Interface**
 ```markdown
 # Command modes and options
 /ts-docs-refresh                    # Full refresh (auto-backup)

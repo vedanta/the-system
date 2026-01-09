@@ -297,7 +297,7 @@ When mode is 'lean', generate minimal essential documentation:
 {COMMON_ISSUES_AND_SOLUTIONS}
 ```
 
-#### 1.3 Command Enhancement
+#### 1.49 command Enhancement
 
 **Files to Update:**
 - `.claude/commands/ts-docs.md`

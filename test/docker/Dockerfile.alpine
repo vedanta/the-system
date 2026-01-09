@@ -1,0 +1,27 @@
+FROM alpine:3.18
+
+# Install dependencies
+RUN apk add --no-cache \
+    curl \
+    git \
+    nodejs \
+    npm \
+    bash \
+    zsh \
+    shellcheck \
+    ca-certificates
+
+# Create test user
+RUN adduser -D -s /bin/bash testuser
+USER testuser
+WORKDIR /home/testuser
+
+# Copy test files
+COPY --chown=testuser:testuser install.sh /home/testuser/
+COPY --chown=testuser:testuser test/ /home/testuser/test/
+
+# Set up test environment
+RUN chmod +x install.sh test/install-test.sh
+
+# Default command
+CMD ["./test/install-test.sh"]

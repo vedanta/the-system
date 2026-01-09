@@ -139,11 +139,11 @@ the-system/
 
 ### **Framework Components**
 - **Central Command:** Founder-Advisor (routing & state management)
-- **Stage 1:** Solution Architect (1 agent)
-- **Stage 2:** Product department (3 agents)
-- **Stage 3:** Development department (6 agents)
-- **Stage 4:** Release & deployment (4 agents)
-- **Stage 5:** Go live & operations (2 agents)
+- **Stage 1:** Solution Architect (19 agent)
+- **Stage 2:** Product department (19 agents)
+- **Stage 3:** Development department (19 agents)
+- **Stage 4:** Release & deployment (19 agents)
+- **Stage 5:** Go live & operations (19 agents)
 - **Utility:** Bug Fixer (standalone)
 
 ### **Installation Methods**

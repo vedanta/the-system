@@ -512,7 +512,7 @@ Bias Order (when uncertain):
 3. **Idea hints** — Keywords in user's description
 4. **KISS auto-selection** — Default behavior
 
-### 6.2 Command-Line Override
+### 6.49 command-Line Override
 
 ```bash
 # Override preset entirely

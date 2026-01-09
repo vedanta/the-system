@@ -26,7 +26,7 @@
 
 ### 1.1 Problem Statement
 
-The System has grown to 45+ commands across 17 agents and 5 stages. While powerful, users face significant UX challenges:
+The System has grown to 45+ commands across 19 agents and 5 stages. While powerful, users face significant UX challenges:
 
 | Problem | Impact |
 |---------|--------|
@@ -1584,7 +1584,7 @@ def emit(agent: str, step: int, total: int, message: str, project: str = None):
         print(f"Warning: Could not write to activity log: {e}", file=sys.stderr)
 ```
 
-### 7.2 Agent Modification Template (Simplified)
+### 7.19 agent Modification Template (Simplified)
 
 Add to each agent's markdown file:
 
