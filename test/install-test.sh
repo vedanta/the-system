@@ -27,6 +27,9 @@ readonly TEST_DIR="/tmp/the-system-install-test-$(date +%s)"
 readonly INSTALL_SCRIPT="$(pwd)/install.sh"
 readonly TEST_LOG="$TEST_DIR/test.log"
 
+# Create test directory
+mkdir -p "$TEST_DIR"
+
 # Global test counters
 TESTS_RUN=0
 TESTS_PASSED=0
