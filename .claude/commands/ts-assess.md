@@ -1,9 +1,10 @@
 # Technology Stack Assessment: $ARGUMENTS
 
-Run AI-optimized technology stack assessment and selection.
+Run AI-optimized technology stack assessment and selection for new projects, or analyze existing projects for completion strategies.
 
 ## Usage
 
+### New Project Assessment
 ```bash
 /ts-assess                    # Assess current project with standard options
 /ts-assess --compare=3        # Compare top 3 stack options with detailed analysis
@@ -13,7 +14,21 @@ Run AI-optimized technology stack assessment and selection.
 /ts-assess --quick           # Fast assessment with minimal analysis (for turbo mode)
 ```
 
+### Existing Project Analysis (Project Explorer)
+```bash
+/ts-assess --existing <project-name>           # Full existing project analysis
+/ts-assess --existing <project-name> --legacy      # Legacy modernization focus
+/ts-assess --existing <project-name> --completion  # Completion strategy focus
+/ts-assess --existing <project-name> --report      # Generate detailed analysis report
+/ts-assess --existing <project-name> --map         # Focus on architecture mapping
+/ts-assess --existing <project-name> --gaps        # Focus on gap analysis
+/ts-assess --existing <project-name> --health      # Code quality assessment
+/ts-assess --existing <project-name> --security    # Comprehensive security analysis
+```
+
 ## Process
+
+### New Project Assessment (Default)
 
 1. **Read Project Context**
    - Load active project file from `.claude/pipeline/projects/`
@@ -61,6 +76,61 @@ Run AI-optimized technology stack assessment and selection.
    - **If Complex Stack:** Prepare handoff for Enterprise Architect
    - **If HITL Mode:** Wait for user approval of stack assessment
 
+### Existing Project Analysis (--existing flag)
+
+1. **Project Explorer Mode Activation**
+   - Detect `--existing` flag in arguments
+   - Switch to Project Explorer workflow
+   - Parse project name from arguments and construct full path as `input/<project-name>`
+
+2. **Project Path Validation**
+   - Verify `input/<project-name>` directory exists
+   - Check for recognizable project structure (package.json, requirements.txt, etc.)
+   - Ensure read permissions on project files
+   - If invalid: "⛔ Project not found or unreadable: input/[project-name]"
+
+3. **Existing Project Analysis**
+   - Use the **solution-architect** subagent in **Project Explorer mode** to:
+     - **Phase 1:** Codebase discovery and technology stack detection
+     - **Phase 2:** Gap analysis and completeness assessment
+     - **Phase 3:** Completion strategy generation
+     - **Phase 4:** System integration assessment
+
+4. **Analysis Focus (based on subcommands)**
+   - **Default (no subcommand):** Full comprehensive analysis
+   - **--gaps:** Focus on missing components and blockers
+   - **--health:** Code quality, security, and dependency assessment
+   - **--completion:** Completion strategies and effort estimation
+   - **--map:** Architecture patterns and component relationships
+   - **--report:** Executive summary suitable for stakeholders
+   - **--legacy:** Legacy modernization recommendations
+
+5. **Output Analysis Results**
+   ```markdown
+   ## 🗺️ Project Explorer Analysis: [PROJECT_NAME]
+
+   ### 📊 Codebase Assessment
+   - **Technology Stack:** [Detected technologies]
+   - **Completion Status:** [X% complete]
+   - **Code Quality Score:** [Score/10]
+   - **Recommended Strategy:** [Approach]
+
+   ### 🔍 Gap Analysis
+   [Critical missing components and blockers]
+
+   ### 🏗️ Completion Strategy
+   [Recommended approach with effort estimates]
+
+   ### 🎯 System Integration Plan
+   [How to integrate with The System workflow]
+   ```
+
+6. **Save Analysis Reports to Output Directory**
+   - Create structured report directory: `output/[project-name]-analysis/`
+   - Generate analysis reports based on command flags
+   - Save comprehensive documentation and machine-readable data
+   - Provide clear summary and next steps for each analysis
+
 ## Integration with Architecture Workflow
 
 **Standalone Mode:**
@@ -83,19 +153,31 @@ Run AI-optimized technology stack assessment and selection.
 
 ## Command Arguments
 
-### Build Preset Overrides
+### Project Explorer Mode (--existing)
+- `--existing <project-name>` - **Required:** Name of existing project (automatically looks in input/ directory)
+- `--gaps` - Focus on gap analysis and missing components
+- `--health` - Code quality and dependency assessment
+- `--security` - Comprehensive security analysis and vulnerability assessment
+- `--completion` - Completion strategies and effort estimation
+- `--map` - Architecture patterns and component relationships
+- `--report` - Executive summary suitable for stakeholders
+- `--legacy` - Legacy modernization recommendations
+
+### New Project Assessment Options
+
+#### Build Preset Overrides
 - `--build=prototype` - Force prototype build (fastest, minimal agents)
 - `--build=mvp` - Force MVP build (balanced quality and speed)
 - `--build=production` - Force production build (comprehensive quality)
 
-### Architecture Preset Overrides
+#### Architecture Preset Overrides
 - `--preset=static` - Force static site architecture
 - `--preset=embedded` - Force embedded database architecture
 - `--preset=fullstack-js` - Force full-stack JavaScript architecture
 - `--preset=baas` - Force Backend-as-a-Service architecture
 - `--preset=microservice` - Force microservice architecture
 
-### Technology Overrides
+#### Technology Overrides
 - `--db=postgresql` - Override database selection
 - `--db=mysql` - Use MySQL instead of default
 - `--db=sqlite` - Use SQLite for embedded solutions
@@ -103,7 +185,7 @@ Run AI-optimized technology stack assessment and selection.
 - `--auth=clerk` - Use Clerk for managed authentication
 - `--auth=none` - No authentication required
 
-### Assessment Options
+#### Assessment Options
 - `--detailed` - Include comprehensive risk analysis and alternatives
 - `--compare=N` - Show comparison of top N stack options (2-5)
 - `--quick` - Fast assessment for turbo mode (skip detailed analysis)
@@ -140,6 +222,54 @@ Run AI-optimized technology stack assessment and selection.
 
 ## Recommendation Reasoning
 [Why the top choice was selected over alternatives]
+```
+
+### Project Explorer Output (--existing)
+Project Explorer analyses are saved to structured directories in the output folder:
+
+```
+output/[project-name]-analysis/
+├── analysis-report.md          # Comprehensive analysis (default/--report)
+├── executive-summary.md        # Stakeholder summary (--report)
+├── gaps-report.md              # Gap analysis (--gaps)
+├── health-report.md            # Code quality assessment (--health)
+├── security-report.md          # Security analysis (--security)
+├── completion-strategy.md      # Completion roadmap (--completion)
+├── architecture-map.md         # Architecture analysis (--map)
+├── technology-stack.json       # Machine-readable tech stack data
+└── README.md                   # Report overview and navigation
+```
+
+**Command-Specific File Generation:**
+- `--existing <project-name>` → analysis-report.md, executive-summary.md, technology-stack.json, README.md
+- `--gaps` → gaps-report.md, README.md
+- `--health` → health-report.md, README.md
+- `--security` → security-report.md, README.md
+- `--completion` → completion-strategy.md, README.md
+- `--map` → architecture-map.md, README.md
+- `--report` → All files (comprehensive analysis)
+
+**Example Output Summary:**
+```
+🗺️ Project Explorer Analysis Complete!
+
+📁 Reports saved to: output/my-legacy-app-analysis/
+📊 Analysis type: --health --security --gaps
+🎯 Recommended strategy: Refactor then complete
+
+📋 Generated Files:
+  ✅ gaps-report.md (2.1 KB)
+  ✅ health-report.md (3.4 KB)
+  ✅ security-report.md (4.8 KB)
+  ✅ README.md (1.5 KB)
+
+🚀 Next Steps:
+  1. Review the analysis reports
+  2. Address critical security vulnerabilities immediately
+  3. Consider recommended completion strategy
+  4. Use findings to inform new project creation
+
+💡 View reports: cd output/my-legacy-app-analysis/
 ```
 
 ## Error Handling
