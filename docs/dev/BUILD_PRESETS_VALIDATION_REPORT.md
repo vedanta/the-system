@@ -58,7 +58,7 @@ builds:
 **Issue:** 4-week timeline is likely too aggressive for scope.
 
 **Evidence:**
-- **18 agents** need modification with skip logic + mode support
+- **19 agents** need modification with skip logic + mode support
 - **Founder-advisor compressed mode** is complex (inline architecture decisions)
 - **Technical writer lite mode** requires new template system
 - **Router logic changes** affect core workflow orchestration
@@ -69,7 +69,7 @@ builds:
 ```
 Week 1-2: Configuration & Signal Processing
 Week 3-4: Agent Modifications (Founder-Advisor, Technical Writer)
-Week 5-6: Agent Skip Logic (remaining 16 agents)
+Week 5-6: Agent Skip Logic (remaining 19 agents)
 Week 7-8: Integration, Testing, Polish
 ```
 
@@ -125,7 +125,7 @@ def benchmark_proposed_prototype():
 
 **Test Combinations:**
 - **3 build presets** × **8 architecture presets** = **24 combinations**
-- **18 agents** × **skip/run states** = complex integration testing
+- **19 agents** × **skip/run states** = complex integration testing
 - **5 stage modes** (skip, compressed, minimal, lite, full)
 - **Signal detection** accuracy across various project descriptions
 
@@ -256,7 +256,7 @@ gantt
 - Integration testing for core changes
 
 **Week 5-6: Agent Skip Logic Rollout**
-- Roll out skip logic to remaining 16 agents in batches
+- Roll out skip logic to remaining 19 agents in batches
 - Validation testing for each agent's skip behavior
 - Agent dependency analysis and resolution
 - Project file template updates

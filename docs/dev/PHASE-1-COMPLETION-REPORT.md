@@ -151,7 +151,7 @@ microservice:
     database: postgresql
     auth: jwt
   agents:
-    used: [all 9 agents]
+    used: [all 19 agents]
     skipped: []
 ```
 
@@ -191,7 +191,7 @@ $ python3 scripts/validate-presets.py
 - **CLI Presets:** 3
 - **Configuration Lines:** 1,300+
 - **Signal Types:** 7 preset signals + 20+ option signals
-- **Agent Integration:** 9 agents with skip/use logic
+- **Agent Integration:** 19 agents with skip/use logic
 - **Option Categories:** Database, Auth, Runtime, Framework
 
 ### Preset Complexity Distribution

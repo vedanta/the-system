@@ -23,7 +23,7 @@
 ## 🚨 Problem Statement
 
 ### **Current Pain Points**
-1. **Stale Counts**: "18 agents, 44 commands" hardcoded in multiple files
+1. **Stale Counts**: "19 agents, 49 commands" hardcoded in multiple files
 2. **Broken Links**: Internal references break when files move
 3. **Missing Updates**: New agents/commands don't appear in reference tables
 4. **Example Drift**: Code examples become outdated
@@ -84,8 +84,8 @@
 #### **1. Auto-Update Counts** ⚡
 ```bash
 # Find and replace in user-facing markdown files only:
-"18 agents" → "X agents" (actual count from .claude/agents/)
-"44 commands" → "Y commands" (actual count from .claude/commands/)
+"19 agents" → "X agents" (actual count from .claude/agents/)
+"49 commands" → "Y commands" (actual count from .claude/commands/)
 
 # Target files:
 - README.md
@@ -279,8 +279,8 @@ QUICKSTART.md                       # NEW: Fast onboarding guide
 ## 🎯 What Gets Fixed Automatically (User Impact Focus)
 
 ### **High-Impact, Low-Risk Updates**
-- ✅ Agent count in README.md: "18 agents" → actual count
-- ✅ Command count in CLAUDE.md: "44 commands" → actual count
+- ✅ Agent count in README.md: "19 agents" → actual count
+- ✅ Command count in CLAUDE.md: "49 commands" → actual count
 - ✅ Framework overview stats in all user documentation
 - ✅ Quick reference tables in user documentation
 - ✅ QUICKSTART.md generation/updates: 5-minute onboarding flow

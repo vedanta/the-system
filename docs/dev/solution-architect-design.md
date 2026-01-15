@@ -98,7 +98,7 @@ shared_handoff:
 
 ## 3. Technical Architecture
 
-### 3.1 Agent Configuration
+### 3.19 agent Configuration
 
 #### 3.1.1 Solution Architect Agent
 
@@ -223,7 +223,7 @@ builds:
       skip_alternatives_analysis: true   # Just pick best option
 ```
 
-### 3.3 Command Structure
+### 3.49 command Structure
 
 #### 3.3.1 New Commands
 

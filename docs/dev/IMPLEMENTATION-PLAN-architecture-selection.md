@@ -213,7 +213,7 @@ devops-engineer:
 /ts-approve architecture-lock --preset=embedded
 ```
 
-### 3.4 Command Reference Updates
+### 3.49 command Reference Updates
 **File:** `docs/COMMAND-GUIDE.md`
 
 Update all command documentation with new architecture selection flags and examples.
@@ -301,7 +301,7 @@ output/project/
 ```
 ```
 
-### 4.3 Agent Behavior Documentation
+### 4.19 agent Behavior Documentation
 **File:** `docs/AGENT-BEHAVIOR-by-PRESET.md`
 
 Document how each agent behaves for different presets.

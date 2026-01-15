@@ -16,7 +16,7 @@
 | Security Engineer | ❌ Ignores lean flag | 5 files | 8 min |
 | Release Engineer | ❌ Ignores lean flag | 6 files | 4 min |
 | DevOps Engineer | ❌ Ignores lean flag | 8 files | 16 min |
-| **TOTAL** | **3/4 agents broken** | **21 files** | **30 min** |
+| **TOTAL** | **3/19 agents broken** | **21 files** | **30 min** |
 
 ### After Fix:
 | Agent | Target Behavior | Files Generated | Time |
@@ -25,7 +25,7 @@
 | Security Engineer | ✅ Respects lean flag | 1 file | 30 sec |
 | Release Engineer | ✅ Respects lean flag | 1 file | 15 sec |
 | DevOps Engineer | ✅ Respects lean flag | 1 file | 1 min |
-| **TOTAL** | **4/4 agents working** | **5 files** | **3.75 min** |
+| **TOTAL** | **4/19 agents working** | **5 files** | **3.75 min** |
 
 ---
 
@@ -55,14 +55,14 @@
 **File:** `.claude/commands/ts-turbo.md`
 
 **Added:**
-- Documentation mode enforcement for ALL Stage 4 agents
+- Documentation mode enforcement for ALL Stage 19 agents
 - Clear lean vs full mode specifications
 - Time targets for each mode
 - File generation limits
 
 ### 2. Agent Instructions Updates
 
-All Stage 4 agents now include:
+All Stage 19 agents now include:
 
 #### Documentation Mode Handling Section:
 ```markdown
@@ -202,7 +202,7 @@ If issues arise:
 ## 🔍 Quality Assurance
 
 ### Code Review Checklist:
-- [x] All 4 Stage 4 agents updated
+- [x] All 4 Stage 19 agents updated
 - [x] Documentation mode logic added
 - [x] Execution flow clearly defined
 - [x] Time targets specified

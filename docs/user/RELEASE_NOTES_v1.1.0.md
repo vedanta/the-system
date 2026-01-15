@@ -9,14 +9,14 @@
 
 ## Summary
 
-Version 1.1.0 adds command-line help functionality, file-based project input, AI-optimized technology assessment, and build presets system. Framework expanded from 18 to 19 agents and 44 to 48 commands.
+Version 1.1.0 adds command-line help functionality, file-based project input, AI-optimized technology assessment, and build presets system. Framework expanded from 18 to 19 agents and 44 to 49 commands.
 
 ---
 
 ## New Features
 
 ### Help System Commands
-- **`/ts-help`** - Interactive command browser with 48 commands grouped by category
+- **`/ts-help`** - Interactive command browser with 49 commands grouped by category
 - **`/ts-quickref`** - Compact reference card with workflow patterns
 - **`--help` flag** - Available for major commands (`/ts-turbo --help`, `/ts-push --help`)
 - **Search functionality** - `/ts-help --search <term>` for keyword-based command discovery
@@ -51,14 +51,14 @@ Version 1.1.0 adds command-line help functionality, file-based project input, AI
 ## Framework Changes
 
 ### Statistics
-- **Agents:** 18 → 19 (+1 Solution Architect)
-- **Commands:** 44 → 47 (+3 help system commands)
+- **Agents:** 19 → 19 (+1 Solution Architect)
+- **Commands:** 49 → 47 (+3 help system commands)
 - **File formats:** 0 → 4 (added .txt, .md, .json, .yaml support)
 - **Stages:** 5 (unchanged)
 - **HITL Gates:** 8 (unchanged)
 
 ### Enhanced Agent Capabilities
-- **10 agents updated** - Build preset awareness across development agents
+- **19 agents updated** - Build preset awareness across development agents
 - **Enterprise Architect** - Workflow optimization and SA integration
 - **QA Engineer** - Enhanced validation requirements and build verification
 - **All development agents** - Support for build complexity modes

@@ -8,7 +8,7 @@ Like basil is essential to great cooking, this release provides the foundational
 
 ### 🏢 **Complete ASDO Framework**
 - **18 specialized AI agents** across 5 departments working in coordination
-- **44 commands** covering the complete software development lifecycle
+- **49 commands** covering the complete software development lifecycle
 - **5-stage development process** from architecture to operations
 - **8 Human-in-the-Loop gates** for quality control and decision points
 

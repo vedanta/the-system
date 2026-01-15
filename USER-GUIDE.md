@@ -341,7 +341,7 @@ Build presets are automatically detected from your project description:
 
 ## Commands Reference
 
-The System provides **48 commands** organized by stage and function:
+The System provides **49 commands** organized by stage and function:
 
 ### Core Project Management (8)
 
@@ -577,7 +577,7 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/              # 46 command definitions
+│   ├── commands/              # 49 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-view.md
@@ -875,7 +875,7 @@ ln -s .the-system/.claude .claude
 # Expected output:
 ✅ Framework structure validated
 ✅ All 19 agents found
-✅ All 48 commands found
+✅ All 49 commands found
 ✅ Configuration files valid
 ✅ The System ready for use
 ```
@@ -919,7 +919,7 @@ The System includes automatic build verification:
 ```bash
 # Count agents and commands
 ls .claude/agents/*.md | wc -l      # Should show 19 agent files
-ls .claude/commands/*.md | wc -l    # Should show 46 command files
+ls .claude/commands/*.md | wc -l    # Should show 49 command files
 
 # Verify specific components
 ls .claude/agents/                  # List all agents
