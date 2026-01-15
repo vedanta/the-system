@@ -65,14 +65,14 @@ The installation script will:
 
 1. ✅ **Download** The System framework from GitHub
 2. ✅ **Install** to `~/.the-system` (or custom directory)
-3. ✅ **Verify** all 19 agents and 48+ commands
+3. ✅ **Verify** all 19 agents and 49 commands
 4. ✅ **Setup** shell integration (`ts` command)
 5. ✅ **Configure** documentation and examples
 
 ### Directory Structure
 ```
 ~/.the-system/
-├── .claude/               # 19 agents, 48 commands, configs
+├── .claude/               # 19 agents, 49 commands, configs
 ├── docs/                  # Comprehensive documentation
 ├── output/               # Generated projects go here
 ├── input/                # Reference materials
@@ -93,12 +93,15 @@ claude
 
 ### 2. Start Your First Project
 ```bash
-# Interactive mode
+# Create new project (interactive)
 /ts-new-project my-app
 # Follow the prompts...
 
-# Or use Turbo mode (autonomous)
+# Create new project (autonomous)
 /ts-turbo my-app "Build a todo app with user auth"
+
+# Or analyze existing project (NEW)
+/ts-assess --existing legacy-app   # Analyze existing codebase
 ```
 
 ### 3. Use Shell Integration
@@ -175,7 +178,18 @@ claude
 /ts-quickref               # Quick reference
 ```
 
-#### 3. Community Support
+#### 3. Test Project Explorer (NEW)
+```bash
+cd ~/.the-system
+claude
+# Analyze existing/legacy projects
+/ts-assess --existing my-legacy-project   # Full analysis
+/ts-assess --existing my-app --gaps       # Gap analysis
+/ts-assess --existing my-app --health     # Code quality
+/ts-assess --existing my-app --security   # Security analysis
+```
+
+#### 4. Community Support
 - 📚 Documentation: `~/.the-system/docs/`
 - 🐛 Issues: [GitHub Issues](https://github.com/vedanta/the-system/issues)
 - 💬 Discussions: [GitHub Discussions](https://github.com/vedanta/the-system/discussions)

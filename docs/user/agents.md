@@ -12,7 +12,7 @@ The System employs 19 specialized AI agents (18 production + 1 utility) organize
 |-------|--------|------------|-------------|
 | [Founder-Advisor](#founder-advisor) | 0 | Leadership | Primary interface & strategic advisor |
 | [Enterprise Architect](#enterprise-architect) | 1 | Architecture | System design & technical architecture |
-| [Solution Architect](#solution-architect) | 1 | Architecture | Requirements assessment & architecture recommendations |
+| [Solution Architect](#solution-architect) | 1 | Architecture | Requirements assessment, architecture recommendations & legacy project analysis |
 | [Product Lead](#product-lead) | 2 | Product | MVP definition & user stories |
 | [Project Planner](#project-planner) | 2 | Product | Roadmap & sprint planning |
 | [Business Analyst](#business-analyst) | 2 | Product | Market analysis & GTM strategy |
@@ -86,9 +86,9 @@ The System employs 19 specialized AI agents (18 production + 1 utility) organize
 
 ### Solution Architect
 
-**Role:** Requirements assessment and architecture recommendations
+**Role:** Requirements assessment, architecture recommendations & legacy project analysis
 **Stage:** 1 (Architecture Assessment)
-**Primary Commands:** `/ts-assess`
+**Primary Commands:** `/ts-assess`, `/ts-assess --existing <project-name>`
 
 **Responsibilities:**
 - Analyzes project requirements and complexity
@@ -96,6 +96,9 @@ The System employs 19 specialized AI agents (18 production + 1 utility) organize
 - Suggests technology stack choices
 - Provides implementation approach recommendations
 - Assesses technical feasibility and risks
+- **🗺️ Project Explorer:** Analyzes existing/legacy codebases for completion strategies
+- Conducts gap analysis and technical debt assessment
+- Provides modernization guidance and completion roadmaps
 
 **Tools:** Read, Write, Bash
 **Model:** Sonnet 4 (Technical analysis and recommendations)
