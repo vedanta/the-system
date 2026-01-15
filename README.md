@@ -15,7 +15,7 @@ Build production-ready software with 19 specialized AI agents across 5 departmen
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 agents"/>
-  <img src="https://img.shields.io/badge/Commands-48-green?style=for-the-badge" alt="49 commands"/>
+  <img src="https://img.shields.io/badge/Commands-49-green?style=for-the-badge" alt="49 commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
@@ -121,6 +121,30 @@ The System is an agentic framework that simulates a complete software developmen
 🚀 Production-Ready Software
 ```
 
+### 🗺️ Project Explorer: Beyond Greenfield Development
+
+**NEW:** The System now analyzes existing and legacy codebases with our **Project Explorer** capability - the first AI development tool to offer comprehensive existing project analysis.
+
+#### Unique Capabilities:
+- **🔍 Legacy Codebase Analysis** - Analyze inherited, abandoned, or half-completed projects
+- **📊 Technical Debt Assessment** - Quantified analysis and remediation pathways
+- **🏗️ Completion Strategies** - Clear roadmaps with effort estimates and success probabilities
+- **🔐 Security Analysis** - OWASP Top 10 compliance checking and vulnerability assessment
+- **⚡ Modernization Guidance** - Technology upgrade pathways and stack recommendations
+
+```bash
+# Analyze any existing project
+/ts-assess --existing my-legacy-app
+
+# Focus on specific analysis
+/ts-assess --existing my-app --gaps        # Missing components
+/ts-assess --existing my-app --health      # Code quality assessment
+/ts-assess --existing my-app --security    # Security vulnerabilities
+/ts-assess --existing my-app --completion  # Completion strategies
+```
+
+**Result:** Comprehensive analysis reports with completion strategies, technology recommendations, and integration plans for bringing projects to production with The System workflow.
+
 ### Why Choose The System?
 
 | **Traditional Development** | **The System (ASDO)** |
@@ -131,6 +155,7 @@ The System is an agentic framework that simulates a complete software developmen
 | Inconsistent code quality | QA engineer reviews every component systematically |
 | Manual deployment setup | DevOps agent generates Infrastructure as Code |
 | You make every micro-decision | You make *strategic* decisions at HITL gates |
+| **🔸 Greenfield projects only** | **🗺️ Project Explorer: Analyze existing/legacy codebases** |
 
 ---
 

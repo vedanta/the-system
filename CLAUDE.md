@@ -53,7 +53,7 @@
 Your chief of staff. All communication flows through this agent.
 
 ### 📐 Architecture Department (Stage 1)
-- **🏗️ Solution Architect** - System design, technical architecture, ADRs
+- **🏗️ Solution Architect** - System design, technical architecture, ADRs, Project Explorer (legacy analysis)
 
 ### 📦 Product Department (Stage 2)
 - **👔 Product Lead** - MVP definition, user stories, PRD
@@ -100,7 +100,7 @@ Your chief of staff. All communication flows through this agent.
 ### Stage 1: Architecture (2)
 | Command | Agent | Purpose |
 |---------|-------|---------|
-| `/ts-assess` | Solution Architect | Assess project requirements and recommend architecture |
+| `/ts-assess` | Solution Architect | Assess project requirements and recommend architecture; Analyze existing/legacy codebases |
 | `/ts-architect` | Solution Architect | Run architecture design phase |
 
 ### Stage 2: Product (3)
@@ -316,6 +316,15 @@ After Stage 3 (/ts-approve development):
 - **Multiple formats supported**: `.txt`, `.md`, `.json`, `.yaml`
 - **Structured ideas**: JSON/YAML files can include build flags
 - **Organized workflow**: Store ideas in `input/` or `ideas/` directories
+
+### ✅ Project Explorer System (Legacy Analysis)
+- **`/ts-assess --existing <project-name>`** - Analyze existing/legacy codebases
+- **Comprehensive analysis**: Gap analysis, health assessment, security review
+- **Completion strategies**: Technical debt quantification and remediation pathways
+- **Multiple analysis modes**: `--gaps`, `--health`, `--security`, `--completion`, `--map`, `--report`
+- **Structured output**: Analysis reports saved to `output/[project]-analysis/`
+- **Strategic value**: First AI development tool with existing project analysis capabilities
+- **Market expansion**: Extends framework beyond greenfield to legacy modernization
 
 ### ✅ Comprehensive Help System
 - **`/ts-help`** - Interactive command browser with 49 commands grouped by category
