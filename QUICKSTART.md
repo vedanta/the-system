@@ -1,113 +1,127 @@
-# The System - 5-Minute Quickstart
+# 🚀 QUICKSTART: Get Started with The System in 5 Minutes
 
-Get from idea to deployed application in 5 minutes.
+*Fast path from installation to first success*
 
-## What is The System?
+---
 
-An autonomous software development framework with 19 AI agents that builds production apps from your ideas.
+## ✅ Prerequisites Check
 
-## Quick Install
+Before starting, ensure you have:
+- [ ] Claude Code CLI installed and working
+- [ ] Git repository initialized
+- [ ] Basic familiarity with command-line interface
 
+**Quick Test:**
 ```bash
-# Clone the framework
-git clone https://github.com/vedanta/the-system.git
-cd the-system
-
-# Verify installation
-./scripts/verify-the-system.sh
+claude --version
+# Should show Claude Code version
 ```
 
-## 5-Minute App Creation
+---
 
-### Option 1: Supervised Mode (Recommended for first time)
+## 🎯 5-Minute Success Path
 
+### **Step 1: Verify Installation (1 minute)**
 ```bash
-# Start Claude Code in framework directory
+# Check framework files exist
+ls .claude/agents/    # Should show 19 agent files
+ls .claude/commands/  # Should show 49 command files
+```
+
+### **Step 2: Create Your First Project (2 minutes)**
+```bash
+# Start with a simple project
 claude
+> /ts-new-project hello-world
 
-# Create new project
-/ts-new-project my-app
-# Describe your app idea when prompted
-
-# Quick approval workflow
-/ts-approve architecture-start
-/ts-assess
-/ts-architect
-/ts-approve architecture-lock
-/ts-approve green-light
-
-# Auto-build complete application
-/ts-turbo-continue my-app
+# Share your idea when prompted:
+"Create a simple task management app with user authentication"
 ```
 
-### Option 2: Fully Autonomous (Turbo Mode)
-
+### **Step 3: Explore Essential Commands (2 minutes)**
 ```bash
-claude
+# Check project status anytime
+> /ts-status
 
-# One command - complete app
-/ts-turbo my-app "A task management app with user authentication and categories"
+# View project details
+> /ts-view
 
-# ⚡ Runs all 5 stages automatically
-# ⚡ Bypasses 8 HITL gates
-# ⚡ Generates complete project in output/my-app/
+# Get help from your advisor
+> /ts-ask "What should I do next?"
+
+# See executive summary
+> /ts-brief
 ```
 
-## Deploy in 30 Seconds
+---
 
+## 🎓 What You Just Accomplished
+
+✅ **Verified** - The System is installed and working
+✅ **Created** - Your first project with AI-driven planning
+✅ **Learned** - Core commands for project management
+✅ **Ready** - To dive deeper into full development workflow
+
+---
+
+## 🚀 Next Steps
+
+### **Ready for More?** Choose your path:
+
+**🏗️ Architecture First:**
 ```bash
-# Deploy to managed platforms
-/ts-push vercel        # Frontend to Vercel
-/ts-push railway       # Backend to Railway
-/ts-push neon          # Database to Neon
-
-# Check deployment
-/ts-live-status
+> /ts-approve architecture-start
+> /ts-architect
 ```
 
-## What You Get
-
-After 5 minutes, you have:
-
-- ✅ **Full-stack application** with chosen tech stack
-- ✅ **Production-ready code** with TypeScript, tests, documentation
-- ✅ **Database schema** with migrations and models
-- ✅ **Authentication system** integrated and configured
-- ✅ **Deployment configuration** for major platforms
-- ✅ **CI/CD pipelines** ready to use
-- ✅ **Comprehensive documentation** including API reference
-
-## Technology Stacks Available
-
-| Frontend | Backend | Database | Auth |
-|----------|---------|----------|------|
-| Next.js | FastAPI | PostgreSQL | Clerk |
-| React | Node.js | SQLite | NextAuth |
-| Vue/Nuxt | Express | DuckDB | Custom JWT |
-| Svelte | Python | MongoDB | |
-
-## Common Commands
-
+**⚡ Skip to Development:**
 ```bash
-/ts-status              # Check current project status
-/ts-help               # Browse all 49 commands
-/ts-turbo --help       # Autonomous mode help
-/ts-push --help        # Deployment options
+> /ts-turbo hello-world "Simple todo app"
+# Autonomous build in ~10 minutes
 ```
 
-## Next Steps
+**📚 Learn the Full Workflow:**
+- [Complete User Guide](USER-GUIDE.md)
+- [Architecture Tutorial](docs/user/architecture-tutorial.md)
+- [Build Presets Guide](docs/user/build-presets-practical.md)
 
-- **Tutorial:** [USER-GUIDE.md](USER-GUIDE.md) - Complete framework guide
-- **Commands:** [COMMAND-REFERENCE.md](COMMAND-REFERENCE.md) - All 49 commands
-- **Architecture:** [docs/user/architecture.md](docs/user/architecture.md) - Technical details
+**🎮 Hands-On Examples:**
+- [Architecture Tutorial](docs/user/architecture-tutorial.md)
+- [Build Presets Decision Guide](docs/user/build-presets-practical.md)
+- [Complete Workflow Guide](docs/user/workflow.md)
 
-## Need Help?
+---
 
-```bash
-claude
-> /ts-help                    # Interactive command browser
-> /ts-help turbo              # Specific command help
-> /ts-quickref                # Quick reference card
-```
+## 🆘 Need Help?
 
-**Time to first deployed app: 5 minutes** ⚡
+**Common Issues:**
+- Command not found → Check `.claude/commands/` directory
+- Project errors → Run `/ts-status` for current state
+- Agent questions → Use `/ts-ask "your question"`
+
+**Documentation:**
+- **Quick Start:** [Main README](README.md)
+- **Complete Guide:** [User Guide](USER-GUIDE.md)
+- **Framework Instructions:** [CLAUDE.md](CLAUDE.md)
+- **User Docs:** [Documentation Directory](docs/user/)
+
+**Community:**
+- Issues: [GitHub Issues](https://github.com/anthropics/claude-code/issues)
+- Feedback: Framework development team
+
+---
+
+## 🎯 Success Metrics
+
+After 5 minutes, you should be able to:
+- [ ] Run framework commands confidently
+- [ ] Create and manage projects
+- [ ] Understand the basic workflow
+- [ ] Know where to find detailed documentation
+
+**🎉 Congratulations! You're ready to build with The System.**
+
+---
+
+*Generated by /ts-user-docs-update • Updated: 2026-01-15 21:03*
+*Framework: 19 agents, 49 commands*
