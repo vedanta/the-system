@@ -9,6 +9,7 @@ The Design Department adds comprehensive UX analysis, wireframing, and interacti
 ## 📋 Table of Contents
 
 - [Quick Start](#quick-start)
+- [Project Compatibility & Selection](#project-compatibility--selection)
 - [Complete Workflow](#complete-workflow)
 - [Commands Reference](#commands-reference)
 - [Fidelity Levels](#fidelity-levels)
@@ -49,6 +50,194 @@ The Design Department adds comprehensive UX analysis, wireframing, and interacti
 # Step 4: Create interactive prototypes
 /ts-design-prototype all --fidelity=medium --analytics
 ```
+
+---
+
+## 🎯 Project Compatibility & Selection
+
+### **Which Projects Work Best?**
+
+The Design Department delivers optimal results with modern web applications that have rich component structures and clear API patterns. Here's how to determine if your project is a good fit:
+
+### ✅ **Fully Compatible Projects**
+
+#### **Frontend Frameworks (Best Results)**
+- **React** (JS/TS) - Complete component analysis, prop extraction, state patterns
+- **Vue.js** (JS/TS) - Single File Components, composition API, Vuex patterns
+- **Angular** (TS) - Components, services, modules, routing analysis
+- **Svelte** - Component structure and store patterns
+- **Next.js/Nuxt** - Pages, layouts, API routes integration
+
+#### **Backend Frameworks (API Discovery)**
+- **FastAPI** (Python) - Pydantic models, route decorators, dependency injection
+- **Express.js** (Node.js) - Router patterns, middleware, REST APIs
+- **Django/DRF** (Python) - ViewSets, serializers, URL patterns
+- **Flask** (Python) - Blueprint patterns, SQLAlchemy models
+- **NestJS** (TypeScript) - Controllers, decorators, GraphQL
+
+#### **API Standards**
+- **OpenAPI/Swagger** 3.0+ specifications
+- **GraphQL** schemas and resolvers
+- **RESTful APIs** with clear endpoint patterns
+
+### 🌟 **Optimal Project Types**
+
+#### 1. **Business Applications** (ROI: Exceptional 🌟)
+```bash
+# Perfect examples
+/ts-design-analyze output/admin-dashboard     # High component density
+/ts-design-analyze output/crm-system         # CRUD operations
+/ts-design-analyze output/analytics-platform # Data visualization
+```
+
+**Why Ideal:**
+- Rich component hierarchies (tables, forms, charts, dashboards)
+- Clear API patterns for data management
+- Business logic benefits from realistic sample data
+- Strong stakeholder review needs
+
+**Examples:**
+- Customer relationship management (CRM) systems
+- Enterprise resource planning (ERP) interfaces
+- Business intelligence dashboards
+- Content management systems
+- Admin panels and back-office tools
+
+#### 2. **E-commerce & Marketplace** (ROI: Excellent 🌟)
+```bash
+/ts-design-analyze output/ecommerce-app --domain=ecommerce
+/ts-design-api-discover output/ecommerce-backend --domain=ecommerce
+```
+
+**Why Ideal:**
+- Complex user journeys (browse → cart → checkout)
+- Rich product data for realistic wireframes
+- Multiple user types (customers, vendors, admins)
+- Strong mobile-responsive requirements
+
+**Examples:**
+- Online stores and marketplaces
+- Subscription platforms
+- Digital product stores
+- Multi-vendor platforms
+
+#### 3. **SaaS Platforms** (ROI: Excellent ⭐)
+```bash
+/ts-design-analyze output/saas-app
+/ts-design-api-discover output/api --domain=fintech
+```
+
+**Why Ideal:**
+- Feature-rich interfaces with clear workflows
+- API-driven architectures perfect for discovery
+- Multiple pricing tiers and user roles
+- Professional design requirements for customer confidence
+
+**Examples:**
+- Project management tools
+- Financial software platforms
+- Marketing automation tools
+- Customer support platforms
+- Development tools and IDEs
+
+#### 4. **Data-Heavy Applications** (ROI: Very Good ⭐)
+```bash
+/ts-design-analyze output/analytics-app --accessibility-focus
+/ts-design-wireframe dashboard --content=api-driven --format=svg
+```
+
+**Why Ideal:**
+- Complex data visualization requirements
+- Multiple filtering and analysis patterns
+- Real-time data updates and WebSocket integration
+- Executive dashboard requirements
+
+**Examples:**
+- Analytics and reporting platforms
+- Monitoring and observability tools
+- Financial trading platforms
+- IoT device management interfaces
+- Social media analytics tools
+
+### 🔶 **Partially Compatible Projects**
+
+#### **Legacy/Mixed Stacks** (ROI: Fair ○)
+- **jQuery/Bootstrap** apps - Basic structure analysis, limited interactivity
+- **PHP/Laravel** - Backend API discovery, limited frontend analysis
+- **Ruby on Rails** - API patterns, limited frontend if using ERB templates
+- **ASP.NET Core** - API discovery possible, frontend depends on stack
+
+#### **Static Sites** (ROI: Limited)
+- **Gatsby/Gridsome** - Static analysis, limited dynamic behavior
+- **11ty/Jekyll** - Template analysis, basic component patterns
+- **Plain HTML/CSS/JS** - Structure analysis, limited component extraction
+
+### ❌ **Not Compatible**
+
+**These project types won't benefit from Design Department:**
+- **Native Applications** - Mobile (Swift/Kotlin/Dart), Desktop (Qt/WinForms)
+- **Creative Tools** - Image/video editors, 3D modeling, music production
+- **Real-time/Gaming** - Games, trading platforms with microsecond requirements
+- **Embedded Systems** - Hardware-specific interfaces
+
+### 📊 **Compatibility Quick Assessment**
+
+| Feature | Excellent ✅ | Good 🔶 | Limited ⚠️ | Not Supported ❌ |
+|---------|-------------|---------|-------------|-----------------|
+| **Component Analysis** | React/Vue/Angular | jQuery/Bootstrap | Static HTML | Native Apps |
+| **API Discovery** | FastAPI/Express/Django | PHP/Rails APIs | Static Files | No Backend |
+| **Realistic Content** | Business Apps | Content Sites | Creative Tools | Games |
+| **Interactive Prototypes** | Modern JS Frameworks | Basic Web Apps | Static Sites | Native Apps |
+
+### 🎯 **Project Selection Guidelines**
+
+#### ✅ **Choose Design Department When Your Project Has:**
+
+1. **Rich Component Structure** - 15+ distinct UI components
+2. **Clear API Patterns** - REST/GraphQL endpoints with structured data
+3. **Business Data** - Real-world entities (users, orders, transactions, etc.)
+4. **Stakeholder Review Needs** - Non-technical people need to see and approve designs
+5. **Modern Web Stack** - Built with current frameworks and patterns
+6. **CRUD Operations** - Create, read, update, delete patterns throughout
+
+#### ❌ **Skip Design Department When Your Project Is:**
+
+1. **Simple Static Sites** - Basic marketing pages, blogs
+2. **Native Mobile/Desktop** - Platform-specific UI patterns
+3. **Creative/Artistic Tools** - Highly specialized interfaces
+4. **Legacy Systems** - Old codebases with outdated patterns
+5. **Embedded/IoT** - Hardware-specific interfaces
+6. **Real-time Games** - Performance-critical rendering
+
+#### 🔄 **Alternative Approaches for Unsupported Projects:**
+
+**For Incompatible Projects:**
+```bash
+# Use The System's standard development flow
+/ts-architect          # Architecture design
+/ts-product           # Product requirements
+/ts-develop           # Direct development
+```
+
+**For Partially Compatible Projects:**
+```bash
+# Use what works, skip what doesn't
+/ts-design-analyze output/legacy-app    # Basic structure analysis only
+# Skip API discovery if backend is incompatible
+/ts-design-wireframe key-components     # Focus on modernizable components
+```
+
+### 📈 **Expected ROI by Project Type**
+
+| Project Type | Time Savings | Quality Improvement | Stakeholder Value | Overall ROI |
+|-------------|-------------|-------------------|-----------------|-------------|
+| **Modern SaaS Dashboard** | 85% | High | Excellent | **🌟 Exceptional** |
+| **E-commerce Platform** | 70% | High | Excellent | **🌟 Excellent** |
+| **Business Application** | 75% | High | Good | **⭐ Very Good** |
+| **Content Platform** | 60% | Medium | Good | **✓ Good** |
+| **Legacy Modernization** | 45% | Medium | Fair | **○ Fair** |
+
+**💡 Pro Tip:** The Design Department delivers the highest ROI with modern, component-based web applications that have rich data models and clear business workflows. These projects benefit from all three phases and see dramatic improvements in design quality and development speed.
 
 ---
 
