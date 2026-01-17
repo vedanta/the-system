@@ -10,7 +10,7 @@
 
 ### Current Framework Status
 - **Agents:** 23
-- **Commands:** 54
+- **Commands:** 55
 - **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
 - **HITL Gates:** 8
 - **Status:** Production-ready framework with comprehensive documentation and help system
@@ -149,11 +149,12 @@ Your chief of staff. All communication flows through this agent.
 | `/ts-incident [action]` | SRE Ops | Incident management |
 | `/ts-slo` | SRE Ops | Define and track SLOs |
 
-### Utility Commands (8)
+### Utility Commands (9)
 | Command | Agent | Purpose |
 |---------|-------|---------|
 | `/ts-fix [type]` | Bug Fixer | Fix build errors systematically |
 | `/ts-validate [layer]` | QA Engineer | Run build verification |
+| `/ts-docs-compliance` | System | Check documentation compliance and fix issues |
 | `/ts-turbo <name> "<idea>"` | System | Run Stages 1-4 autonomously |
 | `/ts-turbo-quick <name> "<idea>"` | System | Quick turbo mode |
 | `/ts-self-document` | System | Generate framework documentation |
@@ -652,7 +653,7 @@ claude
 - [ ] **Multi-project support** - Manage multiple projects simultaneously
 
 ### Completed ✅
-- [x] Stage 1-5 implementation (23 agents, 54 commands)
+- [x] Stage 1-5 implementation (23 agents, 56 commands)
 - [x] Turbo Mode autonomous execution
 - [x] QA improvements with mandatory build verification
 - [x] Bug Fixer utility agent
@@ -717,7 +718,7 @@ claude
 
 # See all components
 ls -la .claude/agents/    # 23 agents
-ls -la .claude/commands/  # 54 commands
+ls -la .claude/commands/  # 56 commands
 
 # Search framework
 grep -r "HITL" .claude/

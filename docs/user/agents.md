@@ -595,4 +595,4 @@ Each department includes built-in quality validation:
 
 ---
 
-*Last Updated: January 2025 • Framework: 23 agents, 54 commands*
+*Last Updated: January 2025 • Framework: 23 agents, 56 commands*
