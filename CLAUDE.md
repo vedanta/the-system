@@ -6,11 +6,11 @@
 
 ## Framework Overview
 
-**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 19 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 23 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Current Framework Status
-- **Agents:** 19
-- **Commands:** 49
+- **Agents:** 23
+- **Commands:** 54
 - **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
 - **HITL Gates:** 8
 - **Status:** Production-ready framework with comprehensive documentation and help system
@@ -47,7 +47,7 @@
 
 ---
 
-## Departments & Agents (19 Total)
+## Departments & Agents (23 Total)
 
 ### 🎩 Founder-Advisor
 Your chief of staff. All communication flows through this agent.
@@ -372,7 +372,7 @@ After Stage 3 (/ts-approve development):
 ```
 the-system/
 ├── .claude/
-│   ├── agents/              # 19 agent definitions
+│   ├── agents/              # 23 agent definitions
 │   │   ├── founder-advisor.md
 │   │   ├── solution-architect.md
 │   │   ├── product-lead.md
@@ -652,7 +652,7 @@ claude
 - [ ] **Multi-project support** - Manage multiple projects simultaneously
 
 ### Completed ✅
-- [x] Stage 1-5 implementation (19 agents, 49 commands)
+- [x] Stage 1-5 implementation (23 agents, 54 commands)
 - [x] Turbo Mode autonomous execution
 - [x] QA improvements with mandatory build verification
 - [x] Bug Fixer utility agent
@@ -716,8 +716,8 @@ claude
 ./scripts/verify-the-system.sh
 
 # See all components
-ls -la .claude/agents/    # 19 agents
-ls -la .claude/commands/  # 49 commands
+ls -la .claude/agents/    # 23 agents
+ls -la .claude/commands/  # 54 commands
 
 # Search framework
 grep -r "HITL" .claude/

@@ -33,7 +33,7 @@ This guide contains all the detailed information, workflows, commands, and advan
 
 ### What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **19 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+The System is an agentic framework that simulates a complete software development organization. It orchestrates **23 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Key Value Propositions
 
@@ -46,7 +46,7 @@ The System is an agentic framework that simulates a complete software developmen
 | Manual deployment setup | DevOps agent generates Infrastructure as Code |
 | You make every micro-decision | You make *strategic* decisions at HITL gates |
 | Single tech stack expertise | Multi-stack expertise across all modern technologies |
-| Solo development bottlenecks | 19 agents working in parallel coordination |
+| Solo development bottlenecks | 23 agents working in parallel coordination |
 
 ---
 
@@ -375,11 +375,11 @@ Control the speed vs. completeness trade-off with build presets:
 
 | **Build Preset** | **Duration** | **Agent Usage** | **Best For** |
 |------------------|-------------|----------------|--------------|
-| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-19 agents** | Architecture design only, rapid validation |
-| **🚀 Prototype** | **3-5 min** | **3-19 agents** | Working app, basic features, rapid iteration |
-| **📦 MVP** | **15-20 min** | **7-19 agents** | Production-ready, professional quality, proper testing |
-| **📦 MVP + Skip Release** | **12-15 min** | **6-19 agents** | Production-ready without docs/security scans |
-| **🏢 Production** | **45-60 min** | **12-19 agents** | Enterprise-grade, full compliance, comprehensive docs |
+| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-23 agents** | Architecture design only, rapid validation |
+| **🚀 Prototype** | **3-5 min** | **3-23 agents** | Working app, basic features, rapid iteration |
+| **📦 MVP** | **15-20 min** | **7-23 agents** | Production-ready, professional quality, proper testing |
+| **📦 MVP + Skip Release** | **12-15 min** | **6-23 agents** | Production-ready without docs/security scans |
+| **🏢 Production** | **45-60 min** | **12-23 agents** | Enterprise-grade, full compliance, comprehensive docs |
 
 #### Preset Detection
 
@@ -627,7 +627,7 @@ Skip Infrastructure as Code and deploy directly to managed platforms in Stage 5:
 ```
 the-system/
 ├── .claude/                   # Framework core
-│   ├── agents/                # 19 agent definitions
+│   ├── agents/                # 23 agent definitions
 │   │   ├── founder-advisor.md
 │   │   ├── enterprise-architect.md
 │   │   ├── solution-architect.md
@@ -945,8 +945,8 @@ ln -s .the-system/.claude .claude
 
 # Expected output:
 ✅ Framework structure validated
-✅ All 19 agents found
-✅ All 49 commands found
+✅ All 23 agents found
+✅ All 54 commands found
 ✅ Configuration files valid
 ✅ The System ready for use
 ```
@@ -989,8 +989,8 @@ The System includes automatic build verification:
 
 ```bash
 # Count agents and commands
-ls .claude/agents/*.md | wc -l      # Should show 19 agent files
-ls .claude/commands/*.md | wc -l    # Should show 49 command files
+ls .claude/agents/*.md | wc -l      # Should show 23 agent files
+ls .claude/commands/*.md | wc -l    # Should show 54 command files
 
 # Verify specific components
 ls .claude/agents/                  # List all agents
@@ -1010,7 +1010,7 @@ ls .claude/commands/               # List all commands
 | Issue | Symptoms | Solution |
 |-------|----------|----------|
 | **Command not found** | `/ts-*` commands fail | Check `.claude/commands/` directory exists |
-| **Agent missing** | "Agent not found" errors | Verify `.claude/agents/` has all 19 files |
+| **Agent missing** | "Agent not found" errors | Verify `.claude/agents/` has all 23 files |
 | **Build failures** | Generated code won't compile | Run `/ts-fix` for automatic diagnosis |
 | **Deployment errors** | `/ts-deploy` or `/ts-push` fails | Check platform credentials and quotas |
 

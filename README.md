@@ -5,7 +5,7 @@
 
 **→ [🚀 Quick Start Guide](#-quick-start) | Get building in 2 minutes**
 
-Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
+Build production-ready software with 23 specialized AI agents across 5 departments, all working under your strategic guidance.
 
 <p align="center">
   <img src="images/system-hero.png" alt="The System - Autonomous Software Development Organization" width="800"/>
@@ -14,7 +14,7 @@ Build production-ready software with 19 specialized AI agents across 5 departmen
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 agents"/>
+  <img src="https://img.shields.io/badge/Agents-23-blue?style=for-the-badge" alt="23 agents"/>
   <img src="https://img.shields.io/badge/Commands-54-green?style=for-the-badge" alt="54 commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
@@ -106,7 +106,7 @@ Build production-ready software with 19 specialized AI agents across 5 departmen
 
 ## 🚀 What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **19 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+The System is an agentic framework that simulates a complete software development organization. It orchestrates **23 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### The Complete Software Company
 
@@ -254,7 +254,7 @@ claude
 
 ### 🚀 What You Get
 
-After setup, you have **19 AI agents** ready to build complete applications:
+After setup, you have **23 AI agents** ready to build complete applications:
 - **🏗️ Architecture** - System design and tech selection
 - **📦 Product** - MVP planning and user stories
 - **💻 Development** - Full-stack coding with tests
@@ -454,7 +454,7 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 - **[Build Presets Tutorial](docs/user/build-presets-practical.md)** - Speed optimization guide
 
 ### Reference Documentation
-- **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
+- **[Agent Reference](docs/user/agents.md)** - All 23 agents and capabilities
 - **[Command Reference](docs/user/commands.md)** - All 54 commands with examples
 - **[Configuration Guide](docs/user/configuration.md)** - Customization options
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes

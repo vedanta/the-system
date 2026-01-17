@@ -1,10 +1,10 @@
 # The System Agents
 
-> Complete reference for all 19 agents in the Autonomous Software Development Organization
+> Complete reference for all 23 agents in the Autonomous Software Development Organization
 
 ## Overview
 
-The System employs 19 specialized AI agents (18 production + 1 utility) organized across 5 departments. Each agent has specific expertise, tools, and responsibilities within the software development lifecycle.
+The System employs 23 specialized AI agents (22 production + 1 utility) organized across 5 departments. Each agent has specific expertise, tools, and responsibilities within the software development lifecycle.
 
 ## Agent Directory
 
@@ -595,4 +595,4 @@ Each department includes built-in quality validation:
 
 ---
 
-*Last Updated: January 2025 • Framework: 19 agents, 49 commands*
+*Last Updated: January 2025 • Framework: 23 agents, 54 commands*
