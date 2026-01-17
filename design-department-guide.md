@@ -51,6 +51,32 @@ The Design Department adds comprehensive UX analysis, wireframing, and interacti
 /ts-design-prototype all --fidelity=medium --analytics
 ```
 
+### ⚡ Turbo Mode (1 Command)
+
+```bash
+# Complete autonomous Design Department pipeline
+/ts-design-turbo output/my-project --fidelity=medium --review-server
+
+# E-commerce focused with high fidelity
+/ts-design-turbo output/ecommerce-app --domain=ecommerce --fidelity=high
+
+# Quick iteration mode
+/ts-design-turbo output/prototype --quick --analytics
+```
+
+### 📊 Status Monitoring
+
+```bash
+# Check Design Department progress
+/ts-design-status output/my-project
+
+# Executive summary for stakeholders
+/ts-design-status output/my-project --summary
+
+# Check all projects with design work
+/ts-design-status --list-projects
+```
+
 ---
 
 ## 🎯 Project Compatibility & Selection
@@ -493,6 +519,83 @@ The Design Department delivers optimal results with modern web applications that
 - `prototypes/assets/` - CSS, JS, and data files
 - `prototypes/analytics/` - Interaction tracking data (if enabled)
 
+### /ts-design-turbo
+
+**Purpose:** Execute the complete Design Department pipeline autonomously without manual intervention
+
+```bash
+/ts-design-turbo [project-path] [--fidelity=medium] [--domain=context] [--review-server] [--analytics] [--quick]
+```
+
+**Examples:**
+```bash
+/ts-design-turbo output/my-project
+/ts-design-turbo output/ecommerce-app --domain=ecommerce --fidelity=high --review-server
+/ts-design-turbo output/mobile-app --mobile --analytics
+/ts-design-turbo output/prototype --quick --fidelity=low
+/ts-design-turbo output/dashboard --domain=fintech --format=svg --fidelity=high
+```
+
+**Key Features:**
+- **Autonomous Execution** - Runs all 4 phases without manual intervention
+- **Optimal Flag Combinations** - Automatically selects best settings for domain/fidelity
+- **Domain-Specific Optimization** - Tailored content generation for industry contexts
+- **Quality Assurance** - Built-in checkpoints ensure each phase completes successfully
+- **Time Efficient** - Complete pipeline in 8-15 minutes depending on fidelity
+
+**Execution Phases:**
+1. **UX Analysis** - Component inventory and accessibility assessment (2-3 min)
+2. **API Discovery** - Backend analysis and realistic content generation (3-4 min)
+3. **Enhanced Wireframes** - API-driven wireframes with 350% content improvement (2-3 min)
+4. **Interactive Prototypes** - Fidelity-appropriate HTML prototypes with analytics (4-8 min)
+
+**Output:**
+- Complete design pipeline in single output directory
+- All artifacts from individual commands (analysis, wireframes, prototypes)
+- Integrated review server ready for stakeholder access
+- Analytics tracking enabled (if requested)
+
+### /ts-design-status
+
+**Purpose:** Check Design Department progress, show completed phases, and provide next-step recommendations
+
+```bash
+/ts-design-status [project-path] [--detailed] [--summary] [--recommendations] [--list-projects]
+```
+
+**Examples:**
+```bash
+/ts-design-status output/my-project
+/ts-design-status output/ecommerce-app --detailed
+/ts-design-status output/dashboard --summary --format=markdown
+/ts-design-status --list-projects
+/ts-design-status output/my-project --recommendations
+```
+
+**Status Information:**
+- **Phase Completion** - Shows which of the 4 phases are complete/in-progress/pending
+- **Quality Metrics** - Content realism, domain accuracy, stakeholder readiness scores
+- **File Locations** - Paths to analysis reports, wireframes, prototypes, analytics
+- **Timestamps** - When each phase was last updated
+- **Next Steps** - Intelligent recommendations for continuing the workflow
+
+**Format Options:**
+- **Console** - Rich visual status display with progress indicators (default)
+- **Summary** - Condensed markdown suitable for stakeholder reports
+- **JSON** - Structured data for automation and integration
+- **Detailed** - Comprehensive analysis including file contents and metrics
+
+**Multi-Project Support:**
+- **--list-projects** - Show status of all projects with design work
+- **Comparative Analysis** - See relative progress across multiple projects
+- **Bulk Recommendations** - Next steps for each project in portfolio
+
+**Output:**
+- Visual status dashboard with phase completion indicators
+- Key metrics (components analyzed, APIs discovered, content improvement %)
+- Intelligent next-step recommendations based on current progress
+- Integration guidance for continuing with The System development workflow
+
 ---
 
 ## 🎯 Fidelity Levels Explained
@@ -620,6 +723,92 @@ The Design Department delivers optimal results with modern web applications that
 --fidelity=medium             # Functionality over aesthetics
 --review-server               # Team collaboration
 ```
+
+### 5. Turbo Mode vs Manual Workflow
+
+**✅ Use Turbo Mode When:**
+- **First-time design work** - Complete pipeline needed for new projects
+- **Stakeholder deadlines** - Need complete deliverables quickly (under 15 minutes)
+- **Standard projects** - Business apps, e-commerce, SaaS that fit common patterns
+- **Team efficiency** - Minimize manual steps and potential errors
+- **Consistent quality** - Want optimal flag combinations automatically
+
+```bash
+# Turbo mode for standard business application
+/ts-design-turbo output/crm-app --domain=fintech --fidelity=medium --review-server
+
+# Quick iteration for rapid feedback
+/ts-design-turbo output/prototype --quick --analytics
+```
+
+**✅ Use Manual Workflow When:**
+- **Experimental projects** - Need fine control over each phase
+- **Specific requirements** - Custom analysis depth or component focus
+- **Iterative design** - Want to review/adjust between phases
+- **Learning/training** - Understanding each phase's contribution
+- **Troubleshooting** - Isolating issues in specific phases
+
+```bash
+# Manual workflow with custom requirements
+/ts-design-analyze output/legacy-app --components="Dashboard,UserTable"
+/ts-design-wireframe Dashboard --format=svg --width=120
+/ts-design-prototype Dashboard --fidelity=high --analytics
+```
+
+### 6. Status Monitoring & Progress Tracking
+
+**Regular Status Checks:**
+```bash
+# Quick progress check during development
+/ts-design-status output/my-project
+
+# Executive summary for stakeholder updates
+/ts-design-status output/my-project --summary --format=markdown
+
+# Portfolio overview for project managers
+/ts-design-status --list-projects
+```
+
+**Status-Driven Workflow:**
+```bash
+# 1. Check current status
+/ts-design-status output/my-project --recommendations
+
+# 2. Follow recommended next steps
+/ts-design-api-discover output/my-project  # Based on status recommendation
+
+# 3. Monitor progress
+/ts-design-status output/my-project --metrics-only
+
+# 4. Continue based on updated status
+/ts-design-wireframe all --content=api-driven  # Next recommended action
+```
+
+**Quality Monitoring:**
+- **Content Realism**: Target 350%+ improvement with API discovery
+- **Component Coverage**: Ensure 90%+ of components analyzed
+- **Stakeholder Readiness**: Achieve 95%+ score before reviews
+- **Development Readiness**: 90%+ score with complete specifications
+
+### 7. Troubleshooting with Status Information
+
+**Use Status for Issue Diagnosis:**
+```bash
+# Check what's completed vs missing
+/ts-design-status output/problematic-project --detailed
+
+# Identify quality issues
+/ts-design-status output/project --metrics-only
+
+# Get specific recommendations for blockers
+/ts-design-status output/project --recommendations
+```
+
+**Common Status-Based Fixes:**
+- **Low Content Realism** → Run `/ts-design-api-discover` and regenerate wireframes
+- **Incomplete Analysis** → Re-run `/ts-design-analyze` with `--deep` flag
+- **Missing Review Server** → Add `--review-server` to prototype command
+- **Analytics Not Tracking** → Add `--analytics` flag to prototype generation
 
 ---
 
