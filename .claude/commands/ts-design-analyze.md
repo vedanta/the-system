@@ -131,8 +131,8 @@ The Design Analysis command provides comprehensive UX and accessibility analysis
 
 ### Default Output Location
 ```
-[project-path]-design-analysis/
-├── ux-analysis.md                 # Primary analysis report
+output/design-analysis/[project-name]-analysis/
+├── design-analysis-report.md      # Primary analysis report
 ├── component-inventory.json        # Structured component data
 ├── accessibility-issues.json       # WCAG compliance issues
 ├── user-flows.mmd                 # Mermaid user flow diagrams

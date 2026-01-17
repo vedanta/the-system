@@ -33,25 +33,25 @@ Provide comprehensive visibility into Design Department progress for any project
 
 ```bash
 # Basic status check for current project
-/ts-design-status
+/ts-design-status my-project-analysis
 
 # Detailed status with file analysis
-/ts-design-status output/my-project --detailed
+/ts-design-status my-project-analysis --detailed
 
 # Executive summary for stakeholder reporting
-/ts-design-status output/ecommerce-app --summary --format=markdown
+/ts-design-status ecommerce-app-analysis --summary --format=markdown
 
 # Get next-step recommendations
-/ts-design-status output/dashboard --recommendations
+/ts-design-status dashboard-analysis --recommendations
 
-# Check all design projects
+# Check all design projects in portfolio
 /ts-design-status --list-projects
 
 # Performance metrics only
-/ts-design-status output/my-project --metrics-only
+/ts-design-status my-project-analysis --metrics-only
 
 # Save detailed report for documentation
-/ts-design-status output/saas-app --detailed --save-to=design-status-report.md
+/ts-design-status saas-app-analysis --detailed --save-to=design-status-report.md
 ```
 
 ## Process
@@ -227,7 +227,7 @@ Provide comprehensive visibility into Design Department progress for any project
    {
      "project": {
        "name": "my-project",
-       "path": "output/my-project",
+       "path": "output/design-analysis/my-project-analysis",
        "framework": {
          "frontend": "React",
          "backend": "FastAPI",
@@ -297,10 +297,10 @@ Provide comprehensive visibility into Design Department progress for any project
 ### Phase 5: Multi-Project Analysis (--list-projects)
 
 9. **Project Discovery and Listing**
-   - Scan output/ directory for projects with design artifacts
-   - Check .claude/pipeline/projects/ for Design Department status
-   - Analyze relative progress and completion rates
-   - Generate comparative status report
+   - Scan output/design-analysis/ directory for all design analysis projects
+   - Check .claude/pipeline/projects/ for The System integration status
+   - Analyze relative progress and completion rates across portfolio
+   - Generate comparative status report with organized view
 
 10. **Multi-Project Status Display**
     ```

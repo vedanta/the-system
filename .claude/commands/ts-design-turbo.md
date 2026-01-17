@@ -229,7 +229,7 @@ Automate the entire Design Department workflow in one command, eliminating manua
     ║  OUTPUT                                                          ║
     ╠══════════════════════════════════════════════════════════════════╣
     ║                                                                  ║
-    ║  📁 [save-to-directory]/                                         ║
+    ║  📁 output/design-analysis/[project-name]-analysis/              ║
     ║     ├── design-analysis-report.md    # UX analysis               ║
     ║     ├── api-inventory.json           # API discovery             ║
     ║     ├── wireframes/                  # Enhanced wireframes       ║

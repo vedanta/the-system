@@ -26,21 +26,22 @@ The Design Department adds comprehensive UX analysis, wireframing, and interacti
 ### Basic Workflow (3 Commands)
 
 ```bash
-# Analyze any project (existing codebase, new project, any location)
-/ts-design-analyze ~/projects/my-react-app    # Or output/my-project, or any path
+# Analyze any project - output goes to output/design-analysis/
+/ts-design-analyze ~/projects/my-react-app    # Or any path
 
 # Generate professional wireframes
 /ts-design-wireframe all
 
 # Create interactive prototypes
 /ts-design-prototype all --review-server
+# → output/design-analysis/my-react-app-analysis/
 ```
 
 ### Enhanced Workflow (4 Commands)
 
 ```bash
-# Step 1: Analyze UX patterns and components (any project location)
-/ts-design-analyze ~/client-work/ecommerce-site    # Any directory works!
+# Step 1: Analyze UX patterns and components
+/ts-design-analyze ~/client-work/ecommerce-site
 
 # Step 2: Discover APIs for realistic content
 /ts-design-api-discover ~/client-work/ecommerce-site
@@ -50,32 +51,37 @@ The Design Department adds comprehensive UX analysis, wireframing, and interacti
 
 # Step 4: Create interactive prototypes
 /ts-design-prototype all --fidelity=medium --analytics
+# → output/design-analysis/ecommerce-site-analysis/
 ```
 
 ### ⚡ Turbo Mode (1 Command)
 
 ```bash
-# Complete autonomous pipeline - works with any project location
+# Complete autonomous pipeline - input anywhere, output organized
 /ts-design-turbo ~/existing-projects/dashboard --fidelity=medium --review-server
+# → output/design-analysis/dashboard-analysis/
 
-# E-commerce focused with high fidelity
+# E-commerce focused analysis
 /ts-design-turbo ~/client-work/store --domain=ecommerce --fidelity=high
+# → output/design-analysis/store-analysis/
 
-# The System projects (enhanced integration)
-/ts-design-turbo output/new-project --quick --analytics
+# Multiple analyses organized automatically
+/ts-design-turbo ~/project-1 && /ts-design-turbo ~/project-2
+# → output/design-analysis/project-1-analysis/
+# → output/design-analysis/project-2-analysis/
 ```
 
 ### 📊 Status Monitoring
 
 ```bash
-# Check Design Department progress
-/ts-design-status output/my-project
+# Check specific project analysis
+/ts-design-status dashboard-analysis    # References output/design-analysis/dashboard-analysis/
 
 # Executive summary for stakeholders
-/ts-design-status output/my-project --summary
+/ts-design-status ecommerce-site-analysis --summary
 
-# Check all projects with design work
-/ts-design-status --list-projects
+# Portfolio view of all design work
+/ts-design-status --list-projects       # Shows all analyses in output/design-analysis/
 ```
 
 ---
@@ -167,122 +173,144 @@ The Design Department automatically detects project characteristics **regardless
 
 ### **📁 Output Organization**
 
-**Input location is flexible, output is created in your current working directory:**
+**Input location is flexible, output follows The System's disciplined structure under `output/`:**
 
 ```bash
-# You are currently in: /Users/name/work/
-cd /Users/name/work/
-
 # Input: Any project location
 /ts-design-turbo ~/client-projects/ecommerce-app
 
-# Output: Created in current directory (/Users/name/work/)
-/Users/name/work/ecommerce-app-analysis/
-├── design-analysis-report.md       # UX analysis
-├── api-inventory.json              # API discovery
-├── wireframes/                     # ASCII/SVG wireframes
-│   ├── dashboard-ascii.txt
-│   └── svg/dashboard.svg
-├── prototypes/                     # Interactive prototypes
-│   ├── index.html
-│   ├── components/
-│   └── analytics/
-└── README.md                       # Documentation
+# Output: Organized under output/design-analysis/
+output/
+└── design-analysis/
+    └── ecommerce-app-analysis/
+        ├── design-analysis-report.md       # UX analysis
+        ├── api-inventory.json              # API discovery
+        ├── wireframes/                     # ASCII/SVG wireframes
+        │   ├── dashboard-ascii.txt
+        │   └── svg/dashboard.svg
+        ├── prototypes/                     # Interactive prototypes
+        │   ├── index.html
+        │   ├── components/
+        │   └── analytics/
+        └── README.md                       # Documentation
 ```
 
-**Key Rule:** Output is always created in your **current working directory**, using the project name to create a descriptive analysis folder.
+**Key Rule:** All Design Department output is organized under `output/design-analysis/` following The System's disciplined architecture.
 
 ### **📍 Practical Output Examples**
 
-**Example 1: Client Work Organization**
+**Example 1: Multiple Project Analysis**
 ```bash
-# Create organized workspace
-mkdir ~/design-work
-cd ~/design-work
+# Analyze different projects from anywhere
+/ts-design-analyze ~/projects/react-app
+/ts-design-analyze ~/client-work/vue-dashboard
+/ts-design-turbo ~/legacy-systems/old-php-app
 
-# Run analysis on client project
-/ts-design-turbo ~/client-projects/acme-dashboard --domain=fintech
-
-# Output created at:
-~/design-work/acme-dashboard-analysis/
-├── design-analysis-report.md
-├── wireframes/
-└── prototypes/
+# All output organized under:
+output/
+└── design-analysis/
+    ├── react-app-analysis/
+    ├── vue-dashboard-analysis/
+    └── old-php-app-analysis/
 ```
 
-**Example 2: Multiple Project Analysis**
+**Example 2: Client Work Workflow**
 ```bash
-# Work directory for all design analysis
-cd ~/analysis-results
+# Analyze client projects
+/ts-design-turbo ~/client-repos/acme-dashboard --domain=fintech
+/ts-design-turbo ~/client-repos/acme-mobile --mobile --analytics
 
-# Analyze different projects
-/ts-design-analyze ~/projects/app-1          # → app-1-analysis/
-/ts-design-analyze ~/client-work/app-2       # → app-2-analysis/
-/ts-design-turbo ~/legacy-systems/app-3      # → app-3-analysis/
-
-# Clean organized output
-ls ~/analysis-results/
-app-1-analysis/    app-2-analysis/    app-3-analysis/
+# Clean organized output:
+output/
+└── design-analysis/
+    ├── acme-dashboard-analysis/
+    │   ├── design-analysis-report.md
+    │   ├── wireframes/
+    │   └── prototypes/
+    └── acme-mobile-analysis/
+        ├── design-analysis-report.md
+        ├── wireframes/
+        └── prototypes/
 ```
 
-**Example 3: Current Directory Scenarios**
+**Example 3: Portfolio Management**
 ```bash
-# Scenario A: You're in project directory
-cd ~/my-react-project
-/ts-design-analyze .                         # → my-react-project-analysis/
+# Check all design work
+/ts-design-status --list-projects
 
-# Scenario B: You're in dedicated workspace
-cd ~/design-workspace
-/ts-design-turbo ~/external-project          # → external-project-analysis/
-
-# Scenario C: You're in random location
-cd ~/Desktop
-/ts-design-analyze ~/projects/app            # → app-analysis/ (created on Desktop)
+# Shows organized view of:
+# output/design-analysis/react-app-analysis/
+# output/design-analysis/vue-dashboard-analysis/
+# output/design-analysis/acme-dashboard-analysis/
+# output/design-analysis/acme-mobile-analysis/
 ```
 
-### **🎯 Customizable Output Location**
+### **🎯 Disciplined Architecture Benefits**
 
-**Control exactly where output goes:**
+**Consistent with The System Framework:**
 ```bash
-# Custom output directory
-/ts-design-turbo ~/any-project --save-to=custom-analysis-folder
-
-# Organized by client/project
-/ts-design-turbo ~/client-work/app --save-to=client-deliverables/app-redesign
-
-# Absolute path specification
-/ts-design-turbo ~/projects/app --save-to=/Users/name/design-outputs/app-analysis
-
-# Relative path from current directory
-/ts-design-turbo ~/projects/app --save-to=./results/app-design
+# All framework output organized by discipline
+output/
+├── my-saas-app/           # Projects from /ts-new-project
+├── ecommerce-platform/    # Projects from /ts-turbo
+└── design-analysis/       # Design Department output
+    ├── legacy-app-analysis/
+    ├── client-dashboard-analysis/
+    └── competitor-analysis/
 ```
 
-### **💡 Workspace Organization Tips**
-
-**Recommended Setup for Regular Use:**
+**Easy Portfolio Management:**
 ```bash
-# Create dedicated design workspace
-mkdir ~/design-analysis
-cd ~/design-analysis
+# View all projects
+ls output/                           # See projects + design analysis
 
-# All Design Department work goes here
-/ts-design-turbo ~/project-1                # → project-1-analysis/
-/ts-design-turbo ~/project-2                # → project-2-analysis/
-/ts-design-status --list-projects           # Shows all analyses in one place
+# View all design work
+ls output/design-analysis/           # See all analyzed projects
+
+# Status across all design work
+/ts-design-status --list-projects   # Organized view of all analyses
 ```
 
-**For Client/Agency Work:**
+### **🎯 Custom Output Override**
+
+**When you need different organization:**
 ```bash
-# Organized by client
-mkdir ~/client-deliverables
-cd ~/client-deliverables
+# Custom output location (overrides default)
+/ts-design-turbo ~/project --save-to=custom-location/analysis
 
-mkdir acme-corp
-cd acme-corp
+# Client deliverables folder
+/ts-design-turbo ~/client-app --save-to=client-deliverables/app-redesign
 
-# Client-specific analysis
-/ts-design-turbo ~/client-repos/acme-dashboard    # → acme-dashboard-analysis/
-/ts-design-turbo ~/client-repos/acme-mobile       # → acme-mobile-analysis/
+# Temporary analysis
+/ts-design-turbo ~/test-app --save-to=temp-analysis
+```
+
+### **💡 Framework Integration Benefits**
+
+**Design + Development Workflow:**
+```bash
+# 1. Analyze existing/competitor app
+/ts-design-turbo ~/competitor-app --domain=ecommerce
+# → output/design-analysis/competitor-app-analysis/
+
+# 2. Create new project inspired by analysis
+/ts-new-project my-ecommerce-app
+# → output/my-ecommerce-app/
+
+# 3. Use design insights in development
+/ts-develop  # Can reference design analysis for patterns
+```
+
+**Clean Workspace Management:**
+```bash
+# All framework work in one place
+ls output/
+my-project/                    # Development projects
+design-analysis/               # Design analysis work
+
+# Easy cleanup
+rm -rf output/design-analysis/old-*     # Remove old analyses
+git clean -fd output/                   # Clean all output (careful!)
 ```
 
 ### **🔗 Integration Differences**
