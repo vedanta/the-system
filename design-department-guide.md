@@ -167,14 +167,17 @@ The Design Department automatically detects project characteristics **regardless
 
 ### **📁 Output Organization**
 
-**Input location is flexible, output is always organized:**
+**Input location is flexible, output is created in your current working directory:**
 
 ```bash
+# You are currently in: /Users/name/work/
+cd /Users/name/work/
+
 # Input: Any project location
 /ts-design-turbo ~/client-projects/ecommerce-app
 
-# Output: Organized analysis directory
-ecommerce-app-analysis/
+# Output: Created in current directory (/Users/name/work/)
+/Users/name/work/ecommerce-app-analysis/
 ├── design-analysis-report.md       # UX analysis
 ├── api-inventory.json              # API discovery
 ├── wireframes/                     # ASCII/SVG wireframes
@@ -187,13 +190,99 @@ ecommerce-app-analysis/
 └── README.md                       # Documentation
 ```
 
-**Customizable Output Location:**
+**Key Rule:** Output is always created in your **current working directory**, using the project name to create a descriptive analysis folder.
+
+### **📍 Practical Output Examples**
+
+**Example 1: Client Work Organization**
+```bash
+# Create organized workspace
+mkdir ~/design-work
+cd ~/design-work
+
+# Run analysis on client project
+/ts-design-turbo ~/client-projects/acme-dashboard --domain=fintech
+
+# Output created at:
+~/design-work/acme-dashboard-analysis/
+├── design-analysis-report.md
+├── wireframes/
+└── prototypes/
+```
+
+**Example 2: Multiple Project Analysis**
+```bash
+# Work directory for all design analysis
+cd ~/analysis-results
+
+# Analyze different projects
+/ts-design-analyze ~/projects/app-1          # → app-1-analysis/
+/ts-design-analyze ~/client-work/app-2       # → app-2-analysis/
+/ts-design-turbo ~/legacy-systems/app-3      # → app-3-analysis/
+
+# Clean organized output
+ls ~/analysis-results/
+app-1-analysis/    app-2-analysis/    app-3-analysis/
+```
+
+**Example 3: Current Directory Scenarios**
+```bash
+# Scenario A: You're in project directory
+cd ~/my-react-project
+/ts-design-analyze .                         # → my-react-project-analysis/
+
+# Scenario B: You're in dedicated workspace
+cd ~/design-workspace
+/ts-design-turbo ~/external-project          # → external-project-analysis/
+
+# Scenario C: You're in random location
+cd ~/Desktop
+/ts-design-analyze ~/projects/app            # → app-analysis/ (created on Desktop)
+```
+
+### **🎯 Customizable Output Location**
+
+**Control exactly where output goes:**
 ```bash
 # Custom output directory
 /ts-design-turbo ~/any-project --save-to=custom-analysis-folder
 
 # Organized by client/project
 /ts-design-turbo ~/client-work/app --save-to=client-deliverables/app-redesign
+
+# Absolute path specification
+/ts-design-turbo ~/projects/app --save-to=/Users/name/design-outputs/app-analysis
+
+# Relative path from current directory
+/ts-design-turbo ~/projects/app --save-to=./results/app-design
+```
+
+### **💡 Workspace Organization Tips**
+
+**Recommended Setup for Regular Use:**
+```bash
+# Create dedicated design workspace
+mkdir ~/design-analysis
+cd ~/design-analysis
+
+# All Design Department work goes here
+/ts-design-turbo ~/project-1                # → project-1-analysis/
+/ts-design-turbo ~/project-2                # → project-2-analysis/
+/ts-design-status --list-projects           # Shows all analyses in one place
+```
+
+**For Client/Agency Work:**
+```bash
+# Organized by client
+mkdir ~/client-deliverables
+cd ~/client-deliverables
+
+mkdir acme-corp
+cd acme-corp
+
+# Client-specific analysis
+/ts-design-turbo ~/client-repos/acme-dashboard    # → acme-dashboard-analysis/
+/ts-design-turbo ~/client-repos/acme-mobile       # → acme-mobile-analysis/
 ```
 
 ### **🔗 Integration Differences**
