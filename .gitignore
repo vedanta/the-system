@@ -91,3 +91,9 @@ htmlcov/
 # MISCELLANEOUS
 # (Framework documentation files are now included for template users)
 # ----------------------------------------------------------------------------
+backup/
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
