@@ -25,7 +25,7 @@ claude --version
 ```bash
 # Check framework files exist
 ls .claude/agents/    # Should show 19 agent files
-ls .claude/commands/  # Should show 49 command files
+ls .claude/commands/  # Should show 54 command files
 ```
 
 ### **Step 2: Create Your First Project (2 minutes)**

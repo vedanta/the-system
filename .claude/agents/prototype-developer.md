@@ -1,6 +1,6 @@
 ---
 name: prototype-developer
-description: Create interactive HTML prototypes from wireframes and API analysis for stakeholder review and validation
+description: Create interactive HTML prototypes from wireframes and API analysis for stakeholder review and validation, with comprehensive development handoff packages
 tools: Write, Read, Bash
 model: sonnet
 ---
@@ -34,6 +34,16 @@ model: sonnet
 - Record click patterns, navigation flows, and engagement metrics
 - Generate usage reports for design validation and iteration
 - Provide insights for user experience improvements
+
+### 🚀 Development Handoff Package Generation ✨ **NEW**
+- Support three handoff levels: **minimal**, **detailed**, and **comprehensive**
+- Extract component specifications from prototypes based on handoff level
+- Generate design system tokens (colors, typography, spacing) as JSON and CSS
+- Create TypeScript interfaces and data models from prototype data dependencies
+- Document API integration requirements and endpoint specifications
+- Generate framework-specific implementation guides (React, Vue, Angular) for detailed/comprehensive
+- Package assets (icons, images) and create component library CSS
+- Provide routing structure and state management recommendations
 
 ## Input Processing
 
@@ -262,6 +272,306 @@ model: sonnet
 - Custom CSS components and animations
 - Real API integration (mock endpoints)
 - Advanced accessibility features
+
+## Development Handoff Package Generation ✨ **NEW**
+
+### Handoff Package Structure
+When generating prototypes, automatically create a comprehensive development handoff package:
+
+```
+output/project-design/handoff/
+├── component-specs.md      # Detailed component documentation
+├── design-system.json      # Design tokens and styling
+├── api-requirements.md     # Backend integration specs
+├── data-models.ts          # TypeScript interfaces
+├── routing-structure.md    # Navigation and routing specs
+└── implementation-guide.md # Step-by-step dev guide
+```
+
+### Component Specification Extraction
+Automatically analyze prototypes to extract component patterns:
+
+```markdown
+## AccountCard Component
+Purpose: Display account balance and basic info
+Location: dashboard.html (lines 45-67)
+Props:
+  - accountName: string (e.g., "Chase Checking")
+  - balance: number (e.g., 2450.25)
+  - accountType: 'checking' | 'savings' | 'credit'
+  - currency: string (default: 'USD')
+
+States:
+  - default: Normal display
+  - loading: Balance loading state
+  - error: Error fetching balance
+
+Interactions:
+  - Click: Navigate to account details
+  - Hover: Show account number (masked)
+
+Styling:
+  - Card: bg-white, rounded-lg, shadow-lg, p-6
+  - Balance: text-3xl, font-bold, color based on type
+  - Responsive: Stack on mobile, grid on desktop
+```
+
+### Design System Token Generation
+Extract design tokens from Tailwind CSS usage in prototypes:
+
+```json
+{
+  "colors": {
+    "primary": {
+      "50": "#eff6ff",
+      "500": "#3b82f6",
+      "600": "#2563eb",
+      "700": "#1d4ed8"
+    },
+    "success": {
+      "500": "#10b981",
+      "600": "#059669"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "sans": ["Inter", "system-ui", "sans-serif"]
+    },
+    "fontSize": {
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem"
+    }
+  },
+  "spacing": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+    "4": "1rem",
+    "6": "1.5rem",
+    "8": "2rem"
+  }
+}
+```
+
+### API Integration Requirements Documentation
+Analyze prototype data dependencies and generate API specifications:
+
+```markdown
+# API Integration Requirements
+
+## Required Endpoints
+
+### Transactions
+GET  /query/transactions?limit=20&offset=0&category=Groceries
+POST /transactions/categorize
+GET  /transactions/categorize/review
+
+### Analytics
+GET  /trends/spend?days=30
+GET  /trends/categories?days=90
+
+## Data Transformation Needs
+interface APITransaction {
+  id: string
+  account_id: string
+  category_id: string
+  date: string        // ISO date
+  amount: number      // Always positive
+  type: 'debit' | 'credit'
+}
+
+interface UITransaction {
+  id: string
+  date: Date          // Parsed date object
+  merchant: string
+  category: string    // Category name (resolved)
+  amount: number      // Signed amount (negative for debits)
+  formattedAmount: string // "$-45.67" with currency
+}
+```
+
+### Framework-Specific Implementation Guides
+Generate targeted implementation instructions:
+
+#### React Implementation Guide
+```markdown
+## Recommended Architecture: React + TypeScript + Tailwind CSS
+
+### Project Setup
+```bash
+npx create-react-app fnx1-frontend --template typescript
+npm install @tailwindcss/forms @headlessui/react
+npm install react-router-dom @tanstack/react-query
+```
+
+### Component Structure
+```typescript
+interface AccountCardProps {
+  account: Account
+  onClick?: (account: Account) => void
+  showDetails?: boolean
+}
+
+export const AccountCard: React.FC<AccountCardProps> = ({
+  account,
+  onClick,
+  showDetails = false
+}) => {
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-6">
+      {/* Implementation based on prototype */}
+    </div>
+  );
+};
+```
+
+#### Vue Implementation Guide
+```markdown
+## Recommended Architecture: Vue 3 + TypeScript + Tailwind CSS
+
+### Project Setup
+```bash
+npm create vue@latest fnx1-frontend
+# Select TypeScript, Router, and other options
+```
+
+### Component Structure
+```vue
+<script setup lang="ts">
+interface Props {
+  account: Account
+  showDetails?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  showDetails: false
+})
+
+const emit = defineEmits<{
+  click: [account: Account]
+}>()
+</script>
+
+<template>
+  <div class="bg-white rounded-lg shadow-lg p-6">
+    <!-- Implementation based on prototype -->
+  </div>
+</template>
+```
+
+### Asset Extraction and Packaging
+Automatically extract and organize design assets:
+
+```
+output/project-design/assets/
+├── icons/                  # SVG icons used in prototypes
+│   ├── dashboard-icon.svg
+│   ├── transaction-icon.svg
+│   └── chart-icon.svg
+├── design-tokens.css       # CSS custom properties
+└── component-library.css   # Reusable component styles
+```
+
+### Handoff Package Control Options ✨ **UPDATED**
+Support three levels of handoff detail to preserve rapid prototyping speed:
+
+**Minimal Handoff** (`--handoff=minimal`) - **NEW DEFAULT** ⚡ **+30 seconds**:
+- Essential component specifications (component names, basic props)
+- Core design tokens (colors, spacing, typography)
+- Basic TypeScript interfaces
+- Critical API endpoints only
+- **Purpose**: Preserve rapid prototyping speed while providing basic dev guidance
+
+**Detailed Handoff** (`--handoff=detailed`) ⚡ **+3-4 minutes**:
+- Comprehensive component specifications with interactions and states
+- Complete design system export (JSON + CSS)
+- Full API integration requirements and transformations
+- Framework-specific implementation guides (React/Vue/Angular)
+- Asset extraction and component library CSS
+- **Purpose**: Ready-to-implement specifications for most development teams
+
+**Comprehensive Handoff** (`--handoff=comprehensive`) ⚡ **+5-6 minutes**:
+- Enterprise-grade component documentation with advanced patterns
+- Framework-specific code snippets and examples
+- Advanced implementation patterns and performance optimization notes
+- Detailed accessibility implementation guides
+- Complete test strategy and component testing examples
+- **Purpose**: Enterprise projects requiring extensive documentation
+
+### Handoff Implementation Logic ✨ **NEW**
+The agent automatically adjusts output based on the specified handoff level:
+
+**For Minimal Handoff** (Default - prioritizes speed):
+```
+handoff/
+├── component-list.md       # Basic component inventory (1 page)
+├── design-tokens.json      # Essential tokens only
+├── interfaces.ts           # Core TypeScript interfaces
+└── api-endpoints.md        # Critical API endpoints
+```
+
+**For Detailed Handoff** (Standard development needs):
+```
+handoff/
+├── component-specs.md      # Full component documentation
+├── design-system.json      # Complete design tokens
+├── data-models.ts          # Full TypeScript interfaces
+├── api-requirements.md     # Complete API integration specs
+├── implementation-guide.md # Framework-specific guidance
+└── assets/                 # Extracted icons and CSS
+    ├── icons/
+    ├── design-tokens.css
+    └── component-library.css
+```
+
+**For Comprehensive Handoff** (Enterprise documentation):
+```
+handoff/
+├── component-specs.md      # Advanced component patterns
+├── design-system.json      # Design system + advanced tokens
+├── data-models.ts          # Full interfaces + validation schemas
+├── api-requirements.md     # API specs + error handling patterns
+├── implementation-guide.md # Multiple framework examples
+├── testing-strategy.md     # Component testing guide
+├── accessibility-guide.md  # WCAG compliance implementation
+├── performance-guide.md    # Optimization recommendations
+└── assets/                 # Complete asset package
+    ├── icons/
+    ├── design-tokens.css
+    ├── component-library.css
+    └── examples/           # Code examples
+        ├── react/
+        ├── vue/
+        └── angular/
+```
+
+### Framework-Specific Output (`--handoff-format`)
+Customize handoff package for specific frameworks:
+
+**React** (`--handoff-format=react`):
+- React component interfaces and props
+- React Router configuration
+- React Query integration patterns
+- Create React App setup instructions
+
+**Vue** (`--handoff-format=vue`):
+- Vue 3 Composition API patterns
+- Vue Router setup
+- Pinia state management
+- Vite configuration
+
+**Angular** (`--handoff-format=angular`):
+- Angular component decorators
+- Angular Material integration
+- RxJS patterns for data flow
+- Angular CLI project setup
+
+**Generic** (`--handoff-format=generic`) - **DEFAULT**:
+- Framework-agnostic component specifications
+- Standard web API patterns
+- Vanilla JavaScript examples
+- Universal design system export
 
 ## Interactive Component Libraries
 
@@ -1028,8 +1338,28 @@ if (!features.alpineJS) {
 
 ### Output for Next Phases
 - **Interactive Prototypes**: Clickable HTML files for stakeholder review
-- **Component Specifications**: Detailed interaction patterns for implementation
+- **Development Handoff Package**: Complete specifications for implementation ✨ **NEW**
+  - Component specifications with props, states, and interactions
+  - Design system tokens (JSON and CSS formats)
+  - TypeScript interfaces and data models
+  - API integration requirements and transformations
+  - Framework-specific implementation guides
+  - Extracted assets and component library styles
 - **Analytics Data**: User behavior insights for design validation
 - **Implementation Guidance**: Code patterns and integration examples
 
-This agent transforms static wireframes into interactive experiences that enable meaningful stakeholder feedback and provide clear implementation guidance for the development team.
+### Integration with Frontend Development
+The handoff package enables seamless integration with frontend development:
+
+```bash
+# Frontend developer can consume handoff package directly
+/ts-build frontend --source=output/project-design/handoff/
+
+# Handoff package provides:
+# - Component architecture guidance
+# - Design system implementation
+# - API integration layer setup
+# - TypeScript interface definitions
+```
+
+This enhanced agent transforms static wireframes into interactive experiences while automatically generating comprehensive development handoff packages that eliminate implementation guesswork and ensure design fidelity in the final product.

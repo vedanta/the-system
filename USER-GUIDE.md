@@ -12,19 +12,20 @@ This guide contains all the detailed information, workflows, commands, and advan
 1. [Getting Started](#getting-started)
 2. [Complete Installation Guide](#complete-installation-guide)
 3. [The Organization](#the-organization)
-4. [Complete Workflow](#complete-workflow)
-5. [Build Presets](#build-presets)
-6. [Commands Reference](#commands-reference)
-7. [HITL Gates](#hitl-gates)
-8. [Quick Deploy Targets](#quick-deploy-targets)
-9. [Framework Structure](#framework-structure)
-10. [Configuration](#configuration)
-11. [Advanced Usage](#advanced-usage)
-12. [Example Projects](#example-projects)
-13. [Verification & Health Checks](#verification-health-checks)
-14. [Troubleshooting](#troubleshooting)
-15. [Updates & Maintenance](#updates-maintenance)
-16. [Best Practices](#best-practices)
+4. [Design Department](#design-department) **NEW**
+5. [Complete Workflow](#complete-workflow)
+6. [Build Presets](#build-presets)
+7. [Commands Reference](#commands-reference)
+8. [HITL Gates](#hitl-gates)
+9. [Quick Deploy Targets](#quick-deploy-targets)
+10. [Framework Structure](#framework-structure)
+11. [Configuration](#configuration)
+12. [Advanced Usage](#advanced-usage)
+13. [Example Projects](#example-projects)
+14. [Verification & Health Checks](#verification-health-checks)
+15. [Troubleshooting](#troubleshooting)
+16. [Updates & Maintenance](#updates-maintenance)
+17. [Best Practices](#best-practices)
 
 ---
 
@@ -215,6 +216,76 @@ git commit -m "Update The System to latest version"
 
 #### 🔧 Utility Agents (1)
 - **Bug Fixer** - Standalone utility for systematic error diagnosis
+
+---
+
+## Design Department
+
+### 🎨 Prototype-First Design Pipeline **NEW**
+
+The Design Department transforms the traditional UX workflow by delivering **80% of stakeholder value in 25% of the time** through rapid prototype creation with optional comprehensive analysis packages.
+
+#### Core Philosophy: Prototype-First Approach
+
+Instead of requiring comprehensive analysis before seeing results, the Design Department creates working interactive demos immediately, then adds analysis only when needed.
+
+```
+Traditional UX Process:           Design Department Approach:
+┌─────────────────────────────┐  ┌─────────────────────────────┐
+│ 1. Analysis      (3-4 min) │  │ 1. Prototypes   (3-4 min) │
+│ 2. Wireframes    (2-3 min) │  │ ✓ Demo ready!              │
+│ 3. Prototypes    (4-6 min) │  │                             │
+│ 4. Documentation (1-2 min) │  │ Optional:                   │
+│ ────────────────────────────│  │ 2. Analysis     (+2-3 min) │
+│ Total: 10-15 minutes        │  │ 3. Wireframes   (+2-3 min) │
+│ First demo: 10+ minutes     │  │ 4. Documentation (+1 min)  │
+└─────────────────────────────┘  └─────────────────────────────┘
+```
+
+#### Key Capabilities
+
+| Feature | Default Mode | With Handoff | With Analysis |
+|---------|-------------|-------------|---------------|
+| **Duration** | 3-4 minutes | +3-6 minutes | +8-12 minutes |
+| **Prototypes** | ✅ Interactive demos | ✅ + Dev specs | ✅ + Complete analysis |
+| **Content** | ✅ Realistic data | ✅ Domain-optimized | ✅ API-driven content |
+| **Styling** | ✅ Professional | ✅ Design tokens | ✅ Design system |
+| **Mobile** | ✅ Responsive | ✅ Touch-optimized | ✅ Multi-device specs |
+| **Analytics** | ✅ Available | ✅ Behavior tracking | ✅ UX recommendations |
+
+#### Quick Commands
+
+```bash
+# Default: Rapid stakeholder demo (3-4 minutes)
+/ts-design-turbo input/my-app
+
+# Domain-optimized for specific industries
+/ts-design-turbo input/fintech-app --domain=fintech --fidelity=high --review-server
+/ts-design-turbo input/ecommerce-store --domain=ecommerce --mobile --analytics
+
+# Development handoff packages (opt-in)
+/ts-design-turbo input/production-app --handoff=minimal     # +30 seconds
+/ts-design-turbo input/production-app --handoff=detailed    # +3-4 minutes
+/ts-design-turbo input/production-app --handoff=comprehensive # +5-6 minutes
+
+# Complete analysis pipeline for complex projects
+/ts-design-turbo input/legacy-system --all --handoff=comprehensive  # 12-15 minutes
+```
+
+#### Integration with The System
+
+The Design Department integrates seamlessly between Architecture and Development stages:
+
+```
+Stage 1: Architecture → Stage 1.5: Design → Stage 2: Product → Development
+```
+
+**Benefits for Development Agents:**
+- **Frontend Development**: Component specifications, TypeScript interfaces, design tokens
+- **Backend Development**: API requirements, realistic test data, integration patterns
+- **QA Testing**: User scenarios, interaction patterns, accessibility requirements
+
+👉 **[Complete Design Department Guide →](README_DESIGN_DEPT.md)**
 
 ---
 

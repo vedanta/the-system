@@ -15,10 +15,11 @@ Build production-ready software with 19 specialized AI agents across 5 departmen
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 agents"/>
-  <img src="https://img.shields.io/badge/Commands-49-green?style=for-the-badge" alt="49 commands"/>
+  <img src="https://img.shields.io/badge/Commands-54-green?style=for-the-badge" alt="54 commands"/>
   <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
   <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
+  <img src="https://img.shields.io/badge/Design_Dept-Prototype_First-blueviolet?style=for-the-badge" alt="Design Department"/>
   <img src="https://img.shields.io/badge/License-LGPL--3.0-lightgreen?style=for-the-badge" alt="LGPL-3.0 License"/>
 </p>
 
@@ -40,7 +41,8 @@ Build production-ready software with 19 specialized AI agents across 5 departmen
 
 ### Build Speeds
 <p align="center">
-  <img src="https://img.shields.io/badge/Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Prototype Build"/>
+  <img src="https://img.shields.io/badge/Design_Prototypes-3--4min-cyan?style=flat-square&logo=figma" alt="Design Prototypes"/>
+  <img src="https://img.shields.io/badge/Code_Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Code Prototype"/>
   <img src="https://img.shields.io/badge/MVP-15--20min-yellow?style=flat-square&logo=target" alt="MVP Build"/>
   <img src="https://img.shields.io/badge/Production-45--60min-red?style=flat-square&logo=shield" alt="Production Build"/>
 </p>
@@ -120,6 +122,32 @@ The System is an agentic framework that simulates a complete software developmen
      ↓
 🚀 Production-Ready Software
 ```
+
+### 🎨 Design Department: Prototype-First Design Pipeline **NEW**
+
+**Transform ideas into interactive demos in minutes** - The Design Department delivers immediate stakeholder value through rapid prototype creation with optional comprehensive analysis packages.
+
+#### Key Capabilities:
+- **⚡ 3-4 Minute Prototypes** - Interactive demos with professional styling and realistic data
+- **🌐 Domain Optimization** - Automatic content optimization for fintech, ecommerce, healthcare, Azure/AWS
+- **📱 Mobile-First** - Responsive design across desktop, tablet, and mobile
+- **📦 Development Handoff** - Optional TypeScript interfaces, component specs, and design tokens
+- **🔍 Legacy Analysis** - UX audits and modernization guidance for existing applications
+
+```bash
+# Rapid stakeholder demo (DEFAULT - 3-4 minutes)
+/ts-design-turbo input/my-app
+
+# High-fidelity investor presentation
+/ts-design-turbo input/fintech-app --domain=fintech --fidelity=high --review-server
+
+# Complete development handoff package
+/ts-design-turbo input/production-app --handoff=detailed --api-discovery
+```
+
+**Result:** Professional interactive prototypes with domain-specific realistic content, working interactions, and stakeholder review capabilities - delivered 75% faster than traditional UX workflows.
+
+👉 **[Complete Design Department Guide →](README_DESIGN_DEPT.md)**
 
 ### 🗺️ Project Explorer: Beyond Greenfield Development
 
@@ -275,6 +303,7 @@ The system automatically detects your intent from keywords:
 | Stage | Department | Focus | Duration | Key Output |
 |-------|------------|-------|----------|------------|
 | **Stage 1** | 📐 Architecture | System Design | 2-5 min | Tech stack & architecture decisions |
+| **Stage 1.5** | 🎨 **Design** | **Prototype Creation** | **3-4 min** | **Interactive demos & stakeholder validation** |
 | **Stage 2** | 📦 Product | Business Strategy | 3-8 min | MVP definition & user stories |
 | **Stage 3** | 💻 Development | Implementation | 10-30 min | Working database, backend, frontend |
 | **Stage 4** | 🚀 Release | Deployment | 5-15 min | Documentation, security, infrastructure |
@@ -287,6 +316,9 @@ The system automatically detects your intent from keywords:
 /ts-new-project my-app
 /ts-approve architecture-start
 /ts-architect
+
+# 1.5. Create interactive prototypes (optional but recommended)
+/ts-design-turbo output/my-app --domain=fintech --handoff=detailed
 
 # 2. Plan product and get green light
 /ts-product → /ts-plan → /ts-analyze
@@ -344,10 +376,18 @@ For rapid prototyping, bypass all approval gates:
 
 ### Stage Commands
 - `/ts-architect` - Design system architecture
+- `/ts-design-turbo <path>` - Create interactive prototypes (3-4 min)
 - `/ts-product` - Define MVP and user stories
 - `/ts-build <layer>` - Build database/backend/frontend
 - `/ts-deploy <env>` - Deploy to environment
 - `/ts-push <target>` - Quick deploy to managed platforms
+
+### Design Department Commands **NEW**
+- `/ts-design-turbo <path> --domain=<domain>` - Rapid prototype creation
+- `/ts-design-turbo <path> --handoff=detailed` - With development specs
+- `/ts-design-analyze <path>` - UX audit and component analysis
+- `/ts-design-api-discover <path>` - API discovery with realistic data
+- `/ts-design-status <path>` - Design progress and recommendations
 
 ### Utilities & Help
 - `/ts-fix` - Automatic error diagnosis and fixing
@@ -409,12 +449,13 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 ### Getting Started
 - **[USER-GUIDE.md](USER-GUIDE.md)** - Complete reference and workflows
 - **[QUICKSTART.md](QUICKSTART.md)** - 5-minute onboarding guide
+- **[README_DESIGN_DEPT.md](README_DESIGN_DEPT.md)** - **NEW: Design Department Guide** 🎨
 - **[Architecture Tutorial](docs/user/architecture-tutorial.md)** - Hands-on architecture design
 - **[Build Presets Tutorial](docs/user/build-presets-practical.md)** - Speed optimization guide
 
 ### Reference Documentation
 - **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
-- **[Command Reference](docs/user/commands.md)** - All 49 commands with examples
+- **[Command Reference](docs/user/commands.md)** - All 54 commands with examples
 - **[Configuration Guide](docs/user/configuration.md)** - Customization options
 - **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes
 
@@ -427,7 +468,14 @@ Skip Infrastructure as Code and deploy directly to managed platforms:
 
 ## 🎯 Example Projects
 
-### Quick Prototypes (3-5 minutes)
+### Design Prototypes (3-4 minutes) **NEW**
+```bash
+/ts-design-turbo input/fintech-app --domain=fintech --fidelity=high --review-server
+/ts-design-turbo input/ecommerce-store --domain=ecommerce --mobile --analytics
+/ts-design-turbo input/azure-dashboard --domain=azure --handoff=detailed
+```
+
+### Quick Code Prototypes (3-5 minutes)
 ```bash
 /ts-turbo todo-demo "simple todo app prototype" --build=prototype
 /ts-turbo blog-demo "personal blog demo" --build=prototype
@@ -498,6 +546,9 @@ The System is built on these principles:
 │                                                                 │
 │ 📐  ARCHITECTURE  /ts-assess | /ts-architect                    │
 │                   /ts-approve architecture-lock                 │
+│                                                                 │
+│ 🎨  DESIGN        /ts-design-turbo <path> --domain=<domain>     │
+│                   /ts-design-turbo <path> --handoff=detailed    │
 │                                                                 │
 │ 📦  PRODUCT       /ts-product → /ts-plan → /ts-analyze          │
 │                   /ts-approve green-light 🚦                   │
