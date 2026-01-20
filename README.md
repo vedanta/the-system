@@ -15,7 +15,7 @@ The System simulates a complete software development organization with **23 spec
 
 <p align="center">
   <img src="https://img.shields.io/badge/Agents-23-blue?style=for-the-badge" alt="23 agents"/>
-  <img src="https://img.shields.io/badge/Commands-55-green?style=for-the-badge" alt="56 commands"/>
+  <img src="https://img.shields.io/badge/Commands-56-green?style=for-the-badge" alt="56 commands"/>
   <img src="https://img.shields.io/badge/Build_Speed-3--60min-yellow?style=for-the-badge" alt="3-60min builds"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
   <img src="https://img.shields.io/badge/Design_Prototypes-3--4min-blueviolet?style=for-the-badge" alt="Design Prototypes"/>
