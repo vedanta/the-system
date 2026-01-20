@@ -495,12 +495,12 @@ To add a new stage (e.g., Stage 6: Continuous Improvement):
 # In preferences.yaml, add custom gates
 quality_gates:
   custom_compliance_gate:
-    stage: 19 agent: security-compliance-agent
+    stage: 4 agent: security-compliance-agent
     required_for: production_deployment
     blocking: true
 
   performance_gate:
-    stage: 19 agent: performance-engineer
+    stage: 4 agent: performance-engineer
     required_for: staging_deployment
     blocking: false  # Warning only
 ```

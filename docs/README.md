@@ -11,7 +11,7 @@ This documentation is organized into focused directories for different audiences
 
 ### 🎯 **[User Documentation](user/)** - For Framework Users
 Complete guides for using The System to build production-ready software:
-- All 49 commands with examples and usage patterns
+- All 56 commands with examples and usage patterns
 - Step-by-step workflow guides and best practices
 - Human-in-the-loop approval system documentation
 - Configuration options and deployment strategies

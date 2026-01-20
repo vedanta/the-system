@@ -328,7 +328,7 @@ After Stage 3 (/ts-approve development):
 - **Market expansion**: Extends framework beyond greenfield to legacy modernization
 
 ### ✅ Comprehensive Help System
-- **`/ts-help`** - Interactive command browser with 49 commands grouped by category
+- **`/ts-help`** - Interactive command browser with 56 commands grouped by category
 - **`/ts-help <command>`** - Detailed help for any specific command
 - **`/ts-help --stage <stage>`** - Stage-specific command suggestions
 - **`/ts-help --search <term>`** - Search commands by keyword
@@ -393,7 +393,7 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/            # 49 command definitions
+│   ├── commands/            # 56 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-view.md
@@ -638,7 +638,7 @@ claude
 - [ ] **UI Engineer Agent** - Design systems, visual polish, accessibility
 - [ ] **Better error handling** in generated code templates
 - [ ] **Robust build testing** - Actually run `npm run build` in QA
-- [ ] **Command validation** - Ensure all 49 commands work correctly
+- [ ] **Command validation** - Ensure all 56 commands work correctly
 
 ### Medium Priority
 - [ ] **Additional deployment targets** - AWS, GCP, Azure options

@@ -22,8 +22,8 @@ I've implemented a comprehensive user documentation update system that maintains
 ## 🔍 Framework Scanning Results
 
 **Current Framework Stats:**
-- **Agents**: 19 (scanned from `.claude/agents/*.md`)
-- **Commands**: 49 (scanned from `.claude/commands/*.md`)
+- **Agents**: 23 (scanned from `.claude/agents/*.md`)
+- **Commands**: 56 (scanned from `.claude/commands/*.md`)
 - **Stages**: 5
 - **HITL Gates**: 8
 

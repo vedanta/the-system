@@ -412,7 +412,7 @@ Build presets are automatically detected from your project description:
 
 ## Commands Reference
 
-The System provides **49 commands** organized by stage and function:
+The System provides **56 commands** organized by stage and function:
 
 ### Core Project Management (8)
 
@@ -648,7 +648,7 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/              # 49 command definitions
+│   ├── commands/              # 56 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-view.md

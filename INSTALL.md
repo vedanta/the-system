@@ -65,14 +65,14 @@ The installation script will:
 
 1. ✅ **Download** The System framework from GitHub
 2. ✅ **Install** to `~/.the-system` (or custom directory)
-3. ✅ **Verify** all 19 agents and 49 commands
+3. ✅ **Verify** all 23 agents and 56 commands
 4. ✅ **Setup** shell integration (`ts` command)
 5. ✅ **Configure** documentation and examples
 
 ### Directory Structure
 ```
 ~/.the-system/
-├── .claude/               # 19 agents, 49 commands, configs
+├── .claude/               # 23 agents, 56 commands, configs
 ├── docs/                  # Comprehensive documentation
 ├── output/               # Generated projects go here
 ├── input/                # Reference materials
