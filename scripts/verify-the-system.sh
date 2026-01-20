@@ -71,7 +71,7 @@ for dir in "$PROJECT_ROOT/.claude" "$PROJECT_ROOT/.claude/agents" "$PROJECT_ROOT
 done
 
 # ----------------------------------------------------------------------------
-header "2. AGENTS (19 required)"
+header "2. AGENTS (23 required)"
 # ----------------------------------------------------------------------------
 
 # Stage 1
@@ -119,6 +119,15 @@ for agent in "sre-deploy-engineer" "sre-ops-engineer"; do
     fi
 done
 
+# Design Department Agents
+for agent in "api-discovery-specialist" "prototype-developer" "ux-analyzer" "wireframe-generator"; do
+    if [ -f "$PROJECT_ROOT/.claude/agents/${agent}.md" ]; then
+        check_pass "${agent}.md (Design)"
+    else
+        check_fail "${agent}.md (missing)"
+    fi
+done
+
 # Utility Agents
 for agent in "bug-fixer"; do
     if [ -f "$PROJECT_ROOT/.claude/agents/${agent}.md" ]; then
@@ -129,7 +138,7 @@ for agent in "bug-fixer"; do
 done
 
 # ----------------------------------------------------------------------------
-header "3. COMMANDS (49 required)"
+header "3. COMMANDS (56 required)"
 # ----------------------------------------------------------------------------
 
 # Core commands
@@ -186,8 +195,17 @@ for cmd in "ts-push" "ts-live-status" "ts-live-env" "ts-domain" "ts-teardown" "t
     fi
 done
 
+# Design Department commands
+for cmd in "ts-design-analyze" "ts-design-api-discover" "ts-design-prototype" "ts-design-status" "ts-design-turbo" "ts-design-wireframe"; do
+    if [ -f "$PROJECT_ROOT/.claude/commands/${cmd}.md" ]; then
+        check_pass "${cmd}.md (Design)"
+    else
+        check_fail "${cmd}.md (missing)"
+    fi
+done
+
 # Utility commands
-for cmd in "ts-fix" "ts-validate" "ts-turbo" "ts-turbo-quick" "ts-self-document" "ts-user-docs-update"; do
+for cmd in "ts-fix" "ts-validate" "ts-turbo" "ts-turbo-quick" "ts-self-document" "ts-user-docs-update" "ts-docs-compliance" "ts-help" "ts-quickref" "ts-validate-docs"; do
     if [ -f "$PROJECT_ROOT/.claude/commands/${cmd}.md" ]; then
         check_pass "${cmd}.md (Utility)"
     else

@@ -5,7 +5,6 @@
 - ✅ README.md
 - ✅ USER-GUIDE.md
 - ✅ QUICKSTART.md
-- ✅ COMMAND-REFERENCE.md
 - ✅ docs/user/examples.md
 - ✅ docs/user/architecture-tutorial.md
 - ✅ docs/user/architecture.md

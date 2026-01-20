@@ -127,8 +127,7 @@ class LanguageFixer:
         main_docs = [
             'README.md',
             'USER-GUIDE.md',
-            'QUICKSTART.md',
-            'COMMAND-REFERENCE.md'
+            'QUICKSTART.md'
         ]
 
         for doc in main_docs:

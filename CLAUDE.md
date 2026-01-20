@@ -6,11 +6,11 @@
 
 ## Framework Overview
 
-**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 19 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 23 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Current Framework Status
-- **Agents:** 19
-- **Commands:** 49
+- **Agents:** 23
+- **Commands:** 55
 - **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
 - **HITL Gates:** 8
 - **Status:** Production-ready framework with comprehensive documentation and help system
@@ -47,7 +47,7 @@
 
 ---
 
-## Departments & Agents (19 Total)
+## Departments & Agents (23 Total)
 
 ### 🎩 Founder-Advisor
 Your chief of staff. All communication flows through this agent.
@@ -149,11 +149,12 @@ Your chief of staff. All communication flows through this agent.
 | `/ts-incident [action]` | SRE Ops | Incident management |
 | `/ts-slo` | SRE Ops | Define and track SLOs |
 
-### Utility Commands (8)
+### Utility Commands (9)
 | Command | Agent | Purpose |
 |---------|-------|---------|
 | `/ts-fix [type]` | Bug Fixer | Fix build errors systematically |
 | `/ts-validate [layer]` | QA Engineer | Run build verification |
+| `/ts-docs-compliance` | System | Check documentation compliance and fix issues |
 | `/ts-turbo <name> "<idea>"` | System | Run Stages 1-4 autonomously |
 | `/ts-turbo-quick <name> "<idea>"` | System | Quick turbo mode |
 | `/ts-self-document` | System | Generate framework documentation |
@@ -327,7 +328,7 @@ After Stage 3 (/ts-approve development):
 - **Market expansion**: Extends framework beyond greenfield to legacy modernization
 
 ### ✅ Comprehensive Help System
-- **`/ts-help`** - Interactive command browser with 49 commands grouped by category
+- **`/ts-help`** - Interactive command browser with 56 commands grouped by category
 - **`/ts-help <command>`** - Detailed help for any specific command
 - **`/ts-help --stage <stage>`** - Stage-specific command suggestions
 - **`/ts-help --search <term>`** - Search commands by keyword
@@ -372,7 +373,7 @@ After Stage 3 (/ts-approve development):
 ```
 the-system/
 ├── .claude/
-│   ├── agents/              # 19 agent definitions
+│   ├── agents/              # 23 agent definitions
 │   │   ├── founder-advisor.md
 │   │   ├── solution-architect.md
 │   │   ├── product-lead.md
@@ -392,7 +393,7 @@ the-system/
 │   │   ├── sre-ops-engineer.md
 │   │   └── bug-fixer.md
 │   │
-│   ├── commands/            # 49 command definitions
+│   ├── commands/            # 56 command definitions
 │   │   ├── ts-new-project.md
 │   │   ├── ts-status.md
 │   │   ├── ts-view.md
@@ -637,7 +638,7 @@ claude
 - [ ] **UI Engineer Agent** - Design systems, visual polish, accessibility
 - [ ] **Better error handling** in generated code templates
 - [ ] **Robust build testing** - Actually run `npm run build` in QA
-- [ ] **Command validation** - Ensure all 49 commands work correctly
+- [ ] **Command validation** - Ensure all 56 commands work correctly
 
 ### Medium Priority
 - [ ] **Additional deployment targets** - AWS, GCP, Azure options
@@ -652,7 +653,7 @@ claude
 - [ ] **Multi-project support** - Manage multiple projects simultaneously
 
 ### Completed ✅
-- [x] Stage 1-5 implementation (19 agents, 49 commands)
+- [x] Stage 1-5 implementation (23 agents, 56 commands)
 - [x] Turbo Mode autonomous execution
 - [x] QA improvements with mandatory build verification
 - [x] Bug Fixer utility agent
@@ -716,8 +717,8 @@ claude
 ./scripts/verify-the-system.sh
 
 # See all components
-ls -la .claude/agents/    # 19 agents
-ls -la .claude/commands/  # 49 commands
+ls -la .claude/agents/    # 23 agents
+ls -la .claude/commands/  # 56 commands
 
 # Search framework
 grep -r "HITL" .claude/

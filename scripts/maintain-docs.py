@@ -103,8 +103,7 @@ class DocumentationMaintainer:
         required_files = [
             'README.md',
             'USER-GUIDE.md',
-            'QUICKSTART.md',
-            'COMMAND-REFERENCE.md'
+            'QUICKSTART.md'
         ]
 
         missing = []

@@ -102,7 +102,6 @@ python3 scripts/fix-broken-links.py
 1. **README.md** - Streamlined welcome (< 400 lines)
 2. **QUICKSTART.md** - 5-minute onboarding
 3. **USER-GUIDE.md** - Comprehensive reference
-4. **COMMAND-REFERENCE.md** - Complete command documentation
 
 **User Documentation Hierarchy:**
 ```
@@ -192,7 +191,6 @@ Current framework (automatically updated):
 - `USER-GUIDE.md` - Comprehensive guide
 - `CLAUDE.md` - Framework instructions
 - `QUICKSTART.md` - 5-minute onboarding
-- `COMMAND-REFERENCE.md` - Complete command reference
 
 ### User Documentation
 - `docs/user/*.md` - All user-facing documentation

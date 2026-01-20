@@ -8,7 +8,7 @@
 
 ## What is The System?
 
-The System is an **Autonomous Software Development Organization (ASDO)** framework that orchestrates 19 specialized AI agents across 5 departments to take your ideas from concept to production. You act as the founder, making key decisions at human-in-the-loop gates while AI handles the implementation.
+The System is an **Autonomous Software Development Organization (ASDO)** framework that orchestrates 23 specialized AI agents across 5 departments to take your ideas from concept to production. You act as the founder, making key decisions at human-in-the-loop gates while AI handles the implementation.
 
 ```
 👤 You (Founder)
@@ -267,7 +267,7 @@ Generate infrastructure code for enterprise deployment:
 ## 📚 Documentation
 
 - **[Architecture Guide](docs/architecture.md)** - System design and agent interactions
-- **[Agent Reference](docs/agents.md)** - All 19 agents and their capabilities
+- **[Agent Reference](docs/agents.md)** - All 23 agents and their capabilities
 - **[Command Reference](docs/commands.md)** - All 48 commands with examples
 - **[Workflow Patterns](docs/workflow.md)** - Common development workflows
 - **[Configuration Guide](docs/configuration.md)** - Customizing tech stacks and preferences

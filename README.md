@@ -1,11 +1,11 @@
 # The System
 **ASDO — Autonomous Software Development Organization**
 
-> *Autonomous software development with AI agents*
+> *Build production-ready software with 23 AI agents working as your complete development team*
 
-**→ [🚀 Quick Start Guide](#-quick-start) | Get building in 2 minutes**
+**→ [🚀 Get started in 2 minutes](#-quick-start) | Build your first app today**
 
-Build production-ready software with 19 specialized AI agents across 5 departments, all working under your strategic guidance.
+The System simulates a complete software development organization with **23 specialized AI agents** across **5 departments**, taking your ideas from concept to production while you focus on strategic decisions.
 
 <p align="center">
   <img src="images/system-hero.png" alt="The System - Autonomous Software Development Organization" width="800"/>
@@ -14,191 +14,82 @@ Build production-ready software with 19 specialized AI agents across 5 departmen
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-19-blue?style=for-the-badge" alt="19 agents"/>
-  <img src="https://img.shields.io/badge/Commands-49-green?style=for-the-badge" alt="49 commands"/>
-  <img src="https://img.shields.io/badge/Stages-5-purple?style=for-the-badge" alt="5 Stages"/>
-  <img src="https://img.shields.io/badge/HITL_Gates-8-red?style=for-the-badge" alt="8 HITL Gates"/>
+  <img src="https://img.shields.io/badge/Agents-23-blue?style=for-the-badge" alt="23 agents"/>
+  <img src="https://img.shields.io/badge/Commands-56-green?style=for-the-badge" alt="56 commands"/>
+  <img src="https://img.shields.io/badge/Build_Speed-3--60min-yellow?style=for-the-badge" alt="3-60min builds"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
+  <img src="https://img.shields.io/badge/Design_Prototypes-3--4min-blueviolet?style=for-the-badge" alt="Design Prototypes"/>
   <img src="https://img.shields.io/badge/License-LGPL--3.0-lightgreen?style=for-the-badge" alt="LGPL-3.0 License"/>
 </p>
 
 ---
 
-## 🛠️ Capabilities & Technology Support
-
-### Architecture Patterns
-<p align="center">
-  <img src="https://img.shields.io/badge/Static-Sites-blueviolet?style=flat-square&logo=html5" alt="Static Sites"/>
-  <img src="https://img.shields.io/badge/Embedded-DB-blue?style=flat-square&logo=sqlite" alt="Embedded DB"/>
-  <img src="https://img.shields.io/badge/Full--Stack-JS-yellow?style=flat-square&logo=javascript" alt="Full-Stack JS"/>
-  <img src="https://img.shields.io/badge/BaaS-green?style=flat-square&logo=supabase" alt="BaaS"/>
-  <img src="https://img.shields.io/badge/Microservices-orange?style=flat-square&logo=docker" alt="Microservices"/>
-  <img src="https://img.shields.io/badge/CLI-Scripts-lightgrey?style=flat-square&logo=gnubash" alt="CLI Scripts"/>
-  <img src="https://img.shields.io/badge/CLI-Tools-grey?style=flat-square&logo=terminal" alt="CLI Tools"/>
-  <img src="https://img.shields.io/badge/CLI-TUI-darkgrey?style=flat-square&logo=vim" alt="CLI TUI"/>
-</p>
-
-### Build Speeds
-<p align="center">
-  <img src="https://img.shields.io/badge/Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Prototype Build"/>
-  <img src="https://img.shields.io/badge/MVP-15--20min-yellow?style=flat-square&logo=target" alt="MVP Build"/>
-  <img src="https://img.shields.io/badge/Production-45--60min-red?style=flat-square&logo=shield" alt="Production Build"/>
-</p>
-
-### Key Technology Support
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-TypeScript-black?style=flat-square&logo=next.js" alt="Next.js + TypeScript"/>
-  <img src="https://img.shields.io/badge/React-Vue-blue?style=flat-square&logo=react" alt="React + Vue"/>
-  <img src="https://img.shields.io/badge/FastAPI-Python-teal?style=flat-square&logo=fastapi" alt="FastAPI + Python"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-SQLite-blue?style=flat-square&logo=postgresql" alt="PostgreSQL + SQLite"/>
-  <img src="https://img.shields.io/badge/Vercel-Railway-purple?style=flat-square&logo=vercel" alt="Vercel + Railway"/>
-  <img src="https://img.shields.io/badge/50+-Technologies-orange?style=flat-square&logo=stackshare" alt="50+ Technologies"/>
-</p>
-
-<details>
-<summary><strong>📋 Complete Technology Stack</strong></summary>
-
-#### Frontend Technologies
-- **Next.js 14+** (App Router, TypeScript, Tailwind CSS)
-- **React 18+** (Vite, TypeScript, Component libraries)
-- **Vue 3+** (Nuxt, Composition API, TypeScript)
-- **SvelteKit** (TypeScript, Reactive patterns)
-
-#### Backend Technologies
-- **Next.js API Routes** (TypeScript, Middleware, CORS)
-- **FastAPI** (Python, Async, Auto-documentation)
-- **Express.js** (Node.js, TypeScript, RESTful)
-- **NestJS** (Enterprise, Decorators, Dependency injection)
-- **Django** (Python, Batteries-included, Admin panel)
-
-#### Database Support
-- **PostgreSQL** (Prisma ORM, ACID compliance, JSON support)
-- **MySQL** (PlanetScale, Branching, Connection pooling)
-- **SQLite** (Drizzle ORM, Embedded, File-based)
-- **Supabase** (PostgreSQL + Auth + Real-time)
-- **MongoDB** (NoSQL, Flexible schema, Aggregations)
-
-#### Authentication
-- **NextAuth.js** (OAuth providers, Session management, JWT)
-- **Clerk** (Managed auth, Drop-in UI, Organizations)
-- **Lucia** (Type-safe, Lightweight, Custom sessions)
-- **Firebase Auth** (Google ecosystem, Mobile integration)
-
-#### Deployment Platforms
-- **Vercel** (Frontend, Edge functions, Global CDN)
-- **Railway** (Backend, Databases, Environment management)
-- **Fly.io** (Global deployment, Docker, Persistent volumes)
-- **Netlify** (JAMstack, Build plugins, Form handling)
-- **Cloudflare Pages** (Edge computing, Workers, Analytics)
-- **Render** (Full-stack, Background jobs, Cron jobs)
-
-#### Infrastructure & DevOps
-- **Terraform** (Infrastructure as Code, Multi-cloud, State management)
-- **GitHub Actions** (CI/CD, Automated testing, Deployments)
-- **Docker** (Containerization, Multi-stage builds, Compose)
-- **Monitoring** (Observability, Alerting, Performance tracking)
-
-</details>
-
----
-
 ## 🚀 What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **19 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
-
-### The Complete Software Company
+**Think of it as your AI development team.** Instead of context-switching between architecture, coding, testing, and deployment, you make strategic decisions while specialized agents handle execution.
 
 ```
 💡 Your Idea
      ↓
-🏢 The System (ASDO)
-     ├── 📐 Architecture Department → System design & technical decisions
-     ├── 📦 Product Department → MVP definition & business strategy
-     ├── 💻 Development Department → Implementation & quality assurance
-     ├── 🚀 Release Department → Documentation, security & deployment
-     └── 🌐 Operations Department → Monitoring & live operations
+🏢 The System (Your AI Development Organization)
+     ├── 📐 Architecture Team    → System design & technical decisions
+     ├── 🎨 Design Team         → Interactive prototypes in 3-4 minutes
+     ├── 📦 Product Team        → MVP definition & business strategy
+     ├── 💻 Development Team    → Full-stack implementation & testing
+     ├── 🚀 Release Team        → Documentation, security & deployment
+     └── 🌐 Operations Team     → Live monitoring & maintenance
      ↓
 🚀 Production-Ready Software
 ```
 
-### 🗺️ Project Explorer: Beyond Greenfield Development
-
-**NEW:** The System now analyzes existing and legacy codebases with our **Project Explorer** capability - the first AI development tool to offer comprehensive existing project analysis.
-
-#### Unique Capabilities:
-- **🔍 Legacy Codebase Analysis** - Analyze inherited, abandoned, or half-completed projects
-- **📊 Technical Debt Assessment** - Quantified analysis and remediation pathways
-- **🏗️ Completion Strategies** - Clear roadmaps with effort estimates and success probabilities
-- **🔐 Security Analysis** - OWASP Top 10 compliance checking and vulnerability assessment
-- **⚡ Modernization Guidance** - Technology upgrade pathways and stack recommendations
-
-```bash
-# Analyze any existing project
-/ts-assess --existing my-legacy-app
-
-# Focus on specific analysis
-/ts-assess --existing my-app --gaps        # Missing components
-/ts-assess --existing my-app --health      # Code quality assessment
-/ts-assess --existing my-app --security    # Security vulnerabilities
-/ts-assess --existing my-app --completion  # Completion strategies
-```
-
-**Result:** Comprehensive analysis reports with completion strategies, technology recommendations, and integration plans for bringing projects to production with The System workflow.
-
 ### Why Choose The System?
 
-| **Traditional Development** | **The System (ASDO)** |
-|----------------------------|----------------------|
-| You write all the code | Agents write code, you review and approve |
-| Context switching between tasks | Specialized agents handle each domain expertly |
-| Forgetting architectural decisions | Decisions documented in ADRs and project files |
-| Inconsistent code quality | QA engineer reviews every component systematically |
-| Manual deployment setup | DevOps agent generates Infrastructure as Code |
-| You make every micro-decision | You make *strategic* decisions at HITL gates |
-| **🔸 Greenfield projects only** | **🗺️ Project Explorer: Analyze existing/legacy codebases** |
+| **Traditional Development** | **The System** |
+|----------------------------|----------------|
+| You write all the code | AI agents write code, you review and approve |
+| Context switching between tasks | Specialized agents handle each domain |
+| Manual deployment setup | Automated Infrastructure as Code |
+| Greenfield projects only | **Analyze & complete existing/legacy projects** |
+| Forgetting architectural decisions | Everything documented in ADRs |
 
 ---
 
 ## ⚡ Quick Start
 
-### 🎯 Fastest Way: Use GitHub Template (2 minutes)
+### 🎯 Use GitHub Template (Recommended)
 
-> **Recommended for new users** - Get a complete AI development team instantly
+**Get a complete AI development team in 2 minutes:**
 
 1. **Click "Use this template"** at the top of this repository
-2. **Name your new repository** and create it
-3. **Clone and start building:**
+2. **Clone your new repo:**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   cd YOUR_REPO
 
-```bash
-# Clone your new repository
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-cd YOUR_REPOSITORY_NAME
+   # Verify installation
+   ./scripts/verify-the-system.sh
+   ```
 
-# Verify installation
-./scripts/verify-the-system.sh
+3. **Start building:**
+   ```bash
+   # Launch Claude Code
+   claude
 
-# Start Claude Code and create your first project
-claude
-> /ts-new-project my-blog
-> "Simple blog website with posts and comments"
+   # Create your first project
+   /ts-new-project my-blog
+   "Blog website with posts and user comments"
 
-# Let AI build it autonomously
-> /ts-turbo my-blog "blog with posts, comments, and basic admin"
-```
+   # Build it autonomously (15-20 minutes)
+   /ts-turbo my-blog "blog with posts, comments, and admin panel" --build=mvp
+   ```
 
-**Result:** Complete production app in ~15-20 minutes with frontend, backend, database, tests, and docs!
-
-### 🔧 Alternative: Submodule Installation
+**🎉 Result:** Complete production app with frontend, backend, database, tests, and documentation!
 
 <details>
-<summary>Click to expand submodule installation method</summary>
-
-**Prerequisites:**
-- [Claude Code](https://claude.ai/code) - AI development environment
-- Git and Node.js 18+
+<summary><strong>🔧 Alternative: Submodule Installation</strong></summary>
 
 ```bash
-# Create your project directory
+# Create project directory
 mkdir my-project && cd my-project
 git init
 
@@ -209,369 +100,327 @@ git submodule update --init --recursive
 # Create symbolic links
 ln -s .the-system/.claude .claude
 ln -s .the-system/CLAUDE.md CLAUDE.md
-
-# Create essential directories
 mkdir -p input output
 
-# Verify installation
+# Verify and start
 .the-system/scripts/verify-the-system.sh
-git add . && git commit -m "Add The System framework"
-
-# Launch Claude Code and start building
 claude
-> /ts-new-project my-app
-> /ts-approve architecture-start
+/ts-new-project my-app
 ```
+
 </details>
 
-### 🚀 What You Get
+---
 
-After setup, you have **19 AI agents** ready to build complete applications:
-- **🏗️ Architecture** - System design and tech selection
-- **📦 Product** - MVP planning and user stories
-- **💻 Development** - Full-stack coding with tests
-- **🚀 Release** - Documentation, CI/CD, and deployment
-- **🌐 Go Live** - Production deployment to 13+ platforms
+## 🎯 What You Can Build
 
-**Next:** Try the [5-minute tutorial](#-build-presets---configure-speed-vs-quality) below!
+### ⚡ Rapid Prototypes (3-5 minutes)
+```bash
+# Interactive design prototypes
+/ts-design-turbo input/fintech-app --domain=fintech --fidelity=high
+
+# Working code prototypes
+/ts-turbo todo-demo "task management app" --build=prototype
+/ts-turbo blog-demo "personal blog" --build=prototype
+```
+
+### 📦 Production MVPs (15-20 minutes)
+```bash
+/ts-turbo recipe-site "recipe sharing website with user ratings" --build=mvp
+/ts-turbo photo-gallery "photo gallery with uploads and albums" --build=mvp
+/ts-turbo inventory-tracker "inventory management for small business" --build=mvp
+```
+
+### 🏢 Enterprise Applications (45-60 minutes)
+```bash
+/ts-turbo employee-directory "company staff directory with advanced search" --build=production
+/ts-turbo conference-manager "event booking system with payments" --build=production
+/ts-turbo project-tracker "project management with team collaboration" --build=production
+```
+
+### 🗺️ Existing Project Completion
+```bash
+# Analyze and complete legacy codebases
+/ts-assess --existing my-legacy-app
+/ts-assess --existing old-project --gaps        # Find missing components
+/ts-assess --existing inherited-code --security # Security audit
+```
 
 ---
 
-## ⚡ Build Presets - Configure Speed vs Quality
+## ✨ Key Features
 
-Configure the balance of speed vs. quality for your project needs:
-
-### Three Build Modes
-
-```bash
-# 🚀 PROTOTYPE (3-5 min) - Fast iteration, demos, proof-of-concepts
-/ts-turbo demo-app "simple todo app prototype" --build=prototype
-/ts-turbo demo-app --idea=ideas/prototype.txt --build=prototype
-
-# 📦 MVP (15-20 min) - Production launches, professional quality
-/ts-turbo blog-site "blog with user accounts and comments" --build=mvp
-/ts-turbo blog-site --idea=ideas/mvp-blog.md --build=mvp
-
-# 🏢 PRODUCTION (45-60 min) - Enterprise-grade, full compliance
-/ts-turbo business-app "inventory management system" --build=production
-/ts-turbo business-app --idea=ideas/production-app.json --build=production
-```
-
-### Keyword Detection
-
-The system automatically detects your intent from keywords:
-- **Prototype triggers**: "rapid", "demo", "prototype", "quick test", "POC"
-- **Production triggers**: "enterprise", "mission-critical", "compliant", "scalable"
-
-**Performance**: Prototype builds are up to **20x faster** than full production builds!
-
-👉 **[Complete Build Presets Guide →](USER-GUIDE.md#build-presets)**
-👉 **[Quick Reference →](docs/user/build-presets-quickref.md)**
-
----
-
-## 🏗️ The Five-Stage Workflow
-
-| Stage | Department | Focus | Duration | Key Output |
-|-------|------------|-------|----------|------------|
-| **Stage 1** | 📐 Architecture | System Design | 2-5 min | Tech stack & architecture decisions |
-| **Stage 2** | 📦 Product | Business Strategy | 3-8 min | MVP definition & user stories |
-| **Stage 3** | 💻 Development | Implementation | 10-30 min | Working database, backend, frontend |
-| **Stage 4** | 🚀 Release | Deployment | 5-15 min | Documentation, security, infrastructure |
-| **Stage 5** | 🌐 Operations | Go Live | 5-10 min | Live deployment & monitoring |
-
-### Standard Workflow (Supervised)
+### 🎨 Design Department: Prototype-First Pipeline
+**Get interactive demos in 3-4 minutes** with professional styling and realistic data.
 
 ```bash
-# 1. Start project and define architecture
-/ts-new-project my-app
-/ts-approve architecture-start
-/ts-architect
+# Default: Fast stakeholder demo (3-4 min)
+/ts-design-turbo input/my-app
 
-# 2. Plan product and get green light
-/ts-product → /ts-plan → /ts-analyze
-/ts-approve green-light 🚦
+# High-fidelity investor presentation
+/ts-design-turbo input/startup-app --domain=fintech --fidelity=high --review-server
 
-# 3. Build and test all components
-/ts-develop → /ts-test-plan
-/ts-build database|backend|frontend
-/ts-integrate → /ts-signoff
-/ts-approve development
-
-# 4. Release and deploy
-/ts-docs → /ts-security → /ts-release
-/ts-deploy staging → /ts-verify staging
-/ts-deploy production → /ts-verify production
-/ts-approve launch 🚀
-
-# 5. Go live (optional quick deploy)
-/ts-push vercel|railway|neon
-/ts-monitor → /ts-alerts
+# Complete development handoff
+/ts-design-turbo input/production-app --handoff=detailed --api-discovery
 ```
 
-### Turbo Mode (Autonomous)
+**Key capabilities:**
+- **Domain optimization** for fintech, ecommerce, healthcare, Azure/AWS
+- **Mobile-responsive** design across all devices
+- **Development handoff** with TypeScript interfaces and component specs
 
-For rapid prototyping, bypass all approval gates:
+👉 **[Complete Design Guide →](README_DESIGN_DEPT.md)**
+
+### 🗺️ Project Explorer: Beyond Greenfield
+**First AI development tool for existing project analysis.** Analyze inherited, legacy, or abandoned codebases.
 
 ```bash
-# With quoted idea
-/ts-turbo my-portfolio "Personal portfolio website with contact form"
-
-# With idea from file
-/ts-turbo my-blog --idea=ideas/simple-blog.txt
-/ts-turbo my-inventory --idea=ideas/inventory-tracker.json  # JSON can include build flags
+/ts-assess --existing legacy-app           # Full analysis
+/ts-assess --existing my-app --health      # Code quality assessment
+/ts-assess --existing my-app --completion  # Completion strategies
 ```
 
-**⚡ Turbo Mode runs Stages 1-4 automatically** with build presets for speed control and file-based ideas for organized workflows.
+### ⚡ Build Presets: Configure Speed vs Quality
+Control the trade-off between speed and completeness:
 
-👉 **[Complete Workflow Guide →](USER-GUIDE.md#complete-workflow)**
+- **🚀 Prototype (3-5 min):** Fast demos, proof-of-concepts
+- **📦 MVP (15-20 min):** Production-ready apps with professional quality
+- **🏢 Production (45-60 min):** Enterprise-grade with full compliance
+
+### 🚦 Human-in-the-Loop Control
+You make **strategic decisions** at 8 key gates while agents handle execution:
+1. Architecture Start → 2. Architecture Lock → 3. **🚦 Green Light** → 4. Development → 5. Release → 6. Staging → 7. Production → 8. **🚀 Launch**
 
 ---
 
 ## 🎮 Essential Commands
 
-### Project Management
-- `/ts-new-project <name>` - Start a new project (interactive)
-- `/ts-new-project <name> --idea=file` - Start project from idea file
-- `/ts-status` - Check current project status
-- `/ts-brief` - Get executive summary
-- `/ts-ask "<question>"` - Ask the Founder-Advisor
+### Project Lifecycle
+```bash
+/ts-new-project <name>                    # Start new project
+/ts-new-project <name> --idea=file        # Start from idea file
+/ts-status                                # Check project status
+/ts-brief                                 # Get executive summary
+```
 
-### Quick Development
-- `/ts-turbo <name> "<idea>" --build=prototype` - Fast prototyping (3-5 min)
-- `/ts-turbo <name> --idea=file --build=mvp` - Production-ready from file (15-20 min)
-- `/ts-turbo-quick <name> --idea=file` - Silent turbo mode from file
+### Rapid Development
+```bash
+/ts-turbo <name> "<idea>" --build=prototype     # Fast prototyping (3-5 min)
+/ts-turbo <name> --idea=file --build=mvp        # Production-ready (15-20 min)
+/ts-design-turbo <path> --domain=<type>         # Interactive prototypes (3-4 min)
+```
 
 ### Stage Commands
-- `/ts-architect` - Design system architecture
-- `/ts-product` - Define MVP and user stories
-- `/ts-build <layer>` - Build database/backend/frontend
-- `/ts-deploy <env>` - Deploy to environment
-- `/ts-push <target>` - Quick deploy to managed platforms
-
-### Utilities & Help
-- `/ts-fix` - Automatic error diagnosis and fixing
-- `/ts-validate` - Run build verification
-- `/ts-health` - Health check all services
-- `/ts-help [command]` - Interactive help and command discovery
-- `/ts-quickref` - Quick reference with workflow patterns
-- `<any-command> --help` - Quick usage for any command
-
-👉 **[Complete Commands Reference →](USER-GUIDE.md#commands-reference)**
-
----
-
-## 🚦 Human-in-the-Loop Control
-
-You maintain strategic control at **8 critical decision points**:
-
-1. **Architecture Start** → Begin system design
-2. **Architecture Lock** → Finalize technical decisions
-3. **🚦 Green Light** → **Authorize development start**
-4. **Development Done** → Code complete, ready for release
-5. **Release Ready** → Release package approved
-6. **Staging Verified** → Staging deployment successful
-7. **Production Ready** → Production deployment approved
-8. **🚀 Launch** → **Go live to users!**
-
-**Gate Philosophy**: You make strategic decisions while agents handle execution.
-
-👉 **[Complete HITL Gates Guide →](USER-GUIDE.md#hitl-gates)**
-
----
-
-## 🌐 Quick Deploy Options
-
-Skip Infrastructure as Code and deploy directly to managed platforms:
-
-### Popular Combinations
 ```bash
-# Frontend + Backend + Database (full stack)
-/ts-push vercel     # Frontend to Vercel
-/ts-push railway    # Backend to Railway
-/ts-push neon       # Database to Neon
-/ts-domain vercel myapp.com  # Custom domain
-
-# Alternative stacks
-/ts-push netlify    # Frontend alternative
-/ts-push fly        # Backend alternative
-/ts-push supabase   # Database with auth
+/ts-architect                             # Design system architecture
+/ts-product → /ts-plan → /ts-analyze      # Business planning
+/ts-build database|backend|frontend      # Build application layers
+/ts-deploy staging|production             # Deploy to environments
+/ts-push vercel|railway|neon             # Quick deploy to managed platforms
 ```
 
-**🎉 Production ready in under 10 minutes!**
+### Utilities
+```bash
+/ts-fix                                   # Auto-fix common issues
+/ts-validate                              # Build verification
+/ts-docs-compliance                       # Check documentation compliance
+/ts-help [command]                        # Interactive help
+/ts-ask "question"                        # Ask the Founder-Advisor
+```
 
-👉 **[Complete Deploy Guide →](USER-GUIDE.md#quick-deploy-targets)**
+👉 **[All 56 Commands →](docs/user/commands.md)**
 
 ---
 
-## 📚 Documentation
+## 📚 Learn More
 
-### Getting Started
-- **[USER-GUIDE.md](USER-GUIDE.md)** - Complete reference and workflows
-- **[QUICKSTART.md](QUICKSTART.md)** - 5-minute onboarding guide
-- **[Architecture Tutorial](docs/user/architecture-tutorial.md)** - Hands-on architecture design
-- **[Build Presets Tutorial](docs/user/build-presets-practical.md)** - Speed optimization guide
+### Quick Guides
+- **[QUICKSTART.md](QUICKSTART.md)** → 5-minute tutorial with first project
+- **[USER-GUIDE.md](USER-GUIDE.md)** → Complete reference and workflows
+- **[README_DESIGN_DEPT.md](README_DESIGN_DEPT.md)** → Design Department guide
 
-### Reference Documentation
-- **[Agent Reference](docs/user/agents.md)** - All 19 agents and capabilities
-- **[Command Reference](docs/user/commands.md)** - All 49 commands with examples
-- **[Configuration Guide](docs/user/configuration.md)** - Customization options
-- **[Workflow Guide](docs/user/workflow.md)** - Step-by-step processes
+### Advanced Topics
+- **[Architecture Tutorial](docs/user/architecture-tutorial.md)** → Hands-on system design
+- **[Build Presets Guide](docs/user/build-presets-practical.md)** → Speed optimization
+- **[Workflow Guide](docs/user/workflow.md)** → Step-by-step processes
 
-### Generate Fresh Docs
+### References
+- **[All 23 Agents](docs/user/agents.md)** → Agent capabilities and roles
+- **[All 56 Commands](docs/user/commands.md)** → Complete command reference
+- **[Configuration](docs/user/configuration.md)** → Customization options
+
+### Generate Fresh Documentation
 ```bash
-/ts-self-document  # Creates up-to-date documentation
-```
-
----
-
-## 🎯 Example Projects
-
-### Quick Prototypes (3-5 minutes)
-```bash
-/ts-turbo todo-demo "simple todo app prototype" --build=prototype
-/ts-turbo blog-demo "personal blog demo" --build=prototype
-```
-
-### Production MVPs (15-20 minutes)
-```bash
-/ts-turbo recipe-site "recipe sharing website with ratings" --build=mvp
-/ts-turbo photo-gallery "photo gallery with user uploads" --build=mvp
-```
-
-### Business Applications (45-60 minutes)
-```bash
-/ts-turbo employee-directory "company staff directory with search" --build=production
-/ts-turbo event-manager "conference booking system" --build=production
-```
-
-👉 **[More Examples →](USER-GUIDE.md#example-projects)**
-
----
-
-## 💡 Philosophy
-
-The System is built on these principles:
-
-1. **🎯 You are the Founder** — AI agents work for you, not the other way around
-2. **🚦 Human-in-the-Loop** — Critical decisions require your approval
-3. **🎯 Specialized Agents** — Each agent has deep expertise in their domain
-4. **📝 Living Documentation** — The project file is always the source of truth
-5. **⚙️ Flexible Workflow** — Skip stages, customize processes, add your own agents
-6. **🚀 Production-Ready Output** — Generated code follows best practices
-
----
-
-## 🆘 Getting Help
-
-### Within The System
-```bash
-# Interactive help and discovery
-/ts-help                     # Browse all commands by category
-/ts-help <command>           # Detailed help for specific command
-/ts-help --stage development # Commands for current stage
-/ts-quickref                 # Compact quick reference
-<any-command> --help         # Quick usage (e.g. /ts-turbo --help)
-
-# Project assistance
-/ts-ask "How do I add authentication to my app?"
-/ts-brief                    # Project summary
-/ts-status                   # Current status
-```
-
-### Community & Support
-- **📚 Documentation**: [USER-GUIDE.md](USER-GUIDE.md) and [docs/user/](docs/user/)
-- **🐛 GitHub Issues**: [Report bugs and request features](https://github.com/vedanta/the-system/issues)
-- **🔧 Verification**: Run `./scripts/verify-the-system.sh` for diagnostics
-- **📖 Self-Help**: Use `/ts-self-document` for fresh documentation
-
----
-
-## 🚀 Quick Reference Card
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    THE SYSTEM - QUICK REFERENCE                 │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│ 🏗️  START         /ts-new-project <name>                        │
-│                                                                 │
-│ 📐  ARCHITECTURE  /ts-assess | /ts-architect                    │
-│                   /ts-approve architecture-lock                 │
-│                                                                 │
-│ 📦  PRODUCT       /ts-product → /ts-plan → /ts-analyze          │
-│                   /ts-approve green-light 🚦                   │
-│                                                                 │
-│ 💻  DEVELOPMENT   /ts-build database|backend|frontend           │
-│                   /ts-integrate → /ts-signoff                   │
-│                   /ts-approve development                       │
-│                                                                 │
-│ 🚀  RELEASE       /ts-docs → /ts-security → /ts-release         │
-│                   /ts-infra → /ts-pipeline → /ts-deploy         │
-│                   /ts-approve launch 🚀                         │
-│                                                                 │
-│ 🌐  QUICK DEPLOY  /ts-push vercel|railway|neon                  │
-│                   /ts-monitor → /ts-alerts                      │
-│                                                                 │
-│ ⚡  TURBO MODES   /ts-turbo <name> "<idea>" --build=prototype   │
-│                   /ts-turbo <name> --idea=file --build=mvp     │
-│                   /ts-turbo-quick <name> --idea=file           │
-│                                                                 │
-│ 🔧  UTILITIES     /ts-fix | /ts-validate | /ts-status | /ts-ask │
-│                                                                 │
-│ 🆘  HELP          /ts-help | /ts-help <cmd> | /ts-quickref     │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+/ts-self-document  # Creates up-to-date documentation from framework
 ```
 
 ---
 
-## 🤝 Contributing
+## 🤝 Community
 
-We welcome contributions to **The System**! To maintain code quality and consistency:
-
-### **Branch Naming Convention (New Standards)**
-Use short, descriptive branch names with prefixes:
+### Getting Help
 ```bash
-feat/auth        # New features (max 20 chars total)
-fix/badges       # Bug fixes
-docs/api         # Documentation updates
-chore/cleanup    # Maintenance tasks
+# Within The System
+/ts-help                     # Browse all commands
+/ts-help <command>           # Detailed command help
+/ts-ask "How do I add authentication?"  # Ask the advisor
+/ts-quickref                 # Quick reference
+
+# Self-diagnostics
+./scripts/verify-the-system.sh    # Health check
+/ts-validate                      # Build verification
+/ts-health                        # Live services check
 ```
 
-### **Quick Contribution Flow**
+### Contributing
+We welcome contributions!
+
+**Quick contribution flow:**
 ```bash
 git checkout main && git pull
-git checkout -b feat/your-feature
+git checkout -b feat/your-feature    # Use descriptive branch names
 # Make your changes
 git push -u origin feat/your-feature
-# Create PR, then after merge:
-git branch -d feat/your-feature
+# Create PR
 ```
 
-### **Before Submitting PRs**
-- ✅ Run `./scripts/verify-the-system.sh`
-- ✅ Test changes thoroughly
-- ✅ Update documentation if needed
-- ✅ Follow existing patterns
+**Branch naming:** `feat/auth`, `fix/bugs`, `docs/api`, `chore/cleanup` (max 20 chars)
 
-**📋 See [CONTRIBUTING.md](CONTRIBUTING.md) for complete guidelines**
+**Before submitting:**
+- ✅ Run `./scripts/verify-the-system.sh`
+- ✅ Test thoroughly
+- ✅ Update docs if needed
+
+📋 **[Complete Guidelines →](CONTRIBUTING.md)**
+
+### Support
+- 📚 **Documentation:** [USER-GUIDE.md](USER-GUIDE.md)
+- 🐛 **Issues:** [GitHub Issues](https://github.com/vedanta/the-system/issues)
+- 💬 **Questions:** Use `/ts-ask` within The System
 
 ---
 
 ## 📄 License
 
-**LGPL-3.0** - Use commercially, modify freely, keep The System improvements open source.
+**LGPL-3.0** - Use commercially, modify freely, keep improvements open source.
 
-📄 **[Full License](LICENSE)** | 🔗 **[Contributing Guidelines](CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
+📄 **[Full License](LICENSE)** | 🔗 **[Contributing](CONTRIBUTING.md)** | 📋 **[CLA](CLA.md)**
+
+---
+
+<details>
+<summary><strong>🛠️ Technology Stack & Architecture</strong></summary>
+
+### Architecture Patterns
+<p align="center">
+  <img src="https://img.shields.io/badge/Static-Sites-blueviolet?style=flat-square&logo=html5" alt="Static Sites"/>
+  <img src="https://img.shields.io/badge/Embedded-DB-blue?style=flat-square&logo=sqlite" alt="Embedded DB"/>
+  <img src="https://img.shields.io/badge/Full--Stack-JS-yellow?style=flat-square&logo=javascript" alt="Full-Stack JS"/>
+  <img src="https://img.shields.io/badge/BaaS-green?style=flat-square&logo=supabase" alt="BaaS"/>
+  <img src="https://img.shields.io/badge/Microservices-orange?style=flat-square&logo=docker" alt="Microservices"/>
+  <img src="https://img.shields.io/badge/CLI-Tools-grey?style=flat-square&logo=terminal" alt="CLI Tools"/>
+</p>
+
+### Supported Technologies
+- **Frontend:** Next.js, React, Vue, SvelteKit (TypeScript, Tailwind CSS)
+- **Backend:** FastAPI, Express.js, NestJS, Django (RESTful APIs)
+- **Database:** PostgreSQL, MySQL, SQLite, MongoDB (With ORMs)
+- **Auth:** NextAuth.js, Clerk, Lucia, Firebase Auth
+- **Deploy:** Vercel, Railway, Fly.io, Netlify, Cloudflare Pages
+- **DevOps:** Terraform, GitHub Actions, Docker, Monitoring
+
+### Build Performance
+<p align="center">
+  <img src="https://img.shields.io/badge/Design_Prototypes-3--4min-cyan?style=flat-square&logo=figma" alt="Design Prototypes"/>
+  <img src="https://img.shields.io/badge/Code_Prototype-3--5min-brightgreen?style=flat-square&logo=rocket" alt="Code Prototype"/>
+  <img src="https://img.shields.io/badge/MVP-15--20min-yellow?style=flat-square&logo=target" alt="MVP Build"/>
+  <img src="https://img.shields.io/badge/Production-45--60min-red?style=flat-square&logo=shield" alt="Production Build"/>
+</p>
+
+</details>
+
+<details>
+<summary><strong>🏗️ Complete Workflow</strong></summary>
+
+### Five-Stage Development Process
+
+| Stage | Department | Duration | Key Output |
+|-------|------------|----------|------------|
+| **1** | 📐 Architecture | 2-5 min | Tech stack & system design |
+| **1.5** | 🎨 Design | 3-4 min | Interactive prototypes |
+| **2** | 📦 Product | 3-8 min | MVP definition & user stories |
+| **3** | 💻 Development | 10-30 min | Database, backend, frontend |
+| **4** | 🚀 Release | 5-15 min | Docs, security, deployment |
+| **5** | 🌐 Operations | 5-10 min | Live monitoring & alerts |
+
+### Standard Workflow (Supervised)
+```bash
+# 1. Architecture
+/ts-new-project my-app
+/ts-architect → /ts-approve architecture-lock
+
+# 1.5. Design (Optional)
+/ts-design-turbo output/my-app --domain=fintech
+
+# 2. Product
+/ts-product → /ts-plan → /ts-analyze
+/ts-approve green-light 🚦
+
+# 3. Development
+/ts-build database → /ts-build backend → /ts-build frontend
+/ts-integrate → /ts-signoff → /ts-approve development
+
+# 4. Release
+/ts-docs → /ts-security → /ts-deploy staging
+/ts-approve production → /ts-deploy production
+
+# 5. Operations
+/ts-push vercel|railway|neon → /ts-monitor → /ts-alerts
+```
+
+### Turbo Mode (Autonomous)
+```bash
+# Runs Stages 1-4 automatically
+/ts-turbo my-app "description" --build=prototype|mvp|production
+/ts-turbo-quick my-app --idea=ideas/app.json
+```
+
+</details>
+
+<details>
+<summary><strong>🌐 Quick Deploy Targets</strong></summary>
+
+### Popular Platform Combinations
+```bash
+# Full-stack deployment
+/ts-push vercel     # Frontend → Vercel
+/ts-push railway    # Backend → Railway
+/ts-push neon       # Database → Neon
+/ts-domain vercel myapp.com  # Custom domain
+
+# Alternative combinations
+/ts-push netlify    # Frontend alternative
+/ts-push fly        # Backend alternative
+/ts-push supabase   # Database with built-in auth
+```
+
+### Supported Platforms
+- **Frontend:** Vercel, Netlify, Cloudflare Pages
+- **Backend:** Railway, Fly.io, Render
+- **Database:** Neon, Supabase, PlanetScale, Turso
+- **Full-stack:** Railway (complete), Render (complete)
+
+**🎉 Production ready in under 10 minutes!**
+
+</details>
 
 ---
 
 <p align="center">
-  <strong>Ready to build production software?</strong><br/>
+  <strong>Ready to build production software with AI?</strong><br/>
   <br/>
-  <a href="USER-GUIDE.md">📚 Complete User Guide</a> •
-  <a href="QUICKSTART.md">🚀 5-Minute Quickstart</a> •
-  <a href="CHANGELOG.md">📋 Changelog</a> •
-  <a href="https://github.com/vedanta/the-system/issues">🐛 Issues</a>
+  <a href="QUICKSTART.md">🚀 Quick Start</a> •
+  <a href="USER-GUIDE.md">📚 User Guide</a> •
+  <a href="https://github.com/vedanta/the-system/issues">🐛 Issues</a> •
+  <a href="CHANGELOG.md">📋 Changelog</a>
 </p>

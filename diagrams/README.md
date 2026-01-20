@@ -6,14 +6,14 @@ Visual documentation for The System's organizational structure and workflows.
 
 | File | Description |
 |------|-------------|
-| `01-org-structure.mermaid` | Full organizational structure showing all 19 agents |
+| `01-org-structure.mermaid` | Full organizational structure showing all 23 agents |
 | `02-full-workflow.mermaid` | Complete workflow from intake to launch |
 | `03-simplified-linear-flow.mermaid` | Simplified linear view of stages |
 | `04-hitl-gates-flow.mermaid` | Human-in-the-loop approval gates |
 | `05-stage3-build-test-cycle.mermaid` | Development build and test cycle |
 | `06-stage4-deployment-flow.mermaid` | Stage 4 deployment process |
 | `07-stage5-quick-deploy-flow.mermaid` | Stage 5 quick deploy to platforms |
-| `08-all-19-agents.mermaid` | Overview of all 19 agents |
+| `08-all-23-agents.mermaid` | Overview of all 23 agents |
 | `09-agent-interactions.mermaid` | Comprehensive agent-to-agent interactions |
 | `10-key-agent-interactions.mermaid` | Simplified key interaction patterns |
 | `11-agent-capabilities-tools.mermaid` | Detailed agent capabilities and tool access |
@@ -47,19 +47,21 @@ mmdc -i diagram.mermaid -o diagram.png
 
 ```
 Stage 1: Architecture    → 2 agents (Solution Architect, Enterprise Architect)
+Design Department        → 4 agents (UX Analyzer, API Discovery, Wireframe, Prototype)
 Stage 2: Product         → 3 agents (Product Lead, Planner, Analyst)
 Stage 3: Development     → 6 agents (Principal, QA, DB, BE, FE, Integration)
 Stage 4: Release         → 4 agents (Writer, Security, Release, DevOps)
 Stage 5: Go Live         → 2 agents (SRE Deploy, SRE Ops)
+Utility                  → 1 agent (Bug Fixer)
 ─────────────────────────────────────
-Total                    → 18 agents (+ Founder-Advisor = 19)
+Total                    → 22 agents (+ Founder-Advisor = 23)
 ```
 
 ## Agent Interactions
 
 ### 🔄 Comprehensive Interactions (`09-agent-interactions.mermaid`)
 Shows detailed agent-to-agent relationships:
-- **Communication flows** between all 19 agents
+- **Communication flows** between all 23 agents
 - **Review relationships** (who reviews whose work)
 - **Handoff patterns** between stages
 - **Coordination mechanisms** within teams
@@ -80,7 +82,7 @@ Simplified view highlighting critical patterns:
 
 ### 🔧 Detailed Capabilities (`11-agent-capabilities-tools.mermaid`)
 Comprehensive view of what each agent can actually DO:
-- **Individual capabilities** for all 19 agents
+- **Individual capabilities** for all 23 agents
 - **Tool access levels** (Read, Write, Edit, Bash, Grep, WebSearch, etc.)
 - **Specialized knowledge domains** and expertise areas
 - **Primary outputs** and deliverables each agent produces

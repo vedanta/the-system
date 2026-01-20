@@ -112,8 +112,7 @@ class DocumentationUpdater:
             'README.md',
             'USER-GUIDE.md',
             'CLAUDE.md',
-            'QUICKSTART.md',
-            'COMMAND-REFERENCE.md'
+            'QUICKSTART.md'
         ]
 
         for doc in main_docs:
@@ -365,7 +364,7 @@ After 5 minutes, you have:
 ## Next Steps
 
 - **Tutorial:** [USER-GUIDE.md](USER-GUIDE.md) - Complete framework guide
-- **Commands:** [COMMAND-REFERENCE.md](COMMAND-REFERENCE.md) - All {self.framework_stats.command_count} commands
+- **Commands:** [docs/user/commands.md](docs/user/commands.md) - All {self.framework_stats.command_count} commands
 - **Architecture:** [docs/architecture.md](docs/architecture.md) - Technical details
 
 ## Need Help?
@@ -399,8 +398,7 @@ claude
         key_files = {
             'README.md': 'Main entry point',
             'QUICKSTART.md': '5-minute onboarding',
-            'USER-GUIDE.md': 'Comprehensive guide',
-            'COMMAND-REFERENCE.md': 'Complete command reference'
+            'USER-GUIDE.md': 'Comprehensive guide'
         }
 
         for file_name, purpose in key_files.items():

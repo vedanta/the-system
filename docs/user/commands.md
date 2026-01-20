@@ -1,1 +1,1004 @@
-# The System Commands Reference > Complete reference for all 49 commands in the Autonomous Software Development Organization ## Overview The System provides 49 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function. ## Command Categories | Category | Commands | Purpose | |----------|----------|---------| | **Core Project Lifecycle** | 8 | Project management and coordination | | **Stage 1: Architecture** | 2 | System design and technical decisions | | **Stage 2: Product** | 3 | MVP definition and business planning | | **Stage 3: Development** | 7 | Code implementation and testing | | **Stage 4: Release & Deployment** | 8 | Documentation, security, and deployment | | **Stage 5: Go Live & Operations** | 12 | Quick deploy and monitoring | | **Utility Commands** | 8 | Error fixing, validation, and autonomous modes | --- ## Core Project Lifecycle (8) Essential commands for project management and workflow coordination. ### `/ts-new-project <name>` **Purpose:** Initialize a new project with The System framework **Usage:** `/ts-new-project my-functional-app` **With Ideas:** `/ts-new-project my-app --idea=ideas/project.txt` **Agent:** Founder-Advisor **What it does:** - Creates project directory structure - Initializes project file with metadata - Sets up basic configuration - Supports file-based idea input (.txt, .md, .json, .yaml) ### `/ts-status` **Purpose:** Check current project status and next recommended actions **Usage:** `/ts-status` **Agent:** Founder-Advisor **What it does:** - Shows current stage and progress - Lists completed and pending tasks - Provides next recommended command - Displays any blocking issues ### `/ts-brief` **Purpose:** Get executive summary of current project **Usage:** `/ts-brief` **Agent:** Founder-Advisor **What it does:** - Provides high-level project overview - Summarizes key decisions and progress - Shows technology stack and architecture - Highlights any critical issues ### `/ts-ask "<question>"` **Purpose:** Ask the Founder-Advisor specific questions about the project **Usage:** `/ts-ask "How do I add authentication to my app?"` **Agent:** Founder-Advisor **What it does:** - Provides context-aware answers - Suggests relevant commands and next steps - Explains architectural decisions - Offers implementation guidance ### `/ts-view [section]` **Purpose:** View specific sections of the project file **Usage:** `/ts-view architecture` or `/ts-view` **Agent:** System **What it does:** - Displays project file contents - Can show specific sections (architecture, product, development) - Useful for reviewing decisions and progress - Shows formatted, readable output ### `/ts-exec-summary` **Purpose:** Generate comprehensive executive summary **Usage:** `/ts-exec-summary` **Agent:** Founder-Advisor **What it does:** - Creates detailed project report - Includes all key metrics and progress - Shows technology choices and rationale - Provides strategic recommendations ### `/ts-approve <gate>` **Purpose:** Approve progression through Human-in-the-Loop gates **Usage:** `/ts-approve green-light` or `/ts-approve launch` **Agent:** System **Available Gates:** - `architecture-start` - Begin architecture design - `architecture-lock` - Lock technical decisions - `green-light` - Authorize development start - `development` - Code complete, ready for release - `release` - Release package approved - `staging` - Staging deployment verified - `production` - Production deployment approved - `launch` - Go live to users ### `/ts-review <stage>` **Purpose:** Request comprehensive review of completed stage **Usage:** `/ts-review architecture` or `/ts-review development` **Agent:** Founder-Advisor **What it does:** - Analyzes stage completion and quality - Identifies any missing components - Provides recommendations for improvement - Prepares for next stage approval --- ## Stage 1: Architecture (2) Commands for system design and technical architecture definition. ### `/ts-assess` **Purpose:** Assess project requirements and recommend optimal architecture, or analyze existing/legacy codebases **Usage:** `/ts-assess` or `/ts-assess --existing <project-name>` **Agent:** Solution Architect **New Project Assessment:** - Analyzes project requirements and complexity - Recommends optimal architecture pattern - Suggests technology stack choices - Provides implementation approach recommendations **Project Explorer Mode:** ```bash /ts-assess --existing legacy-app           # Full existing project analysis /ts-assess --existing my-app --gaps        # Gap analysis and missing components /ts-assess --existing my-app --health      # Code quality assessment /ts-assess --existing my-app --security    # Security vulnerabilities analysis /ts-assess --existing my-app --completion  # Completion strategies /ts-assess --existing my-app --map         # Architecture mapping /ts-assess --existing my-app --report      # Executive summary report ``` **What Project Explorer does:** - Analyzes existing/legacy codebases for completion strategies - Conducts technology stack detection and gap analysis - Provides modernization guidance and completion roadmaps - Generates detailed analysis reports in `output/` directory - Assesses code quality, security vulnerabilities, and technical debt ### `/ts-architect` **Purpose:** Design complete system architecture and create ADRs **Usage:** `/ts-architect` **Agent:** Solution Architect **What it does:** - Creates comprehensive technical architecture - Defines technology stack and rationale - Documents Architecture Decision Records (ADRs) - Establishes development patterns and standards --- ## Stage 2: Product (3) Commands for MVP definition, business planning, and market analysis. ### `/ts-product` **Purpose:** Define MVP scope, user stories, and product requirements **Usage:** `/ts-product` **Agent:** Product Lead **What it does:** - Defines minimum viable product scope - Creates detailed user stories - Establishes feature priorities - Documents product requirements ### `/ts-plan` **Purpose:** Create development roadmap, sprints, and estimates **Usage:** `/ts-plan` **Agent:** Project Planner **What it does:** - Breaks down work into manageable sprints - Provides development time estimates - Creates milestone schedule - Identifies dependencies and risks ### `/ts-analyze` **Purpose:** Conduct market analysis and business strategy assessment **Usage:** `/ts-analyze` **Agent:** Business Analyst **What it does:** - Market size and competition analysis - Revenue model recommendations - Go-to-market strategy - Business viability assessment --- ## Stage 3: Development (7) Commands for code implementation, testing, and quality assurance. ### `/ts-develop` **Purpose:** Create comprehensive implementation plan **Usage:** `/ts-develop` **Agent:** Principal Developer **What it does:** - Creates detailed implementation strategy - Defines coding standards and patterns - Plans component architecture - Sets up development workflow ### `/ts-test-plan` **Purpose:** Define comprehensive testing strategy **Usage:** `/ts-test-plan` **Agent:** QA Engineer **What it does:** - Creates testing framework and strategy - Defines unit, integration, and E2E tests - Establishes quality gates and criteria - Plans automated testing pipeline ### `/ts-build <layer>` **Purpose:** Build specific application layers **Usage:** `/ts-build database`, `/ts-build backend`, `/ts-build frontend` **Agent:** Specialized Developer (DB/Backend/Frontend) **What it does:** - Implements complete layer functionality - Follows established patterns and standards - Includes comprehensive error handling - Generates production-ready code ### `/ts-test <layer>` **Purpose:** Test specific layers and components **Usage:** `/ts-test database`, `/ts-test backend`, `/ts-test frontend`, `/ts-test integration` **Agent:** QA Engineer **What it does:** - Runs comprehensive test suites - Validates functionality and performance - Checks error handling and edge cases - Ensures quality standards are met ### `/ts-integrate` **Purpose:** Connect all components and ensure E2E functionality **Usage:** `/ts-integrate` **Agent:** Integration Engineer **What it does:** - Connects frontend, backend, and database - Implements API integrations - Ensures data flow and communication - Validates complete system functionality ### `/ts-gate` **Purpose:** Conduct quality gate review before release **Usage:** `/ts-gate` **Agent:** Principal Developer **What it does:** - Comprehensive code quality review - Architecture compliance validation - Performance and security assessment - Readiness evaluation for release ### `/ts-signoff` **Purpose:** Final QA approval for development completion **Usage:** `/ts-signoff` **Agent:** QA Engineer **What it does:** - Final validation of all functionality - Comprehensive testing verification - Quality standards confirmation - Official development completion approval --- ## Stage 4: Release & Deployment (8) Commands for documentation, security, and production deployment preparation. ### `/ts-docs` **Purpose:** Generate comprehensive project documentation **Usage:** `/ts-docs` **Agent:** Technical Writer **What it does:** - Creates technical architecture documentation - Generates API documentation - Writes user and developer guides - Produces deployment and operations documentation ### `/ts-security` **Purpose:** Comprehensive security scanning and validation **Usage:** `/ts-security [environment]` **Agent:** Security Engineer **What it does:** - Scans for security vulnerabilities - Validates authentication and authorization - Checks for exposed secrets and credentials - Ensures compliance with security standards ### `/ts-release` **Purpose:** Create release package with versioning and changelog **Usage:** `/ts-release` **Agent:** Release Engineer **What it does:** - Generates semantic version numbers - Creates comprehensive changelog - Packages release artifacts - Prepares distribution bundles ### `/ts-infra` **Purpose:** Generate Infrastructure as Code (Terraform) **Usage:** `/ts-infra` **Agent:** DevOps Engineer **What it does:** - Creates Terraform infrastructure definitions - Configures cloud resources and networking - Sets up monitoring and logging infrastructure - Defines scaling and backup strategies ### `/ts-pipeline` **Purpose:** Generate CI/CD workflows and automation **Usage:** `/ts-pipeline` **Agent:** DevOps Engineer **What it does:** - Creates GitHub Actions or similar CI/CD workflows - Configures automated testing and deployment - Sets up build and release automation - Defines deployment approval processes ### `/ts-deploy <environment>` **Purpose:** Deploy to specific environments **Usage:** `/ts-deploy staging` or `/ts-deploy production` **Agent:** DevOps Engineer **What it does:** - Deploys application to target environment - Configures environment-specific settings - Sets up monitoring and alerting - Validates deployment success ### `/ts-verify <environment>` **Purpose:** Verify deployment health and functionality **Usage:** `/ts-verify staging` or `/ts-verify production` **Agent:** DevOps Engineer **What it does:** - Runs health checks and smoke tests - Validates all services are operational - Checks monitoring and alerting setup - Confirms deployment meets requirements ### `/ts-rollback <environment> [version]` **Purpose:** Rollback deployment to previous version **Usage:** `/ts-rollback production v1.0.0` **Agent:** DevOps Engineer **What it does:** - Safely rolls back to previous version - Restores database to compatible state - Updates monitoring and alerting - Validates rollback success --- ## Stage 5: Go Live & Operations (12) Quick deploy commands and operational management for live systems. ### `/ts-push <target> [environment]` **Purpose:** Quick deploy to managed platforms **Usage:** `/ts-push vercel`, `/ts-push railway`, `/ts-push neon` **Agent:** SRE Deploy Engineer **Supported Targets:** - **Frontend:** `vercel`, `netlify`, `cloudflare` - **Backend:** `railway`, `fly`, `render` - **Database:** `neon`, `supabase`, `planetscale`, `turso` ### `/ts-live-status` **Purpose:** Check status of all live deployments **Usage:** `/ts-live-status` **Agent:** SRE Deploy Engineer **What it does:** - Shows status of all deployed services - Displays health check results - Reports on performance metrics - Identifies any issues or downtime ### `/ts-live-env <target>` **Purpose:** Manage environment variables for live deployments **Usage:** `/ts-live-env vercel` **Agent:** SRE Deploy Engineer **What it does:** - Lists current environment variables - Allows updating configuration - Manages secrets and credentials - Applies changes safely ### `/ts-domain <target> <domain>` **Purpose:** Configure custom domain for deployments **Usage:** `/ts-domain vercel myapp.com` **Agent:** SRE Deploy Engineer **What it does:** - Configures custom domain mapping - Sets up SSL certificates - Configures DNS settings - Validates domain setup ### `/ts-teardown <target>` **Purpose:** Remove deployment from managed platform **Usage:** `/ts-teardown vercel` **Agent:** SRE Deploy Engineer **What it does:** - Safely removes deployment - Cleans up resources and configuration - Backs up any necessary data - Confirms complete removal ### `/ts-monitor` **Purpose:** Set up comprehensive monitoring stack **Usage:** `/ts-monitor` **Agent:** SRE Ops Engineer **What it does:** - Configures application performance monitoring - Sets up infrastructure monitoring - Establishes logging aggregation - Creates monitoring dashboards ### `/ts-alerts` **Purpose:** Configure alerting and notification systems **Usage:** `/ts-alerts` **Agent:** SRE Ops Engineer **What it does:** - Sets up alert thresholds and rules - Configures notification channels - Establishes escalation procedures - Tests alerting functionality ### `/ts-logs [target]` **Purpose:** View and analyze application logs **Usage:** `/ts-logs` or `/ts-logs production` **Agent:** SRE Ops Engineer **What it does:** - Displays recent application logs - Filters logs by severity and component - Provides log search and analysis - Shows performance and error patterns ### `/ts-health` **Purpose:** Comprehensive health check of all services **Usage:** `/ts-health` **Agent:** SRE Ops Engineer **What it does:** - Checks all service endpoints - Validates database connectivity - Tests critical user journeys - Reports overall system health ### `/ts-status-page` **Purpose:** Create public status page for users **Usage:** `/ts-status-page` **Agent:** SRE Ops Engineer **What it does:** - Creates public-facing status page - Shows service availability - Provides incident communication - Allows user notifications ### `/ts-incident [action]` **Purpose:** Incident management and response **Usage:** `/ts-incident create` or `/ts-incident resolve` **Agent:** SRE Ops Engineer **Available Actions:** - `create` - Start new incident response - `update` - Update incident status - `resolve` - Close incident - `list` - Show active incidents ### `/ts-slo` **Purpose:** Define and track Service Level Objectives **Usage:** `/ts-slo` **Agent:** SRE Ops Engineer **What it does:** - Defines SLI/SLO metrics - Sets up SLO tracking and reporting - Creates SLO violation alerts - Provides SLO compliance reporting --- ## Utility Commands (8) Specialized commands for error fixing, validation, and autonomous operation. ### `/ts-fix [type]` **Purpose:** Automatic error diagnosis and systematic fixing **Usage:** `/ts-fix` or `/ts-fix typescript` **Agent:** Bug Fixer **Fix Types:** - `typescript` - TypeScript compilation errors - `dependencies` - Package dependency conflicts - `scan` - Diagnostic mode only (no fixes) - Default: Auto-detect and fix common issues ### `/ts-validate [layer]` **Purpose:** Run build verification and quality checks **Usage:** `/ts-validate` or `/ts-validate frontend` **Agent:** QA Engineer **What it does:** - Verifies code compiles successfully - Runs unit and integration tests - Checks code quality and standards - Validates deployment readiness ### `/ts-turbo <name> "<idea>"` **Purpose:** Autonomous execution of Stages 1-4 **Usage:** `/ts-turbo my-app "task management app with auth"` **Agent:** System Orchestrator **Features:** - Bypasses all HITL gates automatically - Supports build presets (prototype, mvp, production) - File-based ideas: `/ts-turbo my-app --idea=ideas/app.txt` - Complete audit log maintained - Stops on CRITICAL security findings ### `/ts-turbo-quick <name>` **Purpose:** Fast turbo mode with minimal output **Usage:** `/ts-turbo-quick my-app --idea=ideas/app.txt` **Agent:** System Orchestrator **What it does:** - Silent turbo mode with minimal logging - Optimized for speed and automation - File-based ideas required - Best for batch processing ### `/ts-self-document` **Purpose:** Generate fresh framework documentation **Usage:** `/ts-self-document` **Agent:** Documentation Generator **What it does:** - Scans all framework components - Generates comprehensive documentation - Updates reference materials - Creates architecture diagrams ### `/ts-help [command]` **Purpose:** Interactive help and command discovery **Usage:** `/ts-help` or `/ts-help turbo` **Agent:** Help System **Features:** - Browse all 49 commands by category - Detailed help for specific commands - Stage-specific command suggestions - Search commands by keyword - Context-aware next-step recommendations ### `/ts-quickref [--stage]` **Purpose:** Quick reference with workflow patterns **Usage:** `/ts-quickref` or `/ts-quickref --stage development` **Agent:** Reference System **What it does:** - Compact command reference - Stage-specific workflows - Common usage patterns - Quick troubleshooting guide ### `/ts-user-docs-update` **Purpose:** Update user-facing documentation with current counts and links **Usage:** `/ts-user-docs-update` **Agent:** Documentation Updater **What it does:** - Scans framework for accurate agent/command counts - Updates all count references in documentation - Validates internal links and cross-references - Ensures documentation consistency --- ## Command Usage Patterns ### Sequential Workflows ```bash # Standard supervised workflow /ts-new-project my-app /ts-approve architecture-start → /ts-assess → /ts-architect /ts-approve architecture-lock → /ts-product → /ts-plan → /ts-analyze /ts-approve green-light → /ts-develop → /ts-test-plan /ts-build database → /ts-test database /ts-build backend → /ts-test backend /ts-build frontend → /ts-test frontend /ts-integrate → /ts-test integration /ts-gate → /ts-signoff → /ts-approve development ``` ### Quick Deployment ```bash # Skip Infrastructure as Code - direct to managed platforms /ts-push vercel # Frontend /ts-push railway # Backend /ts-push neon # Database /ts-live-status # Verify all services /ts-domain vercel myapp.com # Custom domain ``` ### Autonomous Operation ```bash # Full automation with build presets /ts-turbo prototype-app "quick demo" --build=prototype # 3-5 min /ts-turbo mvp-app "production launch" --build=mvp # 15-20 min /ts-turbo enterprise-app "enterprise system" --build=production # 45-60 min ``` ### Error Handling ```bash # Systematic error resolution /ts-fix # Auto-detect and fix /ts-fix typescript # TypeScript specific /ts-validate frontend # Verify specific layer /ts-health # Check live services ``` ### Information & Help ```bash # Getting information and help /ts-status # Current project status /ts-brief # Executive summary /ts-help # Browse all commands /ts-help turbo # Specific command help /ts-quickref # Quick reference /ts-ask "How do I add authentication?" # Contextual help ``` --- ## Advanced Usage ### File-Based Ideas The System supports structured project ideas in multiple formats: **Text Files (.txt)** ``` A task management application with user authentication, real-time collaboration, and mobile responsiveness. ``` **Markdown Files (.md)** ```markdown # E-commerce Platform ## Features - Product catalog with search - Shopping cart and checkout - User accounts and order history - Payment processing integration ## Technical Requirements - Mobile-responsive design - SEO optimization - Performance monitoring ``` **JSON Files (.json)** ```json { "name": "CRM System", "description": "Customer relationship management platform", "build_preset": "production", "features": [ "Contact management", "Sales pipeline tracking", "Email integration", "Analytics dashboard" ], "technical_requirements": { "authentication": "required", "database": "postgresql", "deployment": "cloud" } } ``` ### Build Presets Integration Many commands support build preset awareness for optimized execution: ```bash # Prototype build (3-5 min) - Fast iteration /ts-turbo demo-app "simple blog" --build=prototype # MVP build (15-20 min) - Production launch /ts-turbo startup-app "SaaS platform" --build=mvp # Production build (45-60 min) - Enterprise quality /ts-turbo enterprise-app "mission-critical system" --build=production ``` ### Command Chaining Many commands can be chained for efficient workflow execution: ```bash # Development workflow /ts-build database && /ts-test database && /ts-build backend # Deployment pipeline /ts-security staging && /ts-deploy staging && /ts-verify staging # Operations setup /ts-monitor && /ts-alerts && /ts-health ``` --- ## Best Practices ### 1. Use Appropriate Build Presets - **Prototype**: For demos, quick tests, and proof-of-concepts - **MVP**: For production launches and professional applications - **Production**: For enterprise-grade, compliance-required systems ### 2. Follow the Approval Gates - Don't skip HITL gates unless using turbo mode - Review each stage completion before approval - Use `/ts-review <stage>` before major approvals ### 3. Leverage File-Based Ideas - Store project ideas in `ideas/` directory - Use structured formats (JSON/YAML) for complex requirements - Version control your idea files for team collaboration ### 4. Monitor and Maintain - Set up monitoring early with `/ts-monitor` - Configure appropriate alerting with `/ts-alerts` - Regular health checks with `/ts-health` - Use `/ts-logs` for troubleshooting ### 5. Error Prevention - Use `/ts-validate` before major deployments - Run `/ts-fix` after code generation - Keep `/ts-security` scans passing - Regular `/ts-status` checks --- ## Troubleshooting ### Common Issues **Build Failures** ```bash /ts-validate # Check what's failing /ts-fix typescript # Fix TypeScript errors /ts-fix dependencies # Resolve package conflicts ``` **Deployment Problems** ```bash /ts-verify staging # Check staging deployment /ts-logs # View error logs /ts-rollback production v1.0.0 # Emergency rollback ``` **Service Issues** ```bash /ts-health # Check service health /ts-live-status # Check live deployments /ts-incident create # Start incident response ``` **Getting Help** ```bash /ts-help # Browse all commands /ts-ask "What's wrong with my deployment?" # Contextual help /ts-quickref # Quick reference ``` ### Performance Optimization **For Faster Builds** - Use `/ts-turbo-quick` for automation - Choose appropriate build presets - Use file-based ideas for batch processing **For Better Quality** - Always run `/ts-validate` before deployment - Use `/ts-gate` for quality reviews - Regular `/ts-security` scans **For Operational Excellence** - Set up comprehensive monitoring - Configure proactive alerting - Maintain regular health checks - Keep incident response procedures updated --- *Last Updated: January 2025 • Framework: 19 agents, 49 commands*
+# The System Commands Reference
+
+> Complete reference for all 56 commands in the Autonomous Software Development Organization
+
+## Overview
+
+The System provides 56 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
+
+## Command Categories
+
+| Category | Commands | Purpose |
+|----------|----------|---------|
+| **Core Project Lifecycle** | 8 | Project management and coordination |
+| **Stage 1: Architecture** | 2 | System design and technical decisions |
+| **Stage 2: Product** | 3 | MVP definition and business planning |
+| **Stage 3: Development** | 7 | Code implementation and testing |
+| **Stage 4: Release & Deployment** | 8 | Documentation, security, and deployment |
+| **Stage 5: Go Live & Operations** | 12 | Quick deploy and monitoring |
+| **Utility Commands** | 9 | Error fixing, validation, and autonomous modes |
+
+---
+
+## Core Project Lifecycle (8)
+
+Essential commands for project management and workflow coordination.
+
+### `/ts-new-project <name>`
+
+**Purpose:** Initialize a new project with The System framework
+
+**Usage:** `/ts-new-project my-functional-app`
+
+**With Ideas:** `/ts-new-project my-app --idea=ideas/project.txt`
+
+**Agent:** Founder-Advisor
+
+**What it does:**
+- Creates project directory structure
+- Initializes project file with metadata
+- Sets up basic configuration
+- Supports file-based idea input (.txt, .md, .json, .yaml)
+
+### `/ts-status`
+
+**Purpose:** Check current project status and next recommended actions
+
+**Usage:** `/ts-status`
+
+**Agent:** Founder-Advisor
+
+**What it does:**
+- Shows current stage and progress
+- Lists completed and pending tasks
+- Provides next recommended command
+- Displays any blocking issues
+
+### `/ts-brief`
+
+**Purpose:** Get executive summary of current project
+
+**Usage:** `/ts-brief`
+
+**Agent:** Founder-Advisor
+
+**What it does:**
+- Provides high-level project overview
+- Summarizes key decisions and progress
+- Shows technology stack and architecture
+- Highlights any critical issues
+
+### `/ts-ask "<question>"`
+
+**Purpose:** Ask the Founder-Advisor specific questions about the project
+
+**Usage:** `/ts-ask "How do I add authentication to my app?"`
+
+**Agent:** Founder-Advisor
+
+**What it does:**
+- Provides context-aware answers
+- Suggests relevant commands and next steps
+- Explains architectural decisions
+- Offers implementation guidance
+
+### `/ts-view [section]`
+
+**Purpose:** View specific sections of the project file
+
+**Usage:** `/ts-view architecture` or `/ts-view`
+
+**Agent:** System
+
+**What it does:**
+- Displays project file contents
+- Can show specific sections (architecture, product, development)
+- Useful for reviewing decisions and progress
+- Shows formatted, readable output
+
+### `/ts-exec-summary`
+
+**Purpose:** Generate comprehensive executive summary
+
+**Usage:** `/ts-exec-summary`
+
+**Agent:** Founder-Advisor
+
+**What it does:**
+- Creates detailed project report
+- Includes all key metrics and progress
+- Shows technology choices and rationale
+- Provides strategic recommendations
+
+### `/ts-approve <gate>`
+
+**Purpose:** Approve progression through Human-in-the-Loop gates
+
+**Usage:** `/ts-approve green-light` or `/ts-approve launch`
+
+**Agent:** System
+
+**Available Gates:**
+- `architecture-start` - Begin architecture design
+- `architecture-lock` - Lock technical decisions
+- `green-light` - Authorize development start
+- `development` - Code complete, ready for release
+- `release` - Release package approved
+- `staging` - Staging deployment verified
+- `production` - Production deployment approved
+- `launch` - Go live to users
+
+### `/ts-review <stage>`
+
+**Purpose:** Request comprehensive review of completed stage
+
+**Usage:** `/ts-review architecture` or `/ts-review development`
+
+**Agent:** Founder-Advisor
+
+**What it does:**
+- Analyzes stage completion and quality
+- Identifies any missing components
+- Provides recommendations for improvement
+- Prepares for next stage approval
+
+---
+
+## Stage 1: Architecture (2)
+
+Commands for system design and technical architecture definition.
+
+### `/ts-assess`
+
+**Purpose:** Assess project requirements and recommend optimal architecture, or analyze existing/legacy codebases
+
+**Usage:** `/ts-assess` or `/ts-assess --existing <project-name>`
+
+**Agent:** Solution Architect
+
+**New Project Assessment:**
+- Analyzes project requirements and complexity
+- Recommends optimal architecture pattern
+- Suggests technology stack choices
+- Provides implementation approach recommendations
+
+**Project Explorer Mode:**
+```bash
+/ts-assess --existing legacy-app           # Full existing project analysis
+/ts-assess --existing my-app --gaps        # Gap analysis and missing components
+/ts-assess --existing my-app --health      # Code quality assessment
+/ts-assess --existing my-app --security    # Security vulnerabilities analysis
+/ts-assess --existing my-app --completion  # Completion strategies
+/ts-assess --existing my-app --map         # Architecture mapping
+/ts-assess --existing my-app --report      # Executive summary report
+```
+
+**What Project Explorer does:**
+- Analyzes existing/legacy codebases for completion strategies
+- Conducts technology stack detection and gap analysis
+- Provides modernization guidance and completion roadmaps
+- Generates detailed analysis reports in `output/` directory
+- Assesses code quality, security vulnerabilities, and technical debt
+
+### `/ts-architect`
+
+**Purpose:** Design complete system architecture and create ADRs
+
+**Usage:** `/ts-architect`
+
+**Agent:** Solution Architect
+
+**What it does:**
+- Creates comprehensive technical architecture
+- Defines technology stack and rationale
+- Documents Architecture Decision Records (ADRs)
+- Establishes development patterns and standards
+
+---
+
+## Stage 2: Product (3)
+
+Commands for MVP definition, business planning, and market analysis.
+
+### `/ts-product`
+
+**Purpose:** Define MVP scope, user stories, and product requirements
+
+**Usage:** `/ts-product`
+
+**Agent:** Product Lead
+
+**What it does:**
+- Defines minimum viable product scope
+- Creates detailed user stories
+- Establishes feature priorities
+- Documents product requirements
+
+### `/ts-plan`
+
+**Purpose:** Create development roadmap, sprints, and estimates
+
+**Usage:** `/ts-plan`
+
+**Agent:** Project Planner
+
+**What it does:**
+- Breaks down work into manageable sprints
+- Provides development time estimates
+- Creates milestone schedule
+- Identifies dependencies and risks
+
+### `/ts-analyze`
+
+**Purpose:** Conduct market analysis and business strategy assessment
+
+**Usage:** `/ts-analyze`
+
+**Agent:** Business Analyst
+
+**What it does:**
+- Market size and competition analysis
+- Revenue model recommendations
+- Go-to-market strategy
+- Business viability assessment
+
+---
+
+## Stage 3: Development (7)
+
+Commands for code implementation, testing, and quality assurance.
+
+### `/ts-develop`
+
+**Purpose:** Create comprehensive implementation plan
+
+**Usage:** `/ts-develop`
+
+**Agent:** Principal Developer
+
+**What it does:**
+- Creates detailed implementation strategy
+- Defines coding standards and patterns
+- Plans component architecture
+- Sets up development workflow
+
+### `/ts-test-plan`
+
+**Purpose:** Define comprehensive testing strategy
+
+**Usage:** `/ts-test-plan`
+
+**Agent:** QA Engineer
+
+**What it does:**
+- Creates testing framework and strategy
+- Defines unit, integration, and E2E tests
+- Establishes quality gates and criteria
+- Plans automated testing pipeline
+
+### `/ts-build <layer>`
+
+**Purpose:** Build specific application layers
+
+**Usage:** `/ts-build database`, `/ts-build backend`, `/ts-build frontend`
+
+**Agent:** Specialized Developer (DB/Backend/Frontend)
+
+**What it does:**
+- Implements complete layer functionality
+- Follows established patterns and standards
+- Includes comprehensive error handling
+- Generates production-ready code
+
+### `/ts-test <layer>`
+
+**Purpose:** Test specific layers and components
+
+**Usage:** `/ts-test database`, `/ts-test backend`, `/ts-test frontend`, `/ts-test integration`
+
+**Agent:** QA Engineer
+
+**What it does:**
+- Runs comprehensive test suites
+- Validates functionality and performance
+- Checks error handling and edge cases
+- Ensures quality standards are met
+
+### `/ts-integrate`
+
+**Purpose:** Connect all components and ensure E2E functionality
+
+**Usage:** `/ts-integrate`
+
+**Agent:** Integration Engineer
+
+**What it does:**
+- Connects frontend, backend, and database
+- Implements API integrations
+- Ensures data flow and communication
+- Validates complete system functionality
+
+### `/ts-gate`
+
+**Purpose:** Conduct quality gate review before release
+
+**Usage:** `/ts-gate`
+
+**Agent:** Principal Developer
+
+**What it does:**
+- Comprehensive code quality review
+- Architecture compliance validation
+- Performance and security assessment
+- Readiness evaluation for release
+
+### `/ts-signoff`
+
+**Purpose:** Final QA approval for development completion
+
+**Usage:** `/ts-signoff`
+
+**Agent:** QA Engineer
+
+**What it does:**
+- Final validation of all functionality
+- Comprehensive testing verification
+- Quality standards confirmation
+- Official development completion approval
+
+---
+
+## Stage 4: Release & Deployment (8)
+
+Commands for documentation, security, and production deployment preparation.
+
+### `/ts-docs`
+
+**Purpose:** Generate comprehensive project documentation
+
+**Usage:** `/ts-docs`
+
+**Agent:** Technical Writer
+
+**What it does:**
+- Creates technical architecture documentation
+- Generates API documentation
+- Writes user and developer guides
+- Produces deployment and operations documentation
+
+### `/ts-security`
+
+**Purpose:** Comprehensive security scanning and validation
+
+**Usage:** `/ts-security [environment]`
+
+**Agent:** Security Engineer
+
+**What it does:**
+- Scans for security vulnerabilities
+- Validates authentication and authorization
+- Checks for exposed secrets and credentials
+- Ensures compliance with security standards
+
+### `/ts-release`
+
+**Purpose:** Create release package with versioning and changelog
+
+**Usage:** `/ts-release`
+
+**Agent:** Release Engineer
+
+**What it does:**
+- Generates semantic version numbers
+- Creates comprehensive changelog
+- Packages release artifacts
+- Prepares distribution bundles
+
+### `/ts-infra`
+
+**Purpose:** Generate Infrastructure as Code (Terraform)
+
+**Usage:** `/ts-infra`
+
+**Agent:** DevOps Engineer
+
+**What it does:**
+- Creates Terraform infrastructure definitions
+- Configures cloud resources and networking
+- Sets up monitoring and logging infrastructure
+- Defines scaling and backup strategies
+
+### `/ts-pipeline`
+
+**Purpose:** Generate CI/CD workflows and automation
+
+**Usage:** `/ts-pipeline`
+
+**Agent:** DevOps Engineer
+
+**What it does:**
+- Creates GitHub Actions or similar CI/CD workflows
+- Configures automated testing and deployment
+- Sets up build and release automation
+- Defines deployment approval processes
+
+### `/ts-deploy <environment>`
+
+**Purpose:** Deploy to specific environments
+
+**Usage:** `/ts-deploy staging` or `/ts-deploy production`
+
+**Agent:** DevOps Engineer
+
+**What it does:**
+- Deploys application to target environment
+- Configures environment-specific settings
+- Sets up monitoring and alerting
+- Validates deployment success
+
+### `/ts-verify <environment>`
+
+**Purpose:** Verify deployment health and functionality
+
+**Usage:** `/ts-verify staging` or `/ts-verify production`
+
+**Agent:** DevOps Engineer
+
+**What it does:**
+- Runs health checks and smoke tests
+- Validates all services are operational
+- Checks monitoring and alerting setup
+- Confirms deployment meets requirements
+
+### `/ts-rollback <environment> [version]`
+
+**Purpose:** Rollback deployment to previous version
+
+**Usage:** `/ts-rollback production v1.0.0`
+
+**Agent:** DevOps Engineer
+
+**What it does:**
+- Safely rolls back to previous version
+- Restores database to compatible state
+- Updates monitoring and alerting
+- Validates rollback success
+
+---
+
+## Stage 5: Go Live & Operations (12)
+
+Quick deploy commands and operational management for live systems.
+
+### `/ts-push <target> [environment]`
+
+**Purpose:** Quick deploy to managed platforms
+
+**Usage:** `/ts-push vercel`, `/ts-push railway`, `/ts-push neon`
+
+**Agent:** SRE Deploy Engineer
+
+**Supported Targets:**
+- **Frontend:** `vercel`, `netlify`, `cloudflare`
+- **Backend:** `railway`, `fly`, `render`
+- **Database:** `neon`, `supabase`, `planetscale`, `turso`
+
+### `/ts-live-status`
+
+**Purpose:** Check status of all live deployments
+
+**Usage:** `/ts-live-status`
+
+**Agent:** SRE Deploy Engineer
+
+**What it does:**
+- Shows status of all deployed services
+- Displays health check results
+- Reports on performance metrics
+- Identifies any issues or downtime
+
+### `/ts-live-env <target>`
+
+**Purpose:** Manage environment variables for live deployments
+
+**Usage:** `/ts-live-env vercel`
+
+**Agent:** SRE Deploy Engineer
+
+**What it does:**
+- Lists current environment variables
+- Allows updating configuration
+- Manages secrets and credentials
+- Applies changes safely
+
+### `/ts-domain <target> <domain>`
+
+**Purpose:** Configure custom domain for deployments
+
+**Usage:** `/ts-domain vercel myapp.com`
+
+**Agent:** SRE Deploy Engineer
+
+**What it does:**
+- Configures custom domain mapping
+- Sets up SSL certificates
+- Configures DNS settings
+- Validates domain setup
+
+### `/ts-teardown <target>`
+
+**Purpose:** Remove deployment from managed platform
+
+**Usage:** `/ts-teardown vercel`
+
+**Agent:** SRE Deploy Engineer
+
+**What it does:**
+- Safely removes deployment
+- Cleans up resources and configuration
+- Backs up any necessary data
+- Confirms complete removal
+
+### `/ts-monitor`
+
+**Purpose:** Set up comprehensive monitoring stack
+
+**Usage:** `/ts-monitor`
+
+**Agent:** SRE Ops Engineer
+
+**What it does:**
+- Configures application performance monitoring
+- Sets up infrastructure monitoring
+- Establishes logging aggregation
+- Creates monitoring dashboards
+
+### `/ts-alerts`
+
+**Purpose:** Configure alerting and notification systems
+
+**Usage:** `/ts-alerts`
+
+**Agent:** SRE Ops Engineer
+
+**What it does:**
+- Sets up alert thresholds and rules
+- Configures notification channels
+- Establishes escalation procedures
+- Tests alerting functionality
+
+### `/ts-logs [target]`
+
+**Purpose:** View and analyze application logs
+
+**Usage:** `/ts-logs` or `/ts-logs production`
+
+**Agent:** SRE Ops Engineer
+
+**What it does:**
+- Displays recent application logs
+- Filters logs by severity and component
+- Provides log search and analysis
+- Shows performance and error patterns
+
+### `/ts-health`
+
+**Purpose:** Comprehensive health check of all services
+
+**Usage:** `/ts-health`
+
+**Agent:** SRE Ops Engineer
+
+**What it does:**
+- Checks all service endpoints
+- Validates database connectivity
+- Tests critical user journeys
+- Reports overall system health
+
+### `/ts-status-page`
+
+**Purpose:** Create public status page for users
+
+**Usage:** `/ts-status-page`
+
+**Agent:** SRE Ops Engineer
+
+**What it does:**
+- Creates public-facing status page
+- Shows service availability
+- Provides incident communication
+- Allows user notifications
+
+### `/ts-incident [action]`
+
+**Purpose:** Incident management and response
+
+**Usage:** `/ts-incident create` or `/ts-incident resolve`
+
+**Agent:** SRE Ops Engineer
+
+**Available Actions:**
+- `create` - Start new incident response
+- `update` - Update incident status
+- `resolve` - Close incident
+- `list` - Show active incidents
+
+### `/ts-slo`
+
+**Purpose:** Define and track Service Level Objectives
+
+**Usage:** `/ts-slo`
+
+**Agent:** SRE Ops Engineer
+
+**What it does:**
+- Defines SLI/SLO metrics
+- Sets up SLO tracking and reporting
+- Creates SLO violation alerts
+- Provides SLO compliance reporting
+
+---
+
+## Utility Commands (9)
+
+Specialized commands for error fixing, validation, and autonomous operation.
+
+### `/ts-fix [type]`
+
+**Purpose:** Automatic error diagnosis and systematic fixing
+
+**Usage:** `/ts-fix` or `/ts-fix typescript`
+
+**Agent:** Bug Fixer
+
+**Fix Types:**
+- `typescript` - TypeScript compilation errors
+- `dependencies` - Package dependency conflicts
+- `scan` - Diagnostic mode only (no fixes)
+- Default: Auto-detect and fix common issues
+
+### `/ts-validate [layer]`
+
+**Purpose:** Run build verification and quality checks
+
+**Usage:** `/ts-validate` or `/ts-validate frontend`
+
+**Agent:** QA Engineer
+
+**What it does:**
+- Verifies code compiles successfully
+- Runs unit and integration tests
+- Checks code quality and standards
+- Validates deployment readiness
+
+### `/ts-docs-compliance`
+
+**Purpose:** Check documentation compliance and fix issues
+
+**Usage:** `/ts-docs-compliance` or `/ts-docs-compliance --fix`
+
+**Agent:** System
+
+**What it does:**
+- Checks compliance against documentation rules
+- Validates file structure and writing standards
+- Verifies framework statistics accuracy
+- Applies automatic fixes where possible
+
+### `/ts-turbo <name> "<idea>"`
+
+**Purpose:** Autonomous execution of Stages 1-4
+
+**Usage:** `/ts-turbo my-app "task management app with auth"`
+
+**Agent:** System Orchestrator
+
+**Features:**
+- Bypasses all HITL gates automatically
+- Supports build presets (prototype, mvp, production)
+- File-based ideas: `/ts-turbo my-app --idea=ideas/app.txt`
+- Complete audit log maintained
+- Stops on CRITICAL security findings
+
+### `/ts-turbo-quick <name>`
+
+**Purpose:** Fast turbo mode with minimal output
+
+**Usage:** `/ts-turbo-quick my-app --idea=ideas/app.txt`
+
+**Agent:** System Orchestrator
+
+**What it does:**
+- Silent turbo mode with minimal logging
+- Optimized for speed and automation
+- File-based ideas required
+- Best for batch processing
+
+### `/ts-self-document`
+
+**Purpose:** Generate fresh framework documentation
+
+**Usage:** `/ts-self-document`
+
+**Agent:** Documentation Generator
+
+**What it does:**
+- Scans all framework components
+- Generates comprehensive documentation
+- Updates reference materials
+- Creates architecture diagrams
+
+### `/ts-help [command]`
+
+**Purpose:** Interactive help and command discovery
+
+**Usage:** `/ts-help` or `/ts-help turbo`
+
+**Agent:** Help System
+
+**Features:**
+- Browse all 56 commands by category
+- Detailed help for specific commands
+- Stage-specific command suggestions
+- Search commands by keyword
+- Context-aware next-step recommendations
+
+### `/ts-quickref [--stage]`
+
+**Purpose:** Quick reference with workflow patterns
+
+**Usage:** `/ts-quickref` or `/ts-quickref --stage development`
+
+**Agent:** Reference System
+
+**What it does:**
+- Compact command reference
+- Stage-specific workflows
+- Common usage patterns
+- Quick troubleshooting guide
+
+### `/ts-user-docs-update`
+
+**Purpose:** Update user-facing documentation with current counts and links
+
+**Usage:** `/ts-user-docs-update`
+
+**Agent:** Documentation Updater
+
+**What it does:**
+- Scans framework for accurate agent/command counts
+- Updates all count references in documentation
+- Validates internal links and cross-references
+- Ensures documentation consistency
+
+---
+
+## Command Usage Patterns
+
+### Sequential Workflows
+
+```bash
+# Standard supervised workflow
+/ts-new-project my-app
+/ts-approve architecture-start → /ts-assess → /ts-architect
+/ts-approve architecture-lock → /ts-product → /ts-plan → /ts-analyze
+/ts-approve green-light → /ts-develop → /ts-test-plan
+/ts-build database → /ts-test database
+/ts-build backend → /ts-test backend
+/ts-build frontend → /ts-test frontend
+/ts-integrate → /ts-test integration
+/ts-gate → /ts-signoff → /ts-approve development
+```
+
+### Quick Deployment
+
+```bash
+# Skip Infrastructure as Code - direct to managed platforms
+/ts-push vercel # Frontend
+/ts-push railway # Backend
+/ts-push neon # Database
+/ts-live-status # Verify all services
+/ts-domain vercel myapp.com # Custom domain
+```
+
+### Autonomous Operation
+
+```bash
+# Full automation with build presets
+/ts-turbo prototype-app "quick demo" --build=prototype # 3-5 min
+/ts-turbo mvp-app "production launch" --build=mvp # 15-20 min
+/ts-turbo enterprise-app "enterprise system" --build=production # 45-60 min
+```
+
+### Error Handling
+
+```bash
+# Systematic error resolution
+/ts-fix # Auto-detect and fix
+/ts-fix typescript # TypeScript specific
+/ts-validate frontend # Verify specific layer
+/ts-health # Check live services
+```
+
+### Information & Help
+
+```bash
+# Getting information and help
+/ts-status # Current project status
+/ts-brief # Executive summary
+/ts-help # Browse all commands
+/ts-help turbo # Specific command help
+/ts-quickref # Quick reference
+/ts-ask "How do I add authentication?" # Contextual help
+```
+
+---
+
+## Advanced Usage
+
+### File-Based Ideas
+
+The System supports structured project ideas in multiple formats:
+
+**Text Files (.txt)**
+```
+A task management application with user authentication, real-time collaboration, and mobile responsiveness.
+```
+
+**Markdown Files (.md)**
+```markdown
+# E-commerce Platform
+
+## Features
+- Product catalog with search
+- Shopping cart and checkout
+- User accounts and order history
+- Payment processing integration
+
+## Technical Requirements
+- Mobile-responsive design
+- SEO optimization
+- Performance monitoring
+```
+
+**JSON Files (.json)**
+```json
+{
+  "name": "CRM System",
+  "description": "Customer relationship management platform",
+  "build_preset": "production",
+  "features": [
+    "Contact management",
+    "Sales pipeline tracking",
+    "Email integration",
+    "Analytics dashboard"
+  ],
+  "technical_requirements": {
+    "authentication": "required",
+    "database": "postgresql",
+    "deployment": "cloud"
+  }
+}
+```
+
+### Build Presets Integration
+
+Many commands support build preset awareness for optimized execution:
+
+```bash
+# Prototype build (3-5 min) - Fast iteration
+/ts-turbo demo-app "simple blog" --build=prototype
+
+# MVP build (15-20 min) - Production launch
+/ts-turbo startup-app "SaaS platform" --build=mvp
+
+# Production build (45-60 min) - Enterprise quality
+/ts-turbo enterprise-app "mission-critical system" --build=production
+```
+
+### Command Chaining
+
+Many commands can be chained for efficient workflow execution:
+
+```bash
+# Development workflow
+/ts-build database && /ts-test database && /ts-build backend
+
+# Deployment pipeline
+/ts-security staging && /ts-deploy staging && /ts-verify staging
+
+# Operations setup
+/ts-monitor && /ts-alerts && /ts-health
+```
+
+---
+
+## Best Practices
+
+### 1. Use Appropriate Build Presets
+
+- **Prototype**: For demos, quick tests, and proof-of-concepts
+- **MVP**: For production launches and professional applications
+- **Production**: For enterprise-grade, compliance-required systems
+
+### 2. Follow the Approval Gates
+
+- Don't skip HITL gates unless using turbo mode
+- Review each stage completion before approval
+- Use `/ts-review <stage>` before major approvals
+
+### 3. Leverage File-Based Ideas
+
+- Store project ideas in `ideas/` directory
+- Use structured formats (JSON/YAML) for complex requirements
+- Version control your idea files for team collaboration
+
+### 4. Monitor and Maintain
+
+- Set up monitoring early with `/ts-monitor`
+- Configure appropriate alerting with `/ts-alerts`
+- Regular health checks with `/ts-health`
+- Use `/ts-logs` for troubleshooting
+
+### 5. Error Prevention
+
+- Use `/ts-validate` before major deployments
+- Run `/ts-fix` after code generation
+- Keep `/ts-security` scans passing
+- Regular `/ts-status` checks
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+**Build Failures**
+```bash
+/ts-validate # Check what's failing
+/ts-fix typescript # Fix TypeScript errors
+/ts-fix dependencies # Resolve package conflicts
+```
+
+**Deployment Problems**
+```bash
+/ts-verify staging # Check staging deployment
+/ts-logs # View error logs
+/ts-rollback production v1.0.0 # Emergency rollback
+```
+
+**Service Issues**
+```bash
+/ts-health # Check service health
+/ts-live-status # Check live deployments
+/ts-incident create # Start incident response
+```
+
+**Getting Help**
+```bash
+/ts-help # Browse all commands
+/ts-ask "What's wrong with my deployment?" # Contextual help
+/ts-quickref # Quick reference
+```
+
+### Performance Optimization
+
+**For Faster Builds**
+- Use `/ts-turbo-quick` for automation
+- Choose appropriate build presets
+- Use file-based ideas for batch processing
+
+**For Better Quality**
+- Always run `/ts-validate` before deployment
+- Use `/ts-gate` for quality reviews
+- Regular `/ts-security` scans
+
+**For Operational Excellence**
+- Set up comprehensive monitoring
+- Configure proactive alerting
+- Maintain regular health checks
+- Keep incident response procedures updated
+
+---
+
+*Last Updated: January 2025 • Framework: 23 agents, 56 commands*
