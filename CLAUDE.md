@@ -83,7 +83,7 @@ Your chief of staff. All communication flows through this agent.
 
 ---
 
-## Commands Reference (48 Total)
+## Commands Reference (55 Total)
 
 ### Core Project Management (8)
 | Command | Purpose |
@@ -772,6 +772,6 @@ claude
 
 ---
 
-**Framework Version:** 1.1.0 (Sage Release)
-**Last Updated:** December 2024
+**Framework Version:** 1.2.0 (Canvas Release)
+**Last Updated:** January 2025
 **Status:** Active Development

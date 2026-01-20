@@ -30,14 +30,14 @@ Comprehensive technical documentation for developing and extending The System:
 
 ## Overview
 
-**The System** is an Autonomous Software Development Organization (ASDO) that orchestrates 19 specialized AI agents across 5 departments to build production-ready software from your ideas.
+**The System** is an Autonomous Software Development Organization (ASDO) that orchestrates 23 specialized AI agents across 5 departments to build production-ready software from your ideas.
 
 ### What You'll Find Here
 
 This documentation hub provides:
 - **User Guides** - Learn how to use The System effectively
 - **Developer Specs** - Technical documentation for framework development
-- **Complete Agent Reference** - All 19 agents and their capabilities
+- **Complete Agent Reference** - All 23 agents and their capabilities
 - **Workflow Documentation** - End-to-end development processes
 - **Configuration Guides** - Customization and integration options
 
@@ -48,7 +48,7 @@ This documentation hub provides:
 | Document | Description | When to Use |
 |----------|-------------|-------------|
 | **[Architecture Guide](user/architecture.md)** | How The System works internally | Understanding system design, data flow, and core concepts |
-| **[Agent Reference](user/agents.md)** | Complete guide to all 19 agents | Understanding agent roles, responsibilities, and capabilities |
+| **[Agent Reference](user/agents.md)** | Complete guide to all 23 agents | Understanding agent roles, responsibilities, and capabilities |
 | **[Command Reference](user/commands.md)** | All 49 commands with examples | Finding specific commands and learning proper usage |
 | **[Workflow Guide](user/workflow.md)** | Step-by-step implementation process | Following the complete development lifecycle |
 | **[HITL Gates](user/hitl-gates.md)** | Human approval system documentation | Understanding approval points and decision making |
