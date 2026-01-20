@@ -2,7 +2,7 @@
 
 **Transform ideas into production-ready software with a complete AI development organization**
 
-![The System](https://img.shields.io/badge/Agents-19-blue) ![Commands](https://img.shields.io/badge/Commands-48-green) ![Stages](https://img.shields.io/badge/Stages-5-orange) ![License](https://img.shields.io/badge/License-LGPL_v3-purple)
+![The System](https://img.shields.io/badge/Agents-23-blue) ![Commands](https://img.shields.io/badge/Commands-55-green) ![Stages](https://img.shields.io/badge/Stages-5-orange) ![License](https://img.shields.io/badge/License-LGPL_v3-purple)
 
 ---
 
@@ -53,7 +53,7 @@ The System is an **Autonomous Software Development Organization (ASDO)** framewo
 - **Infrastructure:** Terraform configurations
 - **Monitoring:** Observability and alerting setup
 
-### 🤖 19 Specialized Agents
+### 🤖 23 Specialized Agents
 - **🏗️ Solution Architect** - Technical architecture and ADRs
 - **👔 Product Lead** - MVP definition and user stories
 - **📅 Project Planner** - Roadmaps and sprint planning
@@ -133,7 +133,7 @@ claude
 
 ---
 
-## 🎮 Available Commands (48 Total)
+## 🎮 Available Commands (55 Total)
 
 ### 🎯 Core Project Management
 ```bash
@@ -187,7 +187,7 @@ claude
 /ts-live-status            # Check all deployments
 ```
 
-**[See all 48 commands →](docs/commands.md)**
+**[See all 55 commands →](docs/commands.md)**
 
 ---
 
@@ -268,7 +268,7 @@ Generate infrastructure code for enterprise deployment:
 
 - **[Architecture Guide](docs/architecture.md)** - System design and agent interactions
 - **[Agent Reference](docs/agents.md)** - All 23 agents and their capabilities
-- **[Command Reference](docs/commands.md)** - All 48 commands with examples
+- **[Command Reference](docs/commands.md)** - All 55 commands with examples
 - **[Workflow Patterns](docs/workflow.md)** - Common development workflows
 - **[Configuration Guide](docs/configuration.md)** - Customizing tech stacks and preferences
 - **[HITL Gates](docs/hitl-gates.md)** - Human-in-the-loop decision points
@@ -403,4 +403,4 @@ LGPL v3 License - see [LICENSE](LICENSE) for details.
 
 ---
 
-*The System v1.1.2 "Oak" - Efficiency and Structure Release*
+*The System v1.2.0 "Canvas" - Design Department and Prototype-First Release*

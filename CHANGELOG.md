@@ -5,6 +5,133 @@ All notable changes to The System ASDO framework will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-01-20
+
+### 🎨 Added - Design Department
+- **Complete Design Department Implementation**
+  - Prototype-first design pipeline for rapid stakeholder demos
+  - 4 new specialized agents: UX Analyzer, Wireframe Generator, API Discovery Specialist, Prototype Developer
+  - 7 new commands: `/ts-design-analyze`, `/ts-design-wireframe`, `/ts-design-api-discover`, `/ts-design-prototype`, `/ts-design-turbo`, `/ts-design-status`, `/ts-docs-compliance`
+  - Transform ideas into interactive HTML prototypes in 3-5 minutes
+  - Optional comprehensive analysis packages for development handoff
+  - Domain-optimized workflows for e-commerce, SaaS, content management, and data platforms
+
+- **New AI Agents (4)**
+  - **🎨 UX Analyzer** - Analyze existing UX patterns and identify improvement opportunities
+  - **📐 Wireframe Generator** - Generate ASCII and SVG wireframes from UX analysis
+  - **🔍 API Discovery Specialist** - Discover and analyze APIs for realistic UI content
+  - **⚡ Prototype Developer** - Create interactive HTML prototypes with realistic data
+
+- **New Commands (7)**
+  - **`/ts-design-analyze`** - Analyze existing UX and identify opportunities
+  - **`/ts-design-wireframe`** - Generate wireframes from analysis
+  - **`/ts-design-api-discover`** - Discover APIs for realistic prototype content
+  - **`/ts-design-prototype`** - Create interactive HTML prototypes
+  - **`/ts-design-turbo`** - Full autonomous design pipeline (analysis → wireframe → prototype)
+  - **`/ts-design-status`** - Check Design Department project status
+  - **`/ts-docs-compliance`** - Validate documentation compliance
+
+### 📈 Framework Expansion
+- **Agent Count Growth**: 19 → 23 agents (+21% expansion)
+- **Command Count Growth**: 48 → 56 commands (+17% expansion)
+- **Enhanced Framework Statistics**: Updated all documentation to reflect new capabilities
+
+### 📚 Documentation Improvements
+- **Major Documentation Cleanup**
+  - Removed redundant 92KB `COMMAND-REFERENCE.md` legacy file
+  - Streamlined documentation structure with single source of truth
+  - Updated 97+ files for consistency and accuracy
+  - Enhanced progressive disclosure documentation hierarchy
+
+- **New Documentation Files**
+  - **`README_DESIGN_DEPT.md`** - Comprehensive Design Department user guide
+  - **`DOCUMENTATION-SYSTEM-SUMMARY.md`** - Complete documentation system overview
+  - **`INSTALL.md`** - Dedicated installation and setup guide
+  - **`TEMPLATE_README.md`** - Template for generated project READMEs
+
+- **Enhanced Developer Documentation**
+  - **`docs/dev/design-department-implementation.md`** - Technical implementation details
+  - **`docs/dev/DOCUMENTATION-COMPLIANCE-REPORT.md`** - Documentation validation results
+  - **`docs/dev/DOCUMENTATION-RULES.md`** - Documentation standards and guidelines
+  - **`docs/dev/PROJECT_EXPLORER_IMPLEMENTATION_PLAN.md`** - Legacy analysis feature documentation
+
+### 🔧 Infrastructure & Tooling
+- **Enhanced Verification System**
+  - Updated `scripts/verify-the-system.sh` to validate 23 agents and 55 commands
+  - Improved framework component validation
+  - Better error reporting and diagnostics
+
+- **GitHub Workflows**
+  - **`.github/workflows/deploy-web.yml`** - Automated web deployment pipeline
+  - Enhanced CI/CD automation for design outputs
+
+- **Improved Build System**
+  - Updated `.gitignore` with design department output patterns
+  - Enhanced project template system
+  - Better separation of framework and generated content
+
+### 🎯 User Experience Enhancements
+- **Design-First Workflows**
+  - Rapid prototype generation for stakeholder validation
+  - Visual design exploration before technical implementation
+  - Realistic API data integration in prototypes
+  - Professional-quality design outputs suitable for client presentations
+
+- **Framework Statistics Accuracy**
+  - Corrected agent count displays throughout documentation
+  - Updated command count badges and references
+  - Consistent framework capability reporting
+
+### 🔄 Changed
+- **Enhanced Solution Architect Agent**
+  - Improved Project Explorer capabilities for legacy system analysis
+  - Better integration with Design Department workflows
+  - Enhanced architecture decision documentation
+
+- **Updated Command Documentation Structure**
+  - Migrated from single large reference to distributed command files
+  - Improved command discovery through `/ts-help` system
+  - Better organization in `docs/user/commands.md`
+
+### 🗑️ Removed
+- **`COMMAND-REFERENCE.md`** - Eliminated 92KB redundant legacy documentation
+  - All command information now properly organized in individual files
+  - Interactive help system provides better command discovery
+  - Reduced maintenance burden and documentation drift
+
+### 🐛 Fixed
+- **GitHub Display Issues**
+  - Resolved markdown rendering problems in user documentation
+  - Fixed formatting inconsistencies across documentation files
+  - Improved code block and table display
+
+- **Framework Count Inconsistencies**
+  - Standardized agent count reporting (23 agents)
+  - Unified command count display (55 commands)
+  - Consistent capability metrics across all documentation
+
+### 💡 Technical Improvements
+- **Design Department Architecture**
+  - Modular agent design with clear separation of concerns
+  - Efficient prototype generation pipeline
+  - Scalable output management with configurable locations
+  - Integration hooks for future design system expansion
+
+- **Documentation System Overhaul**
+  - Single source of truth for each component
+  - Automated consistency checking
+  - Improved progressive disclosure structure
+  - Better maintenance workflows
+
+### 📊 Release Statistics
+- **Files Changed**: 97 files modified, added, or removed
+- **Agent Growth**: +4 new specialized design agents (21% increase)
+- **Command Expansion**: +7 new design commands (15% increase)
+- **Documentation Reduction**: Eliminated 92KB of redundant content while improving organization
+- **New Capabilities**: Complete design-to-prototype pipeline with stakeholder-ready outputs
+
+---
+
 ## [1.1.2] - 2025-01-03
 
 ### Added
