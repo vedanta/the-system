@@ -8,7 +8,7 @@
 The System simulates a complete software development organization with **23 specialized AI agents** across **5 departments**, taking your ideas from concept to production while you focus on strategic decisions.
 
 <p align="center">
-  <img src="images/system-hero.png" alt="The System - Autonomous Software Development Organization" width="800"/>
+  <img src="images/system-hero-2.png" alt="The System - Autonomous Software Development Organization" width="800"/>
 </p>
 
 ---
