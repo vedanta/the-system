@@ -31,7 +31,6 @@ The System framework shows strong compliance with documentation standards, with 
 ✅ CHANGELOG.md                # ✅ Present
 ✅ README_DESIGN_DEPT.md       # ✅ Present
 ✅ DOCUMENTATION-SYSTEM-SUMMARY.md  # ✅ Present
-✅ COMMAND-REFERENCE.md        # ✅ Present
 ✅ INSTALL.md                  # ✅ Present
 ✅ TEMPLATE_README.md          # ✅ Present
 ✅ CLA.md                      # ✅ Present

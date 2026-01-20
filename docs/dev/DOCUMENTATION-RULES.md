@@ -24,7 +24,6 @@ This document defines the documentation standards, rules, and best practices for
 ├── CHANGELOG.md                # Release history
 ├── README_DESIGN_DEPT.md       # Specialized department guides
 ├── DOCUMENTATION-SYSTEM-SUMMARY.md  # Documentation system overview
-├── COMMAND-REFERENCE.md        # Legacy command reference
 ├── INSTALL.md                  # Installation guide
 ├── TEMPLATE_README.md          # Project template
 └── CLA.md                      # Contributor License Agreement
