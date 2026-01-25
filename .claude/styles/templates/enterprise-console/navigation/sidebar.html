@@ -1,0 +1,92 @@
+<!-- Enterprise Console Sidebar Navigation -->
+<div class="w-64 bg-white border-r border-gray-200 flex flex-col">
+    <!-- Logo Header -->
+    <div class="px-4 py-4 border-b border-gray-200">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-building text-blue-600 text-xl"></i>
+            <h1 class="text-gray-900 font-semibold">{{ appName }}</h1>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 overflow-y-auto py-4">
+        <!-- Dashboard Section -->
+        <div class="sidebar-section">Dashboard</div>
+        <a href="#dashboard" class="sidebar-item active block">
+            <i class="fas fa-tachometer-alt mr-2"></i>Overview
+        </a>
+
+        <!-- Primary Navigation Section -->
+        <div class="sidebar-section">{{ primarySection }}</div>
+        <a href="#discovery" class="sidebar-item block">
+            <i class="fas fa-search mr-2"></i>Discovery
+        </a>
+        <a href="#analytics" class="sidebar-item block">
+            <i class="fas fa-chart-line mr-2"></i>Analytics
+        </a>
+        <a href="#reports" class="sidebar-item block">
+            <i class="fas fa-file-alt mr-2"></i>Reports
+        </a>
+
+        <!-- Management Section -->
+        <div class="sidebar-section">Management</div>
+        <a href="#workflows" class="sidebar-item block">
+            <i class="fas fa-project-diagram mr-2"></i>Workflows
+        </a>
+        <a href="#automation" class="sidebar-item block">
+            <i class="fas fa-robot mr-2"></i>Automation
+        </a>
+
+        <!-- Settings Section -->
+        <div class="sidebar-section">Settings</div>
+        <a href="#settings" class="sidebar-item block">
+            <i class="fas fa-cog mr-2"></i>Configuration
+        </a>
+        <a href="#users" class="sidebar-item block">
+            <i class="fas fa-users mr-2"></i>Users
+        </a>
+    </nav>
+
+    <!-- User Profile Section -->
+    <div class="px-4 py-4 border-t border-gray-200">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-user text-white text-sm"></i>
+            </div>
+            <div>
+                <div class="text-sm font-medium text-gray-900">{{ userName }}</div>
+                <div class="text-xs text-gray-500">{{ userRole }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.sidebar-item {
+    font-size: 13px;
+    padding: 8px 16px;
+    color: #4b5563;
+    transition: all 0.15s;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.sidebar-item:hover {
+    background: #f3f4f6;
+    color: #1d4ed8;
+}
+.sidebar-item.active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-left: 3px solid #2563eb;
+}
+.sidebar-section {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    padding: 12px 16px 8px;
+}
+</style>

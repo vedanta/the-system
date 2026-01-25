@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pageTitle }} - Enterprise Console</title>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-size: 13px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* Navigation Styles */
+        .nav-item {
+            font-size: 13px;
+            padding: 8px 16px;
+            color: #4b5563;
+            transition: all 0.15s;
+        }
+        .nav-item:hover {
+            background: #f3f4f6;
+            color: #1d4ed8;
+        }
+        .nav-item.active {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-left: 3px solid #2563eb;
+        }
+
+        /* Sidebar Styles */
+        .sidebar-item {
+            font-size: 13px;
+            padding: 8px 16px;
+            color: #4b5563;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .sidebar-item:hover {
+            background: #f3f4f6;
+            color: #1d4ed8;
+        }
+        .sidebar-item.active {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border-left: 3px solid #2563eb;
+        }
+        .sidebar-section {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            padding: 12px 16px 8px;
+        }
+
+        /* Table Styles */
+        .table-header {
+            background: #f8f9fa;
+            border-bottom: 2px solid #e5e7eb;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #6b7280;
+            letter-spacing: 0.025em;
+        }
+        .table-row {
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 13px;
+        }
+        .table-row:hover {
+            background: #f9fafb;
+        }
+        .table-row.selected {
+            background: #eff6ff;
+        }
+
+        /* Component Styles */
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .metric-card:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+        .status-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+        .chart-container {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+        .filter-chip {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+            background: white;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .filter-chip:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+        .filter-chip.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        /* Typography */
+        h1 { font-size: 20px; font-weight: 600; }
+        h2 { font-size: 16px; font-weight: 600; }
+        h3 { font-size: 14px; font-weight: 600; }
+        h4 { font-size: 13px; font-weight: 600; }
+
+        /* Utility Classes */
+        .page-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 24px;
+        }
+        .content-area {
+            background: #f8f9fa;
+            padding: 24px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50" x-data="enterpriseApp()">
+    <!-- Main Layout Container -->
+    <div class="flex h-screen bg-gray-50">
+
+        <!-- Sidebar Navigation -->
+        <div class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <!-- Logo Header -->
+            <div class="px-4 py-4 border-b border-gray-200">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-building text-blue-600 text-xl"></i>
+                    <h1 class="text-gray-900 font-semibold">{{ applicationName }}</h1>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="flex-1 overflow-y-auto py-4">
+                <!-- Dashboard Section -->
+                <div class="sidebar-section">Dashboard</div>
+                <a href="#dashboard" class="sidebar-item active block">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Overview
+                </a>
+
+                <!-- Primary Section -->
+                <div class="sidebar-section">{{ primarySectionName }}</div>
+                <a href="#item1" class="sidebar-item block">
+                    <i class="fas fa-search mr-2"></i>Discovery
+                </a>
+                <a href="#item2" class="sidebar-item block">
+                    <i class="fas fa-chart-line mr-2"></i>Analytics
+                </a>
+                <a href="#item3" class="sidebar-item block">
+                    <i class="fas fa-file-alt mr-2"></i>Reports
+                </a>
+
+                <!-- Management Section -->
+                <div class="sidebar-section">Management</div>
+                <a href="#workflows" class="sidebar-item block">
+                    <i class="fas fa-project-diagram mr-2"></i>Workflows
+                </a>
+                <a href="#automation" class="sidebar-item block">
+                    <i class="fas fa-robot mr-2"></i>Automation
+                </a>
+
+                <!-- Settings Section -->
+                <div class="sidebar-section">Settings</div>
+                <a href="#settings" class="sidebar-item block">
+                    <i class="fas fa-cog mr-2"></i>Configuration
+                </a>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="px-4 py-4 border-t border-gray-200">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-medium text-gray-900">{{ userName }}</div>
+                        <div class="text-xs text-gray-500">{{ userRole }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h1 class="text-gray-900 font-semibold">{{ pageTitle }}</h1>
+                        <p class="text-sm text-gray-500">{{ pageDescription }}</p>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="px-4 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                            <i class="fas fa-download mr-2"></i>Export
+                        </button>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700">
+                            <i class="fas fa-plus mr-2"></i>{{ primaryAction }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto content-area">
+                <!-- Content goes here -->
+                {{ mainContent }}
+
+                <!-- Example: Metric Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Metric cards would be inserted here -->
+                </div>
+
+                <!-- Example: Data Table -->
+                <div class="bg-white border border-gray-200 rounded-lg">
+                    <!-- Table content would be inserted here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Alpine.js App Data -->
+    <script>
+        function enterpriseApp() {
+            return {
+                // App state management
+                currentPage: 'dashboard',
+                sidebarOpen: true,
+
+                // Navigation methods
+                navigateTo(page) {
+                    this.currentPage = page;
+                },
+
+                toggleSidebar() {
+                    this.sidebarOpen = !this.sidebarOpen;
+                },
+
+                // Data refresh
+                refreshData() {
+                    console.log('Refreshing data...');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

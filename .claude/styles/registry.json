@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2024-01-24T17:30:00Z",
+  "default_style": "modern-professional",
+  "styles": {
+    "modern-professional": {
+      "name": "modern-professional",
+      "version": "1.0.0",
+      "file": "modern-professional.md",
+      "category": "professional",
+      "subcategory": "balanced",
+      "tags": ["default", "professional", "versatile", "balanced", "modern"],
+      "created_date": "2024-01-24T15:30:00Z",
+      "last_updated": "2024-01-24T15:30:00Z",
+      "usage_count": 0,
+      "success_rating": 5.0,
+      "is_default": true,
+      "domain_scores": {
+        "saas": 9.0,
+        "admin": 8.5,
+        "dashboard": 9.2,
+        "tools": 8.8,
+        "business": 9.0,
+        "default": 9.0
+      },
+      "technical_specs": {
+        "css_framework": "tailwind",
+        "js_framework": "alpinejs",
+        "icon_library": "fontawesome",
+        "base_font_size": "14px",
+        "layout_type": "flexible"
+      },
+      "compatibility": {
+        "mobile": true,
+        "tablet": true,
+        "desktop": true,
+        "accessibility": "wcag-aa"
+      }
+    },
+    "enterprise-console": {
+      "name": "enterprise-console",
+      "version": "1.0.0",
+      "file": "enterprise-console.md",
+      "category": "enterprise",
+      "subcategory": "console",
+      "tags": ["dashboard", "admin", "dense", "sidebar", "enterprise", "professional", "management", "console"],
+      "created_date": "2024-01-24T17:30:00Z",
+      "last_updated": "2024-01-24T17:30:00Z",
+      "usage_count": 0,
+      "success_rating": 5.0,
+      "is_default": false,
+      "domain_scores": {
+        "fintech": 9.5,
+        "enterprise": 9.8,
+        "devops": 9.3,
+        "admin": 9.7,
+        "dashboard": 9.6,
+        "healthcare": 8.5,
+        "saas": 8.0,
+        "tools": 9.0,
+        "business": 8.8,
+        "default": 7.5
+      },
+      "technical_specs": {
+        "css_framework": "tailwind",
+        "js_framework": "alpinejs",
+        "icon_library": "fontawesome",
+        "base_font_size": "13px",
+        "layout_type": "sidebar"
+      },
+      "compatibility": {
+        "mobile": true,
+        "tablet": true,
+        "desktop": true,
+        "accessibility": "wcag-aa"
+      }
+    }
+  },
+  "categories": {
+    "professional": ["modern-professional"],
+    "enterprise": ["enterprise-console"],
+    "modern": [],
+    "fintech": [],
+    "minimal": [],
+    "creative": []
+  },
+  "domain_defaults": {
+    "default": "modern-professional",
+    "saas": "modern-professional",
+    "admin": "modern-professional",
+    "dashboard": "modern-professional",
+    "fintech": "enterprise-console",
+    "healthcare": "clinical-clean",
+    "enterprise": "enterprise-console",
+    "startup": "modern-minimal",
+    "ecommerce": "product-focused",
+    "devops": "enterprise-console"
+  },
+  "recommendations": {
+    "by_domain": {
+      "fintech": ["enterprise-console", "fintech-professional"],
+      "healthcare": ["clinical-clean", "medical-secure"],
+      "ecommerce": ["modern-minimal", "product-focused"],
+      "startup": ["modern-minimal", "creative-modern"],
+      "enterprise": ["enterprise-console", "corporate-clean"],
+      "saas": ["modern-professional", "modern-minimal"],
+      "admin": ["modern-professional", "enterprise-console"],
+      "dashboard": ["modern-professional", "enterprise-console"],
+      "default": ["modern-professional", "enterprise-console"]
+    }
+  }
+}
