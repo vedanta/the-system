@@ -6,11 +6,11 @@
 
 ## Framework Overview
 
-**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 23 specialized AI agents across 5 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+**The System** is an agentic framework that simulates a complete software development organization. It orchestrates 26 specialized AI agents across 6 departments to take ideas from concept to production, with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Current Framework Status
-- **Agents:** 23
-- **Commands:** 55
+- **Agents:** 26
+- **Commands:** 59
 - **Stages:** 5 (Architecture → Product → Development → Release → Go Live)
 - **HITL Gates:** 8
 - **Status:** Production-ready framework with comprehensive documentation and help system
@@ -25,35 +25,47 @@
      ▼
 🎩 Founder-Advisor
      │
-     ├──────────────┬──────────────┬──────────────┬──────────────┐
-     ▼              ▼              ▼              ▼              ▼
-📐 Architecture  📦 Product    💻 Development  🚀 Release     🌐 Go Live
-   Department       Department     Department      Department     (Optional)
-     │              │              │              │              │
-     │              ├── 👔 Product ├── 👨‍💼 Principal├── 📝 Writer  ├── 🚀 SRE Deploy
-     │              │    Lead      │    Developer │              │
-     │              ├── 📅 Planner ├── 🧪 QA      ├── 🔐 Security├── 🛡️ SRE Ops
-     │              │              │    Engineer  │    Engineer  │
-     │              └── 💼 Analyst ├── 🗄️ DB Dev  ├── 📦 Release │
-     │                             │              │    Engineer  │
-     └── 🏗️ Architect              ├── ⚙️ BE Dev  └── 🚀 DevOps  │
-                                   │                             │
-                                   ├── 🎨 FE Dev                 │
-                                   │                             │
-                                   └── 🔗 Integration            │
-                                   │
-                                   └── 🐛 Bug Fixer (Utility)
+     ├─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
+     ▼         ▼         ▼         ▼         ▼         ▼         ▼
+📐 Architecture🎨 Design 📦 Product💻 Development🚀 Release 🌐 Go Live
+   Department   Department Department  Department   Department (Optional)
+     │         │         │         │              │         │
+     │         ├── 🔍 API├── 👔 Product├── 👨‍💼 Principal├── 📝 Writer├── 🚀 SRE Deploy
+     │         │   Discovery │    Lead │    Developer │        │
+     │         ├── 🎨 Style├── 📅 Planner├── 🧪 QA      ├── 🔐 Security├── 🛡️ SRE Ops
+     │         │   Manager│         │    Engineer  │    Engineer │
+     │         ├── 📋 Docs├── 💼 Analyst├── 🗄️ DB Dev  ├── 📦 Release│
+     │         │   Auditor│         │              │    Engineer │
+     │         ├── 🖼️ Wireframe│         ├── ⚙️ BE Dev  └── 🚀 DevOps │
+     │         │   Generator│         │                          │
+     │         ├── 🏛️ Enterprise│         ├── 🎨 FE Dev              │
+     │         │   Architect│         │                          │
+     │         ├── 🔍 UX   │         └── 🔗 Integration         │
+     │         │   Analyzer│         │                          │
+     │         └── 🚀 Prototype│         └── 🐛 Bug Fixer (Utility)│
+     │           Developer │                                    │
+     └── 🏗️ Solution       │                                    │
+         Architect         └────────────────────────────────────┘
 ```
 
 ---
 
-## Departments & Agents (23 Total)
+## Departments & Agents (26 Total)
 
 ### 🎩 Founder-Advisor
 Your chief of staff. All communication flows through this agent.
 
 ### 📐 Architecture Department (Stage 1)
 - **🏗️ Solution Architect** - System design, technical architecture, ADRs, Project Explorer (legacy analysis)
+
+### 🎨 Design Department (Stage 1.5)
+- **🔍 API Discovery Specialist** - Extract API interfaces from designs, UI-API mapping
+- **🎨 Design Style Manager** - Centralized style system and brand consistency
+- **📋 Documentation Auditor** - Compliance verification and documentation quality
+- **🖼️ Wireframe Generator** - Create interactive wireframes and prototypes
+- **🏛️ Enterprise Architect** - Complex system design and integration patterns
+- **🔍 UX Analyzer** - User experience analysis and optimization
+- **🚀 Prototype Developer** - Rapid prototype development and validation
 
 ### 📦 Product Department (Stage 2)
 - **👔 Product Lead** - MVP definition, user stories, PRD
@@ -83,7 +95,7 @@ Your chief of staff. All communication flows through this agent.
 
 ---
 
-## Commands Reference (55 Total)
+## Commands Reference (59 Total)
 
 ### Core Project Management (8)
 | Command | Purpose |
@@ -102,6 +114,18 @@ Your chief of staff. All communication flows through this agent.
 |---------|-------|---------|
 | `/ts-assess` | Solution Architect | Assess project requirements and recommend architecture; Analyze existing/legacy codebases |
 | `/ts-architect` | Solution Architect | Run architecture design phase |
+
+### Stage 1.5: Design (8)
+| Command | Agent | Purpose |
+|---------|-------|---------|
+| `/ts-design-turbo` | Design Team | Generate interactive prototypes in 3-4 minutes |
+| `/ts-design-wireframe` | Wireframe Generator | Create wireframes and mockups |
+| `/ts-design-api-discover` | API Discovery Specialist | Extract API interfaces from designs |
+| `/ts-design-prototype` | Prototype Developer | Rapid prototype development |
+| `/ts-design-analyze` | UX Analyzer | User experience analysis |
+| `/ts-design-extract` | Design Style Manager | Extract design patterns |
+| `/ts-design-styles` | Design Style Manager | Manage style systems |
+| `/ts-design-status` | Design Team | Check design department status |
 
 ### Stage 2: Product (3)
 | Command | Agent | Purpose |

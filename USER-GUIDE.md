@@ -33,7 +33,7 @@ This guide contains all the detailed information, workflows, commands, and advan
 
 ### What is The System?
 
-The System is an agentic framework that simulates a complete software development organization. It orchestrates **23 specialized AI agents** across **5 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
+The System is an agentic framework that simulates a complete software development organization. It orchestrates **26 specialized AI agents** across **6 departments** to take your idea from concept to production—with you as the founder making key decisions at human-in-the-loop (HITL) gates.
 
 ### Key Value Propositions
 

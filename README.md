@@ -1,21 +1,21 @@
 # The System
 **ASDO — Autonomous Software Development Organization**
 
-> *Build production-ready software with 23 AI agents working as your complete development team*
+> *Build production-ready software with 26 AI agents working as your complete development team*
 
 **→ [🚀 Get started in 2 minutes](#-quick-start) | Build your first app today**
 
-The System simulates a complete software development organization with **23 specialized AI agents** across **5 departments**, taking your ideas from concept to production while you focus on strategic decisions.
+The System simulates a complete software development organization with **26 specialized AI agents** across **6 departments**, taking your ideas from concept to production while you focus on strategic decisions.
 
 <p align="center">
-  <img src="images/system-hero-2.png" alt="The System - Autonomous Software Development Organization" width="800"/>
+  <img src="images/system-hero-3.png" alt="The System - Autonomous Software Development Organization" width="800"/>
 </p>
 
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Agents-23-blue?style=for-the-badge" alt="23 agents"/>
-  <img src="https://img.shields.io/badge/Commands-56-green?style=for-the-badge" alt="56 commands"/>
+  <img src="https://img.shields.io/badge/Agents-26-blue?style=for-the-badge" alt="26 agents"/>
+  <img src="https://img.shields.io/badge/Commands-59-green?style=for-the-badge" alt="59 commands"/>
   <img src="https://img.shields.io/badge/Build_Speed-3--60min-yellow?style=for-the-badge" alt="3-60min builds"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
   <img src="https://img.shields.io/badge/Design_Prototypes-3--4min-blueviolet?style=for-the-badge" alt="Design Prototypes"/>
@@ -228,7 +228,7 @@ You make **strategic decisions** at 8 key gates while agents handle execution:
 /ts-ask "question"                        # Ask the Founder-Advisor
 ```
 
-👉 **[All 56 Commands →](docs/user/commands.md)**
+👉 **[All 59 Commands →](docs/user/commands.md)**
 
 ---
 
@@ -245,8 +245,8 @@ You make **strategic decisions** at 8 key gates while agents handle execution:
 - **[Workflow Guide](docs/user/workflow.md)** → Step-by-step processes
 
 ### References
-- **[All 23 Agents](docs/user/agents.md)** → Agent capabilities and roles
-- **[All 56 Commands](docs/user/commands.md)** → Complete command reference
+- **[All 26 Agents](docs/user/agents.md)** → Agent capabilities and roles
+- **[All 59 Commands](docs/user/commands.md)** → Complete command reference
 - **[Configuration](docs/user/configuration.md)** → Customization options
 
 ### Generate Fresh Documentation

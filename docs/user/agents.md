@@ -4,7 +4,7 @@
 
 ## Overview
 
-The System employs 23 specialized AI agents (22 production + 1 utility) organized across 5 departments. Each agent has specific expertise, tools, and responsibilities within the software development lifecycle.
+The System employs 26 specialized AI agents (25 production + 1 utility) organized across 6 departments. Each agent has specific expertise, tools, and responsibilities within the software development lifecycle.
 
 ## Agent Directory
 
