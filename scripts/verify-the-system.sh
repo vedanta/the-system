@@ -71,7 +71,7 @@ for dir in "$PROJECT_ROOT/.claude" "$PROJECT_ROOT/.claude/agents" "$PROJECT_ROOT
 done
 
 # ----------------------------------------------------------------------------
-header "2. AGENTS (23 required)"
+header "2. AGENTS (26 required)"
 # ----------------------------------------------------------------------------
 
 # Stage 1
@@ -138,7 +138,7 @@ for agent in "bug-fixer"; do
 done
 
 # ----------------------------------------------------------------------------
-header "3. COMMANDS (56 required)"
+header "3. COMMANDS (59 required)"
 # ----------------------------------------------------------------------------
 
 # Core commands

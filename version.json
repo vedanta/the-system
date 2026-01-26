@@ -7,8 +7,8 @@
   "minor": 2,
   "patch": 0,
   "pre_release": null,
-  "agents_count": 23,
-  "commands_count": 56,
+  "agents_count": 26,
+  "commands_count": 59,
   "stages_count": 5,
   "hitl_gates_count": 8,
   "description": "Design Department release with prototype-first workflows, interactive demo generation, and comprehensive documentation cleanup.",
@@ -19,7 +19,7 @@
     "Domain-optimized workflows for e-commerce, SaaS, content management, and data platforms",
     "Interactive HTML prototypes with realistic API data and professional styling",
     "Comprehensive documentation cleanup: removed 92KB redundant legacy files",
-    "Enhanced framework statistics: 19→23 agents (+21%), 48→56 commands (+17%)",
+    "Enhanced framework statistics: 19→26 agents (+37%), 48→59 commands (+23%)",
     "Improved progressive disclosure documentation structure with single source of truth"
   ]
 }
