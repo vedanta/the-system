@@ -15,7 +15,7 @@ export default function Hero() {
         </div>
 
         {/* Main Headlines */}
-        <h1 className="text-6xl lg:text-8xl font-black mb-6 tracking-tight">
+        <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
           <span className="block text-white">Turn Ideas into Software</span>
           <span className="block bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
             with AI Agent Organizations
