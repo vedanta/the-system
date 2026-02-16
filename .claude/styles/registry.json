@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "last_updated": "2024-01-24T17:30:00Z",
-  "default_style": "modern-professional",
+  "last_updated": "2024-02-05T16:45:00Z",
+  "default_style": "enterprise-console",
   "styles": {
     "modern-professional": {
       "name": "modern-professional",
@@ -14,7 +14,7 @@
       "last_updated": "2024-01-24T15:30:00Z",
       "usage_count": 0,
       "success_rating": 5.0,
-      "is_default": true,
+      "is_default": false,
       "domain_scores": {
         "saas": 9.0,
         "admin": 8.5,
@@ -48,7 +48,7 @@
       "last_updated": "2024-01-24T17:30:00Z",
       "usage_count": 0,
       "success_rating": 5.0,
-      "is_default": false,
+      "is_default": true,
       "domain_scores": {
         "fintech": 9.5,
         "enterprise": 9.8,
@@ -85,7 +85,7 @@
     "creative": []
   },
   "domain_defaults": {
-    "default": "modern-professional",
+    "default": "enterprise-console",
     "saas": "modern-professional",
     "admin": "modern-professional",
     "dashboard": "modern-professional",

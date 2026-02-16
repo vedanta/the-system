@@ -1,0 +1,43 @@
+{
+  "name": "the-system-homepage",
+  "version": "1.0.0",
+  "description": "The System ASDO Framework Homepage",
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "export": "next build && touch out/.nojekyll",
+    "deploy": "npm run export",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/node": "^20.11.0",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.330.0",
+    "prismjs": "^1.29.0",
+    "@types/prismjs": "^1.26.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.1.0"
+  },
+  "keywords": [
+    "autonomous-software-development",
+    "ai-development-framework",
+    "asdo",
+    "the-system",
+    "software-automation"
+  ],
+  "author": "The System - ASDO Framework",
+  "license": "MIT",
+  "homepage": "https://vedanta.github.io/the-system"
+}

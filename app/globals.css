@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter);
+  }
+
+  code, pre {
+    font-family: var(--font-jetbrains-mono);
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-system-primary hover:bg-system-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-system-primary border-2 border-system-primary font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-system-primary hover:bg-system-50 font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-system-primary to-system-secondary bg-clip-text text-transparent;
+  }
+
+  .terminal {
+    @apply bg-gray-900 text-green-400 font-mono p-4 rounded-lg shadow-inner;
+  }
+
+  .agent-card {
+    @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-system-200;
+  }
+
+  .project-card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer overflow-hidden;
+  }
+
+  .stage-indicator {
+    @apply flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-r from-system-50 to-system-100 border-l-4 border-system-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 0.8s;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Syntax highlighting for code blocks */
+.token.comment {
+  color: #6b7280;
+}
+
+.token.keyword {
+  color: #7c3aed;
+  font-weight: bold;
+}
+
+.token.string {
+  color: #059669;
+}
+
+.token.number {
+  color: #dc2626;
+}
+
+.token.operator {
+  color: #374151;
+}
