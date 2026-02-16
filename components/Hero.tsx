@@ -1,9 +1,10 @@
-import { ArrowRight, Github, Clock, Users, Code2, Star } from 'lucide-react'
+import { ArrowRight, Github, Clock, Zap, Shield, Target } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
     <div className="min-h-screen bg-gray-950 text-white flex items-center justify-center pt-20">
-      <div className="container mx-auto px-4 text-center max-w-4xl">
+      <div className="container mx-auto px-4 text-center max-w-6xl">
         {/* Status Badge */}
         <div className="inline-flex items-center space-x-3 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-6 py-3 mb-8">
           <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -22,31 +23,38 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-          The world's first <strong className="text-indigo-400">Autonomous Software Development Organization</strong>.
-          26 AI specialists collaborate through 5 development stages with human oversight at key decision points.
+          An <strong className="text-indigo-400">Autonomous Software Development Organization</strong> framework.
+          Specialized AI agents collaborate through structured development stages with human oversight at key decision points.
         </p>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-2xl mx-auto">
+        {/* Hero Image */}
+        <div className="mb-12">
+          <Image
+            src="/the-system/images/system-hero.png"
+            alt="The System: 5-Stage Development Process"
+            width={800}
+            height={400}
+            className="mx-auto rounded-xl shadow-2xl"
+            priority
+          />
+        </div>
+
+        {/* Key Features */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
           <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Clock className="w-8 h-8 mx-auto mb-3 text-indigo-400" />
-            <div className="text-2xl font-bold text-white mb-1">20-120min</div>
-            <div className="text-sm text-gray-400">Concept to Prototype</div>
+            <Zap className="w-8 h-8 mx-auto mb-3 text-indigo-400" />
+            <div className="text-lg font-bold text-white mb-2">Rapid Development</div>
+            <div className="text-sm text-gray-400">From concept to working prototype in minutes, not weeks</div>
           </div>
           <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Users className="w-8 h-8 mx-auto mb-3 text-purple-400" />
-            <div className="text-2xl font-bold text-white mb-1">26</div>
-            <div className="text-sm text-gray-400">AI Specialists</div>
+            <Shield className="w-8 h-8 mx-auto mb-3 text-purple-400" />
+            <div className="text-lg font-bold text-white mb-2">Quality Assured</div>
+            <div className="text-sm text-gray-400">Built-in testing, security scans, and human oversight gates</div>
           </div>
           <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Code2 className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-            <div className="text-2xl font-bold text-white mb-1">59</div>
-            <div className="text-sm text-gray-400">Commands</div>
-          </div>
-          <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Star className="w-8 h-8 mx-auto mb-3 text-emerald-400" />
-            <div className="text-2xl font-bold text-white mb-1">8</div>
-            <div className="text-sm text-gray-400">HITL Gates</div>
+            <Target className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
+            <div className="text-lg font-bold text-white mb-2">Production Ready</div>
+            <div className="text-sm text-gray-400">Complete deployment pipeline with monitoring and operations</div>
           </div>
         </div>
 

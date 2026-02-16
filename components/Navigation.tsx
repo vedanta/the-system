@@ -97,7 +97,7 @@ export default function Navigation() {
             >
               <Star className="w-4 h-4 text-yellow-400" />
               <span className="text-sm font-medium">Star</span>
-              <span className="text-xs bg-gray-700 px-2 py-0.5 rounded-full">4</span>
+              <span className="text-xs bg-gray-700 px-2 py-0.5 rounded-full">★</span>
             </motion.a>
 
             <motion.a
@@ -198,7 +198,7 @@ export default function Navigation() {
                 <Star className="w-5 h-5 text-yellow-400" />
                 <span className="text-gray-100 font-medium">Star on GitHub</span>
               </div>
-              <span className="text-xs bg-gray-700 px-3 py-1 rounded-full text-gray-300">4</span>
+              <span className="text-xs bg-gray-700 px-3 py-1 rounded-full text-gray-300">★</span>
             </motion.a>
 
             <motion.a
