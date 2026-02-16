@@ -1,4 +1,4 @@
-import { ArrowRight, Github, Clock, Zap, Shield, Target } from 'lucide-react'
+import { ArrowRight, Github, Clock, Zap, Shield, Target, Palette, Eye, Play, Search } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Hero() {
@@ -39,22 +39,49 @@ export default function Hero() {
           />
         </div>
 
-        {/* Key Features */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-          <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Zap className="w-8 h-8 mx-auto mb-3 text-indigo-400" />
-            <div className="text-lg font-bold text-white mb-2">Rapid Development</div>
-            <div className="text-sm text-gray-400">From concept to working prototype in minutes, not weeks</div>
+        {/* Comprehensive Features */}
+        <div className="mb-12 max-w-6xl mx-auto">
+          {/* Top Row - Core Development */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Zap className="w-8 h-8 mx-auto mb-3 text-indigo-400" />
+              <div className="text-lg font-bold text-white mb-2">Rapid Development</div>
+              <div className="text-sm text-gray-400">From concept to working prototype in minutes, not weeks</div>
+            </div>
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Shield className="w-8 h-8 mx-auto mb-3 text-purple-400" />
+              <div className="text-lg font-bold text-white mb-2">Quality Assured</div>
+              <div className="text-sm text-gray-400">Built-in testing, security scans, and human oversight gates</div>
+            </div>
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Target className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
+              <div className="text-lg font-bold text-white mb-2">Production Ready</div>
+              <div className="text-sm text-gray-400">Complete deployment pipeline with monitoring and operations</div>
+            </div>
           </div>
-          <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Shield className="w-8 h-8 mx-auto mb-3 text-purple-400" />
-            <div className="text-lg font-bold text-white mb-2">Quality Assured</div>
-            <div className="text-sm text-gray-400">Built-in testing, security scans, and human oversight gates</div>
-          </div>
-          <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
-            <Target className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-            <div className="text-lg font-bold text-white mb-2">Production Ready</div>
-            <div className="text-sm text-gray-400">Complete deployment pipeline with monitoring and operations</div>
+
+          {/* Bottom Row - Advanced Capabilities */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Palette className="w-8 h-8 mx-auto mb-3 text-emerald-400" />
+              <div className="text-lg font-bold text-white mb-2">Design System</div>
+              <div className="text-sm text-gray-400">Complete design department with wireframes, prototypes, and style management</div>
+            </div>
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Eye className="w-8 h-8 mx-auto mb-3 text-amber-400" />
+              <div className="text-lg font-bold text-white mb-2">Style Intelligence</div>
+              <div className="text-sm text-gray-400">Analyze and extract design patterns from existing applications</div>
+            </div>
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Play className="w-8 h-8 mx-auto mb-3 text-green-400" />
+              <div className="text-lg font-bold text-white mb-2">Resume & Continue</div>
+              <div className="text-sm text-gray-400">Pick up development from any stage with full context preservation</div>
+            </div>
+            <div className="bg-gray-900/60 p-6 rounded-xl text-center border border-gray-800">
+              <Search className="w-8 h-8 mx-auto mb-3 text-rose-400" />
+              <div className="text-lg font-bold text-white mb-2">Legacy Analysis</div>
+              <div className="text-sm text-gray-400">Analyze existing codebases for migration pathways and implementation gaps</div>
+            </div>
           </div>
         </div>
 
