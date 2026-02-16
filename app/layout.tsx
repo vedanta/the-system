@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'The System - Autonomous Software Development Organization',
-  description: 'Open source framework with 26 AI specialists across 5 development stages. Transform ideas into working software with human oversight at key decision points.',
+  description: 'Open source framework with specialized AI agents across 5 development stages. Transform ideas into working software with human oversight at key decision points.',
   keywords: [
     'autonomous software development',
     'AI development framework',
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://vedanta.github.io/the-system',
     title: 'The System - Autonomous Software Development Organization',
-    description: 'Open source framework with 26 AI specialists across 5 development stages.',
+    description: 'Open source framework with specialized AI agents across 5 development stages.',
     siteName: 'The System',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The System - Autonomous Software Development Organization',
-    description: 'Open source framework with 26 AI specialists across 5 development stages.',
+    description: 'Open source framework with specialized AI agents across 5 development stages.',
     creator: '@thesystem',
   },
   robots: {
