@@ -6,8 +6,8 @@ const nextConfig = {
     unoptimized: true
   },
   // GitHub Pages configuration - clean URLs from pages branch
-  assetPrefix: '',
-  basePath: '',
+  assetPrefix: '/the-system',
+  basePath: '/the-system',
 
   // Disable server-side features for static export
 }
