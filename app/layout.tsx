@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import Navigation from '@/components/Navigation'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const jetbrainsMono = JetBrains_Mono({
@@ -62,9 +63,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/the-system/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/the-system/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/the-system/favicon-16x16.png" />
-        <meta name="theme-color" content="#2563eb" />
+        <meta name="theme-color" content="#6366f1" />
       </head>
-      <body className={`${inter.className} antialiased bg-white text-gray-900`}>
+      <body className={`font-sans antialiased`}>
+        <Navigation />
         {children}
       </body>
     </html>

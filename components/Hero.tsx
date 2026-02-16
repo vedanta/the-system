@@ -1,254 +1,114 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import {
-  Rocket,
-  Code2,
-  Zap,
-  Users,
-  ArrowRight,
-  Star,
-  GitBranch,
-  Terminal
-} from 'lucide-react'
-
-const projectTypes = [
-  { id: 'saas', name: 'SaaS Platform', time: '45 min', icon: '💼' },
-  { id: 'ecommerce', name: 'E-commerce Store', time: '30 min', icon: '🛍️' },
-  { id: 'mobile', name: 'Mobile API', time: '25 min', icon: '📱' },
-  { id: 'enterprise', name: 'Enterprise Tool', time: '60 min', icon: '🏢' },
-  { id: 'dashboard', name: 'Analytics Dashboard', time: '35 min', icon: '📊' },
-  { id: 'todox', name: 'TodoX (Featured)', time: '25 min', icon: '✅' },
-]
+import { ArrowRight, Rocket, Github } from 'lucide-react'
 
 export default function Hero() {
-  const [selectedProject, setSelectedProject] = useState('saas')
-  const [terminalText, setTerminalText] = useState('')
-  const [isTyping, setIsTyping] = useState(false)
-
-  const handleProjectSelect = (projectId: string) => {
-    setSelectedProject(projectId)
-    const project = projectTypes.find(p => p.id === projectId)
-    if (project) {
-      typeCommand(`/ts-turbo my-${projectId} "Build a ${project.name.toLowerCase()}"`)
-    }
-  }
-
-  const typeCommand = (command: string) => {
-    setIsTyping(true)
-    setTerminalText('')
-
-    let i = 0
-    const typeInterval = setInterval(() => {
-      if (i < command.length) {
-        setTerminalText(command.slice(0, i + 1))
-        i++
-      } else {
-        clearInterval(typeInterval)
-        setTimeout(() => {
-          setTerminalText('')
-          setIsTyping(false)
-        }, 2000)
-      }
-    }, 50)
-  }
-
   return (
-    <section className="relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-system-50 via-white to-system-100" />
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/2 w-96 h-96 rounded-full bg-gradient-to-br from-system-200/20 to-system-300/20 animate-float" />
-        <div className="absolute -bottom-1/2 -left-1/2 w-96 h-96 rounded-full bg-gradient-to-tr from-system-secondary/10 to-system-accent/10 animate-float animation-delay-400" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delayed"></div>
       </div>
 
-      <div className="relative container py-20 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-left"
-          >
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="inline-flex items-center space-x-2 bg-system-primary/10 text-system-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
-            >
-              <Rocket className="w-4 h-4" />
-              <span>26 AI Specialists • 59 Commands • 5 Stages</span>
-            </motion.div>
-
-            {/* Main headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
-            >
-              <span className="block">THE SYSTEM</span>
-              <span className="block gradient-text">
-                Build Anything
-              </span>
-              <span className="block text-gray-600 text-3xl md:text-4xl lg:text-5xl">
-                with AI
-              </span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-xl text-gray-600 mb-8 max-w-lg text-balance"
-            >
-              Transform any idea into production-ready software. From concept to deployment in minutes, not months.
-            </motion.p>
-
-            {/* Stats */}
+      <div className="container relative z-10 py-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Column */}
+          <div className="space-y-10">
+            {/* Status Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="flex items-center space-x-6 mb-8"
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center space-x-3 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-cyan-500/10 backdrop-blur-xl border border-indigo-500/30 rounded-full px-6 py-3 shadow-glow"
             >
-              <div className="flex items-center space-x-2 text-gray-600">
-                <Users className="w-5 h-5 text-system-primary" />
-                <span><strong className="text-gray-900">26</strong> AI Agents</span>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-sm font-semibold text-white">Live & Production Ready</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-600">
-                <Code2 className="w-5 h-5 text-system-primary" />
-                <span><strong className="text-gray-900">59</strong> Commands</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-600">
-                <Zap className="w-5 h-5 text-system-primary" />
-                <span><strong className="text-gray-900">5</strong> Minutes to MVP</span>
+              <div className="w-px h-4 bg-gray-600"></div>
+              <div className="flex items-center space-x-1">
+                <Github className="w-4 h-4 text-gray-400" />
+                <span className="text-sm text-gray-300">2.1k+ stars</span>
               </div>
             </motion.div>
 
-            {/* CTAs */}
+            {/* Main Headlines */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="space-y-6"
             >
-              <button className="btn-primary group">
-                <span>Start Building</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <h1 className="text-5xl lg:text-7xl font-black leading-[0.9] tracking-tight">
+                <span className="block text-gradient bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+                  Build Software
+                </span>
+                <span className="block text-gradient-primary mt-2">
+                  Like Magic
+                </span>
+              </h1>
 
-              <button className="btn-secondary group">
-                <GitBranch className="w-4 h-4 mr-2" />
-                <span>Star on GitHub</span>
-                <div className="ml-2 bg-system-primary text-white text-xs px-2 py-1 rounded-full">
-                  2.1k
+              <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-2xl font-medium">
+                The world's first <strong className="text-gradient-primary font-bold">Autonomous Software Development Organization</strong>.
+                26 AI specialists collaborate to transform your ideas into production-ready applications in minutes, not months.
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-hero group relative overflow-hidden"
+              >
+                <div className="flex items-center justify-center relative z-10">
+                  <Rocket className="w-6 h-6 mr-3" />
+                  <span>Start Building Free</span>
+                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </button>
-            </motion.div>
-          </motion.div>
+              </motion.button>
 
-          {/* Right Column - Interactive Demo */}
+              <motion.a
+                href="https://github.com/vedanta/the-system"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-secondary group"
+              >
+                <Github className="w-5 h-5 mr-3" />
+                <span>GitHub</span>
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Simple Demo */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="lg:pl-8"
+            transition={{ duration: 1, delay: 0.6 }}
+            className="card-elevated p-8"
           >
-            {/* Project Type Selector */}
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                What would you like to build today?
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {projectTypes.map((project) => (
-                  <motion.button
-                    key={project.id}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleProjectSelect(project.id)}
-                    className={`p-3 rounded-lg border-2 transition-all duration-200 text-left ${
-                      selectedProject === project.id
-                        ? 'border-system-primary bg-system-50 text-system-primary'
-                        : 'border-gray-200 hover:border-system-200 bg-white'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <span className="text-2xl">{project.icon}</span>
-                      <div>
-                        <div className="font-medium text-sm">{project.name}</div>
-                        <div className="text-xs text-gray-500">{project.time}</div>
-                      </div>
-                    </div>
-                  </motion.button>
-                ))}
+            <h3 className="text-2xl font-bold text-white mb-6">See The Magic</h3>
+            <div className="bg-gray-950 rounded-xl p-6 font-mono text-sm">
+              <div className="space-y-2">
+                <div className="text-emerald-400">$ /ts-turbo my-saas "Build a project management platform"</div>
+                <div className="text-emerald-400">🎩 Founder-Advisor: Strategic analysis complete • GREEN LIGHT</div>
+                <div className="text-emerald-400">🤖 Solution-Architect: Optimized stack selected</div>
+                <div className="text-emerald-400">💻 Development Department: Building in parallel...</div>
+                <div className="text-emerald-400">🚀 Deploy: Live at https://my-saas.vercel.app</div>
               </div>
-            </div>
-
-            {/* Terminal Demo */}
-            <div className="bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
-              <div className="flex items-center space-x-2 px-4 py-3 bg-gray-800">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="text-gray-400 text-sm ml-4">The System Terminal</span>
-              </div>
-              <div className="p-4 font-mono text-sm">
-                <div className="text-gray-400">$ # Transform any idea into production software</div>
-                <div className="text-green-400 flex items-center mt-2">
-                  <span className="mr-2">$</span>
-                  <span className="text-white">
-                    {terminalText}
-                    {isTyping && <span className="animate-pulse">|</span>}
-                  </span>
-                </div>
-                {!terminalText && !isTyping && (
-                  <div className="text-gray-400 mt-2">
-                    👆 Click a project type above to see The System in action
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Feature badges */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              <span className="px-3 py-1 bg-system-50 text-system-primary rounded-full text-sm font-medium">
-                Production Ready
-              </span>
-              <span className="px-3 py-1 bg-system-50 text-system-primary rounded-full text-sm font-medium">
-                Full Stack
-              </span>
-              <span className="px-3 py-1 bg-system-50 text-system-primary rounded-full text-sm font-medium">
-                Auto Deploy
-              </span>
-              <span className="px-3 py-1 bg-system-50 text-system-primary rounded-full text-sm font-medium">
-                Enterprise Grade
-              </span>
             </div>
           </motion.div>
         </div>
-
-        {/* Social Proof */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-gray-500 text-sm mb-4">Trusted by developers building the future</p>
-          <div className="flex items-center justify-center space-x-8 grayscale opacity-60">
-            <div className="text-2xl font-bold">StartupX</div>
-            <div className="text-2xl font-bold">TechCorp</div>
-            <div className="text-2xl font-bold">InnovateLab</div>
-            <div className="text-2xl font-bold">DevStudio</div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
