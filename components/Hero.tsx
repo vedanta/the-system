@@ -110,11 +110,23 @@ export default function Hero() {
         </div>
 
         {/* Trust Signals */}
-        <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300 pt-8 border-t border-gray-800">
-          <span>✓ Open Source & MIT Licensed</span>
-          <span>✓ Production Ready Framework</span>
-          <span>✓ Active Development</span>
-          <span>✓ Claude Code Compatible</span>
+        <div className="flex flex-wrap justify-center items-center gap-4 pt-8 border-t border-gray-800">
+          <div className="flex items-center space-x-2 px-4 py-3 bg-green-500/10 border border-green-500/30 rounded-lg">
+            <span className="text-green-400 font-bold">✓</span>
+            <span className="text-sm font-medium text-gray-200">Open Source & LGPL-3.0</span>
+          </div>
+          <div className="flex items-center space-x-2 px-4 py-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+            <span className="text-blue-400 font-bold">✓</span>
+            <span className="text-sm font-medium text-gray-200">Production Ready Framework</span>
+          </div>
+          <div className="flex items-center space-x-2 px-4 py-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+            <span className="text-purple-400 font-bold">✓</span>
+            <span className="text-sm font-medium text-gray-200">Active Development</span>
+          </div>
+          <div className="flex items-center space-x-2 px-4 py-3 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
+            <span className="text-cyan-400 font-bold">✓</span>
+            <span className="text-sm font-medium text-gray-200">Claude Code Compatible</span>
+          </div>
         </div>
       </div>
     </div>
