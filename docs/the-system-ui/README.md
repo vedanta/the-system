@@ -87,8 +87,8 @@ Deploy to production with monitoring, security, and performance optimization.
 ### Development Resources
 - **[Architecture Guide](architecture.md)** - Complete technical implementation guide
 - **[The System Framework](../README.md)** - Core framework documentation
-- **[Agent Reference](../user/agents.md)** - All 23 agents and capabilities
-- **[Command Reference](../user/commands.md)** - All 56 commands with examples
+- **[Agent Reference](../user/agents.md)** - All 26 agents and capabilities
+- **[Command Reference](../user/commands.md)** - All 59 commands with examples
 
 ## 🎯 Getting Started
 

@@ -950,7 +950,7 @@ Core Features:
 - Project dashboard with real-time monitoring of all development stages
 - Interactive command execution interface with searchable command palette
 - HITL approval gates with web-based approval workflows and context
-- Agent and department visualization showing all 23 agents across 5 departments
+- Agent and department visualization showing all 26 agents across 5 departments
 - System analytics with performance metrics, build statistics, and insights
 - File browser for navigating and previewing generated project outputs
 - Configuration management for system preferences and integrations
