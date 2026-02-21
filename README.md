@@ -18,7 +18,7 @@ The System simulates a complete software development organization with **26 spec
   <img src="https://img.shields.io/badge/Commands-59-green?style=for-the-badge" alt="59 commands"/>
   <img src="https://img.shields.io/badge/Build_Speed-3--60min-yellow?style=for-the-badge" alt="3-60min builds"/>
   <img src="https://img.shields.io/badge/Deploy_Targets-13+-orange?style=for-the-badge" alt="13+ Deploy Targets"/>
-  <img src="https://img.shields.io/badge/Design_Prototypes-3--4min-blueviolet?style=for-the-badge" alt="Design Prototypes"/>
+  <img src="https://img.shields.io/badge/App_Requirements_→_Prototypes-5--6min-blueviolet?style=for-the-badge" alt="App to Prototypes"/>
   <img src="https://img.shields.io/badge/License-LGPL--3.0-lightgreen?style=for-the-badge" alt="LGPL-3.0 License"/>
 </p>
 
@@ -29,11 +29,11 @@ The System simulates a complete software development organization with **26 spec
 **Think of it as your AI development team.** Instead of context-switching between architecture, coding, testing, and deployment, you make strategic decisions while specialized agents handle execution.
 
 ```
-💡 Your Idea
+💡 Your App Requirements
      ↓
 🏢 The System (Your AI Development Organization)
      ├── 📐 Architecture Team    → System design & technical decisions
-     ├── 🎨 Design Team         → Interactive prototypes in 3-4 minutes
+     ├── 🎨 Design Team         → **🚀 Requirements → prototypes in 5-6 minutes**
      ├── 📦 Product Team        → MVP definition & business strategy
      ├── 💻 Development Team    → Full-stack implementation & testing
      ├── 🚀 Release Team        → Documentation, security & deployment
@@ -114,12 +114,13 @@ claude
 
 ## 🎯 What You Can Build
 
-### ⚡ Rapid Prototypes (3-5 minutes)
+### ⚡ From App Requirements to Prototypes (5-6 minutes) 🚀 **NEW**
 ```bash
-# Interactive design prototypes
-/ts-design-turbo input/fintech-app --domain=fintech --fidelity=high
+# Complete app requirements → interactive prototypes pipeline
+/ts-design-turbo --app-spec=requirements/banking-app.md --fidelity=high --review-server
+/ts-design-turbo --app-spec=requirements/ecommerce.json --save-spec=specs/design.yaml
 
-# Working code prototypes
+# Traditional: Working code prototypes (3-5 minutes)
 /ts-turbo todo-demo "task management app" --build=prototype
 /ts-turbo blog-demo "personal blog" --build=prototype
 ```
@@ -154,20 +155,23 @@ claude
 **Get interactive demos in 3-4 minutes** with professional styling and realistic data.
 
 ```bash
-# Default: Fast stakeholder demo (3-4 min)
+# 🚀 NEW: Complete app requirements pipeline (5-6 min)
+/ts-design-turbo --app-spec=requirements/banking-app.md --fidelity=high --review-server
+
+# Traditional: Fast stakeholder demo (3-4 min)
 /ts-design-turbo input/my-app
 
-# High-fidelity investor presentation
-/ts-design-turbo input/startup-app --domain=fintech --fidelity=high --review-server
-
-# Complete development handoff
-/ts-design-turbo input/production-app --handoff=detailed --api-discovery
+# Complete development handoff from requirements
+/ts-design-turbo --app-spec=requirements/production-app.md --handoff=comprehensive --save-spec=specs/design.json
 ```
 
 **Key capabilities:**
-- **Domain optimization** for fintech, ecommerce, healthcare, Azure/AWS
-- **Mobile-responsive** design across all devices
-- **Development handoff** with TypeScript interfaces and component specs
+- **🚀 Complete pipeline**: App requirements → auto-generated design specs → interactive prototypes
+- **🤖 Intelligent analysis**: Auto-detects domains (fintech, ecommerce, healthcare) and generates appropriate design systems
+- **📋 Multi-format input**: Supports `.txt`, `.md`, `.json`, `.yaml` app requirement files
+- **💾 Reusable specs**: Optionally save generated design specifications for team collaboration
+- **📱 Mobile-responsive** design across all devices
+- **🔄 Full traceability**: Complete transformation logs from requirements to prototypes
 
 👉 **[Complete Design Guide →](README_DESIGN_DEPT.md)**
 
@@ -207,7 +211,7 @@ You make **strategic decisions** at 8 key gates while agents handle execution:
 ```bash
 /ts-turbo <name> "<idea>" --build=prototype     # Fast prototyping (3-5 min)
 /ts-turbo <name> --idea=file --build=mvp        # Production-ready (15-20 min)
-/ts-design-turbo <path> --domain=<type>         # Interactive prototypes (3-4 min)
+/ts-design-turbo --app-spec=<requirements-file> # Requirements → prototypes (5-6 min) 🚀
 ```
 
 ### Stage Commands
@@ -359,8 +363,8 @@ git push -u origin feat/your-feature
 /ts-new-project my-app
 /ts-architect → /ts-approve architecture-lock
 
-# 1.5. Design (Optional)
-/ts-design-turbo output/my-app --domain=fintech
+# 1.5. Design (Optional) - 🚀 Enhanced with requirements pipeline
+/ts-design-turbo --app-spec=requirements/my-app.md --save-spec=specs/design.json
 
 # 2. Product
 /ts-product → /ts-plan → /ts-analyze

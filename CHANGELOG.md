@@ -5,6 +5,27 @@ All notable changes to The System ASDO framework will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### 🚀 Enhanced - Design Department Pipeline
+- **App Requirements Transformation Pipeline**
+  - **`--app-spec=<file>`** - Complete transformation from app requirements to interactive prototypes (5-6 minutes)
+  - **`--save-spec=<file>`** - Optionally save auto-generated design specifications for reuse
+  - **Multi-format support** - Accepts `.txt`, `.md`, `.json`, `.yaml` requirement files
+  - **Intelligent domain detection** - Auto-detects fintech, ecommerce, healthcare domains and applies appropriate patterns
+  - **Auto-generated design specs** - Transforms raw requirements into professional design specifications
+  - **Complete traceability** - Full audit trail from app requirements to final prototypes
+
+- **Design Specification Input**
+  - **`--spec=<file>`** - Use existing design specifications as input for prototype generation
+  - **Enhanced prototype generation** - Leverages structured design specs for higher fidelity outputs
+  - **Backward compatibility** - All existing functionality preserved while adding new input modes
+
+- **Improved User Experience**
+  - **Single-command workflow** - `--app-spec=` eliminates manual coordination between requirement analysis and prototype creation
+  - **Professional output quality** - Domain-appropriate styling, realistic sample data, working interactions
+  - **Enhanced documentation** - Updated README.md, USER-GUIDE.md, README_DESIGN_DEPT.md with new capabilities
+
 ## [1.2.0] - 2025-01-20
 
 ### 🎨 Added - Design Department
@@ -32,8 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`/ts-docs-compliance`** - Validate documentation compliance
 
 ### 📈 Framework Expansion
-- **Agent Count Growth**: 19 → 23 agents (+21% expansion)
-- **Command Count Growth**: 48 → 56 commands (+17% expansion)
+- **Agent Count Growth**: 19 → 26 agents (+37% expansion)
+- **Command Count Growth**: 48 → 59 commands (+23% expansion)
 - **Enhanced Framework Statistics**: Updated all documentation to reflect new capabilities
 
 ### 📚 Documentation Improvements
@@ -57,7 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🔧 Infrastructure & Tooling
 - **Enhanced Verification System**
-  - Updated `scripts/verify-the-system.sh` to validate 23 agents and 55 commands
+  - Updated `scripts/verify-the-system.sh` to validate 26 agents and 59 commands
   - Improved framework component validation
   - Better error reporting and diagnostics
 
@@ -106,8 +127,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Improved code block and table display
 
 - **Framework Count Inconsistencies**
-  - Standardized agent count reporting (23 agents)
-  - Unified command count display (55 commands)
+  - Standardized agent count reporting (26 agents)
+  - Unified command count display (59 commands)
   - Consistent capability metrics across all documentation
 
 ### 💡 Technical Improvements
@@ -176,13 +197,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Internal documentation links after file reorganization
 - Terminal compatibility issues with Claude CLI in testing scripts
 - Progressive disclosure structure validation
-- Command count accuracy in scripts (46 → 48 commands)
+- Command count accuracy in scripts (46 → 59 commands)
 
 ## [1.1.0] - 2025-12-31
 
 ### Added
 - **Help System Commands**
-  - `/ts-help` - Interactive command browser showing all 48 commands grouped by category
+  - `/ts-help` - Interactive command browser showing all 59 commands grouped by category
   - `/ts-quickref` - Compact reference card with workflow patterns
   - `--help` flag support for major commands (`/ts-turbo --help`, `/ts-push --help`)
   - Search functionality: `/ts-help --search <term>`

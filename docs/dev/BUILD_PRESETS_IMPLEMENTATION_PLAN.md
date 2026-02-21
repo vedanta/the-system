@@ -225,7 +225,7 @@ flowchart TB
 **Deliverables:**
 - ✅ Founder-Advisor compressed mode with decision templates
 - ✅ Technical Writer lite mode with template system
-- ✅ All 19 agents updated with skip logic (batched rollout)
+- ✅ All 26 agents updated with skip logic (batched rollout)
 - ✅ Router modifications for stage skipping
 - ✅ Updated project file templates
 - ✅ Phase 2 performance validation

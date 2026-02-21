@@ -46,7 +46,7 @@ The System is an agentic framework that simulates a complete software developmen
 | Manual deployment setup | DevOps agent generates Infrastructure as Code |
 | You make every micro-decision | You make *strategic* decisions at HITL gates |
 | Single tech stack expertise | Multi-stack expertise across all modern technologies |
-| Solo development bottlenecks | 23 agents working in parallel coordination |
+| Solo development bottlenecks | 26 agents working in parallel coordination |
 
 ---
 
@@ -256,8 +256,16 @@ Traditional UX Process:           Design Department Approach:
 #### Quick Commands
 
 ```bash
-# Default: Rapid stakeholder demo (3-4 minutes)
+# 🚀 NEW: Complete pipeline from app requirements to prototypes (5-6 minutes)
+/ts-design-turbo --app-spec=requirements/banking-app.md --fidelity=high --review-server
+/ts-design-turbo --app-spec=requirements/ecommerce.json --save-spec=specs/design.yaml
+
+# Traditional: Rapid stakeholder demo (3-4 minutes)
 /ts-design-turbo input/my-app
+
+# Design specification input (4-5 minutes)
+/ts-design-turbo --spec=specs/dashboard.json --handoff=detailed
+/ts-design-turbo --spec=specs/mobile-banking.md --mobile --domain=fintech
 
 # Domain-optimized for specific industries
 /ts-design-turbo input/fintech-app --domain=fintech --fidelity=high --review-server
@@ -271,6 +279,23 @@ Traditional UX Process:           Design Department Approach:
 # Complete analysis pipeline for complex projects
 /ts-design-turbo input/legacy-system --all --handoff=comprehensive  # 12-15 minutes
 ```
+
+#### 🚀 NEW: App Requirements Pipeline
+
+Transform raw app requirements directly into interactive prototypes with a single command:
+
+```bash
+# Complete transformation: App Requirements → Design Spec → Prototypes
+/ts-design-turbo --app-spec=requirements/banking-app.md
+```
+
+**What happens:**
+1. **Intelligent Analysis (1 min):** Auto-detects domain (fintech, ecommerce, healthcare) and generates appropriate design specifications
+2. **Design Spec Generation (1-2 min):** Creates professional design specifications with domain-specific patterns and components
+3. **Prototype Creation (2-3 min):** Generates interactive prototypes using the auto-generated design specs
+4. **Complete Traceability:** Full audit trail from requirements to final prototypes
+
+**Multi-format Support:** `.txt`, `.md`, `.json`, `.yaml` requirement files with intelligent domain detection and realistic sample data generation.
 
 #### Integration with The System
 
@@ -375,11 +400,11 @@ Control the speed vs. completeness trade-off with build presets:
 
 | **Build Preset** | **Duration** | **Agent Usage** | **Best For** |
 |------------------|-------------|----------------|--------------|
-| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-23 agents** | Architecture design only, rapid validation |
-| **🚀 Prototype** | **3-5 min** | **3-23 agents** | Working app, basic features, rapid iteration |
-| **📦 MVP** | **15-20 min** | **7-23 agents** | Production-ready, professional quality, proper testing |
-| **📦 MVP + Skip Release** | **12-15 min** | **6-23 agents** | Production-ready without docs/security scans |
-| **🏢 Production** | **45-60 min** | **12-23 agents** | Enterprise-grade, full compliance, comprehensive docs |
+| **🏃‍♂️ Prototype + Skip Product** | **1-2 min** | **2-26 agents** | Architecture design only, rapid validation |
+| **🚀 Prototype** | **3-5 min** | **3-26 agents** | Working app, basic features, rapid iteration |
+| **📦 MVP** | **15-20 min** | **7-26 agents** | Production-ready, professional quality, proper testing |
+| **📦 MVP + Skip Release** | **12-15 min** | **6-26 agents** | Production-ready without docs/security scans |
+| **🏢 Production** | **45-60 min** | **12-26 agents** | Enterprise-grade, full compliance, comprehensive docs |
 
 #### Preset Detection
 
@@ -412,7 +437,7 @@ Build presets are automatically detected from your project description:
 
 ## Commands Reference
 
-The System provides **56 commands** organized by stage and function:
+The System provides **59 commands** organized by stage and function:
 
 ### Core Project Management (8)
 
@@ -945,8 +970,8 @@ ln -s .the-system/.claude .claude
 
 # Expected output:
 ✅ Framework structure validated
-✅ All 23 agents found
-✅ All 56 commands found
+✅ All 26 agents found
+✅ All 59 commands found
 ✅ Configuration files valid
 ✅ The System ready for use
 ```

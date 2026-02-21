@@ -1,6 +1,6 @@
 # The System Agents
 
-> Complete reference for all 23 agents in the Autonomous Software Development Organization
+> Complete reference for all 26 agents in the Autonomous Software Development Organization
 
 ## Overview
 
@@ -595,4 +595,4 @@ Each department includes built-in quality validation:
 
 ---
 
-*Last Updated: January 2025 • Framework: 23 agents, 56 commands*
+*Last Updated: January 2025 • Framework: 26 agents, 59 commands*

@@ -1,10 +1,10 @@
 # The System Commands Reference
 
-> Complete reference for all 56 commands in the Autonomous Software Development Organization
+> Complete reference for all 59 commands in the Autonomous Software Development Organization
 
 ## Overview
 
-The System provides 56 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
+The System provides 59 commands that orchestrate the entire software development lifecycle from idea to production. All commands follow the `/ts-[action]` pattern and are organized by stage and function.
 
 ## Command Categories
 
@@ -737,7 +737,7 @@ Specialized commands for error fixing, validation, and autonomous operation.
 **Agent:** Help System
 
 **Features:**
-- Browse all 56 commands by category
+- Browse all 59 commands by category
 - Detailed help for specific commands
 - Stage-specific command suggestions
 - Search commands by keyword
@@ -1001,4 +1001,4 @@ Many commands can be chained for efficient workflow execution:
 
 ---
 
-*Last Updated: January 2025 • Framework: 23 agents, 56 commands*
+*Last Updated: January 2025 • Framework: 26 agents, 59 commands*

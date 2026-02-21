@@ -23,7 +23,21 @@ The Design Department delivers immediate stakeholder value through rapid prototy
 
 ## 🚀 Quick Start
 
-### ⚡ **Prototype-First Mode** (Default - 90% of usage)
+### 🎯 **NEW: App Requirements Pipeline** (5-6 minutes)
+
+```bash
+# Complete pipeline: App requirements → Design specs → Prototypes
+/ts-design-turbo --app-spec=requirements/banking-app.md --fidelity=high --review-server
+/ts-design-turbo --app-spec=requirements/ecommerce.json --save-spec=specs/design.yaml
+
+# Multi-format support
+/ts-design-turbo --app-spec=input/healthcare-portal.yaml --domain=healthcare
+/ts-design-turbo --app-spec=input/task-manager.txt --mobile
+```
+
+**Result:** Complete transformation from raw app requirements to professional interactive prototypes with intelligent domain analysis, auto-generated design specifications, and realistic content - all with full traceability.
+
+### ⚡ **Prototype-First Mode** (Default - 3-4 minutes)
 
 ```bash
 # Rapid stakeholder demo (3-4 minutes)
@@ -312,10 +326,27 @@ The Design Department works best with modern web applications that have rich com
 
 ### /ts-design-turbo
 
-**Purpose:** Create interactive prototypes rapidly with optional comprehensive analysis packages
+**Purpose:** Create interactive prototypes rapidly with optional comprehensive analysis packages. Supports app requirements transformation and design specification input.
 
 ```bash
+# Traditional project path input
 /ts-design-turbo [project-path] [options]
+
+# 🆕 App requirements pipeline (5-6 minutes)
+/ts-design-turbo --app-spec=<requirements-file> [options]
+
+# 🆕 Design specification input (4-5 minutes)
+/ts-design-turbo --spec=<design-spec-file> [options]
+```
+
+#### **🆕 Input Source Options**
+```bash
+# App requirements transformation pipeline
+--app-spec=requirements/banking-app.md    # Multi-format: .txt, .md, .json, .yaml
+--save-spec=specs/design.yaml            # Optionally save generated design spec
+
+# Design specification input
+--spec=specs/dashboard.json              # Use existing design specifications
 ```
 
 #### **Core Options**

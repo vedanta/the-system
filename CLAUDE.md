@@ -58,14 +58,14 @@ Your chief of staff. All communication flows through this agent.
 ### 📐 Architecture Department (Stage 1)
 - **🏗️ Solution Architect** - System design, technical architecture, ADRs, Project Explorer (legacy analysis)
 
-### 🎨 Design Department (Stage 1.5)
+### 🎨 Design Department (Stage 1.5) ✨ **ENHANCED**
 - **🔍 API Discovery Specialist** - Extract API interfaces from designs, UI-API mapping
 - **🎨 Design Style Manager** - Centralized style system and brand consistency
 - **📋 Documentation Auditor** - Compliance verification and documentation quality
 - **🖼️ Wireframe Generator** - Create interactive wireframes and prototypes
 - **🏛️ Enterprise Architect** - Complex system design and integration patterns
 - **🔍 UX Analyzer** - User experience analysis and optimization
-- **🚀 Prototype Developer** - Rapid prototype development and validation
+- **🚀 Prototype Developer** - **App requirements → prototypes + design spec transformation**
 
 ### 📦 Product Department (Stage 2)
 - **👔 Product Lead** - MVP definition, user stories, PRD
@@ -118,7 +118,7 @@ Your chief of staff. All communication flows through this agent.
 ### Stage 1.5: Design (8)
 | Command | Agent | Purpose |
 |---------|-------|---------|
-| `/ts-design-turbo` | Design Team | Generate interactive prototypes in 3-4 minutes |
+| `/ts-design-turbo` | Design Team | **🚀 NEW: Complete app requirements → prototypes pipeline (5-6 min)** |
 | `/ts-design-wireframe` | Wireframe Generator | Create wireframes and mockups |
 | `/ts-design-api-discover` | API Discovery Specialist | Extract API interfaces from designs |
 | `/ts-design-prototype` | Prototype Developer | Rapid prototype development |
@@ -301,6 +301,67 @@ After Stage 3 (/ts-approve development):
 /ts-health                 → Verify healthy
 
 🌐 LIVE in minutes!
+```
+
+---
+
+## Enhanced Design Department Capabilities ✨ **LATEST**
+
+### **Revolutionary App-to-Prototype Pipeline** 🚀
+The Design Department now offers a **complete requirements-to-prototype workflow** that transforms app requirements directly into interactive prototypes with auto-generated design specifications.
+
+#### **Single-Command Pipeline**
+```bash
+# One command: App requirements → design spec → prototypes (5-6 minutes)
+/ts-design-turbo --app-spec=requirements/banking-app.md --fidelity=high --review-server
+
+# With development handoff
+/ts-design-turbo --app-spec=requirements/ecommerce.json --handoff=comprehensive --save-spec=specs/design.yaml
+```
+
+#### **Key Features**
+- **🤖 Intelligent Analysis**: Auto-detects domain (fintech, ecommerce, healthcare) and generates appropriate design systems
+- **📋 Multi-Format Input**: Supports `.txt`, `.md`, `.json`, `.yaml` app requirement files
+- **🎨 Auto-Generated Design Specs**: Creates structured design specifications with colors, components, and user flows
+- **🔄 Full Traceability**: Complete transformation logs from requirements to prototypes
+- **💾 Optional Spec Saving**: Reusable design specifications for team collaboration
+
+#### **Supported Workflows**
+1. **Single-Command Pipeline** 🚀 (Primary): `--app-spec=` → Auto-generates design spec → Creates prototypes
+2. **Spec-Driven Prototyping** ✨: `--spec=` → Creates prototypes from existing design specs
+3. **Requirements Transformation** 🔄: `--in-app-spec=` + `--out-design-spec=` → Transforms requirements to design specs only
+4. **Traditional Project Analysis** ⚡: Project scanning → Domain-based prototyping
+
+#### **Example App Requirement Formats**
+```markdown
+# Mobile Banking App - Product Requirements
+## Core Features
+- Biometric login with PIN backup
+- Multi-account dashboard with real-time balances
+- Money transfer with contact integration
+## User Experience
+- Mobile-first responsive design
+- Accessibility: WCAG 2.1 AA compliant
+```
+
+```json
+{
+  "app_spec": {
+    "name": "E-commerce Platform",
+    "domain": "ecommerce",
+    "core_features": [
+      {
+        "name": "Product Discovery",
+        "user_flows": ["browse products", "search with filters", "view details"]
+      }
+    ]
+  },
+  "transformation_preferences": {
+    "style_theme": "modern",
+    "target_device": "mobile",
+    "design_fidelity": "high"
+  }
+}
 ```
 
 ---
@@ -677,7 +738,7 @@ claude
 - [ ] **Multi-project support** - Manage multiple projects simultaneously
 
 ### Completed ✅
-- [x] Stage 1-5 implementation (23 agents, 56 commands)
+- [x] Stage 1-5 implementation (26 agents, 59 commands)
 - [x] Turbo Mode autonomous execution
 - [x] QA improvements with mandatory build verification
 - [x] Bug Fixer utility agent
@@ -741,8 +802,8 @@ claude
 ./scripts/verify-the-system.sh
 
 # See all components
-ls -la .claude/agents/    # 23 agents
-ls -la .claude/commands/  # 56 commands
+ls -la .claude/agents/    # 26 agents
+ls -la .claude/commands/  # 59 commands
 
 # Search framework
 grep -r "HITL" .claude/
